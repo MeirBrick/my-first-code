@@ -684,9 +684,9 @@ h1,h2,h3{text-wrap:balance}
       <button class="back-btn" id="match-back-btn" aria-label="Back">←</button>
       <div>
         <div class="learn-deck-title" id="match-deck-name"></div>
-        <div class="learn-meta"><span class="learn-desc">Match each item on the left to its pair on the right</span></div>
       </div>
     </div>
+    <p class="order-instructions">Tap a month on the left, then tap its matching holiday on the right. Correct pairs lock in green — wrong pairs shake and reset.</p>
     <div class="match-progress" id="match-progress"></div>
     <div class="match-grid">
       <div class="match-col" id="match-col-a"></div>
@@ -893,18 +893,18 @@ const DECKS = [
         level: 3,
         matchable: true,
         matchItems: [
-          {a:'Nissan',   b:'Pesach (15 Nissan)'},
+          {a:'Nissan',   b:'Pesach'},
           {a:'Iyar',     b:'Lag B\'Omer · Yom HaAtzmaut'},
-          {a:'Sivan',    b:'Shavuos (6 Sivan)'},
+          {a:'Sivan',    b:'Shavuos'},
           {a:'Tammuz',   b:'17 Tammuz · Three Weeks begin'},
-          {a:'Av',       b:'Tisha B\'Av (9 Av)'},
+          {a:'Av',       b:'Tisha B\'Av'},
           {a:'Elul',     b:'Shofar daily · Selichos'},
           {a:'Tishrei',  b:'Rosh Hashanah · Yom Kippur · Sukkos'},
-          {a:'Cheshvan', b:'No holidays — "Bitter Cheshvan"'},
-          {a:'Kislev',   b:'Chanukah (25 Kislev)'},
+          {a:'Cheshvan', b:'No holidays'},
+          {a:'Kislev',   b:'Chanukah'},
           {a:'Tevet',    b:'Asara B\'Tevet · Chanukah ends'},
-          {a:'Shevat',   b:'Tu B\'Shvat (15 Shevat)'},
-          {a:'Adar',     b:'Purim (14 Adar)'},
+          {a:'Shevat',   b:'Tu B\'Shvat'},
+          {a:'Adar',     b:'Purim'},
         ],
         cards: []
       },
