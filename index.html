@@ -1280,6 +1280,53 @@ const DECKS = [
     ]
   },
 
+  // ── Oral Law Overview ─────────────────────────────────────
+  {
+    id: 'oral-law-overview',
+    name: 'Oral Law — Overview',
+    emoji: '🗣️',
+    desc: "What is the Oral Torah? Its origin at Sinai, its transmission, why it was written down, and how it became the Talmud",
+    guide: [
+      {h:'Two Torahs Given at Sinai', b:[
+        '"Moses received the Torah from Sinai and transmitted it to Yehoshua, Yehoshua to the Elders, the Elders to the Prophets, and the Prophets transmitted it to the Men of the Great Assembly" (Avos 1:1)',
+        'At Sinai, Moshe received two things: the Written Torah (Torah she\'bichtav) — the Five Books of Moshe — and the Oral Torah (Torah she\'b\'al peh) — the explanations, applications, and traditions that make the written text understandable',
+        'The Written Torah alone is uninterpretable: "Bind them as a sign on your hand" — how? "Do not do work on Shabbos" — what counts as work? The Oral Torah provides the answers',
+        'Example: "An eye for an eye" (Shemos 21:24) — the Oral Torah teaches this means monetary compensation, not literal mutilation (Bava Kama 83b)',
+      ]},
+      {h:'The Chain of Transmission', b:[
+        'Moshe → Yehoshua → 70 Elders → the Prophets → Anshei Knesses HaGedolah (Men of the Great Assembly, ~450–300 BCE)',
+        'Anshei Knesses HaGedolah → pairs of sages (zugot) including Shimon HaTzaddik, Antigonus of Socho, and five pairs ending with Hillel and Shammai',
+        'From Hillel and Shammai → the Tannaim (70 CE–220 CE) → the Amoraim (220–500 CE) → the Savoraim → the Geonim → the Rishonim → the Acharonim → today',
+        'Each generation received and transmitted — not always word-for-word but the substance, principles, and rulings, along with debates where disagreements existed',
+      ]},
+      {h:'Why Was It Written Down?', b:[
+        'For generations, the Oral Torah was transmitted entirely by memory — writing it down was forbidden ("words transmitted orally, you shall not transmit in writing" — Gittin 60b)',
+        'The crisis: Roman persecution and the scattering of Jewish communities created a real danger that the Oral Torah would be forgotten',
+        'Rabbi Yehudah HaNasi ("Rebbi") ~200 CE: decided the principle of "it is time to act for God; they have voided Your Torah" (Tehillim 119:126) overrides the prohibition — compiled the Mishnah',
+        '"Rebbi arranged the Mishnah as a poor person arranges his cloak" — with great care and precision, knowing he was capturing something essential before it was lost',
+      ]},
+      {h:'The Structure of Oral Law Literature', b:[
+        'Mishnah (~200 CE): the first written compilation · 63 tractates in 6 orders (sedarim) · the skeleton of Oral Law',
+        'Tosefta: a parallel collection of additional traditions not included in the Mishnah',
+        'Talmud Yerushalmi (Jerusalem Talmud, ~400 CE): the Amoraim of Eretz Yisrael analyzing the Mishnah',
+        'Talmud Bavli (Babylonian Talmud, ~500 CE): the Amoraim of Babylon — the primary authoritative text of normative halacha · "The Talmud" in Jewish discourse means the Bavli',
+        'Midrash: collections of homiletical interpretations (aggadah) and legal derivations — Midrash Halacha and Midrash Aggadah',
+      ]},
+    ],
+    cards: [
+      {id:'olo01', q:'What is the Torah she\'b\'al peh?',               a:'The Oral Torah — the explanations, rulings, and traditions transmitted alongside the Written Torah since Sinai', note:'"Moses received the Torah at Sinai" (Avos 1:1) — both oral and written were received together · Without the Oral Torah the Written Torah cannot be understood or fulfilled'},
+      {id:'olo02', q:'Why can\'t you just follow the Written Torah alone?', a:'The Written Torah presupposes the Oral Torah — it references laws without explanation · "Bind them as a sign on your hand" · "An eye for an eye" · "Do not cook a kid in its mother\'s milk" · none are self-explanatory', note:'The Karaites (9th century) tried to follow the Written Torah literally — they sat in the dark on Shabbos, had no way to determine the calendar correctly, and their community largely dwindled'},
+      {id:'olo03', q:'What is the chain of transmission (Mesorah)?',      a:'Moshe → Yehoshua → Elders → Prophets → Anshei Knesses HaGedolah → Zugot → Tannaim → Amoraim → Savoraim → Geonim → Rishonim → Acharonim', note:'Avos 1:1 · Each link received and transmitted — debates and disputes existed but were preserved honestly · The entire system, including minority opinions, was recorded'},
+      {id:'olo04', q:'Why was the Oral Torah written down?',              a:'To prevent it from being forgotten under Roman persecution · Rabbi Yehudah HaNasi compiled the Mishnah (~200 CE) invoking "es la\'asos la\'Hashem heferu Torasecha" — act for God even by overriding the law (Tehillim 119:126)', note:'The prohibition on writing oral traditions was itself Rabbinic — and could be overridden by a greater Rabbinic need · The act was considered revolutionary and necessary for Jewish survival'},
+      {id:'olo05', q:'What is the Mishnah?',                             a:'The first written compilation of Oral Law — 63 tractates in 6 orders (sedarim) — edited by Rabbi Yehudah HaNasi ~200 CE · The foundation document of all subsequent Jewish law', note:'Written in a concise, legal Hebrew · Records both the ruling and dissenting opinions · "Stam Mishnah k\'Rabbi Meir" — anonymous Mishnah follows R\' Meir\'s position · The Talmud is a commentary on and expansion of the Mishnah'},
+      {id:'olo06', q:'What is the Talmud Bavli?',                        a:'The Babylonian Talmud — compiled ~500 CE · The Amoraim of Babylon analyzing the Mishnah · The authoritative text of normative halacha for the Jewish world', note:'"The Talmud" in Jewish life always means the Bavli unless specified otherwise · 2,711 pages (daf) · The Daf Yomi cycle: one page per day, completing the entire Talmud in 7.5 years · Organized as dialogue — question and answer, story and law intertwined'},
+      {id:'olo07', q:'What is the difference between halacha and aggadah?', a:'Halacha = the legal portions of Torah — rules, rulings, obligations · Aggadah = the narrative, homiletical, and philosophical portions — stories, parables, theology', note:'The Talmud contains both · Halacha tells you what to do · Aggadah tells you why, what it means, and what the underlying vision is · "One who wants to become wise should study the laws of monetary cases — there is no greater area of Torah" (Bava Batra 175b)'},
+      {id:'olo08', q:'What are the Six Sedarim of Mishnah?',              a:'Zeraim (agriculture) · Moed (holidays) · Nashim (women/family) · Nezikin (damages) · Kodashim (Temple service) · Taharos (purity)', note:'Mnemonic: "זְמַן נָחֵם קוֹדֵשׁ טָהֳרָה" or "זְמַן נְקוּ"ם" · Kodashim and Taharos are rarely studied (Temple-dependent) but are vital parts of the Oral Torah · Rabbi Yochanan b\' Zakkai emphasized they must never be forgotten'},
+      {id:'olo09', q:'What is the principle of "Lo BaShamayim Hi"?',     a:'"It is not in heaven" (Devarim 30:12) — once the Torah was given, its interpretation belongs to human sages, not supernatural intervention', note:'Bava Metzia 59b: Even a Heavenly Voice (Bat Kol) in favor of R\' Eliezer was overruled by the majority · God "laughed with joy" saying "My children have defeated Me" · The halacha follows human reasoning and majority rule — one of the most radical and foundational ideas in all of Judaism'},
+      {id:'olo10', q:'What is the difference between d\'Oraisa and d\'Rabbanan?', a:'D\'Oraisa: biblical law — directly from the Torah · D\'Rabbanan: Rabbinic law — enacted by the Sages with Torah authority (Devarim 17:11)', note:'D\'Oraisa violations are generally more severe · In cases of doubt: d\'Oraisa → be strict; d\'Rabbanan → be lenient · Rabbinic law can never override a d\'Oraisa prohibition · Famous Rabbinic categories: gezeira (fence around Torah), takana (positive enactment), minhag (custom that became law)'},
+    ]
+  },
+
   // ── Eras of Torah Scholarship ─────────────────────────────
   {
     id: 'rabbinic-eras',
@@ -3818,7 +3865,7 @@ const CATEGORIES = [
   { name: 'Hebrew Language',    ids: ['aleph-bet', 'nikud', 'gematria'] },
   { name: 'The Jewish Year',    ids: ['months', 'hol-doraisa', 'hol-drabonon', 'fasts', 'cal-periods', 'israel-days'] },
   { name: 'Tanach',             ids: ['chumash-overview', 'bereishis', 'shemos', 'vayikra', 'bamidbar', 'devarim', 'nach-intro', 'neviim', 'ketuvim'] },
-  { name: 'Oral Torah',         ids: ['rabbinic-eras', 'tannaim', 'amoraim', 'mishnah', 'talmud-study'] },
+  { name: 'Oral Torah',         ids: ['oral-law-overview', 'rabbinic-eras', 'tannaim', 'amoraim', 'mishnah', 'talmud-study'] },
   { name: 'Halacha',            ids: ['halacha-basics', 'taryag', 'everyday-halacha', 'poskim', 'halacha-books'] },
   { name: 'Jewish Life',        ids: ['hebrew', 'holidays', 'values', 'prayer', 'zmanim', 'shabbos', 'davening', 'beis-hamikdash'] },
 ];
