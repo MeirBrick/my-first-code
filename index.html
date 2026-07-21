@@ -1110,6 +1110,82 @@ const DECKS = [
     ]
   },
 
+  // ── Jewish Calendar Periods ───────────────────────────────
+  {
+    id: 'cal-periods',
+    name: 'Jewish Calendar Periods',
+    emoji: '📅',
+    desc: 'Extended periods in the Jewish calendar and their practices',
+    guide: [
+      {h:'What Is a Calendar Period?', b:[
+        'Beyond individual holidays, the Jewish year contains extended periods — stretches of days with their own character, practices, and halachic rules',
+        'Some are joyous (Sefirat HaOmer leading to Shavuos), some are solemn (Yamim Noraim), and some are a mix of the sacred and the restricted (Chol HaMoed)',
+        'Understanding these periods adds depth to the entire calendar — they connect holidays to each other and give the year its rhythm',
+      ]},
+      {h:'Chol HaMoed', b:[
+        'The intermediate days of Pesach (days 2–6) and Sukkos (days 2–6) — between Yom Tov and the final Yom Tov',
+        'The days are neither fully Yom Tov nor ordinary weekdays — they are semi-holy',
+        'Forbidden: certain types of labor (melacha), depending on the category and need; the details are complex and a posek should be consulted',
+        'Permitted: activities needed for the holiday, food preparation, preventing significant financial loss (davar ha\'aveid)',
+        'Many have a minhag to take off work and spend Chol HaMoed with family, visiting, or enjoying the yom tov',
+        'Tefillin: Ashkenazim traditionally do not wear tefillin on Chol HaMoed; Sefardim generally do not wear tefillin on Chol HaMoed either (nusach varies)',
+        'Chol HaMoed carries its own kedushah — Torah learning, joy, and family celebration are the spirit of the days',
+      ]},
+      {h:'The Three Weeks (Bein HaMetzarim)', b:[
+        'Runs from 17 Tammuz to 9 Av — a period of national mourning for the destruction of the Batei HaMikdash',
+        '17 Tammuz: the walls of Jerusalem were breached (Second Temple period); marks the start of the Three Weeks',
+        '9 Av (Tisha B\'Av): the day both Temples were destroyed — the lowest point of the Jewish calendar',
+        'Restrictions during the Three Weeks: no weddings, no haircuts (many communities), no major celebrations',
+        'Music: many refrain from listening to music (live or recorded) during the Three Weeks',
+        'The period intensifies as it progresses — into the Nine Days and finally the week of Tisha B\'Av itself',
+      ]},
+      {h:'The Nine Days', b:[
+        'The first nine days of Av (1 Av through 9 Av / Tisha B\'Av) — the most intense period of mourning in the Three Weeks',
+        'Additional restrictions begin: no eating meat or drinking wine (except on Shabbos), no bathing for pleasure, no swimming, no laundering clothes or wearing freshly laundered clothes',
+        'No buying new clothes or making home renovations that bring joy',
+        'Erev Tisha B\'Av: a pre-fast meal (seudah mafseket) eaten before the fast begins; many eat only bread and water or a hard-boiled egg',
+        'The week of Tisha B\'Av: the most stringent — all restrictions intensify further; on Tisha B\'Av itself, the full fast and all five Yom Kippur inuyim apply',
+        'If 9 Av falls on Shabbos, the fast is pushed to 10 Av',
+      ]},
+      {h:'Sefirat HaOmer — Counting of the Omer', b:[
+        'The 49-day period between Pesach and Shavuos — commanded in the Torah (Vayikra 23:15)',
+        'We count each night after nightfall: "Today is X days, which is Y weeks and Z days of the Omer"',
+        'Spiritually: mirrors the journey from yetzias Mitzrayim (Exodus) to Matan Torah (Sinai) — from physical freedom to spiritual purpose',
+        'The Kabbalistic tradition (especially as formulated by the Ari): each of the 49 days corresponds to one of 49 combinations of the seven lower Sefiros — an opportunity for spiritual refinement',
+        'Semi-mourning period (for most communities): no weddings, haircuts, or major celebrations from the start of the Omer until Lag B\'Omer (the 33rd day)',
+        'Ashkenazic minhag varies: some observe restrictions from 1–32 Omer; others from Rosh Chodesh Iyar onward; some until 3 Sivan',
+        'Lag B\'Omer (18 Iyar): the mourning restrictions lift; celebrations permitted; associated with the yahrzeit of Rebbi Shimon bar Yochai and the day the plague among Rebbi Akiva\'s students ceased',
+        'The 49th day completes the count — the 50th day is Shavuos, Zman Matan Toraseinu',
+      ]},
+      {h:'Yamim Noraim — Days of Awe', b:[
+        'The High Holiday period — Rosh Hashanah (1–2 Tishrei) through Yom Kippur (10 Tishrei), with the Ten Days of Teshuvah bridging them',
+        'Rosh Hashanah: the Day of Judgment — all of humanity is judged; fate is inscribed in the heavenly books',
+        'The Ten Days of Teshuvah (Aseres Yemei Teshuvah): the days between Rosh Hashanah and Yom Kippur — a special window of Divine closeness and heightened receptivity to teshuvah',
+        'Shabbos Shuva: the Shabbos between Rosh Hashanah and Yom Kippur — especially significant; the Haftarah begins "Shuva Yisrael"',
+        'Yom Kippur: the final day — the verdict is sealed; the holiest day of the year',
+        'Teshuvah, Tefillah, and Tzedakah (repentance, prayer, and charity) are the three responses to the heavenly judgment (Unesaneh Tokef)',
+        'Selichos (penitential prayers): Sefardim begin 1 Elul; Ashkenazim traditionally begin the Motzei Shabbos before Rosh Hashanah',
+        'The shofar is blown throughout Elul (weekdays) and on Rosh Hashanah — its piercing call is meant to awaken the heart to teshuvah',
+      ]},
+    ],
+    cards: [
+      {id:'cp01', q:'What is Chol HaMoed?',           a:'Intermediate days of Pesach and Sukkos — semi-holy, between the opening and closing Yom Tov days', note:'Certain melachos are restricted · Spirit of the days: joy, family, and yom tov celebration · Tefillin customs vary by community'},
+      {id:'cp02', q:'How many days is Chol HaMoed Pesach?', a:'5 days (days 2–6 of Pesach, between the 1st and last days of Yom Tov)', note:'In Israel: 4 days of Chol HaMoed (only one day of Yom Tov on each end)'},
+      {id:'cp03', q:'How many days is Chol HaMoed Sukkos?', a:'5 days (days 2–6 of Sukkos, between the 1st day and Shemini Atzeres)', note:'In Israel: 5 days of Chol HaMoed; Hoshana Rabbah is the last day before Shemini Atzeres/Simchas Torah'},
+      {id:'cp04', q:'What are the Three Weeks?',       a:'Period of mourning from 17 Tammuz to 9 Av — Bein HaMetzarim', note:'Restrictions: no weddings, haircuts, music · The Nine Days and Tisha B\'Av fall within this period'},
+      {id:'cp05', q:'What begins on 17 Tammuz?',       a:'The Three Weeks — the walls of Jerusalem were breached on this day', note:'17 Tammuz also: the luchos (tablets) were broken; the tamid offering ceased in the First Temple period'},
+      {id:'cp06', q:'What are the Nine Days?',         a:'1–9 Av — the most intense part of the Three Weeks mourning period', note:'No meat/wine (except Shabbos), no bathing for pleasure, no new clothes or laundry · Tisha B\'Av ends the period'},
+      {id:'cp07', q:'What extra restrictions apply during the Nine Days?', a:'No meat or wine · No bathing for pleasure · No new/laundered clothing · No home renovations for joy', note:'These apply in addition to the Three Weeks restrictions (no weddings, haircuts, music)'},
+      {id:'cp08', q:'What is Sefirat HaOmer?',         a:'Counting the 49 days between Pesach and Shavuos, commanded in the Torah', note:'Counted each night after nightfall · Connects Exodus (physical freedom) to Matan Torah (spiritual purpose)'},
+      {id:'cp09', q:'How many days are counted in the Omer?', a:'49 days — 7 complete weeks, from the 2nd night of Pesach to the eve of Shavuos', note:'The 50th day is Shavuos; the 49-day count is from Vayikra 23:15'},
+      {id:'cp10', q:'What is Lag B\'Omer?',            a:'The 33rd day of the Omer (18 Iyar) — mourning restrictions lift', note:'Associated with Rebbi Shimon bar Yochai\'s yahrzeit and the end of the plague among Rebbi Akiva\'s students · Bonfires, haircuts, and weddings permitted'},
+      {id:'cp11', q:'What are the Yamim Noraim?',      a:'The High Holiday period: Rosh Hashanah, the Ten Days of Teshuvah, and Yom Kippur', note:'Days of judgment, introspection, and teshuvah · Culminates with Yom Kippur when the verdict is sealed'},
+      {id:'cp12', q:'What are the Aseres Yemei Teshuvah?', a:'The Ten Days of Teshuvah — from Rosh Hashanah through Yom Kippur (1–10 Tishrei)', note:'A special window of Divine closeness · Teshuvah during this period is particularly accepted · Includes Shabbos Shuva'},
+      {id:'cp13', q:'What is Shabbos Shuva?',          a:'The Shabbos between Rosh Hashanah and Yom Kippur', note:'Named for the Haftarah: "Shuva Yisrael" · A particularly significant Shabbos during the Aseres Yemei Teshuvah · The Rav typically delivers a major drashah'},
+      {id:'cp14', q:'When is the shofar blown during Elul?', a:'Every weekday morning throughout the month of Elul (from 1 Elul until Erev Rosh Hashanah)', note:'Calls us to wake up and begin teshuvah in preparation for the Yamim Noraim · Not blown on Erev Rosh Hashanah to separate the minhag from the mitzvah'},
+    ]
+  },
+
   // ── Israeli National Days ──────────────────────────────────
   {
     id: 'israel-days',
@@ -2066,7 +2142,7 @@ const DECKS = [
 // ═══════════════════════════════════════════════════════════
 const CATEGORIES = [
   { name: 'Hebrew Language',    ids: ['aleph-bet', 'nikud'] },
-  { name: 'The Jewish Year',    ids: ['months', 'hol-doraisa', 'hol-drabonon', 'fasts', 'israel-days'] },
+  { name: 'The Jewish Year',    ids: ['months', 'hol-doraisa', 'hol-drabonon', 'fasts', 'cal-periods', 'israel-days'] },
   { name: 'Rabbinic History',   ids: ['rabbinic-eras', 'tannaim', 'amoraim'] },
   { name: 'Torah/Chumash',      ids: ['chumash-overview', 'bereishis', 'shemos', 'vayikra', 'bamidbar', 'devarim'] },
   { name: 'Jewish Texts',       ids: ['nach', 'mishnah', 'talmud-study', 'halacha-books'] },
