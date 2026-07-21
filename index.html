@@ -1259,7 +1259,7 @@ function showLearnScreen(deckId) {
       <div class="learn-num">${i+1}</div>
       <div class="learn-term">${c.q}</div>
       <div class="learn-def">${c.a}</div>
-      ${c.note?`<div class="learn-note">${c.note.replace(/\n/g,'<br>')}</div>`:''}
+      ${c.note?`<div class="learn-note">${c.note.replace(/\\n/g,'<br>')}</div>`:''}
     </div>`).join('');
   const startQuiz = ()=>startSession(deckId);
   document.getElementById('learn-quiz-btn').onclick = startQuiz;
