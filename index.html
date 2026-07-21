@@ -507,7 +507,7 @@ h1,h2,h3{text-wrap:balance}
           <div class="card-face card-front">
             <div class="card-badge">Question</div>
             <div class="card-text" id="cf-text"></div>
-            <div class="card-hint">tap to reveal answer · or press Space</div>
+            <div class="card-hint">tap to reveal · tap again to flip back</div>
           </div>
           <div class="card-face card-back">
             <div class="card-badge ans">Answer</div>
@@ -2028,10 +2028,10 @@ function renderCard() {
 }
 
 function flip() {
-  if (!sess||sess.flipped) return;
-  sess.flipped=true;
-  document.getElementById('card-inner').classList.add('flipped');
-  document.getElementById('rating-area').style.visibility='visible';
+  if (!sess) return;
+  sess.flipped=!sess.flipped;
+  document.getElementById('card-inner').classList.toggle('flipped', sess.flipped);
+  document.getElementById('rating-area').style.visibility=sess.flipped?'visible':'hidden';
 }
 
 function rate(q) {
