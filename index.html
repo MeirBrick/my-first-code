@@ -443,6 +443,37 @@ h1,h2,h3{text-wrap:balance}
 .sec-btn:disabled{opacity:.35;cursor:default;}
 /* home deck card open-sections button */
 .deck-btn-open{background:var(--blue-lt);color:#fff;}
+.sec-btn-order{background:transparent;border:1.5px solid var(--gold);color:var(--gold);}
+.deck-btn-order{background:transparent;border:1.5px solid var(--gold);color:var(--gold);}
+
+/* ── Order Quiz Screen ───────────────────────────────────── */
+.order-wrap{max-width:580px;margin:0 auto;padding:1.5rem 1.25rem 4rem;}
+.order-instructions{font-size:.9rem;color:var(--muted);margin:.75rem 0 1.25rem;text-align:center;}
+.order-list{display:flex;flex-direction:column;gap:.55rem;user-select:none;}
+.order-item{
+  background:var(--surface);border:1.5px solid rgba(26,23,48,.1);border-radius:10px;
+  padding:.75rem 1rem;font-size:.95rem;font-weight:600;color:var(--ink-1);
+  display:flex;align-items:center;gap:.75rem;cursor:grab;
+  box-shadow:var(--shadow);transition:box-shadow .15s,opacity .15s;
+  touch-action:none;
+}
+.order-item:active{cursor:grabbing;}
+.order-item.order-dragging{opacity:.45;box-shadow:none;}
+.order-item.order-correct{border-color:#2d6a4f;background:rgba(45,106,79,.08);color:#2d6a4f;cursor:default;}
+.order-item.order-wrong{border-color:#b94a48;background:rgba(185,74,72,.07);color:#b94a48;cursor:default;}
+.order-handle{color:var(--muted);font-size:1.1rem;flex-shrink:0;line-height:1;}
+.order-num{width:1.6rem;height:1.6rem;border-radius:50%;background:var(--blue-lt);color:#fff;
+  font-size:.72rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.order-item.order-correct .order-num{background:#2d6a4f;}
+.order-item.order-wrong .order-num{background:#b94a48;}
+.order-hint{font-size:.75rem;font-weight:500;margin-left:auto;opacity:.7;flex-shrink:0;}
+.order-result-box{border-radius:var(--radius);padding:1rem 1.25rem;margin-top:1.25rem;text-align:center;}
+.order-score-line{font-size:1.4rem;font-weight:800;color:var(--ink-1);}
+.order-score-label{font-size:.9rem;color:var(--muted);margin-top:.2rem;}
+.order-perfect{font-size:1.1rem;font-weight:700;color:#2d6a4f;margin-top:.5rem;}
+.order-actions{display:flex;gap:.75rem;margin-top:1.25rem;}
+.order-actions .btn-primary{flex:1;}
+.order-actions .btn-ghost{flex:1;}
 
 /* ── Responsive ─────────────────────────────────────────── */
 @media(max-width:580px){
@@ -596,6 +627,33 @@ h1,h2,h3{text-wrap:balance}
   </div>
 </div>
 
+<!-- Order Quiz Screen -->
+<div class="screen" id="screen-order">
+  <div class="order-wrap">
+    <div class="learn-top">
+      <button class="back-btn" id="order-back-btn" aria-label="Back">←</button>
+      <div>
+        <div class="learn-deck-title" id="order-deck-name"></div>
+        <div class="learn-meta"><span class="learn-desc">Put these in the correct order</span></div>
+      </div>
+    </div>
+    <p class="order-instructions">Drag the items into the right sequence, then tap <strong>Check Order</strong>.</p>
+    <div id="order-list" class="order-list"></div>
+    <div id="order-result-box" class="order-result-box" style="display:none">
+      <div class="order-score-line" id="order-score"></div>
+      <div class="order-score-label" id="order-score-label"></div>
+      <div class="order-perfect" id="order-perfect" style="display:none">🎉 Perfect — you nailed it!</div>
+    </div>
+    <div class="order-actions" id="order-check-wrap">
+      <button class="btn-primary" id="order-check-btn">Check Order</button>
+    </div>
+    <div class="order-actions" id="order-retry-wrap" style="display:none">
+      <button class="btn-primary" id="order-retry-btn">Try Again</button>
+      <button class="btn-ghost" id="order-home-btn">← Home</button>
+    </div>
+  </div>
+</div>
+
 <div class="toast-wrap" id="toast-wrap"></div>
 
 <script>
@@ -690,6 +748,8 @@ const DECKS = [
     id: 'months',
     name: 'Jewish Months',
     emoji: '🌙',
+    orderable: true,
+    orderItems: ['Nissan (נִיסָן)','Iyar (אִיָּר)','Sivan (סִיוָן)','Tammuz (תַּמּוּז)','Av (אָב)','Elul (אֱלוּל)','Tishrei (תִּשְׁרֵי)','Cheshvan (חֶשְׁוָן)','Kislev (כִּסְלֵו)','Tevet (טֵבֵת)','Shevat (שְׁבָט)','Adar (אֲדָר)'],
     desc: 'The 12 (or 13) months of the Jewish lunar-solar calendar',
     guide: [
       {h:'The Jewish Calendar', b:[
@@ -1265,6 +1325,7 @@ const DECKS = [
         emoji: '📜',
         requires: 'bereishis-events',
         level: 2,
+        orderable: true,
         cards: [
           {id:'br-pr01', q:'Parshas Bereishis', a:'Creation of the world, Gan Eden, Adam and Chavah\'s sin, Kayin and Hevel', note:'Covers the first ~1,600 years of human history in just a few chapters · Opens: "In the beginning Hashem created the heavens and the earth"'},
           {id:'br-pr02', q:'Parshas Noach', a:'The Mabul (Flood), Noach\'s ark, the rainbow covenant, Migdal Bavel, genealogy of 70 nations', note:'Noach and his family are the only survivors · Hashem commands: "Be fruitful and multiply" · The 7 Noachide laws are derived from this parasha'},
@@ -1358,6 +1419,7 @@ const DECKS = [
         emoji: '📜',
         requires: 'shemos-events',
         level: 2,
+        orderable: true,
         cards: [
           {id:'sh-pr01', q:'Parshas Shemos', a:'Slavery in Egypt, birth and rescue of Moshe, Moshe flees to Midian, the Burning Bush, Hashem\'s command to redeem Israel', note:'"A new king arose who did not know Yosef" · God reveals His name as "Ehyeh Asher Ehyeh" · Moshe and Aharon go before Pharaoh for the first time'},
           {id:'sh-pr02', q:'Parshas Vaeira', a:'The first seven plagues: Dam, Tzfardea, Kinim, Arov, Dever, Shechin, Barad — Pharaoh\'s heart is hardened', note:'Hashem reveals the four expressions of redemption: "I will take you out, rescue you, redeem you, take you as My nation" (the four cups of wine at the Seder) · Moshe again objects: "I have sealed lips"'},
@@ -1443,6 +1505,7 @@ const DECKS = [
         emoji: '📜',
         requires: 'vayikra-events',
         level: 2,
+        orderable: true,
         cards: [
           {id:'vk-pr01', q:'Parshas Vayikra', a:'Introduction to korbanot: the Olah (burnt offering), Mincha (meal offering), Shelamim (peace offering), Chatas (sin offering), Asham (guilt offering)', note:'Opens with Hashem calling to Moshe — the small aleph in "Vayikra" symbolizes Moshe\'s humility · "Karov" (to draw near) is the root of "korban" — offerings bring one closer to God'},
           {id:'vk-pr02', q:'Parshas Tzav', a:'Laws for the Kohanim regarding the korbanot: the daily Olah, Mincha, Chatas, Asham, Shelamim — and the first 7 days of Mishkan service', note:'The command "Tzav" (command!) is used because the Kohanim might be reluctant to perform the daily fire-tending · The peace offering (Shelamim) is the korban most shared with the person who brought it'},
@@ -1527,6 +1590,7 @@ const DECKS = [
         emoji: '📜',
         requires: 'bamidbar-events',
         level: 2,
+        orderable: true,
         cards: [
           {id:'bm-pr01', q:'Parshas Bamidbar', a:'The first census, the camp formation around the Mishkan, the roles of the Levite families (Kehas, Gershon, Merari)', note:'"In the desert of Sinai" — the Torah was given in a "desert" (ownerless, public space) to emphasize it belongs to all · The camp was arranged with each tribe in its designated position, the Mishkan at the center'},
           {id:'bm-pr02', q:'Parshas Naso', a:'The Levite count, laws of the Sotah (suspected adulteress), the Nazir, Birkas Kohanim, the tribal leaders\' inauguration offerings', note:'The longest single parasha in the Torah · Birkas Kohanim: "May Hashem bless you and keep you..." — given here, recited to this day · The 12 tribal leaders bring identical offerings on 12 consecutive days; the Torah lists each separately to honor each tribe equally'},
@@ -1609,6 +1673,7 @@ const DECKS = [
         emoji: '📜',
         requires: 'devarim-events',
         level: 2,
+        orderable: true,
         cards: [
           {id:'dv-pr01', q:'Parshas Devarim', a:'Moshe\'s first speech: historical review of the 40 years — the Meraglim, the refusal to enter the land, early victories east of the Jordan', note:'"Eileh HaDevarim" — "These are the words that Moshe spoke" · The parasha is always read the Shabbos before Tisha B\'Av · Moshe refers to the sin of the spies as the root cause of the entire 40-year delay'},
           {id:'dv-pr02', q:'Parshas Vaeschanan', a:'Moshe\'s plea to enter Eretz Yisrael (denied), the Aseres HaDibros repeated, the Shema and V\'ahavta, the command not to intermarry with Canaanites', note:'The Shema (6:4) is first stated here · "Vaeschanan" = Moshe entreated — 515 prayers, one for each gematria of "vaeschanan" · Always read on Shabbos Nachamu (the Shabbos after Tisha B\'Av) — the parasha of consolation'},
@@ -2203,6 +2268,7 @@ function renderHome() {
       <div class="deck-actions">
         <button class="deck-btn deck-btn-learn" data-id="${d.id}" aria-label="Study guide for ${d.name}">📖 Study Guide</button>
         <button class="deck-btn deck-btn-quiz"  data-id="${d.id}" aria-label="Quiz for ${d.name}">▶ Quiz</button>
+        ${d.orderable?`<button class="deck-btn deck-btn-order" data-id="${d.id}" aria-label="Order quiz for ${d.name}">↕ Order</button>`:''}
       </div>
     </div>`;
   }
@@ -2222,6 +2288,9 @@ function renderHome() {
   });
   document.querySelectorAll('.deck-btn-open').forEach(el=>{
     el.addEventListener('click',()=>showDeckScreen(el.dataset.id));
+  });
+  document.querySelectorAll('.deck-btn-order').forEach(el=>{
+    el.addEventListener('click',()=>startOrderQuiz(el.dataset.id));
   });
 
   const acc=S.totalCards?Math.round(S.totalCorrect/S.totalCards*100)+'%':'—';
@@ -2287,6 +2356,7 @@ function showDeckScreen(deckId) {
       <div class="section-actions">
         <button class="sec-btn sec-btn-learn" data-id="${sec.id}">📖</button>
         <button class="sec-btn sec-btn-quiz" data-id="${sec.id}">▶ Quiz</button>
+        ${sec.orderable?`<button class="sec-btn sec-btn-order" data-id="${sec.id}">↕</button>`:''}
       </div>
     </div>`;
   }).join('')}</div>`;
@@ -2295,6 +2365,9 @@ function showDeckScreen(deckId) {
   });
   document.querySelectorAll('#deck-sections-grid .sec-btn-learn').forEach(el=>{
     el.addEventListener('click',()=>showLearnScreen(el.dataset.id));
+  });
+  document.querySelectorAll('#deck-sections-grid .sec-btn-order').forEach(el=>{
+    el.addEventListener('click',()=>startOrderQuiz(el.dataset.id));
   });
   document.getElementById('deck-back-btn').onclick=()=>{show('home');renderHome();};
   show('deck');
@@ -2341,6 +2414,135 @@ function showLearnScreen(itemId) {
   learnEl.scrollTop = 0;
   window.scrollTo(0,0);
 }
+
+// ═══════════════════════════════════════════════════════════
+// ORDER QUIZ
+// ═══════════════════════════════════════════════════════════
+let orderSess = null;
+
+function getOrderItems(item) {
+  // Explicit list (e.g. months), or derive from cards in their array order
+  return item.orderItems || (item.cards ? item.cards.map(c=>c.q) : []);
+}
+
+function startOrderQuiz(itemId) {
+  const item = findQuizzable(itemId);
+  if (!item || !item.orderable) return;
+  const correct = getOrderItems(item);
+  if (!correct.length) return;
+  const parentDeck = DECKS.find(d=>d.sections && d.sections.some(s=>s.id===itemId)) || null;
+
+  // Shuffle until not identical to correct order
+  let shuffled = [...correct];
+  do {
+    for (let i=shuffled.length-1;i>0;i--) {
+      const j=Math.floor(Math.random()*(i+1));
+      [shuffled[i],shuffled[j]]=[shuffled[j],shuffled[i]];
+    }
+  } while (shuffled.every((v,i)=>v===correct[i]));
+
+  orderSess = { itemId, correct, item, parentDeck };
+
+  document.getElementById('order-deck-name').textContent = (item.emoji||'📋')+' '+item.name;
+
+  const list = document.getElementById('order-list');
+  list.innerHTML = shuffled.map((label,i)=>
+    `<div class="order-item" data-label="${label.replace(/"/g,'&quot;')}">
+      <span class="order-handle">⠿</span>
+      <span class="order-num">${i+1}</span>
+      <span class="order-label">${label}</span>
+    </div>`
+  ).join('');
+
+  document.getElementById('order-result-box').style.display = 'none';
+  document.getElementById('order-check-wrap').style.display = '';
+  document.getElementById('order-retry-wrap').style.display = 'none';
+
+  document.getElementById('order-back-btn').onclick = ()=>{
+    if (parentDeck) showDeckScreen(parentDeck.id);
+    else { show('home'); renderHome(); }
+  };
+
+  initOrderDrag(list);
+  show('order');
+  document.getElementById('screen-order').scrollTop = 0;
+}
+
+function initOrderDrag(list) {
+  let dragging = null;
+  let startY = 0;
+
+  function itemAt(y) {
+    const items = [...list.querySelectorAll('.order-item:not(.order-dragging)')];
+    for (const el of items) {
+      const r = el.getBoundingClientRect();
+      if (y < r.top + r.height / 2) return el;
+    }
+    return null;
+  }
+
+  list.addEventListener('pointerdown', e => {
+    const item = e.target.closest('.order-item');
+    if (!item || item.classList.contains('order-correct') || item.classList.contains('order-wrong')) return;
+    e.preventDefault();
+    dragging = item;
+    startY = e.clientY;
+    item.classList.add('order-dragging');
+    item.setPointerCapture(e.pointerId);
+  }, {passive:false});
+
+  list.addEventListener('pointermove', e => {
+    if (!dragging) return;
+    e.preventDefault();
+    const after = itemAt(e.clientY);
+    if (after) list.insertBefore(dragging, after);
+    else list.appendChild(dragging);
+  }, {passive:false});
+
+  list.addEventListener('pointerup', () => {
+    if (!dragging) return;
+    dragging.classList.remove('order-dragging');
+    // Renumber positions
+    [...list.querySelectorAll('.order-item')].forEach((el,i)=>{
+      el.querySelector('.order-num').textContent = i+1;
+    });
+    dragging = null;
+  });
+}
+
+function checkOrder() {
+  const list = document.getElementById('order-list');
+  const items = [...list.querySelectorAll('.order-item')];
+  const correct = orderSess.correct;
+  let numCorrect = 0;
+
+  items.forEach((el, i) => {
+    const label = el.dataset.label;
+    if (label === correct[i]) {
+      el.classList.add('order-correct');
+      numCorrect++;
+    } else {
+      el.classList.add('order-wrong');
+      const correctPos = correct.indexOf(label) + 1;
+      const hint = el.querySelector('.order-hint');
+      if (hint) hint.remove();
+      el.insertAdjacentHTML('beforeend', `<span class="order-hint">→ #${correctPos}</span>`);
+    }
+  });
+
+  const pct = Math.round(numCorrect / correct.length * 100);
+  document.getElementById('order-score').textContent = `${numCorrect} / ${correct.length} correct`;
+  document.getElementById('order-score-label').textContent = `${pct}% accuracy`;
+  const perfect = document.getElementById('order-perfect');
+  perfect.style.display = numCorrect === correct.length ? '' : 'none';
+  document.getElementById('order-result-box').style.display = '';
+  document.getElementById('order-check-wrap').style.display = 'none';
+  document.getElementById('order-retry-wrap').style.display = '';
+}
+
+document.getElementById('order-check-btn').addEventListener('click', checkOrder);
+document.getElementById('order-retry-btn').addEventListener('click', ()=>startOrderQuiz(orderSess.itemId));
+document.getElementById('order-home-btn').addEventListener('click', ()=>{show('home');renderHome();});
 
 // ═══════════════════════════════════════════════════════════
 // THEME
