@@ -3136,6 +3136,414 @@ const DECKS = [
       {id:'zm14', q:'חצות הלילה\nChatzot HaLailah', a:'Halachic midnight — 6 halachic hours into the night', note:'Auspicious time for Torah study (Tikkun Chatzot); some Tisha B\'Av leniencies apply before midnight; korban Pesach had to be eaten before this'},
     ]
   },
+
+  // ── Taryag Mitzvos ───────────────────────────────────────
+  {
+    id: 'taryag',
+    name: 'תַּרְיַ"ג מִצְווֹת — The 613 Commandments',
+    emoji: '📋',
+    desc: "All 613 mitzvos organized according to Rambam's 14 books of the Mishneh Torah",
+    guide: [
+      {h:'What Are the Taryag Mitzvos?', b:[
+        'Taryag (תרי״ג) = 613 — the total number of commandments in the Torah · 248 positive commandments (aseh) + 365 negative commandments (lo taaseh)',
+        '248 corresponds to the limbs of the human body · 365 corresponds to the days of the solar year · Both numbers are homiletically meaningful',
+        'The enumeration of exactly 613 mitzvos is ancient (Makos 23b: "Moshe received 613 commandments at Sinai"), but the specific list varies by authority',
+        'Major enumerations: Rambam\'s Sefer HaMitzvos (with his 14 principles for inclusion) · Sefer HaChinuch (arranged by parsha) · Semag (Sefer Mitzvos Gadol) · Semak',
+        'Not all 613 are applicable today: ~77 apply today in full · Many depend on the Temple (Beis HaMikdash) · Some apply only in Eretz Yisrael · Some depend on Sanhedrin · Some apply only to kohanim, men, or women',
+      ]},
+      {h:"Rambam's 14 Books (Mishneh Torah)", b:[
+        '1. Sefer HaMadda — Knowledge (foundations of faith, Torah study, teshuva)',
+        '2. Sefer Ahavah — Love (Shema, tefillah, tefillin, mezuzah, brachos, mila)',
+        '3. Sefer Zmanim — Times (Shabbos, Yom Tov, Pesach, Shofar, Lulav, Chanukah)',
+        '4. Sefer Nashim — Women (marriage, divorce, yibum)',
+        '5. Sefer Kedushah — Holiness (forbidden relations, forbidden foods, shechita)',
+        '6. Sefer Haflaah — Utterances (vows, oaths, nazirite)',
+        '7. Sefer Zeraim — Seeds (agricultural tithes, shemitta, yovel)',
+        '8. Sefer Avodah — Temple Service (Beis HaMikdash, kohanim, offerings procedure)',
+        '9. Sefer Korbanot — Offerings (Pesach offering, chagiga, bechorot, atonement offerings)',
+        '10. Sefer Tahara — Purity (tumah and tahara, parah adumah, mikveh)',
+        '11. Sefer Nezikin — Damages (torts, theft, robbery, murder)',
+        '12. Sefer Kinyan — Acquisition (sales, gifts, neighbors, agents, slaves)',
+        '13. Sefer Mishpatim — Judgments (workers, loans, deposits, inheritance)',
+        '14. Sefer Shoftim — Judges (courts, testimony, kings, Amalek)',
+      ]},
+    ],
+    sections: [
+      // ── Intro ─────────────────────────────────────────────
+      {
+        id: 'taryag-intro',
+        name: 'Introduction to Taryag',
+        emoji: '🔢',
+        desc: 'The basics of the 613 commandments — what they are, how they were counted, and how to approach them',
+        guide: [
+          {h:'The 613 in the Talmud', b:[
+            'Makos 23b: Rabbi Simlai taught — Moshe received 613 mitzvos at Sinai · 248 positive + 365 negative',
+            'The Talmud does not give a complete list — that task was left to the Rishonim',
+            'Major disputants: Rambam (most authoritative) vs. Ramban (critiqued Rambam\'s 14 principles in Hasagos)',
+          ]},
+          {h:'Positive vs. Negative', b:[
+            'Mitzvos Aseh (positive): things you must DO · 248 of them',
+            'Mitzvos Lo Taaseh (negative): things you must NOT do · 365 of them',
+            'Violations differ: an Aseh violation is generally remedied by doing the mitzvah belatedly · A Lo Taaseh violation may require korban, lashes, or karet depending on severity',
+          ]},
+          {h:'Which Mitzvos Apply Today?', b:[
+            'Temple-dependent mitzvos (~200+): all korbanot, most tumah/tahara laws, Parah Adumah, anointing kings, most Yovel laws — suspended until Beis HaMikdash is rebuilt',
+            'Land-dependent mitzvos: agricultural tithes (terumos/maaseros), shemitta, bikurim — generally apply in Eretz Yisrael only',
+            'Fully applicable today (~77): Shema, tefillah, Shabbos, kashrut, mezuzah, tefillin, Pesach seder, tzitzis, kibbud av va\'em, and many more',
+          ]},
+        ],
+        cards: [
+          {id:'tg-i01', q:'What does "Taryag" mean?',                    a:'תרי״ג = 613 — the total number of commandments in the Torah',                      note:'Gematria: ת=400, ר=200, י=10, ג=3 = 613'},
+          {id:'tg-i02', q:'How many positive commandments (aseh)?',       a:'248 — corresponding to the 248 limbs of the human body',                          note:'Makos 23b · "With all 248 limbs a person fulfills the positive commandments"'},
+          {id:'tg-i03', q:'How many negative commandments (lo taaseh)?',  a:'365 — corresponding to the 365 days of the solar year',                           note:'"Each day of the year says: do not transgress against me"'},
+          {id:'tg-i04', q:'Where is 613 mentioned in the Talmud?',        a:'Makos 23b — Rabbi Simlai taught that Moshe received 613 commandments at Sinai',   note:'The Talmud gives the number but not the list — Rishonim enumerated the specific 613'},
+          {id:'tg-i05', q:'Who wrote the most authoritative list of 613?',a:'Rambam — in Sefer HaMitzvos (ספר המצוות), with 14 rules for what counts',        note:'Ramban wrote Hasagos (critiques) challenging many of Rambam\'s inclusions · Sefer HaChinuch follows Rambam\'s list ordered by parsha'},
+          {id:'tg-i06', q:'What is the Sefer HaChinuch?',                 a:'A 13th-century work listing all 613 mitzvos in Torah order, with reasons for each',note:'Anonymous authorship (traditionally attributed to R\' Aharon HaLevi of Barcelona) · Accessible explanation of the root and reason (shoresh) of each mitzvah'},
+          {id:'tg-i07', q:'How many of the 613 apply today?',             a:'Approximately 77 mitzvos are applicable today in the Diaspora without the Temple', note:'~200+ require the Beis HaMikdash · Many require Eretz Yisrael · Some require Sanhedrin · Some are gender- or role-specific'},
+          {id:'tg-i08', q:'What is "kiyum" vs. "maaseh" in mitzvos?',    a:'Kiyum = fulfillment by existing in a state · Maaseh = fulfillment by an action',  note:'E.g., Tzitzis: the act of putting on the garment is the maaseh; wearing it is kiyum · Some mitzvos are fulfilled passively, others require active performance'},
+        ]
+      },
+      // ── Book 1: Sefer HaMadda ─────────────────────────────
+      {
+        id: 'taryag-madda',
+        name: 'Sefer HaMadda — Knowledge',
+        emoji: '🧠',
+        desc: "Book 1 of Mishneh Torah · Foundations of faith, Torah study, forbidden beliefs, and repentance",
+        guide: [
+          {h:'What Is Sefer HaMadda?', b:[
+            'The first book of Mishneh Torah — covering the intellectual and theological foundations of Jewish life',
+            'Five sections: Yesodei HaTorah · De\'os (Character Traits) · Talmud Torah (Torah Study) · Avodas Kochavim (Idolatry) · Teshuva (Repentance)',
+            'These mitzvos form the bedrock: what to believe, how to think, how to learn, what to avoid, and how to return to God when one has failed',
+          ]},
+        ],
+        cards: [
+          {id:'tg-m01', q:'P1 — Know that God exists',                 a:'יְדִיעַת הַבּוֹרֵא · To know that there is a First Cause who created all existence',          note:'Shemos 20:2 · The first of the 248 positive commandments · "I am the Lord your God" — the Rambam counts this as a commandment to know, not merely believe'},
+          {id:'tg-m02', q:'P2 — Oneness of God (Yichud)',              a:'לְיַחֵד הַבּוֹרֵא · To affirm that God is absolutely one — not merely the greatest, but unique in His oneness', note:'"Shema Yisrael… Hashem Echad" · Any notion of duality, trinity, or multiple powers is a violation of this mitzvah'},
+          {id:'tg-m03', q:'P3 — Love of God',                          a:'אַהֲבַת הַבּוֹרֵא · To love God — and the study of Torah is how one comes to love Him',             note:'Devarim 6:5 · The Rambam: one loves God by contemplating His works and wisdom · Love leads to spreading awareness of God to others'},
+          {id:'tg-m04', q:'P4 — Fear/Awe of God (Yirah)',              a:'יִרְאַת הַבּוֹרֵא · To stand in awe of God — trembling before His majesty',                        note:'Devarim 6:13 · Rambam distinguishes yirat ha\'onesh (fear of punishment) — lower level — from yirat haromemut (awe of greatness) — the goal'},
+          {id:'tg-m05', q:'N1 — No other gods before Me',              a:'לֹא יִהְיֶה לְךָ אֱלֹהִים אֲחֵרִים · Prohibition on believing in or worshipping other deities',    note:'Shemos 20:3 · The first negative commandment · Includes acknowledging or accepting any other power as divine'},
+          {id:'tg-m06', q:'N2-N5 — Idolatry prohibitions',             a:'No idols · No bowing · No worshipping · No making idols for others — four separate negative commandments', note:'Shemos 20:4-5 · The prohibition is not only on full avodah zarah — even if done "differently" than its normal worship, if done with devotion, it may be forbidden'},
+          {id:'tg-m07', q:'P11 — Study Torah (Talmud Torah)',           a:'וְשִׁנַּנְתָּם לְבָנֶיךָ · To learn Torah and to teach it — this is among the most weighty of all positive commandments', note:'Devarim 6:7 · The Rambam: a person is obligated to learn Torah at all times — by day, by night, every free moment · Teaching one\'s children is included'},
+          {id:'tg-m08', q:'N63 — Do not follow divination/omens',      a:'לֹא תְנַחֵשׁוּ · Prohibition on practicing divination, astrology, or reading omens',                note:'Vayikra 19:26 · Includes horoscopes relied upon for decisions · Permitted: taking note of a coincidence without changing one\'s actions'},
+          {id:'tg-m09', q:'P17 — Teshuva (Repentance)',                a:'וְשָׁב וְנִרְפָּא לוֹ · To return to God through verbal confession (vidui) when one has sinned',       note:'Bamidbar 5:6-7 · The Rambam: teshuva = regret + verbal confession + resolve not to repeat · Yom Kippur atones only when accompanied by teshuva'},
+          {id:'tg-m10', q:'N47 — Do not erase God\'s name',            a:'לֹא תַעֲשׂוּן כֵּן לַה\' אֱלֹקֵיכֶם · Prohibition on erasing or destroying any of God\'s seven names', note:'Devarim 12:4 · Basis for the halacha that written Torah names must be buried (genizah) rather than discarded'},
+        ]
+      },
+      // ── Book 2: Sefer Ahavah ──────────────────────────────
+      {
+        id: 'taryag-ahavah',
+        name: 'Sefer Ahavah — Love',
+        emoji: '💙',
+        desc: "Book 2 · Daily acts of love and connection: Shema, tefillah, tefillin, mezuzah, Torah scroll, tzitzis, brachos, circumcision",
+        guide: [
+          {h:'What Is Sefer Ahavah?', b:[
+            'Covers the daily and physical expressions of the love of God — the mitzvos that structure daily Jewish life',
+            'Six sections: Krias Shema · Tefilla u\'Birkas Kohanim · Tefillin, Mezuzah, Sefer Torah · Tzitzis · Brachos · Mila',
+            'These are among the most personally felt mitzvos — recited, worn, affixed, and experienced every day',
+          ]},
+        ],
+        cards: [
+          {id:'tg-a01', q:'P10 — Krias Shema',                         a:'קְרִיאַת שְׁמַע · To recite the Shema twice daily — morning (Shacharit) and evening (Maariv)',     note:'Devarim 6:7 · "When you lie down and when you arise" · Three paragraphs: Shema/V\'Ahavta · V\'Haya Im Shamoa · Vayomer'},
+          {id:'tg-a02', q:'P26 — Tefillah (Prayer)',                   a:'וְעָבַדְתֶּם אֵת ה\' אֱלֹקֵיכֶם · To pray to God each day — asking for one\'s needs and praising God', note:'Shemos 23:25 · Rambam: the mitzvah is d\'Oraisa (biblical); the three-times-daily structure is Rabbinic · Core: Shemoneh Esrei (Amidah)'},
+          {id:'tg-a03', q:'P12 — Tefillin shel Yad',                  a:'וּקְשַׁרְתָּם לְאוֹת עַל יָדֶךָ · To bind the arm-tefillin on the left arm opposite the heart',     note:'Devarim 6:8 · The shel yad (arm) and shel rosh (head) are two separate commandments'},
+          {id:'tg-a04', q:'P13 — Tefillin shel Rosh',                  a:'וְהָיוּ לְטוֹטָפֹת בֵּין עֵינֶיךָ · To wear the head-tefillin on the head between the eyes',       note:'Devarim 6:8 · Contains four Torah passages in four separate compartments · The arm-tefillin has one compartment with all four written on one parchment'},
+          {id:'tg-a05', q:'P15 — Mezuzah',                             a:'וּכְתַבְתָּם עַל מְזוּזוֹת בֵּיתֶךָ · To affix a mezuzah on the right doorpost of every doorway', note:'Devarim 6:9 · Two paragraphs: Shema and V\'Haya Im Shamoa · On the right side, upper third, angled inward'},
+          {id:'tg-a06', q:'P17 — Sefer Torah',                         a:'כִּתְבוּ לָכֶם אֶת הַשִּׁירָה · Every Jewish man is obligated to write (or commission) a Sefer Torah', note:'Devarim 31:19 · The 613th (last) of the 613 commandments in most enumerations · Today fulfilled by writing even a single letter or purchasing holy books'},
+          {id:'tg-a07', q:'P14 — Tzitzis',                             a:'וְעָשׂוּ לָהֶם צִיצִת · To attach fringes (tzitzis) to four-cornered garments',                   note:'Bamidbar 15:38 · Today primarily fulfilled by wearing a tallis gadol (during prayer) or tallis katan throughout the day · Techeles (blue thread) is a separate mitzvah'},
+          {id:'tg-a08', q:'P18 — Birkat HaMazon',                      a:'וְאָכַלְתָּ וְשָׂבַעְתָּ וּבֵרַכְתָּ · To recite Grace after Meals after eating bread to satiation', note:'Devarim 8:10 · The only biblical blessing; all other brachos are Rabbinic · The Rambam: a woman\'s obligation in Birkat HaMazon is debated'},
+          {id:'tg-a09', q:'P215 — Mila (Circumcision)',                a:'הִמּוֹל לָכֶם כָּל זָכָר · To circumcise every male on the 8th day',                             note:'Bereishis 17:10 · Bris on the 8th day even if it falls on Shabbos · The mitzvah rests primarily on the father; if he does not act, the obligation falls on the community; ultimately on the individual when he grows up'},
+          {id:'tg-a10', q:'P25 — Birkas Kohanim',                      a:'כֹּה תְבָרְכוּ · Kohanim must bless the Jewish people with the three-verse priestly blessing', note:'Bamidbar 6:23 · Recited daily in Eretz Yisrael; on Yom Tov in the Diaspora (Ashkenaz) · Forbidden for a kohein with a blemish or murder in his past'},
+        ]
+      },
+      // ── Book 3: Sefer Zmanim ──────────────────────────────
+      {
+        id: 'taryag-zmanim',
+        name: 'Sefer Zmanim — Times',
+        emoji: '📅',
+        desc: "Book 3 · Mitzvos of the calendar: Shabbos, Yom Tov, Pesach, Shofar, Lulav, Chanukah, and more",
+        guide: [
+          {h:'What Is Sefer Zmanim?', b:[
+            'Covers the mitzvos tied to specific times of the Jewish calendar — Shabbos, holidays, and the Jewish month',
+            'Nine sections: Shabbos · Eruvin · Yom Tov · Chametz u\'Matza · Shofar/Sukka/Lulav · Shekalim · Kiddush HaChodesh · Taanios · Megilla/Chanukah',
+          ]},
+        ],
+        cards: [
+          {id:'tg-z01', q:'P154 — Remember Shabbos (Zachor)',           a:'זָכוֹר אֶת יוֹם הַשַּׁבָּת לְקַדְּשׁוֹ · To remember Shabbos — sanctify it with words (Kiddush)',   note:'Shemos 20:8 · Fulfilled by reciting Kiddush on Friday night · The Rambam: "zachor" is the positive command; "shamor" (guard) is the negative prohibition'},
+          {id:'tg-z02', q:'N320 — No work on Shabbos (Shamor)',         a:'לֹא תַעֲשֶׂה כָל מְלָאכָה · To refrain from the 39 categories of creative labor on Shabbos',  note:'Shemos 20:10 · 39 melachos derived from the work done to build the Mishkan · Violation punishable by karet (spiritual excision) or, in Temple times, death'},
+          {id:'tg-z03', q:'P159 — Rest on Yom Tov',                    a:'שַׁבָּתוֹן יִהְיֶה לָכֶם · To rest on the first and last day of each Yom Tov',                   note:'Vayikra 23:7 · Yom Tov permits ochel nefesh (food preparation) which Shabbos does not · Chol HaMoed has its own set of restrictions (Rabbinic)'},
+          {id:'tg-z04', q:'P158 — Eat matzah on Pesach night',          a:'בָּעֶרֶב תֹּאכְלוּ מַצֹּת · To eat matzah on the first night of Pesach — the Seder night',     note:'Shemos 12:18 · The only night matzah is obligatory — the rest of Pesach, eating matzah is optional (though chametz is forbidden) · Matzah must be "lechem oni" — simple, not enriched'},
+          {id:'tg-z05', q:'N200 — No chametz on Pesach',               a:'לֹא יֵרָאֶה לְךָ חָמֵץ · Not to possess chametz during Pesach — it must be destroyed or sold', note:'Shemos 13:7 · Two separate negative commandments: "lo yeira\'eh" (don\'t possess) and "lo yimatze" (don\'t be found) · Bedikas chametz and mechiras chametz fulfill these'},
+          {id:'tg-z06', q:'P170 — Hear the Shofar on Rosh Hashanah',   a:'יוֹם תְּרוּאָה יִהְיֶה לָכֶם · To hear the shofar blown on Rosh Hashanah',                     note:'Bamidbar 29:1 · Minimum: 30 blasts (tekia-shevarim-teruah-tekia × 3, done 3 times) · Customary: 100 blasts · Women are exempt (time-bound positive commandment)'},
+          {id:'tg-z07', q:'P169 — Dwell in a Sukkah',                  a:'בַּסֻּכֹּת תֵּשְׁבוּ שִׁבְעַת יָמִים · To dwell in a sukkah for seven days of Sukkos',          note:'Vayikra 23:42 · "Dwell" = make it your primary residence: eat, sleep, relax there · Women are exempt · Sick, elderly, or those for whom it is genuinely uncomfortable are also exempt'},
+          {id:'tg-z08', q:'P171 — Take the Four Species (Arba Minim)',  a:'לֻקְחֶם לָכֶם · To take the four species on Sukkos: esrog, lulav, hadasim, aravos',          note:'Vayikra 23:40 · Lulav must be held in right hand, esrog in left, waved in six directions · D\'Oraisa only on first day; Rabbinic for remaining days (except in Temple times, all 7 days were d\'Oraisa)'},
+          {id:'tg-z09', q:'P153 — Sanctify the New Month (Kiddush HaChodesh)', a:'הַחֹדֶשׁ הַזֶּה לָכֶם · The Sanhedrin must sanctify each new month based on testimony of witnesses seeing the new moon', note:'Shemos 12:2 · The foundation of the entire Jewish calendar · Today we follow a fixed calculated calendar (Hillel II, ~358 CE) in the absence of a Sanhedrin'},
+          {id:'tg-z10', q:'P189 — Read the Megillah (Purim)',           a:'To read or hear the Megillah of Esther on Purim — Rabbinic mitzvah with Torah backing', note:'Rabbinic mitzvah (d\'Rabbanan) — but the Rambam includes it as one of the commandments because "all commanded in that era are as if commanded by Moshe" · Esther 9:28'},
+        ]
+      },
+      // ── Book 4: Sefer Nashim ──────────────────────────────
+      {
+        id: 'taryag-nashim',
+        name: 'Sefer Nashim — Women',
+        emoji: '💍',
+        desc: "Book 4 · Mitzvos of marriage, divorce, and levirate marriage (yibum)",
+        guide: [
+          {h:'What Is Sefer Nashim?', b:[
+            'Covers the Torah commandments governing the relationship between husband and wife — from marriage to divorce to its special cases',
+            'Five sections: Ishus (marriage) · Geirushin (divorce) · Yibum v\'Chalitza · Na\'ara Besulah · Sotah',
+          ]},
+        ],
+        cards: [
+          {id:'tg-n01', q:'P213 — Kiddushin (Marriage)',                a:'כִּי יִקַּח אִישׁ אִשָּׁה · A man may acquire a wife through one of three methods: money, document, or cohabitation', note:'Devarim 24:1 · Halacha restricts the third method; today kiddushin is performed with a ring (money) and a ketubah · Marriage requires two witnesses'},
+          {id:'tg-n02', q:'P218 — Ketubah',                             a:'To provide a wife with a marriage contract (ketubah) stipulating her financial rights',note:'Rabbinic in origin; d\'Oraisa backing — the Rambam includes the obligation to honor her rights · The ketubah protects the wife and makes divorce costly for the husband'},
+          {id:'tg-n03', q:'P216 — Onah (Conjugal Rights)',              a:'שְׁאֵרָהּ כְּסוּתָהּ וְעֹנָתָהּ לֹא יִגְרָע · A husband must provide his wife food, clothing, and conjugal rights', note:'Shemos 21:10 · The three obligations of a husband toward his wife — obligations that cannot be waived even by mutual agreement in some opinions'},
+          {id:'tg-n04', q:'P222 — Get (Divorce Document)',               a:'וְכָתַב לָהּ סֵפֶר כְּרִיתֻת · A man who divorces must give his wife a halachic divorce document (get)', note:'Devarim 24:1 · The get must be written specifically for her, delivered by the husband (or agent), and accepted by the wife · Without a get, the woman remains halachically married'},
+          {id:'tg-n05', q:'N356 — No remarrying divorced wife who remarried', a:'לֹא יוּכַל בַּעְלָהּ הָרִאשׁוֹן לְשׁוּב לְקַחְתָּהּ · If a divorced woman remarried (and was widowed/divorced again), her first husband may not remarry her', note:'Devarim 24:4 · One of the prohibitions in the divorce section'},
+          {id:'tg-n06', q:'P216 — Yibum (Levirate Marriage)',           a:'יְבָמָהּ יָבֹא עָלֶיהָ · If a man dies childless, his brother must either marry the widow (yibum) or perform chalitzah', note:'Devarim 25:5 · Today the universal custom (especially Ashkenaz) is chalitzah — releasing her to marry others — not yibum · Sephardic communities historically permitted yibum'},
+          {id:'tg-n07', q:'P217 — Chalitzah',                           a:'To perform the chalitzah ceremony releasing a childless widow from yibum obligation',note:'Devarim 25:9 · The widow removes the brother-in-law\'s sandal and recites a set formula · After chalitzah she may marry anyone except a kohein'},
+          {id:'tg-n08', q:'P220 — Sotah procedure',                     a:'וְהֵבִיא הָאִישׁ אֶת אִשְׁתּוֹ · If a husband suspects his wife of adultery, the Sotah procedure (bitter waters) clarifies her status', note:'Bamidbar 5:12-31 · Suspended when adultery became too widespread (Sotah 47a) — no longer practiced · The husband must first formally warn her not to seclude with a specific man'},
+        ]
+      },
+      // ── Book 5: Sefer Kedushah ────────────────────────────
+      {
+        id: 'taryag-kedushah',
+        name: 'Sefer Kedushah — Holiness',
+        emoji: '✨',
+        desc: "Book 5 · Forbidden sexual relations, forbidden foods (kashrut), and shechita",
+        guide: [
+          {h:'What Is Sefer Kedushah?', b:[
+            'Three sections: Issurei Biah (forbidden sexual relations) · Ma\'achalos Asuros (forbidden foods) · Shechita (ritual slaughter)',
+            'Holiness in this book means restraint — controlling the drives of appetite and intimacy · These mitzvos define Jewish distinctiveness in the most fundamental areas of physical life',
+          ]},
+        ],
+        cards: [
+          {id:'tg-k01', q:'N350 — Forbidden sexual unions (arayos)',    a:'The Torah forbids 15 categories of incestuous or adulterous relationships — each a separate prohibition',note:'Vayikra 18 lists them · Most carry karet (spiritual excision) as penalty · These are the core of "Issurei Biah" — the prohibitions of intimate relations'},
+          {id:'tg-k02', q:'N355 — Forbidden: relations with a niddah',  a:'וְאֶל אִשָּׁה בְּנִדַּת טֻמְאָתָהּ · Forbidden to have relations with a menstruating woman (niddah) until she immerses in a mikveh', note:'Vayikra 18:19 · Violation carries karet · This is the basis of the laws of Taharat HaMishpacha (family purity) · Immersion in a kosher mikveh is required before resuming relations'},
+          {id:'tg-k03', q:'N351 — Forbidden: male homosexual relations', a:'וְאֶת זָכָר לֹא תִשְׁכַּב · Prohibition on male homosexual intercourse',                             note:'Vayikra 18:22 · Carries karet · One of the arayos'},
+          {id:'tg-k04', q:'P149 — Kosher animals (basar)',              a:'זֹאת הַחַיָּה אֲשֶׁר תֹּאכְלוּ · To eat only land animals that have split hooves AND chew their cud',note:'Vayikra 11:2 · Classic examples: cow (kosher) · pig (split hoof, no cud — not kosher) · camel (cud, no split hoof — not kosher)'},
+          {id:'tg-k05', q:'P150 — Kosher fish',                         a:'אֶת זֶה תֹּאכְלוּ מִכֹּל אֲשֶׁר בַּמָּיִם · To eat only fish that have both fins AND scales',          note:'Vayikra 11:9 · Shellfish, shrimp, lobster — forbidden · All fish with scales also have fins, but not vice versa'},
+          {id:'tg-k06', q:'N172 — Basar b\'chalav (meat and milk)',     a:'לֹא תְבַשֵּׁל גְּדִי בַּחֲלֵב אִמּוֹ · The Torah three times prohibits cooking a kid in its mother\'s milk — the basis of all meat/milk separation', note:'Shemos 23:19; 34:26; Devarim 14:21 · Three prohibitions: cooking · eating · benefit · Rabbinically extended to all meat and dairy, to waiting periods, and to separate utensils'},
+          {id:'tg-k07', q:'N181 — No blood (dam)',                      a:'לֹא תֹאכְלוּ עַל הַדָּם · Prohibition on eating blood — the source of life',                        note:'Vayikra 17:14 · Removed by salting (melicha) or broiling · Liver requires broiling only, not salting · Fish blood is permitted as it is distinct in appearance'},
+          {id:'tg-k08', q:'N182 — No cheilev (forbidden fat)',          a:'כָּל חֵלֶב שׁוֹר וְכֶשֶׂב וָעֵז · Prohibition on eating certain internal animal fats of cattle, sheep, and goats', note:'Vayikra 7:23 · Cheilev is distinct from regular animal fat (shuman) which is permitted · One of the halachically complex areas requiring a mashgiach\'s expertise'},
+          {id:'tg-k09', q:'N180 — No neveilah (improperly slaughtered)', a:'לֹא תֹאכְלוּ כָל נְבֵלָה · Prohibition on eating an animal that died without proper shechita',   note:'Devarim 14:21 · Neveilah = died on its own, or improperly slaughtered · The requirement of shechita flows from this prohibition'},
+          {id:'tg-k10', q:'P146 — Shechita (Ritual Slaughter)',         a:'וְזָבַחְתָּ מִבְּקָרְךָ וּמִצֹּאנְךָ · To slaughter animals according to the method transmitted by tradition', note:'Devarim 12:21 · The five requirements: swift uninterrupted cut (shehiya) · pressure (derasa) · covered incision (chaladah) · slipping off the trachea (hagrama) · tearing instead of cutting (ikur) — violation of any disqualifies'},
+        ]
+      },
+      // ── Book 6: Sefer Hafla'ah ────────────────────────────
+      {
+        id: 'taryag-haflaah',
+        name: "Sefer Hafla'ah — Utterances",
+        emoji: '🗣️',
+        desc: "Book 6 · Vows (nedarim), oaths (shvuos), the nazirite vow, and valuations (arachin)",
+        guide: [
+          {h:"What Is Sefer Hafla'ah?", b:[
+            'Four sections: Shvuos (oaths) · Nedarim (vows) · Nazirus (nazirite) · Arachin v\'Charamim (valuations and bans)',
+            'All involve the binding power of one\'s word — speech creates halachic obligations in these areas',
+          ]},
+        ],
+        cards: [
+          {id:'tg-h01', q:'N248 — False oath (shvuat shav)',            a:'לֹא תִשָּׁא אֶת שֵׁם ה\' אֱלֹקֶיךָ לַשָּׁוְא · Prohibition on swearing falsely or in vain by God\'s name', note:'Shemos 20:7 · One of the Ten Commandments · Shvuat shav = swearing to change the past, or swearing on something obviously untrue · Shvuat sheker = swearing falsely about the future'},
+          {id:'tg-h02', q:'P95 — Fulfill your vow (neder)',             a:'מוֹצָא שְׂפָתֶיךָ תִּשְׁמֹר · Whatever you vow to God or to others, you must fulfill',              note:'Devarim 23:24 · A neder creates an obligation as strong as a Torah law · "It is better not to vow than to vow and not fulfill" (Koheles 5:4)'},
+          {id:'tg-h03', q:'P99 — Hatarat nedarim (annulment of vows)', a:'A Torah scholar (or a panel of three) may annul vows under specific halachic conditions',         note:'Bamidbar 30:3 (inferred) · Requires finding a "petach" — an opening showing the person would not have made the vow had they known certain information · Kol Nidrei on Yom Kippur eve uses this mechanism'},
+          {id:'tg-h04', q:'N110 — A Kohen must not defile himself for the dead', a:'לְנֶפֶשׁ לֹא יִטַּמָּא בְּעַמָּיו · A regular kohein may not become tamei (impure) through contact with a corpse, except for his seven close relatives', note:'Vayikra 21:1 · Kohein Gadol may not become tamei even for relatives · This is one reason kohanim avoid cemeteries'},
+          {id:'tg-h05', q:'P93 — Nazirite vow (Nazir)',                a:'אִישׁ כִּי יַפְלִא לִנְדֹּר נֶדֶר נָזִיר · One who vows to be a nazirite must abstain from wine, haircuts, and contact with the dead for the vow period', note:'Bamidbar 6:2 · Three prohibitions: grape products (including raisins and grape juice) · cutting hair · corpse impurity · At the end: he brings offerings and shaves · Shimshon was a lifelong nazirite'},
+          {id:'tg-h06', q:'P114 — Arachin (valuations)',               a:'כְּעֶרְכְּךָ תָּקוּם · One who vows his own "value" to the Beis HaMikdash must give the fixed Torah valuation based on age and gender', note:'Vayikra 27:2 · Fixed amounts in the Torah (e.g., male 20-60 years = 50 silver shekels) · Different from market value · No longer practiced without the Temple'},
+          {id:'tg-h07', q:'P113 — Cherem (ban/consecration)',           a:'כָּל חֵרֶם אֲשֶׁר יַחֲרִים אִישׁ לַה\' · Dedicating an item as cherem (completely consecrated) transfers it to the kohanim — it may not be redeemed', note:'Vayikra 27:28 · More severe than ordinary hekdesh (consecration) · Also used for social/communal bans (excommunication), unrelated to this mitzvah'},
+        ]
+      },
+      // ── Book 7: Sefer Zeraim ──────────────────────────────
+      {
+        id: 'taryag-zeraim',
+        name: 'Sefer Zeraim — Seeds',
+        emoji: '🌾',
+        desc: "Book 7 · Agricultural commandments: kilayim, tithes, terumah, shemitta, yovel, and gifts to the poor",
+        guide: [
+          {h:'What Is Sefer Zeraim?', b:[
+            'Seven sections: Kilayim (forbidden mixtures) · Matnos Aniyim (gifts to the poor) · Terumos · Maaser · Maaser Sheni · Bikurim (first fruits) · Shemitta v\'Yovel',
+            'These mitzvos consecrate the land and its produce — recognizing that the land belongs to God and its bounty must be shared and sanctified',
+          ]},
+        ],
+        cards: [
+          {id:'tg-zr01', q:'N216 — Kilayim (forbidden mixtures)',       a:'שָׂדְךָ לֹא תִזְרַע כִּלְאָיִם · Prohibition on planting two different species together in the same field', note:'Vayikra 19:19 · Three categories: kil\'ei zera (seeds) · kil\'ei kerem (vineyard) · kil\'ei behema (animal crossbreeding) · Sha\'atnez (wool and linen mix in garments) is a separate prohibition'},
+          {id:'tg-zr02', q:'N217 — Sha\'atnez',                        a:'בֶּגֶד כִּלְאַיִם שַׁעַטְנֵז לֹא יַעֲלֶה עָלֶיךָ · Prohibition on wearing a garment that mixes wool and linen', note:'Vayikra 19:19 / Devarim 22:11 · "Sha\'atnez" applies only to wool (tzemer) and linen (pishtim) woven together · Applies to any garment: a suit sewn with linen thread and a wool fabric is forbidden'},
+          {id:'tg-zr03', q:'P120 — Peah (corner of field)',             a:'לֹא תְכַלֶּה פְּאַת שָׂדְךָ · Leave the corner of your field unharvested for the poor',          note:'Vayikra 19:9 · The poor come and collect it themselves · Minimum of 1/60th of the field · Also: leket (gleanings), shikcha (forgotten sheaves), and olelot (defective grape clusters) — each a separate mitzvah'},
+          {id:'tg-zr04', q:'P126 — Terumah Gedolah',                   a:'רֵאשִׁית דְּגָנְךָ · Separate a portion of produce as terumah (tithe) and give it to a kohein',  note:'Bamidbar 18:12 · No fixed amount in the Torah — 1/40 is generous; 1/50 is average; 1/60 is acceptable · May only be eaten by a kohein in a state of ritual purity · Today the separation is made but terumah cannot be eaten; it is left to decay'},
+          {id:'tg-zr05', q:'P127 — Maaser Rishon (First Tithe)',        a:'וְלִבְנֵי לֵוִי הִנֵּה נָתַתִּי · Give one-tenth of produce to a Levite',                        note:'Bamidbar 18:21 · After separating terumah gedolah; the Levite then gives a tenth of his maaser to a kohein (terumat maaser)'},
+          {id:'tg-zr06', q:'P128 — Maaser Sheni / Maaser Ani',         a:'In years 1,2,4,5: bring a second tithe (maaser sheni) to Yerushalayim to eat there · In years 3,6: give it to the poor (maaser ani)', note:'Devarim 14:22 · The 7-year shemitta cycle affects which maaser is given · Maaser sheni today is redeemed on a coin (with a penalty of a fifth added to its value)'},
+          {id:'tg-zr07', q:'P130 — Bikurim (First Fruits)',             a:'רֵאשִׁית בִּכּוּרֵי אַדְמָתְךָ · Bring the first fruits of the seven species to the Beis HaMikdash and recite the declaration (Arami oved avi)', note:'Shemos 23:19 / Devarim 26:2 · Seven species: wheat, barley, grapes, figs, pomegranates, olives, dates · The declaration (Devarim 26:5-10) recounts the Exodus — the core of the Pesach Haggadah is based on it'},
+          {id:'tg-zr08', q:'P134 — Shemitta (Sabbatical Year)',         a:'שֶׁבֶת שַׁבָּתוֹן יִהְיֶה לָאָרֶץ · In the 7th year, the land of Israel must lie fallow — no plowing, planting, or harvesting for sale', note:'Vayikra 25:2 · Produce of shemitta (kedushat shvi\'it) has special holiness and must be eaten or disposed of according to halacha · Heter mechira: sale to non-Jew — debated; Otzar Beis Din: distribution by rabbinical court'},
+          {id:'tg-zr09', q:'P136 — Yovel (Jubilee Year)',               a:'וְקִדַּשְׁתֶּם אֵת שְׁנַת הַחֲמִשִּׁים · The 50th year: shofar blown on Yom Kippur, all land returns to original owner, all Jewish slaves go free', note:'Vayikra 25:10 · "Proclaim liberty throughout the land" — inscription on the Liberty Bell · Yovel applies only when all 12 tribes live in Eretz Yisrael — not practiced since the exile of the Northern Kingdom'},
+          {id:'tg-zr10', q:'N220 — Orlah (fruit of young tree)',         a:'וַעֲרַלְתֶּם עָרְלָתוֹ אֶת פִּרְיוֹ · The fruit of a tree during its first three years is forbidden', note:'Vayikra 19:23 · 4th year fruit (neta revai) is holy and must be eaten in Yerushalayim or redeemed · Applies today in Eretz Yisrael fully; in the Diaspora, one may be lenient in cases of doubt'},
+        ]
+      },
+      // ── Book 8: Sefer Avodah ──────────────────────────────
+      {
+        id: 'taryag-avodah',
+        name: 'Sefer Avodah — Temple Service',
+        emoji: '🕍',
+        desc: "Book 8 · Building the Beis HaMikdash, the kohanim and their duties, and the Yom Kippur service",
+        guide: [
+          {h:'What Is Sefer Avodah?', b:[
+            'Nine sections covering the Beis HaMikdash and its service: Beis HaBechira · Klei HaMikdash · Bias HaMikdash · Issurei Mizbeach · Maaseh HaKorbanot · Temidin u\'Musafin · Pesulei HaMukdashin · Avodat Yom HaKippurim · Meilah',
+            'Most of these mitzvos are suspended today due to the absence of the Temple — yet their study is considered equal to performing them (Menachos 110a)',
+          ]},
+        ],
+        cards: [
+          {id:'tg-av01', q:'P20 — Build the Beis HaMikdash',           a:'וְעָשׂוּ לִי מִקְדָּשׁ · The Jewish people are commanded to build a Temple (Mishkan/Mikdash) as a dwelling place for the Divine Presence', note:'Shemos 25:8 · The Mishkan was built first (temporary) · Shlomo built the First Temple · Ezra built the Second · The Third will be built in messianic times · Study of its laws = a form of building'},
+          {id:'tg-av02', q:'P21 — Reverence for the Mikdash',          a:'וּמִקְדָּשִׁי תִּירָאוּ · To hold the Beis HaMikdash in awe — entering with reverence, not treating it casually', note:'Vayikra 19:30 · Rambam: the awe is not of the building but of the One who commanded its construction · Behaviors prohibited: entering with a walking stick, dusty sandals, a money-pouch, or casual dress'},
+          {id:'tg-av03', q:'N67 — No unauthorized entry into Mikdash',  a:'וְלֹא יָמוּתוּ · Non-Kohanim may not enter the Sanctuary (Heichal); Levites and Kohanim may not enter each other\'s areas of service', note:'Bamidbar 18:3 · Unauthorized entry is punishable by death at the hand of heaven · The division: Kohanim serve inside; Levites serve outside; Yisraelim may enter the Azarah (courtyard)'},
+          {id:'tg-av04', q:'P32 — Daily Tamid offering (morning)',      a:'צַו אֶת בְּנֵי יִשְׂרָאֵל · A lamb must be offered every morning as the Tamid (daily) sacrifice',note:'Bamidbar 28:3 · The morning Tamid was brought at dawn; the afternoon Tamid near sunset · The Shacharit prayer corresponds to the morning Tamid; Mincha to the afternoon Tamid'},
+          {id:'tg-av05', q:'P33 — Daily Tamid offering (afternoon)',    a:'The afternoon lamb offering — identical to the morning but brought between noon and sunset', note:'Bamidbar 28:4 · The daily tamid was the heartbeat of Temple service — it could not be suspended even in times of war or siege · The Kohen Gadol contributed personal funds to it'},
+          {id:'tg-av06', q:'P38 — Musaf on Shabbos and Yom Tov',       a:'The additional (musaf) offering brought on Shabbos, Rosh Chodesh, and each Yom Tov — each with its own specifications', note:'Bamidbar 28:9 · Musaf prayer today corresponds to these additional offerings · Number and type of animals varies by occasion'},
+          {id:'tg-av07', q:'P49 — Yom Kippur Avodah (service)',         a:'The Kohen Gadol\'s elaborate service on Yom Kippur: lots over two goats, incense in the Holy of Holies, blood sprinklings, and the Azazel scapegoat', note:'Vayikra 16 · The only day the Kohen Gadol enters the Kodesh HaKodashim (Holy of Holies) · Performed in white linen garments, not the golden vestments · Detailed in the Musaf prayer of Yom Kippur: "Mareh Kohen"'},
+          {id:'tg-av08', q:'N90 — Meilah (misuse of sacred property)',  a:'Prohibition on deriving personal benefit from items consecrated to the Beis HaMikdash',  note:'Vayikra 5:15 · Violation requires a guilt-offering (korban asham) plus repayment with a fifth added · The prohibitions of meilah extend broadly to all hekdesh items'},
+          {id:'tg-av09', q:'P25 — Kohen\'s vestments (bigdei kehunah)', a:'The Kohanim must wear the prescribed vestments while performing service — regular kohanim wear 4 garments; the Kohen Gadol wears 8', note:'Shemos 28:2 · Four garments for all kohanim: tunic, belt, turban, pants · Additional four for Kohen Gadol: ephod, breastplate (choshen), robe (meil), forehead-plate (tzitz) · Service performed without proper vestments is disqualified'},
+          {id:'tg-av10', q:'P30 — Kindling the Menorah',               a:'בְּהַעֲלֹתְךָ אֶת הַנֵּרוֹת · The Kohanim must kindle the seven-branched Menorah in the Beis HaMikdash each day', note:'Shemos 30:7 / Bamidbar 8:2 · The western-most light (ner maaravi) was miraculously kept burning · The Menorah was lit in the afternoon; it burned through the night'},
+        ]
+      },
+      // ── Book 9: Sefer Korbanot ────────────────────────────
+      {
+        id: 'taryag-korbanot',
+        name: 'Sefer Korbanot — Offerings',
+        emoji: '🐂',
+        desc: "Book 9 · The Pesach offering, chagiga, first-born animals, sin offerings, guilt offerings, and substitution",
+        guide: [
+          {h:'What Is Sefer Korbanot?', b:[
+            'Six sections: Korban Pesach · Korban Chagiga · Bechorot (firstborns) · Shegagot (unintentional sin offerings) · Mechusarei Kapparah · Temura (substitution)',
+            'These korbanot mark transitions, atone for errors, and sanctify the first of everything — recognizing God as the source of all',
+          ]},
+        ],
+        cards: [
+          {id:'tg-kr01', q:'P55 — Korban Pesach',                      a:'בְּיוֹם אַרְבָּעָה עָשָׂר בַּחֹדֶשׁ הָרִאשׁוֹן · Bring the Pesach lamb on 14 Nissan afternoon and roast it whole for the Seder night', note:'Shemos 12:6 · Every Jewish family unit was required to bring one · Eaten that night; anything remaining must be burned by morning · Willful failure to bring Korban Pesach carries karet'},
+          {id:'tg-kr02', q:'P56 — Pesach Sheni',                       a:'Second Pesach — on 14 Iyar, one month later, for those who were tamei or too far away to bring the first Pesach', note:'Bamidbar 9:10-11 · Eaten without the prohibition on chametz being in force (though chametz may not be mixed with it) · The only mitzvah that arose from a popular demand to God (the people asked Moshe why they should miss out)'},
+          {id:'tg-kr03', q:'P52 — Korban Chagiga',                     a:'וְחָגֹּתָ לַה\' אֱלֹקֶיךָ · To bring a peace offering (shelamim) when appearing at the Beis HaMikdash on the three pilgrimage festivals', note:'Devarim 16:14 · The Chagiga was eaten over two days and one night · The pilgrimage itself is a separate mitzvah (aliyah l\'regel)'},
+          {id:'tg-kr04', q:'P79 — Bechor Behema Tehorah (firstborn kosher animal)', a:'קַדֶּשׁ לִי כָל בְּכוֹר · The first-born male of kosher animals (cow, sheep, goat) must be given to a kohein to offer in the Beis HaMikdash', note:'Shemos 13:2 · Today it cannot be offered (no Temple); the animal must be given to a kohein who keeps it until it develops a blemish, then it may be eaten · Firstborn donkey must be redeemed with a sheep (peter chamor) — a separate mitzvah'},
+          {id:'tg-kr05', q:'P69 — Korban Chatas (sin offering)',        a:'וְהִקְרִיב עַל חַטָּאתוֹ · One who inadvertently violates a karet-level prohibition must bring a sin-offering (goat or lamb)', note:'Vayikra 4:27-28 · The chatas is for shogeg (unintentional) violations only — intentional violations have no korban atonement (except teshuva) · A sliding scale: wealthy bring a lamb/goat; poor bring birds; very poor bring a flour offering'},
+          {id:'tg-kr06', q:'P70 — Korban Asham (guilt offering)',       a:'Brought in cases of: misuse of Temple property (meilah) · relations with a betrothed maidservant · uncertain sin (asham talui) · oath violations', note:'Vayikra 5:15 · Always a ram · The asham talui is unique: brought when one is unsure whether one sinned · Only a specific set of sins require an asham'},
+          {id:'tg-kr07', q:'N160 — No redeeming a bechor (firstborn animal)', a:'Prohibition on redeeming a firstborn kosher animal — it must be given directly to the kohein, not bought back with money', note:'Bamidbar 18:17 · Unlike other sanctified animals, the bechor cannot be redeemed once it becomes sacred at birth'},
+          {id:'tg-kr08', q:'N161 — Temura (substitution)',               a:'לֹא יַחֲלִיפֶנּוּ · Prohibition on swapping an already-consecrated animal for a different one', note:'Vayikra 27:10 · If one attempts the swap, both the original and the substitute become sacred · The prohibition is violated but the halachic effect stands'},
+        ]
+      },
+      // ── Book 10: Sefer Tahara ─────────────────────────────
+      {
+        id: 'taryag-tahara',
+        name: 'Sefer Tahara — Purity',
+        emoji: '💧',
+        desc: "Book 10 · Ritual purity and impurity: corpse impurity, tzara'at, niddah, and the mikveh",
+        guide: [
+          {h:'What Is Sefer Tahara?', b:[
+            'Eight sections: Tumat Met (corpse impurity) · Parah Adumah (Red Heifer) · Tumat Tzara\'at · Metamei Mishkav u\'Moshav · Shaar Avot HaTumah · Tumat Ochalin · Keilim (vessel impurity) · Mikvaos',
+            'Tumah and tahara (impurity and purity) are spiritual states — not hygienic ones · Most tumah laws are currently suspended (we are all tamei met in practice) but they will be renewed in the messianic era',
+          ]},
+        ],
+        cards: [
+          {id:'tg-t01', q:'N309 — Tumat met (corpse impurity)',         a:'כָּל הַנֹּגֵעַ בְּמֵת · Contact with a human corpse (or being under the same roof) transmits the most severe form of tumah — Av HaTumah', note:'Bamidbar 19:11 · Kohein is forbidden from contracting corpse impurity except for his seven close relatives · Kohanim avoid cemeteries today for this reason'},
+          {id:'tg-t02', q:'P113 — Parah Adumah (Red Heifer)',           a:'זֹאת חֻקַּת הַתּוֹרָה · A perfectly red, unblemished cow is burned; its ashes mixed with water purify someone who is tamei met', note:'Bamidbar 19 · The classic chok — a commandment whose reason is hidden even from Shlomo HaMelech · Paradoxically, the ashes purify the tamei while making the tahor impure · Nine red heifers were prepared in history; the tenth will come with Mashiach'},
+          {id:'tg-t03', q:'P112 — Tumah of tzara\'at (skin affliction)', a:'הִשָּׁמֶר בְּנֶגַע הַצָּרַעַת · Tzara\'at (often mistranslated "leprosy") is a spiritual affliction appearing on skin, clothing, or house walls — caused by lashon hara and arrogance', note:'Vayikra 13-14 · Only a kohein may declare a person tamei or tahor with tzara\'at · The metzora (afflicted person) must dwell outside the camp · A complex purification process follows · Tzara\'at is miraculous — different from any natural skin condition'},
+          {id:'tg-t04', q:'N352 — Niddah purity laws',                  a:'לֹא תִקְרַב לְגַלּוֹת עֶרְוָתָהּ · A husband and wife must separate during menstruation and until the wife immerses in a mikveh after seven clean days', note:'Vayikra 18:19 · The foundation of Taharat HaMishpacha (family purity) · After the period ends, the wife counts seven clean days (Rabbinic stringency, universally accepted), then immerses in a kosher mikveh at nightfall'},
+          {id:'tg-t05', q:'P189 — Mikveh immersion for purity',         a:'וְרָחַץ בַּמַּיִם · Immersion in a kosher mikveh is required to move from tamei to tahor in a range of circumstances', note:'Vayikra 15:16 · A kosher mikveh contains 40 seah of naturally gathered water · Used for: niddah · conversion · keilim (vessels) · teshuvah (custom) · before Shabbos/Yom Tov (Chassidic custom)'},
+          {id:'tg-t06', q:'P113 — Purification of the metzora',         a:'The eight-day purification process for one healed of tzara\'at — involves two birds, cedar wood, hyssop, crimson thread, shaving, and mikveh', note:'Vayikra 14 · The two birds ceremony on day one: one is slaughtered over living water; the second is dipped in the blood and released alive · Rambam: the parallels to the Parah Adumah ceremony are intentional'},
+          {id:'tg-t07', q:'N166 — No eating from tevel (untithed produce)', a:'לֹא תוּכַל לֶאֱכֹל בִּשְׁעָרֶיךָ · Prohibition on eating produce from which terumot and maasrot have not been separated', note:'Devarim 12:17 · Tevel = produce that has not had its obligatory separations taken · Violating this is one of the serious prohibitions involving produce from Eretz Yisrael'},
+          {id:'tg-t08', q:'Keilim tumah (vessel impurity)',              a:'Various categories of vessels can become tamei and transmit impurity · They are purified by immersion in a mikveh', note:'Vayikra 11:32 · Earthenware vessels (cheres) can only become tamei from the inside, not the outside, and cannot be purified — they must be broken · Metal, wood, and textile vessels can all become tamei and be purified'},
+        ]
+      },
+      // ── Book 11: Sefer Nezikin ────────────────────────────
+      {
+        id: 'taryag-nezikin',
+        name: 'Sefer Nezikin — Damages',
+        emoji: '⚖️',
+        desc: "Book 11 · Torts, theft, robbery, lost objects, bodily injury, and the prohibition on standing by while others are harmed",
+        guide: [
+          {h:'What Is Sefer Nezikin?', b:[
+            'Five sections: Nizkei Mamon (property damage) · Geneiva (theft) · Gezela v\'Aveida (robbery and lost objects) · Chovel u\'Mazik (bodily injury) · Rotzeach u\'Shmirat Nefesh (murder and self-protection)',
+            'These mitzvos govern how Jews treat each other\'s property, safety, and life — a society of law and responsibility',
+          ]},
+        ],
+        cards: [
+          {id:'tg-nz01', q:'P247 — Return lost property (hashavat aveida)', a:'הָשֵׁב תְּשִׁיבֵם · If you find someone\'s lost object, you are obligated to return it', note:'Devarim 22:1 · You must care for the object until you can return it · Applies even to an enemy\'s lost animal · Includes returning a person to their own safety ("lost themselves" — preventing suicide or self-harm)'},
+          {id:'tg-nz02', q:'N269 — No ignoring a lost object',           a:'לֹא תוּכַל לְהִתְעַלֵּם · Prohibition on pretending not to see someone\'s lost object when you could return it', note:'Devarim 22:3 · Paired with the positive commandment of hashavas aveida · One may not ignore it out of dignity — the Torah suspends honor in cases of a friend\'s financial loss'},
+          {id:'tg-nz03', q:'N317 — Lo taamod (don\'t stand by while someone is in danger)', a:'לֹא תַעֲמֹד עַל דַּם רֵעֶךָ · Prohibition on standing by while your neighbor\'s life is in danger — you must intervene or summon help', note:'Vayikra 19:16 · One of the most important of all the prohibitions · Includes: hiring a lifeguard, calling for medical help, testifying to prevent unjust death · Rodef: one may kill an aggressor to save a victim'},
+          {id:'tg-nz04', q:'N243 — No theft (geneiva)',                  a:'לֹא תִגְנֹבוּ · Prohibition on stealing — taking another\'s property secretly', note:'Vayikra 19:11 · Theft = taking secretly · Robbery (gezela) = taking openly by force — a separate prohibition · The thief pays double; the robber returns the item itself · "Lo tignov" in the Ten Commandments may refer to kidnapping (see Rashi)'},
+          {id:'tg-nz05', q:'P194 — Repayment for theft',                 a:'וְשִׁלַּם · A thief must repay double the value of the stolen item (kefel)',                     note:'Shemos 22:3 · For a stolen ox: pays five times; for a sheep: four times (as the ox is more valuable for labor) · If the thief repents and returns before being caught, no kefel penalty'},
+          {id:'tg-nz06', q:'N245 — No covetousness (lo tachmod)',        a:'לֹא תַחְמֹד · Prohibition on coveting another\'s property — even without acting to acquire it',  note:'Shemos 20:14 · Two separate commandments: "lo tachmod" (Shemos 20:14) and "lo tit\'aveh" (Devarim 5:18) · Rambam: merely desiring is prohibited; acting to acquire it — even by purchase — is a further violation'},
+          {id:'tg-nz07', q:'N295 — No murder (lo tirtzach)',             a:'לֹא תִרְצָח · Prohibition on murder — the unlawful taking of human life',                        note:'Shemos 20:13 · One of the Seven Noahide Laws · Capital punishment by Sanhedrin is not "murder" but requires extraordinary evidentiary standards (two witnesses who warned the perpetrator) · Cities of refuge (arei miklat) protect accidental killers'},
+          {id:'tg-nz08', q:'P185 — Arei Miklat (Cities of Refuge)',     a:'הָכֵן לְךָ הַדֶּרֶךְ · Establish six cities of refuge to which an accidental killer can flee to be protected from the victim\'s family (goel hadam)', note:'Devarim 19:3 · Three cities on each side of the Jordan · Roads to the cities must be maintained, clearly marked, and wide · The accidental killer stays until the Kohen Gadol dies, then may return home'},
+          {id:'tg-nz09', q:'P237 — Correct weights and measures',        a:'מֹאזְנֵי צֶדֶק אַבְנֵי צֶדֶק · Maintain honest weights, measures, and scales in business', note:'Vayikra 19:36 · Deception in measurement is a violation of lo tignov (theft) as well · "False weights are an abomination to Hashem" (Mishlei 11:1) · A false weight that is never used is still prohibited to possess'},
+          {id:'tg-nz10', q:'N286 — No ona\'ah (financial deception)',    a:'לֹא תוֹנוּ אִישׁ אֶת אָחִיו · Prohibition on cheating someone in a sale by more than one-sixth above or below market value', note:'Vayikra 25:14 · The overcharged party may demand the return of the overcharge or cancel the transaction · Separate from verbal ona\'ah (ona\'at devarim) — causing pain with words · Real estate, Torah scrolls, and slaves are exempt from the ona\'ah rule'},
+        ]
+      },
+      // ── Book 12: Sefer Kinyan ─────────────────────────────
+      {
+        id: 'taryag-kinyan',
+        name: 'Sefer Kinyan — Acquisition',
+        emoji: '🤝',
+        desc: "Book 12 · Sales, gifts, property rights among neighbors, agents and partners, and the laws of slaves",
+        guide: [
+          {h:'What Is Sefer Kinyan?', b:[
+            'Five sections: Mechira (sales) · Zechiya u\'Matana (acquisition and gifts) · Shechenim (neighbors) · Sheluhin v\'Shutafin (agents and partners) · Avadim (slaves)',
+            'These mitzvos govern the transfer of property — how ownership changes hands in a Torah-governed economy',
+          ]},
+        ],
+        cards: [
+          {id:'tg-kn01', q:'Kinyan (acquisition) — overview',           a:'Property in halacha changes ownership only through a valid "kinyan" — a recognized legal act of acquisition', note:'Types of kinyan: kesef (money) · shtar (document) · chazakah (taking possession) · meshicha (pulling) · hagbahah (lifting) · chatzer (one\'s domain) · Each applies to different types of property'},
+          {id:'tg-kn02', q:'P247 — Honor agreements (davar she\'be\'mamon)', a:'To keep business commitments — halachic principle: "midvar sheker tirchak" (distance yourself from falsehood) applies to commerce', note:'While not all oral agreements are enforceable in din Torah, failure to honor a commitment incurs a "mi she\'para" curse from the court — a formal rebuke for reneging on a deal after a partial payment'},
+          {id:'tg-kn03', q:'N234 — Lifnei iver (causing others to sin)', a:'לִפְנֵי עִוֵּר לֹא תִתֵּן מִכְשֹׁל · Prohibition on placing a stumbling block before the blind — includes: giving bad advice, selling forbidden items, enabling sin', note:'Vayikra 19:14 · The classic halacha: don\'t sell weapons to a violent person · Broader: don\'t give advice that benefits you but harms the person asking · Also: don\'t cause another Jew to violate a mitzvah'},
+          {id:'tg-kn04', q:'N238 — Bar metzra (neighbor\'s right of first refusal)', a:'A neighbor has a preferential right to purchase land being sold adjacent to their property', note:'Rabbinically derived from "v\'asisa hayashar v\'hatov" (do what is straight and good, Devarim 6:18) · The Rambam codes this under Shechenim · Applies only to real estate, not movables'},
+          {id:'tg-kn05', q:'P232 — Eved Ivri (Hebrew slave)',           a:'כִּי תִקְנֶה עֶבֶד עִבְרִי · A Jewish court may sell a convicted thief (who cannot pay restitution) as a slave for up to 6 years', note:'Shemos 21:2 · Voluntary indenture was also possible in extreme poverty · The master must provide food, lodging, and even his own pillow if the slave has none — "the one who buys a master" (Kiddushin 20a) · At Yovel (Jubilee), all go free'},
+          {id:'tg-kn06', q:'P233 — Eved Kena\'ani (Canaanite slave)',   a:'A non-Jewish slave permanently acquired through purchase is freed by loss of a tooth or eye — and goes free at Yovel', note:'Vayikra 25:44 · The Canaanite slave serves indefinitely but is a full member of the household · Conversion (Rambam): a Canaanite slave in a Jewish home must be circumcised and accept certain mitzvos · The mitzvah dimension involves their dignity and eventual freedom'},
+          {id:'tg-kn07', q:'N262 — No returning a runaway slave',       a:'לֹא תַסְגִּיר עֶבֶד אֶל אֲדֹנָיו · Prohibition on returning a runaway slave (Canaanite slave who fled to Eretz Yisrael) to his master', note:'Devarim 23:16 · One of the most unusual protective laws — the slave who flees to Israel is allowed to remain and the master cannot compel return · Rambam: the slave who flees abusive treatment is protected'},
+        ]
+      },
+      // ── Book 13: Sefer Mishpatim ──────────────────────────
+      {
+        id: 'taryag-mishpatim',
+        name: 'Sefer Mishpatim — Judgments',
+        emoji: '📜',
+        desc: "Book 13 · Workers, loans, guardians, debts, and inheritance — the civil law of the Torah",
+        guide: [
+          {h:'What Is Sefer Mishpatim?', b:[
+            'Five sections: Sechirut (workers and rentals) · She\'ela u\'Pikadon (borrowing and deposits) · Malveh v\'Loveh (creditor and debtor) · To\'en v\'Nit\'an (claims and disputes) · Nachalos (inheritance)',
+            'The civil law section of Mishneh Torah — governing fair treatment of workers, honest lending, and proper inheritance',
+          ]},
+        ],
+        cards: [
+          {id:'tg-ms01', q:'N238 — Pay workers on time (lo talin)',     a:'לֹא תָלִין פְּעֻלַּת שָׂכִיר · Prohibition on withholding a worker\'s wages past the end of their workday', note:'Vayikra 19:13 / Devarim 24:15 · Two prohibitions: one for a day worker (wages due at nightfall) · one for a night worker (wages due at dawn) · Delays beyond this — even briefly — violate the prohibition'},
+          {id:'tg-ms02', q:'P199 — Pay workers on time (b\'yomo titen secharo)', a:'בְּיוֹמוֹ תִתֵּן שְׂכָרוֹ · Positive commandment to pay a hired worker on the day their work is completed', note:'Devarim 24:15 · Paired with the negative prohibition (lo talin) · Applies to wages owed to any person or animal · "The worker counts on his wages" — withholding is treating his soul with contempt (Rashi)'},
+          {id:'tg-ms03', q:'P200 — A worker may eat from the produce he harvests', a:'כִּי תָבֹא בְּכֶרֶם רֵעֶךָ · A laborer harvesting crops may eat from the produce while working — the employer may not stop him', note:'Devarim 23:25 · The worker may eat as much as he wants while working but may not take any home · Does not apply between meal breaks · Known as "po\'el ochel b\'shaas melacho"'},
+          {id:'tg-ms04', q:'N234 — No ribbis (interest on loans)',       a:'לֹא תַשִּׁיךְ לְאָחִיךָ · Prohibition on charging interest on loans to a fellow Jew — in any form',      note:'Shemos 22:24 / Devarim 23:20 · Both the lender and the borrower violate the prohibition · Heter iska: a legal device (partnership arrangement) permits charging what would otherwise be interest in business contexts'},
+          {id:'tg-ms05', q:'P197 — Lend money to the poor',             a:'אִם כֶּסֶף תַּלְוֶה · Lending money to a poor person is a positive commandment — and doing so without interest is obligatory', note:'Shemos 22:24 · One of the most important tzedakah-related commandments · The Rambam: lending money is higher on the tzedakah hierarchy than giving a gift, as it preserves the recipient\'s dignity'},
+          {id:'tg-ms06', q:'P195 — Return a pledge to the poor debtor', a:'הָשֵׁב תָּשִׁיב לוֹ אֶת הַעֲבוֹט · If a poor debtor\'s cloak is taken as a pledge, return it to him at night so he can sleep in it', note:'Devarim 24:12-13 · Certain items (like a millstone or garment) can never be taken as collateral at all · A lender may not enter the borrower\'s house to seize collateral — must wait outside'},
+          {id:'tg-ms07', q:'P247 — Shomrim — four types of guardians',  a:'Four categories of guardians, each with different liability for damaged or lost property: unpaid guardian · paid guardian · borrower · renter', note:'Shemos 22:6-14 · Shomer chinam (unpaid): liable only for negligence · Shomer sachar (paid): liable for theft and loss, not for unforeseeable events · Sho\'el (borrower): liable for everything except death during normal use · Socher (renter): dispute between Rashi and Rambam'},
+          {id:'tg-ms08', q:'P248 — Inheritance order (nachalos)',        a:'The Torah prescribes the order of inheritance: sons first (firstborn gets double), then daughters, then father, then brothers, etc.', note:'Bamidbar 27:8-11 · A firstborn son receives a double portion (pi shnayim) of the estate · Daughters inherit when there are no sons · A father\'s estate passes to his sons before his brothers · One cannot use a standard will to alter this order — but may give gifts during his lifetime'},
+        ]
+      },
+      // ── Book 14: Sefer Shoftim ────────────────────────────
+      {
+        id: 'taryag-shoftim',
+        name: 'Sefer Shoftim — Judges',
+        emoji: '👨‍⚖️',
+        desc: "Book 14 · Courts and justice, testimony, the king, mourning, and the war against Amalek",
+        guide: [
+          {h:'What Is Sefer Shoftim?', b:[
+            'Five sections: Sanhedrin (courts) · Edut (testimony) · Mamrim (rebellious elders) · Avel (mourning) · Melachim u\'Milchamot (kings and wars)',
+            'The final book of Mishneh Torah — covering the governance and collective responsibilities of the Jewish people',
+          ]},
+        ],
+        cards: [
+          {id:'tg-sf01', q:'P176 — Establish courts (batei din)',        a:'שֹׁפְטִים וְשֹׁטְרִים תִּתֶּן לְךָ · Establish courts and officers of justice in every city and region',note:'Devarim 16:18 · The courts range from a local court of 3 to the Great Sanhedrin of 71 in Yerushalayim · Each city with a minimum population requires its own beit din · The obligation falls on the community, not the individual'},
+          {id:'tg-sf02', q:'N274 — No perverting justice',               a:'לֹא תַטֶּה מִשְׁפָּט · A judge is forbidden from favoring either the rich or the poor — justice must be absolutely equal', note:'Devarim 16:19 · Also: lo tikkach shochad (no bribery) · lo taguru (no fear of powerful litigants) · A judge who perverts justice violates multiple prohibitions simultaneously'},
+          {id:'tg-sf03', q:'P178 — Judges must decide by majority',      a:'Courts rule by majority vote · In capital cases: majority to convict requires more than simple majority in some opinions; majority to acquit is simple', note:'Shemos 23:2 · In capital cases, a 23-judge court must have at least a majority of 1 to convict · Acquittal requires only a simple majority · A unanimous verdict to convict is paradoxically suspect (Sanhedrin 17a)'},
+          {id:'tg-sf04', q:'P178 — Edut (testimony requirements)',       a:'Two kosher witnesses are required for any conviction in a Torah court — one witness alone is not sufficient', note:'Devarim 19:15 · "By the testimony of two or three witnesses shall a matter be established" · Disqualified witnesses: relatives · those with a financial interest · known Shabbos violators · women (for criminal cases) · minors'},
+          {id:'tg-sf05', q:'N287 — Eid zomem (false witness)',           a:'וַעֲשִׂיתֶם לוֹ כַּאֲשֶׁר זָמַם · A false witness receives the punishment he tried to bring upon the defendant', note:'Devarim 19:19 · To be "eid zomem," the witnesses must be contradicted by alibi evidence placing them elsewhere at the time of the alleged crime · Midah k\'neged midah (measure for measure)'},
+          {id:'tg-sf06', q:'P173 — Appoint a king',                     a:'שׁוֹם תָּשִׂים עָלֶיךָ מֶלֶךְ · The Jewish people are commanded to appoint a king when established in their land', note:'Devarim 17:15 · Three commandments upon entering the land: destroy Amalek, build a Beis HaMikdash, appoint a king · The king must be Jewish and selected by a prophet and the Sanhedrin · He may not accumulate excessive horses, wives, or gold'},
+          {id:'tg-sf07', q:'N365 — No lo tasur (do not deviate)',        a:'לֹא תָסוּר מִן הַדָּבָר אֲשֶׁר יַגִּידוּ לְךָ · Do not deviate from the rulings of the Sanhedrin — follow their halachic decisions', note:'Devarim 17:11 · This is the Torah source for Rabbinic authority · A "zaken mamre" (rebellious elder) who publicly ruled against the Sanhedrin was given the death penalty to preserve the unity of Torah law'},
+          {id:'tg-sf08', q:'P188 — Remember Amalek (Zachor)',            a:'זָכוֹר אֵת אֲשֶׁר עָשָׂה לְךָ עֲמָלֵק · Remember what Amalek did to Israel — recall it verbally at all times', note:'Devarim 25:17 · Fulfilled by the public Shabbos Zachor Torah reading before Purim (women obligated according to many opinions) · Two mitzvos: to remember and to not forget · Not the same as the mitzvah to destroy Amalek'},
+          {id:'tg-sf09', q:'P189 — Destroy Amalek (Timche)',            a:'תִּמְחֶה אֶת זֵכֶר עֲמָלֵק · Wipe out the nation of Amalek — men, women, children, and animals',          note:'Devarim 25:19 · Sancheriv mixed up all nations (Mishnah Yadayim 4:4) — today Amalek cannot be identified with certainty · The mitzvah is in abeyance · Haman was an Amalekite; Mordechai and Esther\'s defeat of him is viewed as partial fulfillment'},
+          {id:'tg-sf10', q:'P208 — Mourning (aveilus)',                  a:'וְאָמַרְתָּ אֵלֶהֶם קְרֹבָי אֶל לִבְּכֶם · The Torah commands mourning practices for seven close relatives: father, mother, brother, sister, son, daughter, spouse', note:'Vayikra 21:2-3 (inferred for all Jews from the kohein laws) · Seven days of shiva · Thirty days of shloshim · Eleven months of Kaddish for parents · The entire mourning structure (except burial and kria) is Rabbinic, derived from this mitzvah'},
+        ]
+      },
+    ]
+  },
+
 ];
 
 // ═══════════════════════════════════════════════════════════
@@ -3147,7 +3555,7 @@ const CATEGORIES = [
   { name: 'Oral Torah',         ids: ['rabbinic-eras', 'tannaim', 'amoraim', 'mishnah', 'talmud-study'] },
   { name: 'Torah/Chumash',      ids: ['chumash-overview', 'bereishis', 'shemos', 'vayikra', 'bamidbar', 'devarim'] },
   { name: 'Nach',               ids: ['nach-intro', 'neviim', 'ketuvim'] },
-  { name: 'Halacha',            ids: ['halacha-basics', 'everyday-halacha', 'poskim', 'halacha-books'] },
+  { name: 'Halacha',            ids: ['halacha-basics', 'everyday-halacha', 'poskim', 'halacha-books', 'taryag'] },
   { name: 'Jewish Life',        ids: ['hebrew', 'holidays', 'values', 'prayer', 'zmanim'] },
 ];
 
