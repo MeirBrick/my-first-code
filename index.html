@@ -2137,7 +2137,10 @@ function renderHome() {
   const h=new Date().getHours();
   const greet=h<12?'Good morning':h<17?'Good afternoon':'Good evening';
   document.getElementById('greeting').textContent=greet;
-  const due=DECKS.reduce((n,d)=>n+d.cards.filter(c=>isDue(c.id)).length,0);
+  const due=DECKS.reduce((n,d)=>{
+    if (d.sections) return n+d.sections.flatMap(s=>s.cards||[]).filter(c=>isDue(c.id)).length;
+    return n+(d.cards||[]).filter(c=>isDue(c.id)).length;
+  },0);
   document.getElementById('greeting-sub').textContent=due>0
     ?`You have ${due} card${due!==1?'s':''} due for review`
     :'All caught up — choose a deck to practice';
