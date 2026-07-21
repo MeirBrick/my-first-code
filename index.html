@@ -1403,12 +1403,12 @@ const DECKS = [
     ]
   },
 
-  // ── Nach ──────────────────────────────────────────────────
+  // ── Nach Introduction ─────────────────────────────────────
   {
-    id: 'nach',
-    name: 'Nach — Prophets & Writings',
-    emoji: '📚',
-    desc: "Nevi'im and Ketuvim — the 24 books of Tanach beyond the Torah",
+    id: 'nach-intro',
+    name: 'Nach — Introduction',
+    emoji: '📖',
+    desc: "What is Nach? An overview of the Prophets and Writings — the 19 books of Tanach beyond the Torah",
     guide: [
       {h:'What Is Nach?', b:[
         'Nach = נְבִיאִים (Nevi\'im, Prophets) + כְּתוּבִים (Ketuvim, Writings) · Together with Torah = TaNaCH — the complete Hebrew Bible',
@@ -1417,6 +1417,31 @@ const DECKS = [
         'Nevi\'im Acharonim (Later Prophets): Yeshayahu, Yirmiyahu, Yechezkel, and Trei Asar (the 12 Minor Prophets, counted as one book)',
         'Ketuvim: Sifrei Emes (Tehillim, Mishlei, Iyov) · Chamesh Megilos · later books (Daniel, Ezra-Nechemiah, Divrei HaYamim)',
         'Canon sealed by the Anshei Knesses HaGedolah ~450–400 BCE; Malachi was the last navi',
+      ]},
+    ],
+    cards: [
+      {id:'ni01', q:'What does "Nach" stand for?',             a:'נְבִיאִים (Nevi\'im) + כְּתוּבִים (Ketuvim) — Prophets and Writings', note:'Together with Torah = TaNaCH — the complete Hebrew Bible · The T/N/Ch are the first letters of each section'},
+      {id:'ni02', q:'How many books are in Nevi\'im?',         a:'8 books — Yehoshua, Shoftim, Shmuel, Melachim, Yeshayahu, Yirmiyahu, Yechezkel, Trei Asar', note:'Shmuel I & II count as one · Melachim I & II count as one · Trei Asar (12 Minor Prophets) count as one'},
+      {id:'ni03', q:'How many books are in Ketuvim?',          a:'11 books — Tehillim, Mishlei, Iyov, the 5 Megilos, Daniel, Ezra-Nechemiah, Divrei HaYamim', note:'Ezra-Nechemiah count as one · Divrei HaYamim I & II count as one'},
+      {id:'ni04', q:'What are Nevi\'im Rishonim?',             a:'Early Prophets — Yehoshua, Shoftim, Shmuel, Melachim · Historical narrative from Canaan to the First Temple\'s fall'},
+      {id:'ni05', q:'What are Nevi\'im Acharonim?',            a:'Later Prophets — Yeshayahu, Yirmiyahu, Yechezkel, and Trei Asar · These prophets wrote their own books of prophecy'},
+      {id:'ni06', q:'When was the canon of Tanach sealed?',    a:'By the Anshei Knesses HaGedolah (~450–400 BCE) · Malachi was the last navi', note:'The spirit of prophecy departed from Yisrael after Malachi (Sanhedrin 11a)'},
+      {id:'ni07', q:'What are the Chamesh Megilos?',           a:'Shir HaShirim · Rus · Eichah · Koheles · Esther — five scrolls each read on a specific occasion in the Jewish year'},
+      {id:'ni08', q:'What are Sifrei Emet?',                   a:'Tehillim, Mishlei, Iyov — the three poetical books of Ketuvim · "Emet" (אמת) is an acronym of their first letters', note:'These three use a unique cantillation (trop) system distinct from the rest of Tanach'},
+    ]
+  },
+
+  // ── Nevi'im ───────────────────────────────────────────────
+  {
+    id: 'neviim',
+    name: "נְבִיאִים — Nevi'im",
+    emoji: '📜',
+    desc: "The eight books of the Prophets — content quizzes and canonical order",
+    guide: [
+      {h:"Two Divisions of Nevi'im", b:[
+        'Nevi\'im Rishonim (Early Prophets): Yehoshua, Shoftim, Shmuel, Melachim — historical books written by prophets tracing history from Canaan to the First Temple\'s destruction',
+        'Nevi\'im Acharonim (Later Prophets): Yeshayahu, Yirmiyahu, Yechezkel, and Trei Asar — prophets who wrote their own books of rebuke, consolation, and vision',
+        'Trei Asar ("Twelve" in Aramaic) = 12 shorter prophetic books counted as one book in the canon · Hoshea through Malachi',
       ]},
     ],
     sections: [
@@ -1476,6 +1501,23 @@ const DECKS = [
         ],
         cards: []
       },
+    ]
+  },
+
+  // ── Ketuvim ───────────────────────────────────────────────
+  {
+    id: 'ketuvim',
+    name: 'כְּתוּבִים — Ketuvim',
+    emoji: '✍️',
+    desc: "The eleven books of the Writings — content quizzes and canonical order",
+    guide: [
+      {h:'Three Groups of Ketuvim', b:[
+        'Sifrei Emet — The three poetical books: Tehillim, Mishlei, Iyov · Use a unique cantillation (trop) system · "Emet" (אמת) is an acronym of their first letters',
+        'Chamesh Megilos — Five scrolls each read on a specific occasion: Shir HaShirim (Pesach), Rus (Shavuos), Eichah (Tisha B\'Av), Koheles (Sukkos), Esther (Purim)',
+        'Historical Books — Daniel, Ezra-Nechemiah (one book), Divrei HaYamim I & II (one book) · Covering the Babylonian exile through the return to Eretz Yisrael',
+      ]},
+    ],
+    sections: [
       // ── Ketuvim Content ──────────────────────────────────
       {
         id: 'nach-ketuvim',
@@ -1549,7 +1591,7 @@ const DECKS = [
   // ── Mishnah ───────────────────────────────────────────────
   {
     id: 'mishnah',
-    requires: 'nach',
+    requires: 'nach-intro',
     level: 2,
     name: 'Mishnah — Six Sedarim',
     emoji: '📋',
@@ -3102,9 +3144,9 @@ const DECKS = [
 const CATEGORIES = [
   { name: 'Hebrew Language',    ids: ['aleph-bet', 'nikud', 'gematria'] },
   { name: 'The Jewish Year',    ids: ['months', 'hol-doraisa', 'hol-drabonon', 'fasts', 'cal-periods', 'israel-days'] },
-  { name: 'Rabbinic History',   ids: ['rabbinic-eras', 'tannaim', 'amoraim'] },
+  { name: 'Oral Torah',         ids: ['rabbinic-eras', 'tannaim', 'amoraim', 'mishnah', 'talmud-study'] },
   { name: 'Torah/Chumash',      ids: ['chumash-overview', 'bereishis', 'shemos', 'vayikra', 'bamidbar', 'devarim'] },
-  { name: 'Jewish Texts',       ids: ['nach', 'mishnah', 'talmud-study'] },
+  { name: 'Nach',               ids: ['nach-intro', 'neviim', 'ketuvim'] },
   { name: 'Halacha',            ids: ['halacha-basics', 'everyday-halacha', 'poskim', 'halacha-books'] },
   { name: 'Jewish Life',        ids: ['hebrew', 'holidays', 'values', 'prayer', 'zmanim'] },
 ];
