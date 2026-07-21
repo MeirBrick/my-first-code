@@ -410,6 +410,8 @@ h1,h2,h3{text-wrap:balance}
 .guide-section{background:var(--surface);border-radius:var(--radius);border:1px solid rgba(26,23,48,.07);box-shadow:var(--shadow);padding:1.5rem 1.75rem;}
 .guide-section-h{font-size:1.1rem;font-weight:700;color:var(--blue-lt);margin-bottom:.6rem;line-height:1.3;}
 .guide-section-p{font-size:1rem;color:var(--ink-2);line-height:1.85;margin:0;}
+.guide-bullets{margin:.2rem 0 0;padding-left:1.3rem;display:flex;flex-direction:column;gap:.5rem;list-style:disc;}
+.guide-bullets li{font-size:1rem;color:var(--ink-2);line-height:1.7;}
 .guide-ref-label{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:2rem 0 1rem;padding-top:1.5rem;border-top:2px solid rgba(26,23,48,.07);}
 
 /* ── Responsive ─────────────────────────────────────────── */
@@ -559,7 +561,14 @@ const DECKS = [
     emoji: '🔠',
     desc: 'The 22 letters — names, sounds, and numerical values',
     guide: [
-      {h:'The Aleph-Beis', p:'The Hebrew Aleph-Beis (alphabet) consists of 22 letters, all of which are consonants — there are no vowel letters in the base alphabet. Hebrew is written and read from right to left. Every letter has a name, a sound, a numerical value (gematria), and in many cases a deeper spiritual meaning rooted in Kabbalah and Jewish tradition. The Torah itself was written in these letters, and Chazal teach that God looked into the Torah and created the world — making the letters not merely a writing system, but the building blocks of Creation. Five letters have a special "sofit" (final) form used when they appear at the end of a word: Chaf, Mem, Nun, Peh, and Tzaddik (remembered by the mnemonic KaMeNaFaTZ). Six letters — the BeGaDKePhaT letters (Beis, Gimel, Dalet, Chaf, Peh, Tav) — change their sound depending on whether they carry a dagesh (dot) inside them.'},
+      {h:'The Aleph-Beis', b:[
+        '22 letters — all consonants; Hebrew has no vowel letters in its base alphabet',
+        'Written and read right to left',
+        'Every letter has a name, a sound, a numerical value (gematria), and a deeper spiritual meaning',
+        'Chazal teach that Hashem looked into the Torah and created the world — the letters are the building blocks of Creation',
+        'Five letters have a special sofit (final) form when they appear at the end of a word: Chaf, Mem, Nun, Peh, Tzaddik — mnemonic: KaMeNaFaTZ',
+        'Six BeGaDKePhaT letters (Beis, Gimel, Dalet, Chaf, Peh, Tav) change their sound based on whether they carry a dagesh (dot) inside them',
+      ]},
     ],
     cards: [
       {id:'ab01', q:'א',               a:'Aleph · Silent (takes the sound of its vowel)',          note:'Value: 1 · No inherent sound — like a glottal stop · One of the guttural letters'},
@@ -596,7 +605,14 @@ const DECKS = [
     emoji: '🔡',
     desc: 'The vowel marks (niqqud) that give Hebrew letters their sounds',
     guide: [
-      {h:'What Is Nikud?', p:'Nikud (vowel points, also called niqqud) are the system of dots and dashes added beneath, above, or beside Hebrew letters to indicate their vowel sounds. The Torah as written in a sefer Torah (Torah scroll) contains no nikud at all — only the 22 consonant letters. This means reading a Torah scroll requires knowing the correct vowels by heart, preserved through an unbroken oral tradition. The nikud system we use today was developed by the Masoretes — scholars in Tiveria — in the 7th–10th centuries CE, standardizing the pronunciation that had always been transmitted orally. There are seven primary vowel sounds in Hebrew (some with long and short variants), plus the shva and chataf vowels which are semi-vowels. The dagesh (a dot inside a letter) and the mappik (a dot inside a final heh) additionally affect pronunciation. Understanding nikud is the key to reading any vowelized Hebrew text — siddurim, chumashim, and most beginner seforim.'},
+      {h:'What Is Nikud?', b:[
+        'Nikud (vowel points) are dots and dashes added to Hebrew letters to indicate their vowel sounds',
+        'A sefer Torah contains no nikud at all — only the 22 consonant letters; correct vowels must be known by heart from oral tradition',
+        'The nikud system was developed by the Masoretes of Tiveria in the 7th–10th centuries CE, standardizing a pronunciation already transmitted orally',
+        'Seven primary vowel sounds in Hebrew, some with long and short variants, plus the shva and chataf semi-vowels',
+        'A dagesh (dot inside a letter) and a mappik (dot in a final heh) also affect pronunciation',
+        'Understanding nikud is the key to reading any vowelized Hebrew text: siddurim, chumashim, and most beginner seforim',
+      ]},
     ],
     cards: [
       {id:'nk01', q:'בָ  —  Kamatz',         a:'"AW" as in law',                            note:'Long vowel · T-shape under the letter · Most common vowel in Torah\n📝 אָב = AWV (father) · שָׁלוֹם = shaw-LOM (peace) · בָּרָא = baw-RAW (He created)'},
@@ -624,7 +640,14 @@ const DECKS = [
     emoji: '🌙',
     desc: 'The 12 (or 13) months of the Jewish lunar-solar calendar',
     guide: [
-      {h:'The Jewish Calendar', p:'The Jewish calendar is a lunar-solar calendar — its months follow the moon, but an extra month is periodically added to keep it aligned with the solar year and its agricultural seasons. Each month begins with Rosh Chodesh, the new moon. A standard year has 12 months (354 days); a leap year (shanah me\'uberes — a "pregnant year") has 13 months, with a second Adar added. This happens 7 times in every 19-year Metonic cycle. The months are counted from Nissan ("the first month" per the Torah, Shemos 12:2), though the year number advances from Tishrei on Rosh Hashanah. This creates an interesting duality: Nissan is the first month for counting months, but Tishrei is the first month for counting years — reflecting that the Jewish calendar carries multiple layers of meaning (agricultural, historical, and spiritual). Learning the months in order is essential for understanding the Jewish calendar, locating holidays, and following the cycle of the year.'},
+      {h:'The Jewish Calendar', b:[
+        'Lunar-solar calendar: months follow the moon, but an extra month is periodically added to stay aligned with the solar year',
+        'Each month begins with Rosh Chodesh (the new moon)',
+        'Standard year: 12 months (354 days) · Leap year (shanah me\'uberes, "pregnant year"): 13 months — a second Adar is added',
+        'Leap years occur 7 times in every 19-year Metonic cycle',
+        'Months are counted from Nissan ("the first month" — Shemos 12:2), but the year number advances from Tishrei on Rosh Hashanah',
+        'This duality reflects multiple layers: Nissan marks the historical redemption from Egypt; Tishrei marks Creation and the annual cycle of judgment',
+      ]},
     ],
     cards: [
       {id:'mo07', q:'Nissan (נִיסָן)',       a:'1st month · 30 days · March–April',            note:'"First of months" in the Torah (Shemot 12:2) · Contains: Pesach (15–22) · The month of redemption and freedom'},
@@ -651,13 +674,61 @@ const DECKS = [
     emoji: '⭐',
     desc: 'Biblical holidays commanded directly in the Torah (Vayikra 23)',
     guide: [
-      {h:'What Are D\'Oraisa Holidays?', p:'The phrase d\'Oraisa (from Aramaic: "from the Torah") refers to commandments written explicitly in the Torah itself — the highest level of halachic obligation. There are six Biblical holidays commanded in Vayikra 23: Shabbos, Rosh Hashanah (Yom Teruah), Yom Kippur, Sukkos, Pesach, and Shavuos. On these days, most forms of labor (melacha) are forbidden, similar to Shabbos, though cooking for the Yom Tov itself is permitted (unlike Shabbos). These differ from Rabbinic holidays in their level of obligation: in cases of doubt, d\'Oraisa prohibitions are treated more strictly.'},
-      {h:'Shabbos', p:'Shabbos is the foundational holy day of the Jewish calendar, observed every week from Friday sundown to Shabbos night. The Torah mentions Shabbos repeatedly, and it is one of the Aseres HaDibros: "Zachor es yom haShabbos l\'kadsho" (Shemos 20:8) and "Shamor" (Devarim 5:12). The 39 melachos (prohibited categories of labor) are derived from the work performed in building the Mishkan. Shabbos begins with candle lighting 18 minutes before sunset. At home, Kiddush is recited over wine, two challos are used (zecher l\'man ha\'lechem mishneh — recalling the double portion of manna), and the Shabbos seudah (meal) is celebrated. Shabbos ends after nightfall with Havdalah — blessings over wine, besamim (spices), and a havdalah candle — separating the kedushah of Shabbos from the rest of the week.'},
-      {h:'Rosh Hashanah — Yom Teruah', p:'Rosh Hashanah, observed 1–2 Tishrei, is the Yom HaDin (Day of Judgment) and Yom HaZikaron (Day of Remembrance). The Torah calls it Yom Teruah — the Day of Shofar Blowing (Vayikra 23:24). According to the Gemara (Rosh Hashanah 16b), three books are opened: one for the completely righteous (immediately sealed for life), one for the completely wicked (sealed for death), and one for the majority of people whose fate is suspended until Yom Kippur. The central mitzvah of the day is shemias kol shofar — hearing 100 shofar blasts comprising tekiah, shevarim, teruah, and tekiah gedolah. The Mussaf Amidah contains three unique brachos: Malchiyos (God\'s kingship), Zichronos (remembrances), and Shofros (shofar). Tashlich is performed near a body of water to symbolically cast away aveiros.'},
-      {h:'Yom Kippur', p:'Yom Kippur, on 10 Tishrei, is the holiest day of the Jewish year — the one day when the Kohen Gadol entered the Kodesh HaKodashim (Holy of Holies). Five inuyim (self-denials) are observed: (1) no eating or drinking for 25 hours; (2) no washing for pleasure; (3) no anointing with oils or creams; (4) no wearing leather shoes; (5) no marital relations. The night begins with Kol Nidre, an Aramaic legal formula annulling future vows, sung to the famous haunting melody. Five tefillah services are davened: Maariv, Shacharis, Mussaf, Mincha, and Ne\'ilah. Ne\'ilah — the closing service unique to Yom Kippur — represents the closing of the Heavenly gates as the day ends. The day closes with a final shofar blast and "L\'shanah haba\'ah b\'Yerushalayim!" Yom Kippur atones only for aveiros between a person and the Ribono Shel Olam; aveiros against another person require first seeking mechilah directly from that person.'},
-      {h:'Sukkos', p:'Sukkos begins 15 Tishrei, just five days after Yom Kippur — illustrating how joy immediately follows teshuvah. It is called Z\'man Simchaseinu, the Season of Our Joy. Two primary mitzvos apply: dwelling in a sukkah and taking the arba minim. The sukkah is a temporary structure with s\'chach (organic plant covering) open to the sky, recalling the Clouds of Glory (or huts) that sheltered the Yidden in the midbar. The arba minim — esrog, lulav, three hadassim, and two aravos — are bound and waved in six directions (east, south, west, north, up, down), symbolizing God\'s presence everywhere. Hoshana Rabbah, the 7th day of Sukkos, is the final sealing of the Yom Kippur judgment — seven hakafos are made around the bimah with aravos. Shemini Atzeres (combined with Simchas Torah outside Israel) concludes the Yom Tov season with Tefillas Geshem (prayer for rain) and the completion and restarting of the annual Torah reading cycle.'},
-      {h:'Pesach', p:'Pesach begins 15 Nissan and commemorates Yetzias Mitzrayim — the Exodus from Egypt — the defining event of the Jewish people. The Torah commands a prohibition on chametz (leavened products) for the entire 7-day period (8 days in chutz la\'aretz), and eating matzah on the first night. Before Pesach, the home is thoroughly cleaned of all chametz; remaining chametz is sold through mechiyas chametz. The Seder — conducted the first night (and second night outside Eretz Yisrael) — follows the Haggadah through 15 structured steps, from Kaddesh through Nirtzah. The four kosos of wine represent the four expressions of geulah in Shemos 6:6–7. Matzah recalls both the lechem oni eaten in slavery and the haste of the Exodus. Maror recalls the bitterness of servitude. The core d\'Oraisa mitzvah of the evening is sipur Yetzias Mitzrayim — retelling the story of the Exodus.'},
-      {h:'Shavuos', p:'Shavuos, on 6 Sivan (7 in chutz la\'aretz), falls 49 days after the second day of Pesach at the conclusion of Sefirat HaOmer. The Torah does not explicitly state the reason for the holiday, but the Rabbis identified it with Matan Torah — the giving of the Torah at Har Sinai. It is also called Chag HaBikkurim (when farmers would bring first fruits to the Beis HaMikdash) and Atzeres (the conclusion of the Pesach season). The widespread custom of learning Torah all night (Tikkun Leil Shavuos) originated in kabbalistic tradition, symbolizing our eagerness to receive the Torah — making up for the dor hamidbar that fell asleep the night before Matan Torah. The custom of eating dairy foods on Shavuos has many explanations: upon receiving the Torah, the Yidden hadn\'t yet set up kosher slaughter, so they ate dairy; the gematria of chalav (milk) equals 40, corresponding to the 40 days Moshe spent on Har Sinai.'},
+      {h:'What Are D\'Oraisa Holidays?', b:[
+        'D\'Oraisa (from Aramaic: "from the Torah") — commandments written explicitly in the Torah itself; the highest level of halachic obligation',
+        'Six Biblical holidays commanded in Vayikra 23: Shabbos, Rosh Hashanah (Yom Teruah), Yom Kippur, Sukkos, Pesach, and Shavuos',
+        'On these days, most forms of melacha (labor) are forbidden — similar to Shabbos',
+        'Exception: cooking for the Yom Tov itself is permitted on Yom Tov (unlike Shabbos)',
+        'In cases of doubt, d\'Oraisa prohibitions are treated more strictly than Rabbinic ones',
+      ]},
+      {h:'Shabbos', b:[
+        'Observed every week from Friday sundown to Shabbos night — the foundational holy day of the Jewish calendar',
+        'One of the Aseres HaDibros: "Zachor es yom haShabbos l\'kadsho" (Shemos 20:8) and "Shamor" (Devarim 5:12)',
+        '39 melachos (prohibited categories of labor) derived from the work performed in building the Mishkan',
+        'Begins with candle lighting 18 minutes before sunset',
+        'At home: Kiddush over wine, two challos (zecher l\'man ha\'lechem mishneh — recalling the double portion of manna in the midbar), Shabbos seudah',
+        'Ends after nightfall with Havdalah — blessings over wine, besamim (spices), and a braided candle — separating the kedushah of Shabbos from the weekday',
+      ]},
+      {h:'Rosh Hashanah — Yom Teruah', b:[
+        'Observed 1–2 Tishrei · Yom HaDin (Day of Judgment) and Yom HaZikaron (Day of Remembrance)',
+        'The Torah calls it simply Yom Teruah — Day of Shofar Blowing (Vayikra 23:24); the themes of judgment and new year are Rabbinic',
+        'Three books opened (Rosh Hashanah 16b): righteous sealed for life, wicked for death, most people suspended until Yom Kippur',
+        'Central mitzvah: shemias kol shofar — hearing 100 shofar blasts (tekiah, shevarim, teruah, tekiah gedolah)',
+        'Mussaf Amidah includes three unique brachos: Malchiyos (God\'s kingship), Zichronos (remembrances), Shofros (shofar calls)',
+        'Tashlich: casting breadcrumbs into a body of water, symbolically casting away aveiros',
+      ]},
+      {h:'Yom Kippur', b:[
+        'Holiest day of the Jewish year — 10 Tishrei · The one day the Kohen Gadol entered the Kodesh HaKodashim',
+        'Five inuyim (self-denials): no eating/drinking (25 hours) · no washing for pleasure · no anointing with oils · no leather shoes · no marital relations',
+        'Night begins with Kol Nidre — an Aramaic legal formula annulling future vows, sung to the haunting melody',
+        'Five tefillah services: Maariv, Shacharis, Mussaf, Mincha, Ne\'ilah',
+        'Ne\'ilah — the closing service unique to Yom Kippur — represents the closing of the Heavenly gates; the day ends with a final shofar blast',
+        'Yom Kippur atones only for aveiros between a person and Hashem; aveiros against another person require seeking mechilah directly from that person first',
+      ]},
+      {h:'Sukkos', b:[
+        'Begins 15 Tishrei, five days after Yom Kippur — Z\'man Simchaseinu, the Season of Our Joy',
+        'Two primary mitzvos: dwelling in a sukkah and taking the arba minim (four species)',
+        'Sukkah: temporary structure with s\'chach (organic plant covering) open to the sky, recalling the Clouds of Glory in the midbar',
+        'Arba minim: esrog, lulav, three hadassim, two aravos — bound together and waved in six directions, symbolizing God\'s presence everywhere',
+        'Hoshana Rabbah (7th day): the final sealing of the Yom Kippur judgment; seven hakafos around the bimah with aravos',
+        'Shemini Atzeres/Simchas Torah: Tefillas Geshem (prayer for rain) + completion and restarting of the annual Torah reading cycle',
+      ]},
+      {h:'Pesach', b:[
+        'Begins 15 Nissan · Commemorates Yetzias Mitzrayim — the Exodus from Egypt, the defining event of the Jewish people',
+        'Torah prohibits chametz (leavened products) for 7 days (8 in chutz la\'aretz); matzah must be eaten on the first night',
+        'Before Pesach: thorough cleaning of chametz from the home; remaining chametz is sold through mechiyas chametz',
+        'The Seder follows the Haggadah through 15 structured steps (Kaddesh through Nirtzah)',
+        'Four kosos (cups of wine) represent the four expressions of geulah in Shemos 6:6–7',
+        'Matzah: recalls both the lechem oni of slavery and the haste of the Exodus · Maror: recalls the bitterness of servitude',
+        'Core d\'Oraisa mitzvah of the evening: sipur Yetzias Mitzrayim — retelling the story of the Exodus',
+      ]},
+      {h:'Shavuos', b:[
+        '6 Sivan (7 in chutz la\'aretz) — 49 days after the second day of Pesach, at the conclusion of Sefirat HaOmer',
+        'The Torah gives no explicit reason for the holiday; the Rabbis identified it with Matan Torah — the giving of the Torah at Har Sinai',
+        'Also called: Chag HaBikkurim (first fruits brought to the Beis HaMikdash) · Atzeres (the conclusion of the Pesach season)',
+        'Tikkun Leil Shavuos: the custom of learning Torah all night, symbolizing eagerness to receive the Torah',
+        'Dairy foods: widely eaten on Shavuos — upon receiving the Torah, the Yidden hadn\'t yet set up kosher slaughter; also, gematria of chalav (milk) = 40, corresponding to Moshe\'s 40 days on Har Sinai',
+      ]},
     ],
     cards: [
       {id:'do01', q:"What does D'Oraisa mean?",         a:"From the Torah — a Biblical commandment",              note:'From Aramaic "Oraita" (Torah) · The highest level of Jewish law obligation · Cannot be overridden'},
@@ -679,11 +750,46 @@ const DECKS = [
     emoji: '🕎',
     desc: 'Holidays instituted by the Rabbis through their Torah authority',
     guide: [
-      {h:'What Are D\'Rabbanan Holidays?', p:'D\'Rabbanan (from Aramaic: "from the Rabbis") refers to commandments instituted by Chazal — not written explicitly in the Torah but authorized through the verse "Lo sasur min hadavar asher yagidu lecha" — Do not deviate from what they tell you (Devarim 17:11). While technically a lower level of halachic obligation than d\'Oraisa commandments, Rabbinic enactments are fully binding and must be observed. The principle of safek d\'Rabbanan l\'kula (in doubt regarding Rabbinic law, we are lenient) applies, though this does not diminish the obligation itself. The Rabbinic holidays were instituted to commemorate miraculous events in later Jewish history, when the Anshei Knesses HaGedolah and subsequent Rabbinic authorities exercised their God-given legislative authority.'},
-      {h:'Chanukah', p:'Chanukah ("dedication") commemorates the rededication of the Beis HaMikdash by the Chashmonaim in 165 BCE, following its desecration by Antiochus IV and the Seleucid Greeks, who had banned Torah study, Shabbos observance, and bris milah. The Chashmonaim — kohanim led by Mattisyahu and his sons (particularly Yehudah HaMaccabi) — defeated the vastly larger Greek forces in a series of miraculous military victories. Upon rededicating the Beis HaMikdash, they found only one flask of pure olive oil with the Kohen Gadol\'s seal — enough for one day — but it burned miraculously for eight days until new pure oil could be prepared. The central mitzvah is pirsumei nissa (publicizing the miracle) by lighting the menorah each night in a visible location. We add one candle each night, lighting from left to right. The shamash (helper candle) is used to light the others. Hallel is recited all eight days. There is no prohibition on melacha, though women have a minhag to refrain from work while the candles burn. Al HaNissim is added to Shemoneh Esrei and Bircas HaMazon.'},
-      {h:'Purim', p:'Purim (14 Adar; 15 Adar in ancient walled cities like Yerushalayim — Shushan Purim) commemorates the salvation of Klal Yisrael from Haman\'s gezeiras hashmatah (decree of annihilation) in Persia, as recorded in Megillas Esther. Haman, the Prime Minister of King Achashveirosh, secured a royal decree to destroy all Jews on 13 Adar. Through the mesirus nefesh of Esther and the guidance of Mordechai, the decree was reversed. Purim has four core mitzvos: (1) Mikra Megillah — hearing the Megillah read twice (night and morning); (2) Mishloach Manos — sending at least two ready-to-eat foods to at least one person; (3) Matanos L\'evyonim — giving tzedakah to at least two poor people; (4) Seudas Purim — a festive meal, ideally during the day. The custom of wearing costumes reflects the theme of nistaros (hidden things) — the name of God does not appear explicitly in the Megillah, mirroring the hidden nature of the miracle. The famous Talmudic statement (Megillah 7b) about drinking "ad d\'lo yada" — until one cannot distinguish between "arur Haman" and "baruch Mordechai" — is the subject of much halachic discussion.'},
-      {h:'Rosh Chodesh', p:'Rosh Chodesh (the New Month) was originally sanctified when two witnesses testified before the Sanhedrin that they had seen the new moon, and the Sanhedrin would formally declare the month. Following the disruption of the Sanhedrin system, Hillel II established the fixed calendar in 358 CE. Rosh Chodesh falls on the 1st of each Hebrew month (and also on the 30th of months that have 30 days). Special additions to davening include chatzi Hallel, Mussaf, and Ya\'aleh V\'Yavo in Shemoneh Esrei and Bircas HaMazon. The Haftarah of Machar Chodesh is read when Rosh Chodesh falls on Sunday (since the Shabbos before is Erev Rosh Chodesh). Women have a minhag to refrain from certain melachos on Rosh Chodesh, as a reward for their refusal to donate jewelry for the Eigel HaZahav (Golden Calf). The Shabbos before Rosh Chodesh is Shabbos Mevarchim — the new month is announced and a special tefillah is recited.'},
-      {h:'Chol HaMoed', p:'Chol HaMoed refers to the intermediate days of Pesach (days 2–6) and Sukkos (days 2–6), sandwiched between the full Yom Tov days. The days carry a unique status — neither completely weekday nor full Yom Tov. The Rabbis restricted certain types of melacha, particularly labor that is not necessary for the Yom Tov, not urgent, or that could have been performed before the Yom Tov. Labor necessary for food preparation, prevention of significant financial loss (davar ha\'aveid), or communal needs is permitted. Hallel is recited (chatzi Hallel on Pesach Chol HaMoed; full Hallel on Sukkos Chol HaMoed), and Mussaf is added. Writing is a common area of halachic discussion: forbidden for non-essential purposes but permitted for business needs that cannot be delayed. The Zohar says one who treats Chol HaMoed like a weekday has no share in the World to Come — an indication of the gravity with which the Rabbis viewed its observance. The prevailing minhag is to treat Chol HaMoed with Yom Tov-like seriousness — wearing nicer clothing, avoiding unnecessary work, and spending time in Torah study and family celebration.'},
+      {h:'What Are D\'Rabbanan Holidays?', b:[
+        'D\'Rabbanan (from Aramaic: "from the Rabbis") — commandments instituted by Chazal, not written explicitly in the Torah',
+        'Authorized by: "Lo sasur min hadavar asher yagidu lecha" — Do not deviate from what they tell you (Devarim 17:11)',
+        'Lower technical level than d\'Oraisa, but fully binding and obligatory',
+        'Principle of safek d\'Rabbanan l\'kula: in cases of doubt about a Rabbinic law, we are lenient (unlike d\'Oraisa, where we are strict in doubt)',
+        'Rabbinic holidays commemorate miraculous events in later Jewish history — Chanukah, Purim, etc.',
+      ]},
+      {h:'Chanukah', b:[
+        '"Dedication" — commemorates the rededication of the Beis HaMikdash by the Chashmonaim in 165 BCE',
+        'Background: Antiochus IV and the Seleucid Greeks banned Torah study, Shabbos, and bris milah; defiled the Beis HaMikdash with idol worship',
+        'The Chashmonaim (kohanim led by Mattisyahu and Yehudah HaMaccabi) defeated the vastly larger Greek forces miraculously',
+        'Upon rededicating the Beis HaMikdash, they found only one flask of pure oil — enough for one day — which burned miraculously for eight days',
+        'Central mitzvah: pirsumei nissa (publicizing the miracle) — lighting the menorah each night in a visible location',
+        'One candle added each night; light from left to right (newest first); shamash (helper candle) used to light the others',
+        'Hallel recited all eight days · No melacha prohibition · Al HaNissim added to Shemoneh Esrei and Bircas HaMazon',
+      ]},
+      {h:'Purim', b:[
+        '14 Adar (15 Adar in ancient walled cities — Shushan Purim) — commemorates the salvation from Haman\'s decree to annihilate all Jews in Persia',
+        'Haman secured a royal decree from Achashveirosh to destroy all Jews on 13 Adar; through Esther\'s mesirus nefesh and Mordechai\'s guidance, it was reversed',
+        'Four core mitzvos: (1) Mikra Megillah — hear the Megillah read twice (night and morning) · (2) Mishloach Manos — send two ready-to-eat foods to at least one person',
+        '(3) Matanos L\'evyonim — give tzedakah to at least two poor people · (4) Seudas Purim — festive meal, ideally during the day',
+        'Costumes reflect the theme of nistaros (hidden things): God\'s name does not appear in the Megillah, mirroring the hidden nature of the miracle',
+        '"Ad d\'lo yada" — the Talmudic statement (Megillah 7b) about drinking until one cannot distinguish "arur Haman" from "baruch Mordechai" — is subject to much halachic discussion',
+      ]},
+      {h:'Rosh Chodesh', b:[
+        'The new month — originally sanctified when two witnesses testified before the Sanhedrin that they saw the new moon',
+        'After the Sanhedrin\'s disruption, Hillel II established the fixed mathematical calendar in 358 CE',
+        'Falls on the 1st of each Hebrew month; when the previous month had 30 days, also on the 30th of that month',
+        'Special davening additions: chatzi Hallel, Mussaf Amidah, Ya\'aleh V\'Yavo in Shemoneh Esrei and Bircas HaMazon',
+        'Women have a minhag to refrain from certain melachos on Rosh Chodesh — a reward for their refusal to donate jewelry for the Eigel HaZahav',
+        'Shabbos before Rosh Chodesh = Shabbos Mevarchim: the new month is announced and a special tefillah is recited',
+      ]},
+      {h:'Chol HaMoed', b:[
+        'Intermediate days of Pesach (days 2–6) and Sukkos (days 2–6) — a unique status, neither full weekday nor full Yom Tov',
+        'Certain melachos are Rabbinically restricted, particularly labor not needed for the Yom Tov, not urgent, or that could have been done beforehand',
+        'Permitted: food preparation, labor to prevent significant financial loss (davar ha\'aveid), communal needs',
+        'Davening: Hallel (chatzi on Pesach Chol HaMoed; full on Sukkos Chol HaMoed) + Mussaf · Ya\'aleh V\'Yavo in Shemoneh Esrei',
+        'Writing is a common halachic discussion: forbidden for non-essential purposes; permitted for business needs that cannot be delayed',
+        'The Zohar: one who treats Chol HaMoed like a weekday has no share in the World to Come — treat it with Yom Tov-like seriousness',
+      ]},
     ],
     cards: [
       {id:'dr01', q:"What does D'Rabbanan mean?",  a:"From the Rabbis — a Rabbinic commandment",          note:'"Do not deviate from what they tell you" (Devarim 17:11) gives Rabbis authority · Still obligatory, but a lower level of obligation than D\'Oraisa'},
@@ -703,11 +809,47 @@ const DECKS = [
     emoji: '🕯️',
     desc: 'The Jewish fast days and their historical significance',
     guide: [
-      {h:'The Purpose of Fasting', p:'Jewish fast days serve as communal days of introspection, aveilus (mourning), and teshuvah. The Rambam (Mishneh Torah, Hilchos Taanis 5:1) explains that the fast days marking historical tragedies are not merely commemorations — they are a call to examine our actions and recognize that our sins caused these calamities, just as they did for the generation that experienced them. Treating a fast as a mere historical observance misses its essential purpose. On fast days, the body is subdued so that the neshamah can focus on teshuvah and tefillah. The Navi Yeshayahu (58) delivers a sharp rebuke: Hashem does not desire external fasting without internal change — He desires justice, kindness, and true repentance. The faster the Yidden do teshuvah, the Rambam writes, the faster the geulah will come.'},
-      {h:'Yom Kippur — The Major Fast', p:'As a d\'Oraisa commandment, Yom Kippur stands apart from all other fast days. The fast lasts approximately 25 hours — from before sunset through nightfall the following day. Unlike the minor Rabbinic fasts, Yom Kippur includes all five inuyim: no eating or drinking, no washing for pleasure, no anointing with oils or lotions, no wearing leather shoes, and no shalom bayis relations. The prohibition on eating and drinking is total — even a sip of water is assur for a healthy adult. Minors below bar/bas mitzvah do not fast (although they are trained gradually as they approach bar/bas mitzvah). Pikuach nefesh — danger to life — overrides Yom Kippur; a person whose doctor determines they must eat is required to do so, preferably in small increments (shiurim). The prayers of Yom Kippur center on vidui (confession of sin), recited communally and privately, and repeated across multiple tefillos throughout the day.'},
-      {h:'Tisha B\'Av — National Day of Mourning', p:'Tisha B\'Av (9 Av) is the greatest day of national mourning in the Jewish calendar. The Gemara (Taanis 29a) records five calamities that occurred on this day: Hashem decreed that the Dor HaMidbar would die in the desert due to the sin of the Meraglim (1313 BCE); the First Beis HaMikdash was destroyed by Nebuchadnezzar (586 BCE); the Second Beis HaMikdash was destroyed by the Romans (70 CE); the fortress of Beitar (Bar Kochba\'s last stronghold) fell (135 CE); and the Romans plowed over Yerushalayim. Historically, the Spanish Expulsion of 1492 also occurred on or around Tisha B\'Av. The fast lasts 25 hours, and all five Yom Kippur inuyim apply. Megillas Eichah is leined at night. Kinos (elegies) are recited the following morning while sitting on the floor. Torah study is restricted (since Torah brings joy), with exceptions for sad topics: Eichah, the laws of aveilus, and the relevant sections of Yirmiyahu and Iyov. Tisha B\'Av falls within the Three Weeks (Shiva Asar B\'Tammuz through 9 Av), during which weddings and certain simchos are avoided; the Nine Days (1–9 Av) add restrictions on meat, wine, bathing, and new clothing.'},
-      {h:'The Minor Fasts', p:'The four minor fasts — Shiva Asar B\'Tammuz, Tzom Gedaliah, Asara B\'Teves, and Ta\'anis Esther — each last from alos hashachar (dawn) to tzeis hakochavim (nightfall), unlike the 25-hour major fasts. Shiva Asar B\'Tammuz (17 Tammuz) marks the breach of Yerushalayim\'s walls before each Temple\'s destruction, beginning the Three Weeks of mourning. Tzom Gedaliah (3 Tishrei, pushed to 4th when the 3rd is Shabbos) commemorates the assassination of Gedaliah ben Achikam — the last Jewish governor appointed after the First Temple\'s destruction — an event that extinguished the final ember of Jewish autonomy in Eretz Yisrael and sent the remaining Jews into exile in Egypt against Yirmiyahu\'s warning. Asara B\'Teves (10 Teves) marks the beginning of Nevuchadnezzar\'s siege of Yerushalayim, the chain of events leading to the First Temple\'s destruction; uniquely, it is one of the few fasts that can fall on a Friday (and is observed even then). Ta\'anis Esther (13 Adar, pushed to 11th when the 13th is Shabbos) recalls the three-day fast Esther called before approaching Achashveirosh. Pregnant women, nursing mothers, and the ill may be exempt from minor fasts — a posek should be consulted for individual situations.'},
-      {h:'Ta\'anis Bechorot — Fast of the Firstborns', p:'The Fast of the Firstborns on 14 Nissan (Erev Pesach) is unique in character and observance. It commemorates the miracle of Makas Bechoros — the Plague of the Firstborn — in which Egyptian firstborns were struck down while the Jewish firstborns were spared. In practice, the vast majority of firstborns do not actually fast. The widespread minhag is to participate in a siyum — the completion of a masechta (tractate) of Talmud or other Torah text — which creates a seudas mitzvah (celebratory meal) that overrides the fast. This is why shuls commonly hold a siyum on Erev Pesach morning. The fast is somewhat unusual halachically: it is more a minhag (custom) than a formal Rabbinic enactment, and its precise basis is debated among the poskim (halachic authorities). Given that Erev Pesach is already an extremely busy day with final Pesach preparations, the siyum exemption is widely relied upon.'},
+      {h:'The Purpose of Fasting', b:[
+        'Fast days are communal days of introspection, aveilus (mourning), and teshuvah',
+        'The Rambam (Hilchos Taanis 5:1): fast days are not mere historical commemorations — they call us to examine our actions and recognize that our sins caused these calamities',
+        'Treating a fast as only a historical observance misses its essential purpose',
+        'On fast days, the body is subdued so the neshamah can focus on teshuvah and tefillah',
+        'Yeshayahu 58: Hashem does not desire external fasting without internal change — He desires justice, kindness, and true repentance',
+        'The Rambam writes: the faster the Yidden do teshuvah, the faster the geulah will come',
+      ]},
+      {h:'Yom Kippur — The Major Fast', b:[
+        'D\'Oraisa commandment — stands apart from all other fast days in its level of obligation and severity',
+        'Lasts ~25 hours: from before sunset through nightfall the following day',
+        'All five inuyim apply: no eating/drinking · no washing for pleasure · no anointing with oils · no leather shoes · no marital relations',
+        'Eating and drinking prohibition is total — even a sip of water is assur for a healthy adult',
+        'Minors below bar/bas mitzvah do not fast (trained gradually as they approach bar/bas mitzvah)',
+        'Pikuach nefesh (danger to life) overrides Yom Kippur; if a doctor says one must eat, they are required to — preferably in small increments (shiurim)',
+        'Tefillah centers on vidui (confession) — recited communally and privately, repeated across all five services of the day',
+      ]},
+      {h:'Tisha B\'Av — National Day of Mourning', b:[
+        'The greatest day of national mourning in the Jewish calendar — 9 Av',
+        'Five calamities on this day (Taanis 29a): decree that the Dor HaMidbar die in the desert (1313 BCE) · First Beis HaMikdash destroyed (586 BCE) · Second Beis HaMikdash destroyed (70 CE) · Beitar fell (135 CE) · Yerushalayim plowed over · Also: Spanish Expulsion (1492)',
+        '25-hour fast · All five Yom Kippur inuyim apply',
+        'Megillas Eichah leined at night · Kinos (elegies) recited the following morning while sitting on the floor',
+        'Torah study restricted (Torah brings joy) — exceptions: Eichah, laws of aveilus, sections of Yirmiyahu and Iyov',
+        'Context: falls within the Three Weeks (17 Tammuz–9 Av) — weddings and simchos avoided · The Nine Days (1–9 Av): no meat/wine, no bathing, no new clothing',
+      ]},
+      {h:'The Minor Fasts', b:[
+        'Four minor fasts: Shiva Asar B\'Tammuz · Tzom Gedaliah · Asara B\'Teves · Ta\'anis Esther',
+        'All last from alos hashachar (dawn) to tzeis hakochavim (nightfall) — unlike the 25-hour major fasts',
+        'Shiva Asar B\'Tammuz (17 Tammuz): breach of Yerushalayim\'s walls; begins the Three Weeks of mourning',
+        'Tzom Gedaliah (3 Tishrei): assassination of Gedaliah ben Achikam — last Jewish governor after the First Temple\'s destruction; extinguished the final ember of Jewish autonomy in Eretz Yisrael',
+        'Asara B\'Teves (10 Teves): beginning of Nevuchadnezzar\'s siege; one of the few fasts that can fall on a Friday and is still observed',
+        'Ta\'anis Esther (13 Adar): recalls the three-day fast Esther called before approaching Achashveirosh',
+        'Pregnant women, nursing mothers, and the ill may be exempt — consult a posek for individual situations',
+      ]},
+      {h:'Ta\'anis Bechorot — Fast of the Firstborns', b:[
+        '14 Nissan (Erev Pesach) — commemorates Makas Bechoros, in which Egyptian firstborns were struck down while Jewish firstborns were spared',
+        'Halachic status: more a minhag (custom) than a formal Rabbinic enactment — its precise basis is debated among the poskim',
+        'In practice, most firstborns do not actually fast',
+        'The widespread minhag: participate in a siyum (completion of a masechta or other Torah text), which creates a seudas mitzvah that overrides the fast',
+        'Shuls commonly hold a siyum on Erev Pesach morning specifically for this purpose',
+      ]},
     ],
     cards: [
       {id:'fa01', q:'Yom Kippur',             a:"Major fast · D'Oraisa · 10 Tishrei · 25 hours",          note:'The only D\'Oraisa fast · 5 prohibitions: eating/drinking, washing, anointing, leather shoes, marital relations · Most serious fast of the year'},
@@ -728,7 +870,13 @@ const DECKS = [
     emoji: '🇮🇱',
     desc: 'Modern commemorations in the Jewish calendar',
     guide: [
-      {h:'Israeli National Days', p:'The State of Israel observes several national memorial and celebration days that do not appear in the traditional halachic calendar but have become significant — particularly in Religious Zionist and Modern Orthodox communities. These days commemorate the Holocaust, fallen soldiers, Israel\'s independence, and the reunification of Jerusalem. Their religious status is a matter of ongoing discussion among poskim and communities: some observe them with full Hallel and prayer, others observe them culturally but not religiously, and some Charedi communities do not observe them as religious occasions at all. This is an area where it is important to understand both the historical significance of these days and the spectrum of approaches within Orthodox Judaism, and to follow the guidance of your own rav and community.'},
+      {h:'Israeli National Days', b:[
+        'National memorial and celebration days observed in the State of Israel — not part of the traditional halachic calendar',
+        'Particularly significant in Religious Zionist and Modern Orthodox communities',
+        'Four key days: Yom HaShoah (Holocaust) · Yom HaZikaron (fallen soldiers) · Yom HaAtzmaut (independence) · Yom Yerushalayim (reunification of Jerusalem)',
+        'Religious status varies widely: some communities observe with Hallel and special tefillah · others observe culturally but not religiously · some Charedi communities do not observe as religious occasions',
+        'Important to understand both the historical significance and the spectrum of approaches — follow your own rav and community',
+      ]},
     ],
     cards: [
       {id:'il01', q:'Yom HaShoah',     a:'Holocaust Remembrance Day · 27 Nissan',    note:'Full name: Yom HaShoah V\'HaGvurah (Holocaust and Heroism Remembrance Day) · Established by Israeli Knesset, 1951 · Sirens sound in Israel; all activity stops · In Israel, moved if 27 Nissan falls near Shabbat'},
@@ -746,7 +894,14 @@ const DECKS = [
     emoji: '📜',
     desc: 'The major periods of Jewish learning — Zugot through Acharonim',
     guide: [
-      {h:'The Chain of Transmission', p:'One of the foundational principles of Torah Judaism is the unbroken chain of transmission — Torah she\'b\'al peh (the Oral Torah) was given at Sinai alongside the Written Torah and passed down from teacher to student through every generation. The Mishnah in Pirkei Avos opens: "Moshe received the Torah from Sinai and transmitted it to Yehoshua; Yehoshua to the Elders; the Elders to the Prophets; the Prophets transmitted it to the Men of the Great Assembly." This chain continues through the eras of Jewish scholarship, each with its own characteristics, authority, and halachic weight. A critical principle underlying all of halachah is yeridat hadorot — the concept that each succeeding generation stands on a slightly lower spiritual and intellectual plane than the previous. This is why later authorities are generally more cautious about disagreeing with earlier ones: a Rishon does not rule against a Gaon; an Acharon does not typically rule against a Rishon. Understanding the eras of scholarship is therefore not merely historical trivia — it is the key to understanding how halachic authority works and why certain opinions carry more weight than others.'},
+      {h:'The Chain of Transmission', b:[
+        'The Oral Torah was given at Sinai alongside the Written Torah and passed down from teacher to student in every generation',
+        'Pirkei Avos opens: "Moshe received Torah from Sinai → Yehoshua → the Elders → the Prophets → the Men of the Great Assembly"',
+        'Each era of scholarship has its own characteristics, authority level, and halachic weight',
+        'Yeridat hadorot: each succeeding generation stands on a slightly lower spiritual/intellectual plane than the previous',
+        'Practical consequence: later authorities are cautious about overruling earlier ones — a Rishon doesn\'t rule against a Gaon; an Acharon doesn\'t typically rule against a Rishon',
+        'Understanding these eras is not merely historical — it is the key to understanding how halachic authority and precedent actually work',
+      ]},
     ],
     cards: [
       {id:'re01', q:'Zugot (זוּגוֹת)',         a:'"Pairs" · ~200 BCE – 10 CE',              note:'Five pairs of scholars who led the Sanhedrin · Culminates in Hillel and Shammai · Their disputes are woven throughout the Mishnah'},
@@ -769,7 +924,14 @@ const DECKS = [
     emoji: '👨‍🏫',
     desc: 'The great sages of the Mishnaic era (10–220 CE)',
     guide: [
-      {h:'Who Were the Tannaim?', p:'The Tannaim (singular: Tanna, from the Aramaic for "one who repeats/teaches") were the Rabbinic sages whose legal opinions and teachings are recorded in the Mishnah and in collections of parallel literature called Baraisos. They lived roughly from 10 CE to 220 CE — the period spanning from the generation after Hillel and Shammai through Rabbi Yehudah HaNasi, who compiled the Mishnah. The Tannaim are divided into five (or six) generations, each building on the previous. Their period was one of enormous upheaval: the destruction of the Second Beis HaMikdash in 70 CE, the exile of the Sanhedrin, the failure of Bar Kochba\'s revolt in 135 CE, and the beginning of the Roman exile. Despite — or because of — these tragedies, the Tannaim produced the foundational written record of the Oral Torah. A key halachic principle: Amoraim (the next generation of sages) cannot overrule the opinion of a Tanna, even if many Amoraim agree. The Tannaim represent a level of authority that closes with Rabbi Yehudah HaNasi\'s compilation of the Mishnah.'},
+      {h:'Who Were the Tannaim?', b:[
+        '"Tanna" — from Aramaic for "one who repeats/teaches"; the sages whose opinions are recorded in the Mishnah and Baraisos (~10–220 CE)',
+        'Divided into five (or six) generations, each building on the previous',
+        'Their era saw enormous upheaval: destruction of the Second Beis HaMikdash (70 CE) · failure of Bar Kochba\'s revolt (135 CE) · beginning of the Roman exile',
+        'Despite these tragedies, the Tannaim produced the foundational written record of the Oral Torah',
+        'Key halachic rule: Amoraim cannot overrule a Tanna\'s opinion — even if many Amoraim agree, the Tanna\'s position generally prevails',
+        'The Tannaitic era closes with Rabbi Yehudah HaNasi\'s compilation of the Mishnah (~220 CE)',
+      ]},
     ],
     cards: [
       {id:'ta01', q:'Hillel HaZaken',             a:'1st generation · Founded Beit Hillel · ~110 BCE – 10 CE',  note:'"What is hateful to you, do not do to others — that is the whole Torah; the rest is commentary, go and learn" · Known for extreme patience and welcoming converts'},
@@ -792,7 +954,15 @@ const DECKS = [
     emoji: '🏛️',
     desc: 'The great sages of the Talmudic era (220–500 CE)',
     guide: [
-      {h:'Who Were the Amoraim?', p:'The Amoraim (singular: Amora, from Aramaic for "one who speaks/interprets") were the Rabbinic sages who analyzed and debated the Mishnah, whose discussions form the Gemara. They flourished from approximately 220 CE through 500 CE, across two major centers: Eretz Yisrael (producing the Talmud Yerushalmi) and Babylonia (producing the Talmud Bavli, which became the authoritative Talmud). The Amoraim are divided into roughly six or seven generations. Unlike the Tannaim, Amoraim did not have the authority to dispute a Mishnaic ruling directly — they could only interpret, reconcile, or narrow its application. When a Tanna and an Amora appear to disagree, the Tanna\'s position generally prevails. The most frequently cited Amoraic debates in the Bavli are between Abaye and Rava (4th generation) — so frequently that their disputes are called "Yalei v\'Yalei" (back and forth). The period ends when Rav Ashi and Ravina closed the Gemara, and subsequent editing fell to the Savoraim.'},
+      {h:'Who Were the Amoraim?', b:[
+        '"Amora" — from Aramaic for "one who speaks/interprets"; the sages who analyzed and debated the Mishnah, forming the Gemara (~220–500 CE)',
+        'Two major centers: Eretz Yisrael (produced the Talmud Yerushalmi) and Babylonia (produced the Talmud Bavli — the authoritative Talmud)',
+        'Divided into roughly six or seven generations',
+        'Amoraim could not dispute a Mishnaic ruling directly — they could only interpret, reconcile, or narrow its application',
+        'When a Tanna and an Amora appear to disagree, the Tanna\'s position prevails',
+        'Most frequently cited Amoraic debates: Abaye and Rava (4th generation) — their disputes are called "Yalei v\'Yalei"',
+        'Era closes when Rav Ashi and Ravina sealed the Gemara (~500 CE); subsequent editing fell to the Savoraim',
+      ]},
     ],
     cards: [
       {id:'am01', q:'Rav (Abba Arikha)',          a:'1st generation Babylonian Amora · Founded the Sura academy · ~175–247 CE',note:'Student of Rebbi · Brought deep Torah scholarship to Babylonia · Often debates Shmuel in the Talmud · "Rav" alone refers to him'},
@@ -815,7 +985,14 @@ const DECKS = [
     emoji: '📖',
     desc: 'The Chumash — themes, structure, and key events',
     guide: [
-      {h:'The Five Books of the Torah', p:'The Chamisha Chumshei Torah — the Five Books of the Torah — are the core of the entire Jewish canon. They were given by the Ribono Shel Olam to Moshe Rabbeinu at Har Sinai (and in the Ohel Moed throughout the 40 years in the midbar), and were transmitted by Moshe to the Jewish people. The Torah contains 613 mitzvos, 54 parshiyos, and 5,845 pesukim (verses). It is divided into 54 parshiyos for the weekly Shabbos reading cycle, which is completed annually on Simchas Torah. In shul, the Torah is leined from a handwritten parchment scroll (a sefer Torah) with no vowels or cantillation marks — the ba\'al koreh must know the correct pronunciation from training and tradition. Each of the five books has its own themes, major narratives, and halachic content. The Rambam rules that belief in the divine authorship of the Torah — that every word came from Hashem — is one of the 13 Foundations of Jewish Faith.'},
+      {h:'The Five Books of the Torah', b:[
+        'The Chamisha Chumshei Torah — the core of the entire Jewish canon',
+        'Given by the Ribono Shel Olam to Moshe Rabbeinu at Har Sinai and throughout the 40 years in the midbar',
+        '613 mitzvos · 54 parshiyos · 5,845 pesukim (verses)',
+        'Divided into 54 parshiyos for the weekly Shabbos reading cycle, completed annually on Simchas Torah',
+        'In shul, the Torah is leined from a handwritten sefer Torah with no vowels or cantillation marks — the ba\'al koreh must know correct pronunciation from training and tradition',
+        'The Rambam\'s 8th Principle of Faith: belief that the entire Torah was given by Hashem to Moshe — "Torah min hashamayim"',
+      ]},
     ],
     cards: [
       {id:'fb01', q:'Bereishit (בְּרֵאשִׁית)',  a:'Genesis — "In the beginning" · 50 chapters · 12 parshiyot',  note:'Creation → Avraham → Yitzchak → Yaakov → 12 Tribes → Joseph in Egypt · The book of beginnings — world, humanity, and the Jewish people'},
@@ -836,7 +1013,15 @@ const DECKS = [
     emoji: '📚',
     desc: "Nevi'im (Prophets) and Ketuvim (Writings) — the 24 books of Tanach beyond the Torah",
     guide: [
-      {h:'What Is Nach?', p:'Nach is an acronym for Nevi\'im (Prophets) and Kesuvim (Writings) — together with the Torah, they form the TaNaCh (Torah, Nevi\'im, Kesuvim), the complete Hebrew Bible. The Jewish canon contains 24 books in total (though some, like Shmuel and Melachim, are split into two in English Bibles). Nevi\'im is further divided into Nevi\'im Rishonim (Early Prophets: Yehoshua, Shoftim, Shmuel, Melachim) and Nevi\'im Acharonim (Later Prophets: Yeshayahu, Yirmiyahu, Yechezkel, and Trei Asar — the 12 Minor Prophets, counted as one book). Kesuvim includes the three poetical Sifrei Emes (Tehillim, Mishlei, Iyov), the Chamesh Megilos (Shir HaShirim, Rus, Eichah, Koheles, Esther), and the later historical books (Daniel, Ezra-Nechemiah, Divrei HaYamim). The canon was sealed by the Anshei Knesses HaGedolah around 450–400 BCE; Malachi was the last of the prophets. While Nach does not carry the same absolute authority as the Torah, it is considered the word of Hashem through the nevii\'im, and studying it is a fundamental part of a Torah education.'},
+      {h:'What Is Nach?', b:[
+        'Nach = Nevi\'im (Prophets) + Kesuvim (Writings) · Together with Torah = TaNaCh — the complete Hebrew Bible',
+        '24 books total in the Jewish canon',
+        'Nevi\'im Rishonim (Early Prophets): Yehoshua, Shoftim, Shmuel, Melachim — historical narrative',
+        'Nevi\'im Acharonim (Later Prophets): Yeshayahu, Yirmiyahu, Yechezkel, Trei Asar (the 12 Minor Prophets, counted as one book)',
+        'Kesuvim: Sifrei Emes (Tehillim, Mishlei, Iyov) · Chamesh Megilos (Shir HaShirim, Rus, Eichah, Koheles, Esther) · later historical books (Daniel, Ezra-Nechemiah, Divrei HaYamim)',
+        'Canon sealed by the Anshei Knesses HaGedolah ~450–400 BCE; Malachi was the last navi',
+        'Nach is the word of Hashem through the nevi\'im — essential to a complete Torah education',
+      ]},
     ],
     cards: [
       {id:'na01', q:'What is Nach?',               a:"Nevi'im (Prophets) + Ketuvim (Writings)",               note:'"Nach" is an acronym: נ (Nevi\'im) + כ (Ketuvim) · Together with Torah = "TaNaCH" · 19 books of Nevi\'im + 13 books of Ketuvim (counted differently by tradition) = 24 books total'},
@@ -859,7 +1044,14 @@ const DECKS = [
     emoji: '📋',
     desc: 'The six orders of the Oral Torah, compiled by Rabbi Yehudah HaNasi (~220 CE)',
     guide: [
-      {h:'What Is the Mishnah?', p:'The Mishnah is the first written compilation of the Torah she\'b\'al peh — the Oral Torah. For generations, the Oral Torah was transmitted entirely by memory from rebbe to talmid. As Roman persecution intensified and the great sages feared that the tradition might be lost, Rabbi Yehudah HaNasi ("Rebbi") compiled and organized the Mishnah around 200–220 CE. The word "Mishnah" comes from the root meaning "to repeat" or "to study" — reflecting how students learned by repeating their teacher\'s words. The Mishnah is written in concise, precise Mishnaic Hebrew and is organized into six sedarim (orders), each covering a broad area of Jewish law. Within each seder are masechtos (tractates), and within each masechta are chapters and individual mishnayos. There are 63 masechtos in total. The Mishnah is not a law code — it records debates and minority opinions alongside the accepted rulings. The Gemara (commentary on the Mishnah) was redacted several centuries later, and the Mishnah plus Gemara together constitute the Talmud.'},
+      {h:'What Is the Mishnah?', b:[
+        'The first written compilation of the Torah she\'b\'al peh (Oral Torah) — compiled by Rabbi Yehudah HaNasi ("Rebbi") ~200–220 CE',
+        'Before Rebbi, the Oral Torah was transmitted entirely by memory from rebbe to talmid; he compiled it fearing Roman persecution would cause it to be forgotten',
+        '"Mishnah" — from the root meaning "to repeat/to study"; students learned by repeating their teacher\'s words',
+        'Written in concise Mishnaic Hebrew · 6 sedarim (orders) · 63 masechtos (tractates)',
+        'Not a law code — records debates, minority opinions, and accepted rulings alongside each other',
+        'The Gemara (Amoraic commentary on the Mishnah) was redacted centuries later · Mishnah + Gemara = the Talmud',
+      ]},
     ],
     cards: [
       {id:'ms01', q:'What is the Mishnah?',         a:'The codified Oral Torah, compiled ~220 CE by Rabbi Yehudah HaNasi', note:'"Mishnah" = to repeat or to study · 6 sedarim (orders) · 63 masekhtot (tractates) · ~525 chapters · Written in concise, precise Mishnaic Hebrew · The Gemara is commentary on it'},
@@ -882,7 +1074,15 @@ const DECKS = [
     emoji: '🔍',
     desc: 'The Gemara — the sea of Talmudic discussion and law',
     guide: [
-      {h:'What Is the Talmud?', p:'The Talmud is the central text of Rabbinic Judaism and the primary source of halachah (Jewish law). It consists of the Mishnah (the codified Oral Torah, compiled ~220 CE) plus the Gemara — the extensive Amoraic analysis, debate, and elaboration of the Mishnah that was compiled over the following three centuries. There are two Talmuds: the Talmud Bavli (Babylonian, compiled ~500 CE) and the Talmud Yerushalmi (Jerusalem, compiled ~400 CE in Eretz Yisrael). Halacha follows the Bavli wherever it addresses an issue. The Bavli spans 2,711 folio pages (dapim), organized as 63 masechtos. Its language is a mixture of Mishnaic Hebrew (the Mishnah text) and Babylonian Aramaic (the Gemara discussion). The Talmud is not organized as a law code — it is a record of open-ended debate, where minority opinions, rejected arguments, aggadic (non-legal) stories, and unresolved questions ("Teku") all appear alongside settled law. Learning Talmud is considered the highest form of Torah study, and the Daf Yomi program (one folio page per day) has made it accessible to Jews worldwide, completing the entire cycle every 7.5 years.'},
+      {h:'What Is the Talmud?', b:[
+        'The central text of Rabbinic Judaism and the primary source of halachah — consists of the Mishnah + the Gemara',
+        'Two Talmuds: Talmud Bavli (Babylonia, ~500 CE) and Talmud Yerushalmi (Eretz Yisrael, ~400 CE) — halacha follows the Bavli',
+        'The Bavli: 2,711 folio pages (dapim) across 63 masechtos',
+        'Language: Mishnaic Hebrew (Mishnah text) + Babylonian Aramaic (Gemara discussion)',
+        'Not a law code — records open-ended debate, minority opinions, aggadic stories, and unresolved questions ("Teku") alongside settled law',
+        'Learning Talmud is considered the highest form of Torah study',
+        'Daf Yomi: one folio page per day — completes the entire Bavli in 7.5 years; millions participate worldwide',
+      ]},
     ],
     cards: [
       {id:'tl01', q:'What is the Talmud?',          a:'The Mishnah + the Gemara (Amoraic discussion of the Mishnah)',        note:'"Talmud" = learning · The Gemara analyzes, debates, and applies the Mishnah · Two versions: Babylonian (Bavli) and Jerusalem (Yerushalmi) · Cornerstone of Jewish law and practice'},
@@ -905,7 +1105,14 @@ const DECKS = [
     emoji: '⚖️',
     desc: 'The landmark codes and responsa that shape Jewish law today',
     guide: [
-      {h:'How Halacha Gets Codified', p:'Halacha (Jewish law) flows from the Torah through the Talmud and is applied to each generation through two main channels: codes (seforim that organize the law by topic) and she\'eilos u\'teshuvos (responsa — written answers to halachic questions submitted to leading poskim). The need for codification arose because the Talmud itself is not a law code — it records debates, minority views, and unresolved questions. As Jewish communities spread across the world and the Talmud became harder to access without extensive training, the Rishonim and Acharonim produced systematic halachic codes to make the law accessible. The most important of these is the Shulchan Aruch (Rabbi Yosef Karo, 1563), which together with the Rema\'s Ashkenazic glosses became the universally accepted baseline code of Orthodox Jewish practice. Understanding these works — who wrote them, when, and why — is essential for understanding how a rav or posek reaches a halachic decision today.'},
+      {h:'How Halacha Gets Codified', b:[
+        'Halacha flows from Torah → Talmud → applied to each generation through two channels: codes (organized by topic) and she\'eilos u\'teshuvos (responsa)',
+        'Codification became necessary because the Talmud is not a law code — it records debates, minority views, and unresolved questions',
+        'As Jews spread worldwide, Rishonim and Acharonim produced systematic codes to make the law accessible without requiring full Talmudic training',
+        'The definitive code: Shulchan Aruch (Rabbi Yosef Karo, 1563) + the Rema\'s Ashkenazic glosses — the universally accepted baseline for Orthodox practice',
+        'She\'eilos u\'teshuvos (responsa literature): written answers to halachic questions; produced in every generation and country across 1,500 years',
+        'Understanding these works — who wrote them, when, and why — is essential for understanding how a posek reaches a halachic decision today',
+      ]},
     ],
     cards: [
       {id:'hb01', q:'Mishneh Torah (יַד הַחֲזָקָה)',  a:'Rambam (Maimonides) · Completed ~1180 CE · 14 books covering all of halacha',   note:'"Yad" = hand (14 in gematria) = "strong hand" · First comprehensive halachic code covering all areas, including laws not currently applicable · Clear Mishnaic Hebrew · Still a primary reference'},
@@ -928,7 +1135,13 @@ const DECKS = [
     emoji: '✡️',
     desc: 'Core vocabulary for Jewish life',
     guide: [
-      {h:'Hebrew — The Lashon Kodesh', p:'Hebrew is called lashon kodesh — the holy tongue — and is the language in which the Torah was given. It is a living language used in tefillah (prayer), Torah study, and Jewish discourse for over 3,000 years. Modern Hebrew (Ivrit) was revived as a spoken language in the late 19th century by Eliezer Ben-Yehuda and became the official language of the State of Israel, but its roots are in the same Biblical and Mishnaic Hebrew used throughout Jewish history. As a yeshiva student, knowing core Hebrew and Aramaic vocabulary is essential — not just for understanding prayers, but for following Torah discussions, shiurim, and the flow of a Gemara. This deck covers the essential Jewish vocabulary that appears most frequently in daily Jewish life, tefillah, and learning.'},
+      {h:'Hebrew — The Lashon Kodesh', b:[
+        'Hebrew is lashon kodesh — the holy tongue — the language in which the Torah was given',
+        'A living language used in tefillah, Torah study, and Jewish discourse for over 3,000 years',
+        'Modern Hebrew (Ivrit) was revived as a spoken language by Eliezer Ben-Yehuda in the late 19th century — its roots are in Biblical and Mishnaic Hebrew',
+        'Knowing core Hebrew vocabulary is essential for following tefillah, shiurim, and the flow of a Gemara',
+        'This deck covers the key terms that appear most frequently in daily Jewish life, prayer, and learning',
+      ]},
     ],
     cards: [
       {id:'h01', q:'Shalom',       a:'Peace · Hello · Goodbye',                   note:'The most versatile word in Hebrew'},
@@ -954,7 +1167,15 @@ const DECKS = [
     emoji: '🕯️',
     desc: 'The cycle of the Jewish year',
     guide: [
-      {h:'The Jewish Holiday Cycle', p:'The Jewish year is structured around a rich cycle of holidays, each carrying its own spiritual theme, halachos, and traditions. The Rambam writes that the Jewish holidays are given to us so that we might alternate between periods of physical rejoicing and spiritual introspection — the calendar itself is designed to shape who we become. The major holidays (Yamim Tovim) carry Biblical prohibitions on melacha and require special prayer services. Shabbos, observed weekly, is the foundation of the entire system. The Yomim Noraim (Days of Awe) — Rosh Hashanah and Yom Kippur — are the pinnacle of the year\'s spiritual intensity. The Shalosh Regalim (Three Pilgrimage Festivals) — Pesach, Shavuos, and Sukkos — were occasions for making aliyah l\'regel (journeying to the Beis HaMikdash). This deck provides a broad overview of the entire holiday cycle.'},
+      {h:'The Jewish Holiday Cycle', b:[
+        'The Jewish year is structured around a rich cycle of holidays — each with its own spiritual theme, halachos, and traditions',
+        'The Rambam: holidays alternate between physical rejoicing and spiritual introspection — the calendar is designed to shape who we become',
+        'Major holidays (Yamim Tovim): Biblical prohibition on melacha · special tefillah services · cooking for the holiday permitted (unlike Shabbos)',
+        'Shabbos, observed weekly, is the foundation of the entire system',
+        'Yomim Noraim (Days of Awe): Rosh Hashanah and Yom Kippur — the pinnacle of the year\'s spiritual intensity',
+        'Shalosh Regalim (Three Pilgrimage Festivals): Pesach, Shavuos, Sukkos — occasions for aliyah l\'regel to the Beis HaMikdash',
+        'This deck provides a broad overview of the entire holiday cycle',
+      ]},
     ],
     cards: [
       {id:'jh01', q:'Rosh Hashanah', a:'The Jewish New Year',                          note:'Tishrei 1–2; "Head of the Year"'},
@@ -977,7 +1198,14 @@ const DECKS = [
     emoji: '💎',
     desc: 'Character traits at the heart of Jewish ethics',
     guide: [
-      {h:'Middos — Character Refinement', p:'Mussar — the discipline of character refinement and ethical self-improvement — is one of the oldest and most essential branches of Torah study. The Mishnah in Pirkei Avos teaches "Torah without derech eretz is worthless" — wisdom and character must develop together. The Ramchal\'s Mesilas Yesharim opens by asking: what is a person\'s purpose in this world? The answer he gives is not intellectual achievement, but the development of the soul. Middos (character traits) are the building blocks of that development. In Mussar literature (Rabbi Yisrael Salanter\'s movement in 19th-century Europe), students were trained to identify their dominant negative traits and work to correct them systematically — not just study ethics abstractly. The Vilna Gaon is said to have valued one hour of character refinement over years of Torah scholarship. The middos in this deck are the traits most emphasized in Jewish tradition as the foundation of a Torah life.'},
+      {h:'Middos — Character Refinement', b:[
+        'Mussar — the discipline of character refinement — is one of the oldest and most essential branches of Torah study',
+        '"Torah without derech eretz is worthless" (Pirkei Avos) — wisdom and character must develop together',
+        'The Ramchal\'s Mesilas Yesharim: the purpose of a person in this world is not intellectual achievement, but the development of the soul',
+        'The Vilna Gaon is said to have valued one hour of character refinement over years of Torah scholarship',
+        'Rabbi Yisrael Salanter\'s Mussar movement (19th-century Europe): students identified their dominant negative traits and worked to correct them systematically',
+        'The middos in this deck are the traits most emphasized in Jewish tradition as the foundation of a Torah life',
+      ]},
     ],
     cards: [
       {id:'jv01', q:'Emet',          a:'Truth',                                note:'"The seal of God is truth" (Talmud, Shabbat 55a)'},
@@ -1000,7 +1228,14 @@ const DECKS = [
     emoji: '📖',
     desc: 'Foundational people, places, and texts',
     guide: [
-      {h:'Torah Basics', p:'Before diving into any specific area of Torah learning, it is essential to have a foundational map of the key people, places, and texts that form the backbone of Jewish tradition. The Torah tells the story of the Jewish people from Creation through the death of Moshe Rabbeinu — spanning thousands of years, three Avos (patriarchs), four Imahos (matriarchs), the birth of the twelve tribes, slavery and redemption from Egypt, the giving of the Torah at Har Sinai, and 40 years in the midbar. These events are not merely ancient history — they define Jewish identity, law, and worldview to this day. The Shema, the Avos, Har Sinai, the Mishkan, and Eretz Yisrael are reference points that come up constantly in tefillah, halachah, and Torah learning. This deck introduces the core names and concepts every Jewish student needs to know.'},
+      {h:'Torah Basics', b:[
+        'The Torah spans from Creation through the death of Moshe Rabbeinu — thousands of years of history, law, and relationship between Hashem and the Jewish people',
+        'Key figures: three Avos (Avraham, Yitzchak, Yaakov) · four Imahos (Sarah, Rivkah, Rachel, Leah) · twelve tribes · Moshe Rabbeinu',
+        'Key events: Yetzias Mitzrayim (Exodus) · Matan Torah at Har Sinai · 40 years in the midbar · building of the Mishkan',
+        'These events are not merely ancient history — they define Jewish identity, law, and worldview to this day',
+        'The Shema, the Avos, Har Sinai, the Mishkan, and Eretz Yisrael come up constantly in tefillah, halachah, and Torah learning',
+        'This deck introduces the core names and concepts every Jewish student must know',
+      ]},
     ],
     cards: [
       {id:'tb01', q:'Bereishit',       a:'Genesis — "In the beginning"',            note:'Creation through Joseph in Egypt'},
@@ -1023,7 +1258,14 @@ const DECKS = [
     emoji: '🙏',
     desc: 'The language of Jewish prayer',
     guide: [
-      {h:'Jewish Prayer — Avodah Shebalev', p:'Tefillah (prayer) is called avodah shebalev — the service of the heart. The Gemara (Taanis 2a) derives from the pasuk "to serve Him with all your heart" that tefillah is a Biblical obligation. The structured prayer services we use today — Shacharis, Mincha, and Maariv — were instituted by the Anshei Knesses HaGedolah after the destruction of the first Beis HaMikdash, and according to one opinion (Brochos 26b) correspond to the daily tamid offerings. The centerpiece of every service is the Amidah (Shmoneh Esrei), a silent, standing prayer of 19 blessings on weekdays (7 on Shabbos and Yom Tov). Beyond the statutory services, Jewish life is punctuated by blessings (brachos) for nearly every experience — eating, smelling something fragrant, seeing lightning, hearing good news. The siddur (prayer book) is one of the most studied texts in Jewish life, and fluency in its language and structure is fundamental to any serious Jewish education. This deck introduces the core prayers and liturgical terms every student must know.'},
+      {h:'Jewish Prayer — Avodah Shebalev', b:[
+        'Tefillah is called avodah shebalev — the service of the heart; derived as a Biblical obligation from "to serve Him with all your heart" (Taanis 2a)',
+        'Three daily services: Shacharis (morning) · Mincha (afternoon) · Maariv (evening) — instituted by the Anshei Knesses HaGedolah',
+        'One opinion (Brochos 26b): the three services correspond to the Avos — Avraham instituted Shacharis, Yitzchak Mincha, Yaakov Maariv',
+        'Centerpiece of every service: the Amidah (Shmoneh Esrei) — 19 blessings on weekdays, 7 on Shabbos and Yom Tov, recited silently while standing',
+        'Jewish life is punctuated by brachos (blessings) for nearly every experience — eating, smelling, seeing lightning, hearing good or bad news',
+        'Fluency in the siddur\'s language and structure is fundamental to any serious Jewish education',
+      ]},
     ],
     cards: [
       {id:'pl01', q:'Shacharit',      a:'Morning prayer service',                       note:"Corresponds to Avraham's morning prayer"},
@@ -1341,7 +1583,7 @@ function showLearnScreen(deckId) {
       ${deck.guide.map(s=>`
         <div class="guide-section">
           <div class="guide-section-h">${s.h}</div>
-          <p class="guide-section-p">${s.p}</p>
+          ${Array.isArray(s.b)?`<ul class="guide-bullets">${s.b.map(b=>`<li>${b}</li>`).join('')}</ul>`:`<p class="guide-section-p">${s.p}</p>`}
         </div>`).join('')}
     </div>
     <div class="guide-ref-label">Flash Card Reference</div>` : '';
