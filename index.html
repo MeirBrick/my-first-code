@@ -2398,6 +2398,259 @@ const DECKS = [
     ]
   },
 
+  // ── Everyday Halacha ─────────────────────────────────────
+  {
+    id: 'everyday-halacha',
+    name: 'Everyday Halacha',
+    emoji: '📿',
+    desc: 'The practical halachos woven into daily Jewish life',
+    guide: [
+      {h:'What Is Halacha?', b:[
+        '"Halacha" — from the root הָלַך, "to walk" — is the path of Jewish law that guides every aspect of daily life',
+        'Unlike secular law, halacha governs not only public conduct but private behavior, thought, speech, and one\'s relationship with Hashem and with others',
+        'The Shulchan Aruch (Rabbi Yosef Karo, 1565) and its commentaries are the primary halachic code followed today',
+        'Halacha is a living system — poskim (halachic authorities) apply its principles to new situations in every generation',
+        'The goal of halacha is not mere compliance but kedushah — sanctity — turning every act of eating, speaking, and interacting into avodas Hashem',
+      ]},
+    ],
+    sections: [
+
+      // ── Brachos ────────────────────────────────────────────
+      {
+        id: 'halacha-brachos',
+        name: 'בְּרָכוֹת — Brachos',
+        emoji: '🍞',
+        desc: 'Blessings before and after food — when, which, and why',
+        guide: [
+          {h:'Why Do We Make Brachos?', b:[
+            'A bracha is an acknowledgment that everything belongs to Hashem · "The earth and its fullness belong to Hashem" (Tehillim 24:1)',
+            'Chazal rule: one who derives benefit from this world without a bracha is as if stealing from Hashem (Brachos 35b)',
+            'Three categories of brachos over food: (1) Birchos HaNehenin — blessings before enjoyment · (2) Birkas HaMazon and other after-blessings · (3) Brachos before mitzvos',
+            'The formula: "Baruch Ata Hashem Elokeinu Melech HaOlam…" — acknowledging Hashem as our God and the King of the universe',
+          ]},
+          {h:'The Seven Before-Blessings (Birchos HaNehenin)', b:[
+            'הַמּוֹצִיא לֶחֶם מִן הָאָרֶץ — HaMotzi: on bread (wheat, spelt, rye, barley, oats) · Eating bread with HaMotzi covers all other foods in the meal',
+            'מְזוֹנוֹת — Mezonos: on other grain products (cake, cookies, pasta, most cereals)',
+            'הַגֶּפֶן — HaGefen: on wine and grape juice',
+            'הָעֵץ — HaEtz: on fruits that grow on a tree (apples, oranges, grapes, etc.)',
+            'הָאֲדָמָה — HaAdamah: on vegetables and fruits that grow from the ground (carrots, strawberries, bananas)',
+            'שֶׁהַכֹּל — Shehakol: the "catch-all" bracha for meat, fish, eggs, water, juice, candy, mushrooms, and anything not covered above',
+            'בּוֹרֵא פְּרִי הָאֲדָמָה — Borei Pri HaAdamah: specifically for produce of the ground',
+          ]},
+          {h:'After-Blessings (Brachos Acharonos)', b:[
+            'Birkas HaMazon (Bentching): said after eating a meal with bread — four blessings, thanking Hashem for food, for the land, for Jerusalem, and general thanksgiving',
+            'Mei\'ein Shalosh (Al HaMichya): said after eating grain products (not bread), wine, or the five special fruits of Eretz Yisrael',
+            'Borei Nefashos: said after eating foods in the Shehakol or HaAdamah category',
+            'If in doubt whether you ate enough to require an after-bracha — a k\'zayis (olive\'s bulk) of solid food, or a r\'viis of liquid — consult your rav; in practice, a comfortable amount usually obligates',
+          ]},
+        ],
+        cards: [
+          {id:'br01', q:'What bracha on bread?',                a:'הַמּוֹצִיא לֶחֶם מִן הָאָרֶץ — HaMotzi',              note:'Only on bread made from the five grains: wheat, spelt, rye, barley, oats · Bread = baked dough of a grain that people use as a staple food · HaMotzi covers all foods eaten in a bread-based meal'},
+          {id:'br02', q:'What bracha on cake, cookies, pasta, cereal?', a:'בּוֹרֵא מִינֵי מְזוֹנוֹת — Mezonos',          note:'Grain products that are not bread · Exception: if you eat them as a meal-substitute in significant quantity, some poskim require HaMotzi · Cereal made from oats, wheat, etc. = Mezonos · Rice = debated; Sephardim say Mezonos, Ashkenazim say HaAdamah'},
+          {id:'br03', q:'What bracha on wine or grape juice?',  a:'בּוֹרֵא פְּרִי הַגָּפֶן — HaGefen',                    note:'A special bracha for grapes/wine because of their significance in Jewish life · Wine is used for Kiddush, Havdalah, the Arba Kosos, and blessings at simchos · Grape juice has the same bracha as wine'},
+          {id:'br04', q:'What bracha on fruit from a tree?',    a:'בּוֹרֵא פְּרִי הָעֵץ — HaEtz',                        note:'Apples, oranges, pears, cherries, almonds, walnuts, etc. · The tree must survive winter and bear fruit again · Strawberries and bananas grow on low plants → HaAdamah · Pineapple → HaAdamah (grows on a low plant)'},
+          {id:'br05', q:'What bracha on vegetables? (carrots, potatoes, etc.)', a:'בּוֹרֵא פְּרִי הָאֲדָמָה — HaAdamah', note:'Produce of the ground / low-growing plants · Also: strawberries, bananas, pineapple (though fruit-like, the plant doesn\'t persist as a tree) · Mushrooms: Shehakol (not a plant)'},
+          {id:'br06', q:'What bracha on water, meat, fish, eggs, candy, juice (non-grape)?', a:'שֶׁהַכֹּל נִהְיֶה בִּדְבָרוֹ — Shehakol', note:'"Everything came into being by His word" — the catch-all bracha · Covers: meat, fish, eggs, dairy, water, juice, soda, candy, mushrooms, honey · If unsure which bracha to say on something, Shehakol is always acceptable b\'dieved (after the fact)'},
+          {id:'br07', q:'What is Birkas HaMazon?',              a:'Bentching — the after-blessing recited after eating bread', note:'Four blessings: (1) HaZan — Hashem feeds the world; (2) HaAretz — for the land; (3) Boneh Yerushalayim — for Jerusalem and the Beis HaMikdash; (4) HaTov V\'HaMeitiv — general thanksgiving · Torah-level obligation when eating bread (Devarim 8:10)'},
+          {id:'br08', q:'What after-bracha after eating cake, wine, or the five fruits of Israel?', a:'מֵעֵין שָׁלֹשׁ — Mei\'ein Shalosh (Al HaMichya / Al HaGefen / Al HaEitz)', note:'"An abbreviated Birkas HaMazon" — one bracha that covers the main themes of Birkas HaMazon · Different text for grain (Al HaMichya), wine (Al HaGefen), and the five special fruits of Eretz Yisrael (Al HaEitz)'},
+          {id:'br09', q:'What after-bracha after Shehakol or HaAdamah foods?', a:'בּוֹרֵא נְפָשׁוֹת — Borei Nefashos',   note:'"Who creates living souls and their needs" — the after-bracha for meat, fish, eggs, vegetables, water, juice, etc. · Much shorter than Birkas HaMazon · A k\'zayis of solid food or a r\'viis of liquid generally obligates an after-bracha'},
+          {id:'br10', q:'When must you wash hands (netilas yadayim) before eating?', a:'Before eating bread — with a bracha: עַל נְטִילַת יָדַיִם', note:'Pour water from a cup over each hand twice (some: three times) · Lift hands, recite bracha, dry hands before speaking · Rabbinic decree modeled on the Kohanim\'s washing before Temple service · Also required upon waking, after the bathroom, and at other times (without a bracha)'},
+          {id:'br11', q:'Which bracha do you say first if you have bread and wine?', a:'HaMotzi on the bread — bread takes precedence over wine', note:'Priority order: bread (HaMotzi) > wine (HaGefen) > mezonos > haEtz > haAdamah > shehakol · On Shabbos and Yom Tov: Kiddush (HaGefen) is said first, then HaMotzi · At a meal, HaMotzi covers everything else eaten — no separate brachos needed for other foods'},
+          {id:'br12', q:'What is a "bracha l\'vatalah" and why is it serious?', a:'A blessing said in vain — a transgression of "Do not take Hashem\'s name in vain"', note:'Reciting a bracha unnecessarily (e.g., if you already ate, or on a food you won\'t eat) is forbidden · If you realize mid-bracha that you shouldn\'t be saying it: end with "…LaMedLaMed" or some say to say "Baruch Shem" · To avoid: determine what you\'re eating before reaching for the food'},
+        ]
+      },
+
+      // ── Kashrus ────────────────────────────────────────────
+      {
+        id: 'halacha-kashrus',
+        name: 'כַּשְׁרוּת — Kashrus',
+        emoji: '🥩',
+        desc: 'The laws of kosher food — what, why, and how',
+        guide: [
+          {h:'What Is Kashrus?', b:[
+            'Kashrus (כַּשְׁרוּת) = fitness, suitability — the system of Torah dietary law',
+            'Sources: Vayikra 11, Devarim 14 · Elaborated extensively in Seder Kodashim (Chulin) and the Shulchan Aruch (Yoreh Deah)',
+            'Three main categories: (1) Permitted vs. forbidden species · (2) Shechita (ritual slaughter) and inspection · (3) Basar b\'chalav (meat and milk separation)',
+            'Keeping kosher requires active knowledge, supervision, and kitchen management — it is one of the most comprehensive practical halachos in daily life',
+            'The Torah gives no reason for most kashrus laws — they are chukim (divine decrees) · Various explanations exist but none is definitively given in the Torah itself',
+          ]},
+          {h:'Permitted and Forbidden Animals', b:[
+            'Land animals: must have split hooves AND chew their cud · Cow, sheep, goat, deer = kosher · Pig (split hooves, no cud) and camel (cud, no split hoof) = not kosher',
+            'Fish: must have fins AND scales · Salmon, tuna, carp = kosher · Shellfish, shrimp, crab, catfish = not kosher · No shechita required for fish',
+            'Birds: the Torah lists 24 forbidden species · All common domestic fowl (chicken, turkey, duck, goose) are permitted by tradition',
+            'Insects: forbidden · All produce must be checked for bugs (bedikas tolaim) — especially leafy vegetables, berries, and grains',
+          ]},
+          {h:'Basar B\'Chalav — Meat and Milk', b:[
+            'Three Torah prohibitions (from "do not cook a kid in its mother\'s milk" — said 3 times): cooking, eating, and benefiting from meat-milk mixtures',
+            'Milk includes all dairy products (cheese, butter, cream) · Meat includes beef and poultry (Rabbinically) · Fish is neither meat nor dairy — pareve',
+            'After eating meat: wait before eating dairy · Ashkenazim: 6 hours · Sephardim: some wait 6 hours, some less · After dairy: Ashkenazim generally wait only until after washing mouth and eating something else (hard cheese: 6 hours)',
+            'Separate dishes, pots, utensils, and sponges for meat and dairy · A third set for pareve is optional but common',
+          ]},
+        ],
+        cards: [
+          {id:'ks01', q:'What makes a land animal kosher?',     a:'Must have both split hooves AND chew its cud',         note:'Both signs must be present · Cow, sheep, goat, deer = kosher · Pig has split hooves but doesn\'t chew cud = not kosher · Camel chews cud but no split hooves = not kosher · An animal with both signs still requires shechita'},
+          {id:'ks02', q:'What makes a fish kosher?',           a:'Must have both fins AND scales',                       note:'No shechita required for fish · Salmon, tuna, flounder, carp, herring = kosher · Shellfish, shrimp, crab, lobster, catfish, swordfish = not kosher · Swordfish: debated — fins yes, but scales shed when mature'},
+          {id:'ks03', q:'What is shechita?',                   a:'Ritual slaughter — a single swift cut across the trachea and esophagus with a perfectly smooth chalef (knife)', note:'Must be done by a trained, G-d-fearing shochet · The chalef must be inspected before and after · Even a kosher animal killed without shechita is neveilah (not kosher) · Shechita minimizes the animal\'s pain — halacha takes tzaar baalei chaim (animal suffering) seriously'},
+          {id:'ks04', q:'What is treif / treifah?',            a:'An animal with a life-threatening physical defect, even if properly slaughtered', note:'18+ categories of internal injuries or defects (sirucos) that render an animal treif · The lungs are most commonly inspected: adhesions (sirchot) may indicate lung damage · "Glatt kosher" = smooth lungs, no adhesions (the most common Ashkenazic standard today) · Glatt literally means "smooth" in Yiddish'},
+          {id:'ks05', q:'What is basar b\'chalav?',            a:'The prohibition against mixing meat and dairy — three Torah-level prohibitions', note:'"Do not cook a kid in its mother\'s milk" (Shemos 23:19, 34:26, Devarim 14:21) — stated three times = (1) cooking, (2) eating, (3) benefiting · Poultry and dairy is Rabbinically forbidden · Fish is pareve (neither meat nor dairy)'},
+          {id:'ks06', q:'How long do Ashkenazim wait after meat before eating dairy?', a:'6 hours', note:'Based on Rambam · The meat taste lingers for ~6 hours · Sephardim: 6 hours (Rambam) or after a meal and washing (various poskim) · Dutch Jewish minhag: 1 hour · After dairy: generally just wash mouth and eat something pareve — no long wait (except after hard/aged cheese: 6 hours)'},
+          {id:'ks07', q:'What is "pareve"?',                   a:'Foods that are neither meat nor dairy — fish, eggs, fruits, vegetables, grains', note:'Pareve foods may be eaten with either meat or dairy · However: pareve food cooked in a meat pot may become "fleishig" (meaty) in some cases · Fish cooked in a dairy pot: poskim differ · Eggs: must be checked for blood spots before use'},
+          {id:'ks08', q:'What is the prohibition of dam (blood)?', a:'Blood of kosher animals and birds is forbidden to eat — the animal must be salted or roasted to draw out the blood', note:'Melicha (salting): soak in water 30 min, salt heavily for 1 hour, rinse 3 times · Or: roasting over an open flame · Liver requires roasting — it has too much blood for salting alone · Fish blood: permitted · Human blood in the mouth (e.g., from gums): permitted since it is not from a separate species'},
+          {id:'ks09', q:'What is bedikas tolaim?',             a:'Checking produce for insects — which are forbidden',    note:'Leafy vegetables (lettuce, kale, broccoli, herbs), strawberries, and raspberries require careful checking · Various methods: light box, soaking in soapy water, running under strong water · Pre-checked/triple-washed produce is available and avoids the obligation · A single insect in a vessel of food can be a serious kashrus issue'},
+          {id:'ks10', q:'What is bishul akum?',                a:'Food cooked entirely by a non-Jew without Jewish involvement — Rabbinically forbidden', note:'Applies to foods that: (1) can\'t be eaten raw, and (2) would be served at a fancy table · A Jew lighting or stirring the fire once renders the cooking "bishul Yisrael" (Ashkenazic view) · Does not apply to foods eaten raw (raw fruits, sushi in some opinions) · Pas akum (bread): separate rules, more lenient in the field'},
+          {id:'ks11', q:'What is "bishul Yisrael" and why is it relevant to restaurants?', a:'A requirement that a Jew participate in the cooking of certain foods for them to be kosher', note:'Even in a fully kosher kitchen, if a Jew did not participate in cooking the food, bishul akum may apply · Many hashgachos (kosher supervisions) address this: a mashgiach turns on the oven or lights the flame · Relevant when ordering from caterers, hotels, or restaurants with a kosher certification — the mashgiach\'s role includes this'},
+          {id:'ks12', q:'What is a hechsher (hashgacha)?',    a:'A kosher certification from a recognized rabbinic authority',note:'Kashrus supervision has become essential in the modern food industry · A mashgiach (supervisor) inspects ingredients, production, and separation of meat/dairy · Not all hechsherim are equal — stringency varies · Common: OU, OK, Star-K, Kof-K (national); local Vaad HaRabbanim · Mehadrin = higher-standard supervision'},
+        ]
+      },
+
+      // ── Bein Adam L'Chaveiro ───────────────────────────────
+      {
+        id: 'halacha-bein-adam',
+        name: "בֵּין אָדָם לַחֲבֵירוֹ — Interpersonal Mitzvos",
+        emoji: '🤝',
+        desc: 'The halachos governing how we treat other people',
+        guide: [
+          {h:'The Foundation', b:[
+            '"Love your neighbor as yourself" (Vayikra 19:18) — Rabbi Akiva called this the great principle of the Torah',
+            '"What is hateful to you, do not do to your fellow" — Hillel called this the entire Torah; the rest is commentary (Shabbos 31a)',
+            'Bein adam l\'chaveiro (between man and his fellow) transgressions are in some ways more severe than bein adam laMakom (between man and God) — Yom Kippur does not atone for them until you have appeased the person you wronged',
+            'Many bein adam l\'chaveiro mitzvos are Torah-level obligations, not merely good values — they carry real halachic weight',
+          ]},
+          {h:'Categories of Interpersonal Law', b:[
+            'Speech: lashon hara (negative speech), rechilus (talebearing), ona\'as devarim (verbal oppression), sheker (falsehood)',
+            'Financial: theft (gezel), robbery (gazlan), ona\'as mamon (financial oppression), withholding wages, returning lost objects',
+            'Physical: "Do not stand on your neighbor\'s blood" — obligation to save a life (lo taamod al dam re\'echa)',
+            'Emotional: embarrassing another person (malbim panim) is compared to killing · Bearing a grudge (netirah) and taking revenge (nekamah) are both Torah prohibitions',
+            'Community: judging others favorably (dan l\'kaf zechus), respecting elders, honoring Torah scholars',
+          ]},
+        ],
+        cards: [
+          {id:'ba01', q:'What is the mitzvah of "v\'ahavta l\'reiacha kamocha"?', a:'"Love your neighbor as yourself" (Vayikra 19:18) — a Torah-level positive commandment', note:'Rabbi Akiva: "This is the great principle of the Torah" · Practically: do not do to others what you would not want done to you · Extends to wishing others well, acting for their benefit, not rejoicing in their misfortune'},
+          {id:'ba02', q:'What is gezel (theft)?',              a:'Taking another person\'s property without permission — a Torah-level prohibition', note:'"Do not steal" (Shemos 20:13, Vayikra 19:11) · Applies even to small amounts · Includes: shoplifting, copyright infringement, cheating on taxes where the government would be the victim · Gezel is more severe than ganav (stealth theft) in some respects — ganav at least fears people; the robber fears no one'},
+          {id:'ba03', q:'What is ona\'as mamon?',              a:'Financial oppression — charging or paying an unfair price', note:'Vayikra 25:14 · One-sixth overcharge invalidates the sale and requires refund · More than one-sixth: transaction is void · Applies to buyer and seller · Ona\'as devarim: verbal oppression — reminding a baal teshuvah of their past, asking prices you have no intention of paying, words that cause emotional pain'},
+          {id:'ba04', q:'What is the prohibition of lashon hara?', a:'Negative true speech about another person — Torah-level prohibition', note:'Sources: Vayikra 19:16 "Do not go as a talebearer among your people" · Even true, even when alone · The Chofetz Chaim (Rabbi Yisrael Meir Kagan) codified these laws in his sefer "Chofetz Chaim" · Seven people were struck with tzaraas in Tanach — all for lashon hara (e.g., Miriam)'},
+          {id:'ba05', q:'What is rechilus?',                   a:'Talebearing — telling person A what person B said about them', note:'"Do not go as a rachil (talebearer)" (Vayikra 19:16) · Even if the information is true and neutral · The damage: it creates animosity between people · Rechilus is a subset of the speech prohibitions codified in Chofetz Chaim · Different from lashon hara (negative speech about someone to a third party)'},
+          {id:'ba06', q:'What is "halvanas panim" and how serious is it?', a:'Publicly humiliating another person — compared by Chazal to bloodshed', note:'The whitening of the face (blood draining from embarrassment) is "like" killing · "Better to throw oneself into a fiery furnace than to publicly embarrass another" (Brachos 43b) · Applies to adults; extra sensitivity needed with children · Public embarrassment is a form of ona\'as devarim — verbal/emotional harm'},
+          {id:'ba07', q:'What is the mitzvah of hashavas aveidah?', a:'Returning a lost object to its owner — a Torah-level positive commandment', note:'Devarim 22:1–3 · You must return it even if it takes significant effort · The finder may not use the item while it\'s in their possession · "Identifying signs" (simanim): if the owner can describe unique features, the object is returned · If no owner claims it: keep until Eliyahu comes to identify it'},
+          {id:'ba08', q:'What does "lo taamod al dam re\'echa" mean?', a:'"Do not stand on your neighbor\'s blood" — obligation to save someone in danger', note:'Vayikra 19:16 · You must take reasonable action to save a life — call for help, spend money, break Shabbos · Extends to emotional danger, financial ruin, and embarrassment · The passive bystander who could act and does not violates this prohibition · Source for pikuach nefesh overriding most mitzvos'},
+          {id:'ba09', q:'What are nekamah and netirah?',       a:'Revenge and bearing a grudge — both Torah-level prohibitions', note:'Vayikra 19:17–18 · Nekamah: refusing to help someone who previously refused to help you · Netirah: helping the person but pointedly reminding them of their past refusal · Both are Torah violations · The antidote: recognize that everything from Hashem is for the best — another person is only Hashem\'s messenger'},
+          {id:'ba10', q:'What is the mitzvah of dan l\'kaf zechus?', a:'Judging others favorably — assuming the most charitable interpretation of ambiguous behavior', note:'Pirkei Avos 1:6: "Judge every person favorably" · When someone\'s action could be explained as innocent or wrong — assume innocent · Does not require ignoring clear evidence of wrongdoing · The more righteous a person is, the more benefit of the doubt they are owed · Hashem judges us the way we judge others (Sanhedrin 105b)'},
+          {id:'ba11', q:'What is kibbud av va\'em?',           a:'Honoring your father and mother — one of the Ten Commandments',note:'Shemos 20:12 · Two mitzvos: (1) kibbud — provide for their physical needs, stand when they enter, give them a respectful seat; (2) mora — do not sit in their seat, contradict them in public, or call them by first name · The only mitzvah with a reward stated in the Ten Commandments: "that your days may be long upon the land" · Applies even after their death'},
+          {id:'ba12', q:'What is eilu v\'eilu when disagreeing with someone?', a:'"These and these are the words of the living God" — a legitimate Torah disagreement has no winner', note:'Eruvin 13b · Beis Shammai and Beis Hillel both represent Torah truth · Machloket l\'shem shamayim (disagreement for the sake of Heaven) is constructive · Machloket that is personal or political (like Korach\'s) is destructive · The Shulchan Aruch rules: yet we follow one opinion; but the other is not wrong'},
+        ]
+      },
+
+      // ── Lashon Hara ────────────────────────────────────────
+      {
+        id: 'halacha-lashon-hara',
+        name: 'לָשׁוֹן הָרָע — Speech',
+        emoji: '🗣️',
+        desc: 'The halachos of forbidden and permitted speech',
+        guide: [
+          {h:'The Power of Speech', b:[
+            'Speech is the defining human faculty — "Hashem breathed into him the breath of life" is understood by Onkelos as "a speaking spirit"',
+            'The Talmud (Arachin 15b): lashon hara is equal in weight to the three cardinal sins — idolatry, immorality, and bloodshed',
+            'The Chofetz Chaim (Rabbi Yisrael Meir HaKohen Kagan, 1838–1933) codified the laws of lashon hara in two landmark works: Chofetz Chaim and Shmirat HaLashon',
+            'Violations of speech law can involve as many as 17 Torah prohibitions in a single statement',
+          ]},
+          {h:'Categories of Forbidden Speech', b:[
+            'Lashon hara: negative speech about a person — even if TRUE · "Did you hear what Reuven did?" with negative intent = lashon hara',
+            'Motzi shem ra: false negative speech (slander) — more severe than lashon hara',
+            'Rechilus: talebearing — telling A what B said, creating friction between them',
+            'Ona\'as devarim: hurtful words — reminding someone of past mistakes, idle insults, empty threats',
+            'Sheker: falsehood — "Distance yourself from falsehood" (Shemos 23:7) · The seal of Hashem is emes (truth) (Shabbos 55a)',
+          ]},
+          {h:'Permitted Purposes (L\'toeles)', b:[
+            'Lashon hara is sometimes permitted or required when there is a legitimate purpose (toeles — benefit)',
+            'Protecting someone from harm: if you know someone is a con artist and a friend is about to do business with them — you are obligated to warn them (within limits)',
+            'Business references and shidduchim: when asked, you must give truthful relevant information — but only what is necessary, and only to the person who needs to know',
+            'The Chofetz Chaim lists 7 conditions that must all be met for lashon hara to be permitted l\'toeles — including: first-hand knowledge, trying to fix the issue directly, not exaggerating, and saying it with no personal animosity',
+          ]},
+        ],
+        cards: [
+          {id:'lh01', q:'What is lashon hara?',                a:'Negative true speech about another person — forbidden by Torah law', note:'Vayikra 19:16 "Do not go as a talebearer" · True but negative · Even in private · Even with no intent to cause harm · Seven people in Tanach were punished with tzaraas for lashon hara — including Miriam (Bamidbar 12) and Moshe Rabbeinu himself (Shemos 4:6, according to some Midrashim)'},
+          {id:'lh02', q:'What is the difference between lashon hara and motzi shem ra?', a:'Lashon hara = true negative speech · Motzi shem ra = false negative speech (slander)', note:'Motzi shem ra is more severe — it is both a speech violation AND a form of theft (stealing someone\'s reputation) · The Torah warns: "Distance yourself from falsehood" · A rumor-spreader may violate both simultaneously — by taking true facts and framing them falsely'},
+          {id:'lh03', q:'Does intent matter for lashon hara?', a:'No — even well-intentioned negative speech is forbidden if it causes harm or lowers someone\'s reputation', note:'"I\'m just telling you so you can daven for him" — still lashon hara if it reveals something negative · Exception: if telling the information genuinely helps the listener protect themselves or others (l\'toeles) and all 7 conditions of the Chofetz Chaim are met · Gossip under the guise of concern is still gossip'},
+          {id:'lh04', q:'What is "avak lashon hara" — the dust of lashon hara?', a:'Speech that hints at negative information without stating it explicitly', note:'"Don\'t ask me what Shimon has been up to lately…" — implies something bad without saying it · Excessive praise can be avak lashon hara: "I\'ll say something good about Reuven — I won\'t mention his temper" · The Chofetz Chaim: even the suggestion or implication of negative information is prohibited'},
+          {id:'lh05', q:'Is it forbidden to listen to lashon hara?', a:'Yes — accepting lashon hara (kabbalas lashon hara) is also prohibited', note:'You may hear it — you cannot prevent someone from speaking — but you may not believe it or internalize it as fact · You should mentally reject it: "This may not be accurate" · If you cannot leave, you are permitted to hear it as long as you do not accept it as truth · Ideally: leave the room or ask the speaker to stop'},
+          {id:'lh06', q:'When is it permitted — or required — to share negative information?', a:'When there is a genuine protective purpose (l\'toeles) and all conditions are met', note:'The 7 conditions (Chofetz Chaim): (1) first-hand knowledge; (2) investigated and sure it\'s accurate; (3) first tried to rebuke directly; (4) no exaggeration; (5) the right intent — to protect, not embarrass; (6) only share with those who need to know; (7) no lesser harm would achieve the same protection · Shidduchim and business references: when asked directly, truthful relevant information must be given'},
+          {id:'lh07', q:'What is "emes" and why is it the seal of Hashem?', a:'"Truth" — the divine signature and the foundation of all Torah values', note:'Shabbos 55a: "The seal of the Holy One Blessed is He is emes" · The letters of אֱמֶת (aleph, mem, tav) are the first, middle, and last letters of the aleph-beis — truth runs from beginning to end · Sheker (falsehood): shin-kuf-resh are three consecutive letters — falsehood is "close together" and unstable · "Distance yourself from falsehood" (Shemos 23:7) — farther than any other transgression'},
+        ]
+      },
+
+      // ── Tzedakah ───────────────────────────────────────────
+      {
+        id: 'halacha-tzedakah',
+        name: 'צְדָקָה — Tzedakah',
+        emoji: '🪙',
+        desc: 'The laws and values of charity and giving',
+        guide: [
+          {h:'What Is Tzedakah?', b:[
+            '"Tzedakah" comes from the root צֶדֶק — justice, righteousness · Charity in Jewish law is not merely generosity but an obligation of justice',
+            'The poor person has a right to a portion of your resources — you are withholding it, not giving a gift',
+            'Devarim 15:11: "You shall surely open your hand to your poor and needy brother" — a positive commandment',
+            'Vayikra 25:35: "And if your brother becomes poor… you shall support him" — a separate positive commandment',
+            'Halacha obligates a minimum of 10% (ma\'aser) of one\'s income for tzedakah · 20% is middat chasidut (going beyond the letter of the law) · Giving more than 20% is generally not required and can be harmful to your own stability',
+          ]},
+          {h:'Levels of Tzedakah (Rambam\'s Eight Levels)', b:[
+            '(Lowest) 1. Giving reluctantly and with a sad face',
+            '2. Giving less than appropriate, but with a smile',
+            '3. Giving directly to the poor person\'s hand after being asked',
+            '4. Giving before being asked',
+            '5. Not knowing who you are giving to (the recipient knows you)',
+            '6. Not knowing who receives (you don\'t know, but they know you)',
+            '7. Neither party knows the other (e.g., a communal fund)',
+            '(Highest) 8. Helping someone become self-sufficient — a loan, a job, a partnership — so they no longer need charity',
+          ]},
+        ],
+        cards: [
+          {id:'tz01', q:'What is the minimum obligation for tzedakah?',  a:'Ma\'aser kesafim — 10% of income · 20% is middat chasidut', note:'"You shall surely tithe all the yield of your seed" (Devarim 14:22) — applied by tradition to income · The custom of ma\'aser kesafim (money tithe) is binding as a minhag according to many poskim · One may not give more than 20% to charity (to protect one\'s financial stability) — except at the time of death'},
+          {id:'tz02', q:'Why does the Torah call it "tzedakah" (justice) rather than "charity"?', a:'The poor person has a rightful claim to a portion of your wealth — giving is justice, not generosity', note:'"Open your hand to your poor and needy brother" (Devarim 15:11) — a command, not a suggestion · The Rambam: the owner is a custodian, not sole owner, of their wealth · Jewish law structures giving as an obligation (chiyuv) · This contrasts with philanthropy as mere kindness — tzedakah is what is owed'},
+          {id:'tz03', q:'What is the highest level of tzedakah according to the Rambam?', a:'Helping someone become self-sufficient — a loan, job, or partnership so they no longer need charity', note:'Rambam, Hilchos Matnos Aniyim 10:7–14 · The eight rungs of tzedakah, from most to least praiseworthy · The lowest rung: giving with a sour face and reluctantly · The highest: the recipient never needs to ask again · Teaching a person to fish rather than giving the fish'},
+          {id:'tz04', q:'Who takes priority in receiving your tzedakah?', a:'Relatives first, then neighbors, then your city, then Jews everywhere, then non-Jews in need', note:'"Your poor and needy brother" — proximity and relationship create priority · Your own family\'s needs come before giving to others · The poor of your own city take precedence over the poor of other cities · One is still obligated to give to all in need — the priority governs when resources are limited'},
+          {id:'tz05', q:'What is the mitzvah of "hachnasat orchim"?',  a:'Welcoming guests — hospitality as an expression of tzedakah and chesed', note:'Derived from Avraham Avinu who ran to invite three strangers despite being ill after his bris · "Greater than greeting the Shechina" (Shabbos 127a) — Avraham interrupted his conversation with Hashem to welcome guests · Includes: feeding, lodging, accompanying the guest on their way (leviyah) · Widely practiced on Shabbos and Yom Tov'},
+          {id:'tz06', q:'What is "ma\'aser kesafim"?',                 a:'The practice of tithing 10% of one\'s income for tzedakah',note:'A widely accepted binding custom (minhag) — many hold it is halachically obligatory · Calculated on net income after taxes (some say gross — consult your rav) · May be used for Jewish education, hachnasas kallah (wedding expenses for the poor), and other mitzvah expenses · Once the practice is established, it may require hatarat nedarim (formal annulment of vows) to change'},
+          {id:'tz07', q:'Is it permitted to give tzedakah to non-Jews?', a:'Yes — there is an obligation of "darchei shalom" (ways of peace) to support non-Jewish poor as well', note:'"We support the poor of the nations along with the poor of Israel, for the ways of peace" (Gittin 61a) · Some opinions hold there is a fuller obligation; at minimum it is permitted and praiseworthy · Hachnasat orchim applies to all people, not only Jews · Chillul Hashem (desecrating God\'s Name) would occur if Jews were seen as uncaring to non-Jewish suffering'},
+        ]
+      },
+
+      // ── Tefillah ───────────────────────────────────────────
+      {
+        id: 'halacha-tefillah',
+        name: 'תְּפִלָּה — Tefillah',
+        emoji: '🙏',
+        desc: 'The structure, laws, and meaning of daily Jewish prayer',
+        guide: [
+          {h:'What Is Tefillah?', b:[
+            '"Tefillah" — from the root "to judge" or "to assess oneself" (lehitpalel = to judge oneself) · Prayer is inner work, not merely words',
+            'Three daily prayer services: Shacharis (morning), Mincha (afternoon), Maariv (evening) — corresponding to the three Patriarchs (Brachos 26b)',
+            'The Shemoneh Esreh (Amidah) is the core of every tefillah — 19 blessings recited standing, in silence, facing Jerusalem',
+            'The Torah does not specify times or content of prayer — the specific prayers and times are Rabbinic (instituted to replace the Tamid offerings)',
+            'Kavanah (intent) is essential: the minimum required is awareness that you are standing before Hashem · The first bracha of the Amidah requires particular concentration',
+          ]},
+          {h:'Structure of the Daily Prayers', b:[
+            'Shacharis: Birchos HaShachar (morning blessings) → Pesukei D\'Zimra (verses of praise) → Shema and its blessings → Amidah → Tachanun → Ashrei → Aleinu',
+            'Mincha: Ashrei → Amidah → Aleinu',
+            'Maariv: Shema and its blessings → Amidah → Aleinu',
+            'On Shabbos and Yom Tov: a Mussaf (additional) prayer is added after Shacharis · On Yom Kippur: a fifth service, Neilah, closes the day',
+            'Shabbos Amidah: 7 blessings instead of 19 — the 13 middle requests are replaced by one Shabbos blessing ("Kedushas HaYom")',
+          ]},
+        ],
+        cards: [
+          {id:'tf01', q:'What are the three daily prayer services?',  a:'שַׁחֲרִית · מִנְחָה · מַעֲרִיב — Shacharis, Mincha, Maariv', note:'Corresponding to the three Patriarchs: Avraham (Shacharis), Yitzchak (Mincha), Yaakov (Maariv) · Also corresponding to the morning and afternoon Tamid offerings and the nightly burning of leftover parts · Maariv is technically optional (no Temple counterpart) but universally accepted as obligatory'},
+          {id:'tf02', q:'What is the Shemoneh Esreh / Amidah?',      a:'The "Standing Prayer" — 19 blessings recited silently, standing, facing Jerusalem', note:'Originally 18 blessings (hence "Shemoneh Esreh" = eighteen); a 19th blessing against heretics was added in Yavneh · Three sections: (1) Praise — 3 blessings; (2) Requests — 13 blessings on weekdays; (3) Thanks — 3 blessings · On Shabbos/Yom Tov: the 13 middle requests are replaced by one holy-day blessing'},
+          {id:'tf03', q:'What are the zmanim (times) for Shacharis?', a:'From sunrise (netz hachama) until the end of the 4th halachic hour of the day', note:'"L\'chatchila" (ideally): after netz · B\'dieved (after the fact): after alos hashachar (dawn) · Last time to recite Shema: end of 3rd halachic hour · Last time for the Amidah: end of 4th hour · A "halachic hour" = 1/12 of the daylight hours (varies by day and season) · Apps like MyZmanim calculate daily'},
+          {id:'tf04', q:'What is kavvanah in prayer?',               a:'Intentionality — awareness that you are standing before the King of Kings', note:'Minimum required: awareness at the beginning of the first bracha of the Amidah that you are davening · Full kavvanah: understanding the meaning of each word · The Rambam: tefillah without kavvanah is not tefillah · If you davened without kavvanah for the first bracha, you must repeat the Amidah · Kavvanah is a lifelong pursuit — even great tzaddikim worked on it'},
+          {id:'tf05', q:'What is Krias Shema and when must it be said?', a:'The declaration of Hashem\'s oneness — "Shema Yisrael Hashem Elokeinu Hashem Echad"', note:'Devarim 6:4 · Morning Shema: after netz, ideally by the 3rd halachic hour · Evening Shema: after tzeis hakochavim (nightfall), must be said before midnight (some: dawn) · Three paragraphs: Shema, V\'ahavta, V\'haya Im Shamo\'a, Vayomer (tzitzis) · Women are exempt from Shema (time-bound positive mitzvah) but many recite it'},
+          {id:'tf06', q:'What is a minyan and why does it matter?',  a:'A quorum of 10 adult Jewish males required for communal prayer', note:'Certain teffilos can only be said with a minyan: Kaddish, Kedushah, Torah reading, Chazaras HaShatz (Amidah repetition), Nesi\'as Kapayim · The Shechina rests on a minyan (Avos 3:6) · "And I will be sanctified among the children of Israel" — Hashem\'s Name is sanctified in public prayer · Women: can answer Kaddish and Kedushah but do not count toward the minyan'},
+          {id:'tf07', q:'What is Tachanun?',                         a:'Supplicatory prayers of confession and petition recited after the Amidah on weekdays', note:'Nefilas apayim (falling on one\'s face) — symbolic prostration · Not said on Shabbos, Yom Tov, Rosh Chodesh, Chanukah, or in a house where a bris or wedding is taking place · Also not said in certain zmanim like the afternoon of Erev Yom Tov · Long form on Mondays and Thursdays; short form other weekdays'},
+          {id:'tf08', q:'What is Kaddish?',                          a:'A doxology (praise of Hashem) recited in public — and specifically by mourners', note:'Written almost entirely in Aramaic · Requires a minyan · Does not mention death — it is pure praise of Hashem · Mourner\'s Kaddish: recited for 11 months after a parent\'s death, and on yahrzeit · "Yehei Shmei rabbah" — the communal response — is one of the most powerful moments in Jewish prayer · The Zohar: Kaddish elevates the soul of the departed'},
+        ]
+      },
+
+    ]
+  },
+
   // ── Original General Decks (kept as a starting point) ─────
   {
     id: 'hebrew',
@@ -2617,6 +2870,7 @@ const CATEGORIES = [
   { name: 'Rabbinic History',   ids: ['rabbinic-eras', 'tannaim', 'amoraim'] },
   { name: 'Torah/Chumash',      ids: ['chumash-overview', 'bereishis', 'shemos', 'vayikra', 'bamidbar', 'devarim'] },
   { name: 'Jewish Texts',       ids: ['nach', 'mishnah', 'talmud-study', 'halacha-books'] },
+  { name: 'Everyday Halacha',   ids: ['everyday-halacha'] },
   { name: 'Jewish Life',        ids: ['hebrew', 'holidays', 'values', 'prayer', 'zmanim'] },
 ];
 
