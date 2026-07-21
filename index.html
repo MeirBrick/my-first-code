@@ -585,21 +585,21 @@ const DECKS = [
     emoji: '🔡',
     desc: 'The vowel marks (niqqud) that give Hebrew letters their sounds',
     cards: [
-      {id:'nk01', q:'בָ  —  Kamatz',         a:'"AH" as in father',                       note:'Long vowel · The most common vowel in Torah · Looks like a T-shape under the letter'},
-      {id:'nk02', q:'בַ  —  Patach',          a:'"AH" as in father (slightly shorter)',    note:'Short vowel · A single horizontal line under the letter · Distinguished from Kamatz in careful/Sephardic speech'},
-      {id:'nk03', q:'בֵ  —  Tzeirei',         a:'"EY" as in they',                        note:'Long vowel · Two horizontal dots under the letter · Can appear as בֵי (Tzeirei Malei with Yud)'},
-      {id:'nk04', q:'בֶ  —  Segol',           a:'"EH" as in bed',                         note:'Short vowel · Three dots in a triangle under the letter · Very common in Ashkenazic pronunciation'},
-      {id:'nk05', q:'בִ  —  Chirik',          a:'"EE" as in feet',                        note:'Short vowel · Single dot under the letter · With Yud (בִי = Chirik Gadol) it\'s a long vowel'},
-      {id:'nk06', q:'בֹ  —  Cholam Chaser',   a:'"OH" as in go',                          note:'Long vowel · A dot above-left of the letter · Full form: וֹ (Vav with dot = Cholam Malei)'},
-      {id:'nk07', q:'וּ  —  Shuruk',          a:'"OO" as in food',                        note:'Long vowel · A Vav with a dot in its center · Always written with a Vav'},
-      {id:'nk08', q:'בֻ  —  Kubutz',          a:'"OO" as in food (shorter)',              note:'Short vowel · Three diagonal dots under the letter · Sounds like Shuruk but shorter'},
-      {id:'nk09', q:'בְ  —  Shva',            a:'Silent (Shva Nach) OR a brief "EH" (Shva Na)',note:'Two vertical dots under the letter · Shva Na: under first letter of a word, or after a long vowel · Shva Nach: end of syllable'},
-      {id:'nk10', q:'בֲ  —  Chataf Patach',   a:'Quick "AH" sound',                       note:'Half-vowel · Used under guttural letters (א ה ח ע) instead of a plain Shva · A Patach with a Shva'},
-      {id:'nk11', q:'בֱ  —  Chataf Segol',    a:'Quick "EH" sound',                       note:'Half-vowel · Used under gutturals, especially א · A Segol with a Shva'},
-      {id:'nk12', q:'בֳ  —  Chataf Kamatz',   a:'Quick "OH" sound',                       note:'Half-vowel · Rarest of the three chataf vowels · A Kamatz Katan with a Shva'},
-      {id:'nk13', q:'What is a Dagesh Kal?',   a:'A dot that hardens a BeGaDKePhaT letter', note:'בּ=B not V · כּ=K not CH · פּ=P not F · ג ד ת also affected in Biblical Hebrew · Appears after a vowel-less (closed) syllable or at start of word'},
-      {id:'nk14', q:'What is a Dagesh Chazak?',a:'A dot that doubles a letter (gemination)', note:'The consonant is pronounced twice: e.g., אַמָּה = am-MA · Cannot appear in the guttural letters (א ה ח ע) or Resh (ר)'},
-      {id:'nk15', q:'What is a Mappik?',        a:'A dot inside a ה at the end of a word, indicating it is pronounced', note:'Final ה is normally silent · With a Mappik (הּ) the ה is sounded · Rare; appears in possessive suffixes'},
+      {id:'nk01', q:'בָ  —  Kamatz',         a:'"AH" as in father',                       note:'Long vowel · T-shape under the letter · Most common vowel in Torah\n📝 אָב = AV (father) · שָׁלוֹם = sha-LOM (peace) · בָּרָא = ba-RA (He created)'},
+      {id:'nk02', q:'בַ  —  Patach',          a:'"AH" as in father (slightly shorter)',    note:'Short vowel · Single horizontal line under the letter · Sounds like Kamatz in most modern pronunciation\n📝 יַד = YAD (hand) · אַתָּה = a-TAH (you) · שַׁבָּת = sha-BAT (Shabbat)'},
+      {id:'nk03', q:'בֵ  —  Tzeirei',         a:'"EY" as in they',                        note:'Long vowel · Two dots side by side under the letter · Can appear as בֵי with Yud (Tzeirei Malei)\n📝 שֵׁם = SHEM (name) · בֵּית = BEIT (house) · אֱלֹהֵינוּ = e-lo-HEY-nu (our God)'},
+      {id:'nk04', q:'בֶ  —  Segol',           a:'"EH" as in bed',                         note:'Short vowel · Three dots in a triangle under the letter · Very common in Ashkenazic Hebrew\n📝 מֶלֶךְ = ME-lech (king) · אֶרֶץ = E-retz (land) · בֶּן = BEN (son)'},
+      {id:'nk05', q:'בִ  —  Chirik',          a:'"EE" as in feet',                        note:'Short vowel · Single dot under the letter · With Yud (בִי = Chirik Gadol) becomes long\n📝 בִּן = BIN (son of) · כִּי = KEE (because/that) · מִצְרַיִם = mitz-RA-yim (Egypt)'},
+      {id:'nk06', q:'בֹ  —  Cholam Chaser',   a:'"OH" as in go',                          note:'Long vowel · Dot above-left of the letter · Full form: וֹ (Cholam Malei) written with Vav\n📝 תּוֹרָה = to-RAH (Torah) · שָׁלוֹם = sha-LOM (peace) · קוֹל = KOL (voice)'},
+      {id:'nk07', q:'וּ  —  Shuruk',          a:'"OO" as in food',                        note:'Long vowel · A Vav with a dot in its center · Always written with a Vav\n📝 רוּחַ = RU-ach (spirit/wind) · אֶחָד = e-CHAD · שׁוּב = SHUV (return)'},
+      {id:'nk08', q:'בֻ  —  Kubutz',          a:'"OO" as in food (shorter)',              note:'Short vowel · Three diagonal dots under the letter · Sounds like Shuruk; appears when no Vav is possible\n📝 כֻּלָּם = ku-LAM (all of them) · קֻדְשָׁא = kud-SHA (holiness, Aramaic)'},
+      {id:'nk09', q:'בְ  —  Shva',            a:'Silent (Shva Nach) OR a brief "EH" (Shva Na)',note:'Two vertical dots under the letter · Shva Na = beginning of word or after long vowel · Shva Nach = end of syllable\n📝 בְּרֵאשִׁית = be-re-SHEET (In the beginning) · מַלְכֵּנוּ = mal-KE-nu (our King)'},
+      {id:'nk10', q:'בֲ  —  Chataf Patach',   a:'Quick "AH" sound',                       note:'Half-vowel under guttural letters (א ה ח ע) · A Patach combined with a Shva\n📝 אֲנִי = a-NEE (I) · חֲנֻכָּה = cha-nu-KAH (Chanukah) · עֲבוֹדָה = a-vo-DAH (service/work)'},
+      {id:'nk11', q:'בֱ  —  Chataf Segol',    a:'Quick "EH" sound',                       note:'Half-vowel under gutturals, especially א · A Segol combined with a Shva\n📝 אֱלֹהִים = e-lo-HIM (God) · אֱמֶת = E-met (truth) · הֱיֵה = he-YEH (be!)'},
+      {id:'nk12', q:'בֳ  —  Chataf Kamatz',   a:'Quick "OH" sound',                       note:'Half-vowel · Rarest of the three chataf vowels · A Kamatz Katan combined with a Shva\n📝 אׇהֳלִי = o-ho-LEE (my tent) · Rare; mostly in Tehillim (Psalms) and poetic texts'},
+      {id:'nk13', q:'What is a Dagesh Kal?',   a:'A dot that hardens a BeGaDKePhaT letter', note:'BeGaDKePhaT = בּ גּ דּ כּ פּ תּ · Without dagesh: V, (soft G), (soft D), CH, F, TH\n📝 בַּיִת = BA-yit (house, hard B) · כִּתֵּב = ki-TEV · פֵּה = PEH (mouth, hard P)'},
+      {id:'nk14', q:'What is a Dagesh Chazak?',a:'A dot that doubles a letter (gemination)', note:'The consonant is mentally said twice — doubles the consonant\n📝 אַמָּה = am-MAH (cubit) · שַׁבָּת = shab-BAT · הִנֵּה = hin-NEH (behold!) · Cannot appear in gutturals (א ה ח ע) or Resh (ר)'},
+      {id:'nk15', q:'What is a Mappik?',        a:'A dot inside a ה at the end of a word, indicating it is pronounced', note:'Final ה is normally silent · With a Mappik (הּ) the ה is sounded as a real H\n📝 גָּבְהָהּ = gav-HAH (her height) · בָּהּ = BAH (in her/it) · Rare; appears in possessive feminine suffixes'},
     ]
   },
 
@@ -1259,7 +1259,7 @@ function showLearnScreen(deckId) {
       <div class="learn-num">${i+1}</div>
       <div class="learn-term">${c.q}</div>
       <div class="learn-def">${c.a}</div>
-      ${c.note?`<div class="learn-note">${c.note}</div>`:''}
+      ${c.note?`<div class="learn-note">${c.note.replace(/\n/g,'<br>')}</div>`:''}
     </div>`).join('');
   const startQuiz = ()=>startSession(deckId);
   document.getElementById('learn-quiz-btn').onclick = startQuiz;
