@@ -475,6 +475,29 @@ h1,h2,h3{text-wrap:balance}
 .order-actions .btn-primary{flex:1;}
 .order-actions .btn-ghost{flex:1;}
 
+/* ── Match Quiz Screen ───────────────────────────────────── */
+.match-wrap{max-width:640px;margin:0 auto;padding:1.5rem 1.25rem 4rem;}
+.match-progress{font-size:.85rem;color:var(--muted);margin:.25rem 0 1rem;text-align:center;font-weight:600;}
+.match-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem .65rem;}
+.match-col{display:flex;flex-direction:column;gap:.45rem;}
+.match-item{
+  background:var(--surface);border:1.5px solid rgba(26,23,48,.1);border-radius:9px;
+  padding:.6rem .65rem;font-size:.82rem;font-weight:600;color:var(--ink-1);
+  cursor:pointer;text-align:center;line-height:1.3;
+  box-shadow:var(--shadow);transition:border-color .15s,background .15s,transform .1s;
+  min-height:2.6rem;display:flex;align-items:center;justify-content:center;
+}
+.match-item:active{transform:scale(.97);}
+.match-item.selected{border-color:var(--blue-lt);background:rgba(27,59,138,.09);color:var(--blue-lt);}
+.match-item.matched{border-color:#2d6a4f;background:rgba(45,106,79,.09);color:#2d6a4f;cursor:default;pointer-events:none;}
+.match-item.wrong{border-color:#b94a48;background:rgba(185,74,72,.09);animation:shake .4s ease;}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+.match-item.locked{opacity:.35;cursor:default;pointer-events:none;}
+.sec-btn-match{background:transparent;border:1.5px solid var(--gold);color:var(--gold);}
+@media(max-width:440px){
+  .match-item{font-size:.75rem;padding:.5rem .45rem;}
+}
+
 /* ── Responsive ─────────────────────────────────────────── */
 @media(max-width:580px){
   .header{padding:0 1rem}
@@ -654,6 +677,32 @@ h1,h2,h3{text-wrap:balance}
   </div>
 </div>
 
+<!-- Match Quiz Screen -->
+<div class="screen" id="screen-match">
+  <div class="match-wrap">
+    <div class="learn-top">
+      <button class="back-btn" id="match-back-btn" aria-label="Back">←</button>
+      <div>
+        <div class="learn-deck-title" id="match-deck-name"></div>
+        <div class="learn-meta"><span class="learn-desc">Match each item on the left to its pair on the right</span></div>
+      </div>
+    </div>
+    <div class="match-progress" id="match-progress"></div>
+    <div class="match-grid">
+      <div class="match-col" id="match-col-a"></div>
+      <div class="match-col" id="match-col-b"></div>
+    </div>
+    <div id="match-result" style="display:none;text-align:center;padding:1.25rem 0 .5rem;">
+      <div style="font-size:1.5rem;font-weight:800;color:#2d6a4f;margin-bottom:.35rem;">🎉 All matched!</div>
+      <div style="font-size:.9rem;color:var(--muted);margin-bottom:1.25rem;">You paired every month correctly.</div>
+      <div class="order-actions">
+        <button class="btn-primary" id="match-retry-btn">Play Again</button>
+        <button class="btn-ghost" id="match-home-btn">← Home</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="toast-wrap" id="toast-wrap"></div>
 
 <script>
@@ -748,34 +797,111 @@ const DECKS = [
     id: 'months',
     name: 'Jewish Months',
     emoji: '🌙',
-    orderable: true,
-    orderItems: ['Nissan (נִיסָן)','Iyar (אִיָּר)','Sivan (סִיוָן)','Tammuz (תַּמּוּז)','Av (אָב)','Elul (אֱלוּל)','Tishrei (תִּשְׁרֵי)','Cheshvan (חֶשְׁוָן)','Kislev (כִּסְלֵו)','Tevet (טֵבֵת)','Shevat (שְׁבָט)','Adar (אֲדָר)'],
-    desc: 'The 12 (or 13) months of the Jewish lunar-solar calendar',
+    desc: 'The 12 months of the Jewish lunisolar calendar — structure, names, and holidays',
     guide: [
-      {h:'The Jewish Calendar', b:[
-        'Lunar-solar calendar: months follow the moon, but an extra month is periodically added to stay aligned with the solar year',
-        'Each month begins with Rosh Chodesh (the new moon)',
-        'Standard year: 12 months (354 days) · Leap year (shanah me\'uberes, "pregnant year"): 13 months — a second Adar is added',
-        'Leap years occur 7 times in every 19-year Metonic cycle',
-        'Months are counted from Nissan ("the first month" — Shemos 12:2), but the year number advances from Tishrei on Rosh Hashanah',
-        'This duality reflects multiple layers: Nissan marks the historical redemption from Egypt; Tishrei marks Creation and the annual cycle of judgment',
+      {h:'The Jewish Calendar at a Glance', b:[
+        'The Jewish calendar is lunisolar — months follow the moon (~29.5 days each), but a periodic leap month keeps it anchored to the solar year',
+        'A standard year has 12 months (354 days); a leap year (shanah me\'uberes — "pregnant year") inserts a 13th month: Adar II',
+        'Months are numbered from Nissan ("the first month" per Shemos 12:2), but the calendar year advances from Tishrei on Rosh Hashanah',
+        'This dual starting point reflects two dimensions: Nissan = national birth (Yetzias Mitzrayim); Tishrei = cosmic creation (the world\'s birthday)',
+      ]},
+      {h:'Lunar vs. Solar — Why a Leap Month?', b:[
+        'A pure lunar year (354 days) falls ~11 days short of the solar year (365.25 days)',
+        'Without correction, the calendar would drift — Pesach could eventually fall in winter, Sukkos in spring',
+        'The Torah mandates "Chodesh HaAviv — the month of spring" (Shemos 13:4), anchoring Pesach to the spring season forever',
+        'Solution: intercalation (ibur) — Adar II is added 7 times in every 19-year Metonic cycle',
+        'This keeps Jewish holidays in their correct seasons while maintaining the lunar month structure',
+        'The calendar was standardized by Hillel II (~358 CE); before that, months were declared by the Sanhedrin based on eyewitness sightings of the new moon',
+      ]},
+      {h:'Key Structures and Concepts', b:[
+        'Rosh Chodesh: the 1st of each month (sometimes 2 days) — a minor holiday marked by Hallel, Mussaf, and Kiddush Levanah (blessing the new moon)',
+        'Fixed-length months: Nissan 30 · Iyar 29 · Sivan 30 · Tammuz 29 · Av 30 · Elul 29 · Tishrei 30 · Tevet 29 · Shevat 30 · Adar 29',
+        'Variable months: Cheshvan and Kislev (each 29 or 30 days) — their lengths determine the type of year: chaser (short), kesidra (regular), or shalem (full)',
+        'Four "new years": 1 Tishrei (Rosh Hashanah — years, judgment) · 1 Nissan (month-counting, kings) · 1 Elul (animal tithes) · 15 Shevat (Tu B\'Shvat — trees)',
       ]},
     ],
-    cards: [
-      {id:'mo07', q:'Nissan (נִיסָן)',       a:'1st month · 30 days · March–April',            note:'"First of months" in the Torah (Shemot 12:2) · Contains: Pesach (15–22) · The month of redemption and freedom'},
-      {id:'mo08', q:'Iyar (אִיָּר)',         a:'2nd month · 29 days · April–May',              note:'Contains: Yom HaShoah (27 Nissan/some use Iyar), Yom HaZikaron (4), Yom HaAtzmaut (5), Lag B\'Omer (18), Yom Yerushalayim (28) · Entire month = Sefirat HaOmer'},
-      {id:'mo09', q:'Sivan (סִיוָן)',        a:'3rd month · 30 days · May–June',               note:'Contains: Shavuot (6–7) — the giving of the Torah at Sinai'},
-      {id:'mo10', q:'Tammuz (תַּמּוּז)',     a:'4th month · 29 days · June–July',              note:'Contains: Shiva Asar B\'Tammuz (17) — breach of Jerusalem\'s walls · Begins the Three Weeks of mourning'},
-      {id:'mo11', q:'Av (אָב)',              a:'5th month · 30 days · July–August',            note:'Contains: Tisha B\'Av (9 Av) · Most tragic month in Jewish history · Three Weeks end on 9 Av · After 9 Av we say "Menachem Av" — consolation arrives'},
-      {id:'mo12', q:'Elul (אֱלוּל)',         a:'6th month · 29 days · August–September',      note:'Month of repentance and preparation before Rosh Hashanah · Shofar blown every morning · "Ani l\'dodi v\'dodi li" — I am to my beloved · Elul = each letter begins a word of this phrase'},
-      {id:'mo01', q:'Tishrei (תִּשְׁרֵי)',   a:'7th month · 30 days · September–October',    note:'Contains: Rosh Hashanah (1–2), Tzom Gedaliah (3), Yom Kippur (10), Sukkot (15–21), Shemini Atzeret/Simchat Torah (22–23) · The busiest month'},
-      {id:'mo02', q:'Cheshvan (חֶשְׁוָן)',   a:'8th month · 29 or 30 days · October–November',note:'Also called Marcheshvan · The only month with no holidays or fast days · Sometimes called "bitter" (Mar) Cheshvan for this reason'},
-      {id:'mo03', q:'Kislev (כִּסְלֵו)',     a:'9th month · 29 or 30 days · November–December',note:'Contains: Chanukah begins 25 Kislev · The length of Kislev varies and determines when Chanukah ends'},
-      {id:'mo04', q:'Tevet (טֵבֵת)',         a:'10th month · 29 days · December–January',     note:'Contains: Asara B\'Tevet (10 Tevet) · Chanukah usually extends into Tevet'},
-      {id:'mo05', q:'Shevat (שְׁבָט)',       a:'11th month · 30 days · January–February',     note:'Contains: Tu B\'Shvat (15 Shevat) — New Year of the Trees'},
-      {id:'mo06', q:'Adar (אֲדָר)',          a:'12th month · 29 days · February–March',       note:'Contains: Ta\'anit Esther (13), Purim (14), Shushan Purim (15) · In a leap year, this becomes Adar I (30 days) and Adar II is added'},
-      {id:'mo13', q:'What is a Jewish leap year?', a:'A year with 13 months — a second Adar (Adar II) is added', note:'Occurs 7 times in a 19-year cycle (Metonic cycle) · Keeps lunar months aligned with solar seasons · Purim is observed in Adar II in leap years'},
-      {id:'mo14', q:'Why does Nissan count as the "first month"?', a:'God commanded it as the first month of the year to mark the Exodus from Egypt (Shemot 12:2)', note:'But the New Year (Rosh Hashanah) falls in Tishrei, the 7th month — there are actually four "new years" in the Jewish calendar (Rosh Hashanah, Tu B\'Shvat, 1 Nissan, 1 Elul)'},
+    sections: [
+      {
+        id: 'months-basics',
+        name: 'Calendar Foundations',
+        emoji: '📅',
+        cards: [
+          {id:'mo14', q:'Why does Nissan count as the "first month"?',
+            a:'Hashem commanded it: "This month shall be for you the first of months" (Shemos 12:2) — to commemorate the Exodus from Egypt',
+            note:'Yet the New Year (Rosh Hashanah) falls in Tishrei, the 7th month · There are actually four "new years" in the Jewish calendar · Nissan is the first month nationally and historically; Tishrei is the new year cosmically and for divine judgment'},
+          {id:'mo13', q:'What is a Jewish leap year (Shanah Me\'uberes)?',
+            a:'A year with 13 months — a second Adar (Adar II) is inserted before Nissan to realign the lunar calendar with the solar seasons',
+            note:'Occurs 7 times in a 19-year Metonic cycle · Without it, Pesach would eventually fall in winter · "Me\'uberes" means "pregnant" — the year carries an extra month · Purim is observed in Adar II in a leap year'},
+          {id:'mo15', q:'What kind of calendar is the Jewish calendar?',
+            a:'A lunisolar calendar — months follow the moon, but a periodic leap month keeps it synchronized with the solar year and the seasons',
+            note:'Lunar year = ~354 days · Solar year = ~365.25 days · 11-day annual gap is corrected by adding Adar II 7 out of every 19 years · This keeps Pesach in spring and Sukkos in autumn as the Torah requires'},
+          {id:'mo16', q:'What is Rosh Chodesh?',
+            a:'The first day of the Jewish month — a minor holiday marking the new moon, celebrated with special prayers',
+            note:'When the preceding month has 30 days, Rosh Chodesh is two days · Special tefillos: Hallel (half), Mussaf, Yaaleh V\'Yavo in Shemoneh Esrei · Women have a custom not to do certain work · Kiddush Levanah — sanctifying the new moon — is recited in the first half of the month'},
+          {id:'mo17', q:'What are the four "new years" of the Jewish calendar?',
+            a:'1 Tishrei (Rosh Hashanah — for years and divine judgment) · 1 Nissan (for kings and month-counting) · 1 Elul (for animal tithes) · 15 Shevat (Tu B\'Shvat — for trees)',
+            note:'Source: Mishnah Rosh Hashanah 1:1 · Each marks a distinct legal and spiritual cycle · 1 Tishrei: the world is judged, the year number advances · 1 Nissan: months are counted from here, even though the year began in Tishrei'},
+          {id:'mo18', q:'Why must the Jewish calendar stay anchored to the solar seasons?',
+            a:'The Torah calls Nissan "Chodesh HaAviv — the month of spring" (Shemos 13:4), requiring Pesach to always fall in spring',
+            note:'Without the leap month, an 11-day annual drift would move Pesach into winter within decades · The Sanhedrin was halachically obligated to declare a leap year if Pesach was heading out of the spring season · Intercalation (adding Adar II) is the mechanism that keeps Torah-mandated seasonal holidays in their correct times'},
+        ]
+      },
+      {
+        id: 'months-detail',
+        name: 'The 12 Months',
+        emoji: '🌙',
+        requires: 'months-basics',
+        level: 2,
+        orderable: true,
+        orderItems: ['Nissan (נִיסָן)','Iyar (אִיָּר)','Sivan (סִיוָן)','Tammuz (תַּמּוּז)','Av (אָב)','Elul (אֱלוּל)','Tishrei (תִּשְׁרֵי)','Cheshvan (חֶשְׁוָן)','Kislev (כִּסְלֵו)','Tevet (טֵבֵת)','Shevat (שְׁבָט)','Adar (אֲדָר)'],
+        cards: [
+          {id:'mo07', q:'Nissan (נִיסָן)',    a:'1st month · 30 days · March–April',             note:'"First of months" in the Torah (Shemot 12:2) · Contains: Pesach (15–22) · The month of redemption and freedom'},
+          {id:'mo08', q:'Iyar (אִיָּר)',      a:'2nd month · 29 days · April–May',               note:'Contains: Yom HaZikaron (4), Yom HaAtzmaut (5), Lag B\'Omer (18), Yom Yerushalayim (28) · Entire month = Sefirat HaOmer'},
+          {id:'mo09', q:'Sivan (סִיוָן)',     a:'3rd month · 30 days · May–June',                note:'Contains: Shavuos (6–7) — the giving of the Torah at Sinai'},
+          {id:'mo10', q:'Tammuz (תַּמּוּז)', a:'4th month · 29 days · June–July',               note:'Contains: Shiva Asar B\'Tammuz (17 Tammuz) — breach of Jerusalem\'s walls · Begins the Three Weeks of mourning'},
+          {id:'mo11', q:'Av (אָב)',           a:'5th month · 30 days · July–August',             note:'Contains: Tisha B\'Av (9 Av) · Most tragic month in Jewish history · Three Weeks end on 9 Av · After 9 Av: "Menachem Av" — consolation arrives'},
+          {id:'mo12', q:'Elul (אֱלוּל)',      a:'6th month · 29 days · August–September',       note:'Month of teshuvah and preparation · Shofar blown every morning · "Ani l\'dodi v\'dodi li" — each letter of Elul begins a word of this phrase · Selichos begin late Elul'},
+          {id:'mo01', q:'Tishrei (תִּשְׁרֵי)',a:'7th month · 30 days · September–October',      note:'Contains: Rosh Hashanah (1–2), Tzom Gedaliah (3), Yom Kippur (10), Sukkos (15–21), Shemini Atzeres/Simchas Torah (22–23) · The busiest month'},
+          {id:'mo02', q:'Cheshvan (חֶשְׁוָן)',a:'8th month · 29 or 30 days · October–November', note:'Also called Marcheshvan · The only month with no holidays or fast days · Sometimes called "bitter" (Mar) Cheshvan for this reason'},
+          {id:'mo03', q:'Kislev (כִּסְלֵו)', a:'9th month · 29 or 30 days · November–December', note:'Contains: Chanukah begins 25 Kislev · The length of Kislev varies and determines when Chanukah ends'},
+          {id:'mo04', q:'Tevet (טֵבֵת)',      a:'10th month · 29 days · December–January',      note:'Contains: Asara B\'Tevet (10 Tevet) · Chanukah usually extends into Tevet'},
+          {id:'mo05', q:'Shevat (שְׁבָט)',    a:'11th month · 30 days · January–February',      note:'Contains: Tu B\'Shvat (15 Shevat) — New Year of the Trees'},
+          {id:'mo06', q:'Adar (אֲדָר)',       a:'12th month · 29 days · February–March',         note:'Contains: Ta\'anit Esther (13), Purim (14), Shushan Purim (15) · In a leap year, becomes Adar I (30 days) and Adar II is added'},
+        ]
+      },
+      {
+        id: 'months-order',
+        name: 'Months in Order',
+        emoji: '↕️',
+        requires: 'months-basics',
+        level: 2,
+        orderable: true,
+        orderItems: ['Nissan','Iyar','Sivan','Tammuz','Av','Elul','Tishrei','Cheshvan','Kislev','Tevet','Shevat','Adar'],
+        cards: []
+      },
+      {
+        id: 'months-matching',
+        name: 'Holidays by Month',
+        emoji: '🎯',
+        requires: 'months-detail',
+        level: 3,
+        matchable: true,
+        matchItems: [
+          {a:'Nissan',   b:'Pesach (15 Nissan)'},
+          {a:'Iyar',     b:'Lag B\'Omer · Yom HaAtzmaut'},
+          {a:'Sivan',    b:'Shavuos (6 Sivan)'},
+          {a:'Tammuz',   b:'17 Tammuz · Three Weeks begin'},
+          {a:'Av',       b:'Tisha B\'Av (9 Av)'},
+          {a:'Elul',     b:'Shofar daily · Selichos'},
+          {a:'Tishrei',  b:'Rosh Hashanah · Yom Kippur · Sukkos'},
+          {a:'Cheshvan', b:'No holidays — "Bitter Cheshvan"'},
+          {a:'Kislev',   b:'Chanukah (25 Kislev)'},
+          {a:'Tevet',    b:'Asara B\'Tevet · Chanukah ends'},
+          {a:'Shevat',   b:'Tu B\'Shvat (15 Shevat)'},
+          {a:'Adar',     b:'Purim (14 Adar)'},
+        ],
+        cards: []
+      },
     ]
   },
 
@@ -2062,7 +2188,7 @@ let sess=null;
 
 function startSession(itemId) {
   const item = findQuizzable(itemId);
-  if (!item || !item.cards) return;
+  if (!item || !item.cards || !item.cards.length) return;
   // find parent deck for back-navigation
   const parentDeck = DECKS.find(d=>d.sections && d.sections.some(s=>s.id===itemId)) || null;
   let due=item.cards.filter(c=>isDue(c.id));
@@ -2346,18 +2472,28 @@ function showDeckScreen(deckId) {
         </div>
       </div>`;
     }
+    // Build action buttons based on section type
+    let actions = '';
+    if (sec.matchable) {
+      actions = `<button class="sec-btn sec-btn-match" data-id="${sec.id}">🎯 Match</button>`;
+    } else if (sec.orderable && !total) {
+      actions = `<button class="sec-btn sec-btn-order" data-id="${sec.id}">↕ Order</button>`;
+    } else {
+      actions = `<button class="sec-btn sec-btn-learn" data-id="${sec.id}">📖</button>
+        <button class="sec-btn sec-btn-quiz" data-id="${sec.id}">▶ Quiz</button>
+        ${sec.orderable?`<button class="sec-btn sec-btn-order" data-id="${sec.id}">↕</button>`:''}`;
+    }
+    const metaLine = sec.matchable ? `${sec.matchItems.length} pairs` :
+      (sec.orderable && !total) ? `${sec.orderItems.length} items` :
+      `${dueN>0?dueN+' due · ':dueN===0&&reviewed>0?'✓ Done · ':''}${total} cards`;
     return `<div class="section-card">
       <div class="section-icon">${sec.emoji||'📚'}</div>
       <div class="section-body">
         <div class="section-name">${sec.name} ${levelChip} ${passedChip}</div>
-        <div class="section-meta">${dueN>0?dueN+' due · ':dueN===0&&reviewed>0?'✓ Done · ':''}${total} cards</div>
-        <div class="section-bar"><div class="section-bar-fill" style="width:${pct}%"></div></div>
+        <div class="section-meta">${metaLine}</div>
+        ${total>0?`<div class="section-bar"><div class="section-bar-fill" style="width:${pct}%"></div></div>`:''}
       </div>
-      <div class="section-actions">
-        <button class="sec-btn sec-btn-learn" data-id="${sec.id}">📖</button>
-        <button class="sec-btn sec-btn-quiz" data-id="${sec.id}">▶ Quiz</button>
-        ${sec.orderable?`<button class="sec-btn sec-btn-order" data-id="${sec.id}">↕</button>`:''}
-      </div>
+      <div class="section-actions">${actions}</div>
     </div>`;
   }).join('')}</div>`;
   document.querySelectorAll('#deck-sections-grid .sec-btn-quiz').forEach(el=>{
@@ -2368,6 +2504,9 @@ function showDeckScreen(deckId) {
   });
   document.querySelectorAll('#deck-sections-grid .sec-btn-order').forEach(el=>{
     el.addEventListener('click',()=>startOrderQuiz(el.dataset.id));
+  });
+  document.querySelectorAll('#deck-sections-grid .sec-btn-match').forEach(el=>{
+    el.addEventListener('click',()=>startMatchQuiz(el.dataset.id));
   });
   document.getElementById('deck-back-btn').onclick=()=>{show('home');renderHome();};
   show('deck');
@@ -2543,6 +2682,85 @@ function checkOrder() {
 document.getElementById('order-check-btn').addEventListener('click', checkOrder);
 document.getElementById('order-retry-btn').addEventListener('click', ()=>startOrderQuiz(orderSess.itemId));
 document.getElementById('order-home-btn').addEventListener('click', ()=>{show('home');renderHome();});
+
+// ═══════════════════════════════════════════════════════════
+// MATCH QUIZ
+// ═══════════════════════════════════════════════════════════
+let matchSess = null;
+
+function shuffleArr(arr) {
+  const a=[...arr];
+  for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}
+  return a;
+}
+
+function startMatchQuiz(itemId) {
+  const item = findQuizzable(itemId);
+  if (!item || !item.matchable || !item.matchItems) return;
+  const parentDeck = DECKS.find(d=>d.sections && d.sections.some(s=>s.id===itemId)) || null;
+
+  matchSess = { itemId, item, parentDeck, total: item.matchItems.length, matched: 0, selectedIdx: null };
+
+  document.getElementById('match-deck-name').textContent = (item.emoji||'🎯')+' '+item.name;
+  document.getElementById('match-progress').textContent = `0 / ${item.matchItems.length} matched`;
+  document.getElementById('match-result').style.display = 'none';
+
+  const aItems = shuffleArr(item.matchItems.map((it,i)=>({...it,idx:i})));
+  const bItems = shuffleArr(item.matchItems.map((it,i)=>({...it,idx:i})));
+
+  const colA = document.getElementById('match-col-a');
+  const colB = document.getElementById('match-col-b');
+  colA.innerHTML = aItems.map(it=>`<div class="match-item" data-idx="${it.idx}" data-col="a">${it.a}</div>`).join('');
+  colB.innerHTML = bItems.map(it=>`<div class="match-item" data-idx="${it.idx}" data-col="b">${it.b}</div>`).join('');
+
+  [...colA.querySelectorAll('.match-item'),...colB.querySelectorAll('.match-item')]
+    .forEach(el=>el.addEventListener('click', handleMatchClick));
+
+  document.getElementById('match-back-btn').onclick = ()=>{
+    if (parentDeck) showDeckScreen(parentDeck.id);
+    else { show('home'); renderHome(); }
+  };
+  document.getElementById('match-retry-btn').onclick = ()=>startMatchQuiz(matchSess.itemId);
+  document.getElementById('match-home-btn').onclick = ()=>{ show('home'); renderHome(); };
+  show('match');
+  document.getElementById('screen-match').scrollTop = 0;
+}
+
+function handleMatchClick(e) {
+  const el = e.currentTarget;
+  if (el.classList.contains('matched') || el.classList.contains('wrong')) return;
+  const col = el.dataset.col;
+  const idx = +el.dataset.idx;
+
+  if (col === 'a') {
+    document.querySelectorAll('#match-col-a .match-item.selected').forEach(x=>x.classList.remove('selected'));
+    if (matchSess.selectedIdx === idx) { matchSess.selectedIdx = null; return; }
+    el.classList.add('selected');
+    matchSess.selectedIdx = idx;
+  } else {
+    if (matchSess.selectedIdx === null) return;
+    const aEl = document.querySelector(`#match-col-a .match-item[data-idx="${matchSess.selectedIdx}"]`);
+    if (matchSess.selectedIdx === idx) {
+      // Correct
+      aEl?.classList.remove('selected');
+      aEl?.classList.add('matched');
+      el.classList.add('matched');
+      matchSess.selectedIdx = null;
+      matchSess.matched++;
+      document.getElementById('match-progress').textContent = `${matchSess.matched} / ${matchSess.total} matched`;
+      if (matchSess.matched === matchSess.total) {
+        setTimeout(()=>{ document.getElementById('match-result').style.display = ''; }, 500);
+      }
+    } else {
+      // Wrong — shake both, reset after 700ms
+      aEl?.classList.remove('selected');
+      aEl?.classList.add('wrong');
+      el.classList.add('wrong');
+      matchSess.selectedIdx = null;
+      setTimeout(()=>{ aEl?.classList.remove('wrong'); el.classList.remove('wrong'); }, 700);
+    }
+  }
+}
 
 // ═══════════════════════════════════════════════════════════
 // THEME
