@@ -693,8 +693,9 @@ h1,h2,h3{text-wrap:balance}
       <div class="match-col" id="match-col-b"></div>
     </div>
     <div id="match-result" style="display:none;text-align:center;padding:1.25rem 0 .5rem;">
-      <div style="font-size:1.5rem;font-weight:800;color:#2d6a4f;margin-bottom:.35rem;">🎉 All matched!</div>
-      <div style="font-size:.9rem;color:var(--muted);margin-bottom:1.25rem;">You paired every month correctly.</div>
+      <div class="order-score-line" id="match-score"></div>
+      <div class="order-score-label" id="match-score-label"></div>
+      <div class="order-perfect" id="match-perfect" style="display:none">🎉 Perfect score!</div>
       <div class="order-actions">
         <button class="btn-primary" id="match-retry-btn">Play Again</button>
         <button class="btn-ghost" id="match-home-btn">← Home</button>
@@ -2707,10 +2708,10 @@ function startMatchQuiz(itemId) {
   if (!item || !item.matchable || !item.matchItems) return;
   const parentDeck = DECKS.find(d=>d.sections && d.sections.some(s=>s.id===itemId)) || null;
 
-  matchSess = { itemId, item, parentDeck, total: item.matchItems.length, matched: 0, selectedIdx: null };
+  matchSess = { itemId, item, parentDeck, total: item.matchItems.length, paired: 0, correct: 0, selectedIdx: null };
 
   document.getElementById('match-deck-name').textContent = (item.emoji||'🎯')+' '+item.name;
-  document.getElementById('match-progress').textContent = `0 / ${item.matchItems.length} matched`;
+  document.getElementById('match-progress').textContent = `0 / ${item.matchItems.length} paired`;
   document.getElementById('match-result').style.display = 'none';
 
   const aItems = shuffleArr(item.matchItems.map((it,i)=>({...it,idx:i})));
@@ -2748,24 +2749,24 @@ function handleMatchClick(e) {
   } else {
     if (matchSess.selectedIdx === null) return;
     const aEl = document.querySelector(`#match-col-a .match-item[data-idx="${matchSess.selectedIdx}"]`);
+    aEl?.classList.remove('selected');
     if (matchSess.selectedIdx === idx) {
-      // Correct
-      aEl?.classList.remove('selected');
       aEl?.classList.add('matched');
       el.classList.add('matched');
-      matchSess.selectedIdx = null;
-      matchSess.matched++;
-      document.getElementById('match-progress').textContent = `${matchSess.matched} / ${matchSess.total} matched`;
-      if (matchSess.matched === matchSess.total) {
-        setTimeout(()=>{ document.getElementById('match-result').style.display = ''; }, 500);
-      }
+      matchSess.correct++;
     } else {
-      // Wrong — shake both, reset after 700ms
-      aEl?.classList.remove('selected');
       aEl?.classList.add('wrong');
       el.classList.add('wrong');
-      matchSess.selectedIdx = null;
-      setTimeout(()=>{ aEl?.classList.remove('wrong'); el.classList.remove('wrong'); }, 700);
+    }
+    matchSess.selectedIdx = null;
+    matchSess.paired++;
+    document.getElementById('match-progress').textContent = `${matchSess.paired} / ${matchSess.total} paired`;
+    if (matchSess.paired === matchSess.total) {
+      const pct = Math.round(matchSess.correct / matchSess.total * 100);
+      document.getElementById('match-score').textContent = `${matchSess.correct} / ${matchSess.total} correct`;
+      document.getElementById('match-score-label').textContent = `${pct}% accuracy`;
+      document.getElementById('match-perfect').style.display = matchSess.correct === matchSess.total ? '' : 'none';
+      setTimeout(()=>{ document.getElementById('match-result').style.display = ''; }, 400);
     }
   }
 }
