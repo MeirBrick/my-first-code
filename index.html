@@ -2740,6 +2740,80 @@ const DECKS = [
     ]
   },
 
+  // ── Jewish Lifecycle ─────────────────────────────────────
+  {
+    id: 'lifecycle',
+    name: 'The Jewish Lifecycle',
+    emoji: '🌱',
+    desc: 'Birth to burial — the rituals, milestones, and meanings of Jewish lifecycle events',
+    guide: [
+      {h:'Life as a Sacred Journey', b:[
+        'Judaism sanctifies every stage of human life — from before birth to after death — with specific rituals, prayers, and obligations',
+        'Each lifecycle event marks a transition: a new status, a new covenant, a new set of responsibilities',
+        'The Kabbalistic view: each life stage corresponds to a deeper integration of the soul into this world and, ultimately, its return to its source',
+      ]},
+    ],
+    sections: [
+      {
+        id: 'lifecycle-birth',
+        name: 'Birth & Early Childhood',
+        emoji: '👶',
+        desc: 'Bris milah, naming, Pidyon HaBen, and chinuch',
+        cards: [
+          {id:'lc-b01', q:'What is Bris Milah?',                          a:'Circumcision on the 8th day — the covenant of Avraham · The sign of the covenant between God and the Jewish people', note:'Bereishis 17:10 · Performed even on Shabbos or Yom Tov if the 8th day falls then · The mohel (expert circumcisor) performs it · Sandak holds the baby · The father fulfills his Torah obligation through the mohel · Failure to circumcise carries karet'},
+          {id:'lc-b02', q:'When is a baby named?',                        a:'Girls: named at the first Torah reading after birth (in Ashkenaz) · Boys: named at the bris on the 8th day', note:'Sephardic custom: boys may be named at a separate celebration before the bris · The name is often chosen to honor a deceased relative (Ashkenaz) or a living one (Sephardim) · A name connects the child to a soul and a legacy — chosen with great care'},
+          {id:'lc-b03', q:'What is Pidyon HaBen?',                        a:'Redemption of the firstborn son — on the 31st day, the father "redeems" his son from a kohein with five silver coins', note:'Shemos 13:13 · Applies to: a firstborn male · born naturally (not C-section) · whose mother is not a kohein or Levi · If the father is a kohein or Levi, no Pidyon HaBen · The kohein receives the coins; many return them as a gift · A festive meal accompanies it'},
+          {id:'lc-b04', q:'What is Chinuch?',                             a:'Education — the mitzvah to train children in Torah and mitzvos from a young age, even before they are halachically obligated', note:'Devarim 6:7 · Children become obligated in all mitzvos at Bar/Bat Mitzvah · Before that age, parents are obligated in chinuch — training the child · A child who understands the concept of Shabbos should observe it (Rabbinic) · Chinuch is one of the primary obligations of Jewish parenthood'},
+          {id:'lc-b05', q:'What is a Zeved HaBat?',                       a:'A Sephardic naming ceremony for newborn girls — held at home or shul, with prayers and celebration', note:'Ashkenazim name the girl in shul (Mi Sheberach at the Torah) · Sephardim have a more elaborate home ceremony (Zeved HaBat or Simchat Bat) · Modern communities often celebrate with a Simchat Bat ceremony regardless of background'},
+        ]
+      },
+      {
+        id: 'lifecycle-barmitzvah',
+        name: 'Bar & Bat Mitzvah',
+        emoji: '📖',
+        desc: 'Coming of age — the obligations, customs, and meaning of becoming a Bar or Bat Mitzvah',
+        cards: [
+          {id:'lc-bm01', q:'When does a boy become Bar Mitzvah?',         a:'At age 13 (and one day) — he becomes fully obligated in all Torah commandments',                  note:'No ceremony is required — halachically he is Bar Mitzvah the moment he turns 13 · The celebration, aliyah, and speech are customs, not requirements · A sign of physical maturity (two pubic hairs) is required for some halachic purposes; age 13 is the presumptive threshold'},
+          {id:'lc-bm02', q:'When does a girl become Bat Mitzvah?',        a:'At age 12 (and one day) — she becomes obligated in all mitzvos that apply to women',             note:'Girls mature earlier than boys — hence age 12 vs. 13 · Traditionally no public ceremony required · Many communities hold a Bat Mitzvah celebration; the nature (aliyah, speech, party) varies by community and movement'},
+          {id:'lc-bm03', q:'What is the first aliyah at a Bar Mitzvah?',  a:'The Bar Mitzvah boy is called to the Torah — often reading the maftir and haftarah · His father recites "Baruch she\'petarani" thanking God for transferring responsibility', note:'"Baruch she\'petarani mei\'onsho shel zeh" — Blessed is He who has relieved me of the punishment of this one · The father\'s legal responsibility for the child\'s actions now shifts to the child himself · The Bar Mitzvah boy may now be counted in a minyan and lead davening'},
+          {id:'lc-bm04', q:'What is a Bar Mitzvah speech (d\'var Torah)?', a:'The Bar Mitzvah boy traditionally delivers a d\'var Torah (Torah teaching) — often on a Talmudic topic or the week\'s parsha', note:'Called a "drashah" · In Chassidic communities, often a "maamar" (discourse) · The speech demonstrates the Bar Mitzvah\'s readiness to engage with Torah independently · The concept: a Bar Mitzvah is not a graduation but a beginning — the start of a lifetime of Torah obligation'},
+          {id:'lc-bm05', q:'What is Tefillin\'s connection to Bar Mitzvah?', a:'A boy begins wearing tefillin at Bar Mitzvah — some Ashkenazic communities begin one month (or two months) before', note:'Ashkenaz (Yerushalmim, some Chassidim): start two months early · Standard Ashkenaz: start one month early · Sephardim: start on Bar Mitzvah day itself · The first time putting on tefillin is a significant moment · Many fathers put tefillin on their sons for the first time'},
+        ]
+      },
+      {
+        id: 'lifecycle-marriage',
+        name: 'Marriage',
+        emoji: '💍',
+        desc: 'Kiddushin, the chuppah, ketubah, sheva brachos, and the Jewish concept of marriage',
+        cards: [
+          {id:'lc-m01', q:'What is Kiddushin (Erusin)?',                  a:'Betrothal — the first stage of Jewish marriage where the groom consecrates the bride exclusively to himself with a ring and declaration', note:'"Harei at mekudeshes li b\'taba\'at zo k\'das Moshe v\'Yisrael" — "You are sanctified to me with this ring according to the law of Moshe and Israel" · Requires two witnesses · After kiddushin, the couple is halachically married but do not yet live together until nissuin'},
+          {id:'lc-m02', q:'What is Nissuin?',                              a:'The second stage of Jewish marriage — the chuppah · The couple enters the canopy, completing the marriage and enabling them to live together', note:'Today kiddushin and nissuin are performed together under the chuppah · Historically there was a 12-month gap between them · The chuppah (canopy) symbolizes the new home · In some communities the couple enters a private room (yichud) immediately after, symbolizing the new union'},
+          {id:'lc-m03', q:'What is the Ketubah?',                         a:'The marriage contract — a document detailing the husband\'s financial obligations to his wife and the payment she receives if widowed or divorced', note:'Enacted by the Sages to protect women · Written in Aramaic · Signed by two witnesses before the ceremony · The groom reads it aloud under the chuppah · Must be kept in the home and not lost — without a valid Ketubah, the couple may not live together until it is replaced'},
+          {id:'lc-m04', q:'What is Sheva Brachos?',                       a:'Seven blessings recited under the chuppah and at festive meals during the seven days following the wedding', note:'The seven days of celebration (shivas yemei mishteh) · A minyan is required at each meal for Sheva Brachos to be recited · A "panim chadoshos" (new face — someone who was not at the wedding) must be present at the meal · The couple does not separate during the seven days'},
+          {id:'lc-m05', q:'What is a Tena\'im?',                          a:'A formal engagement agreement — a document signed at a tenai\'im ceremony stipulating conditions of the upcoming marriage and a penalty for breaking off the engagement', note:'From "tenai" = condition · Historically held months before the wedding · Today often held just before the wedding ceremony (in Ashkenazic tradition) · A plate is broken at the tenaim to express seriousness — and to mourn the Beis HaMikdash even at joyous times'},
+          {id:'lc-m06', q:'What customs accompany the wedding day?',       a:'Groom and bride fast until after the chuppah (in many communities) · Confess like Yom Kippur · Wear white · The badeken (veiling of the bride) precedes the chuppah', note:'Fasting: because past sins are forgiven on one\'s wedding day — a personal Yom Kippur · The groom veils the bride at the badeken (based on Rivkah covering herself before Yitzchak) · A klezmer band and dancing are traditional · Seven blessings under the chuppah followed by a festive meal'},
+          {id:'lc-m07', q:'What is Yichud?',                              a:'The private seclusion of the bride and groom immediately after the chuppah — completing the marriage halachically', note:'The couple enters a private room for a few minutes · Two witnesses stand outside to confirm the yichud occurred · This moment completes the nissuin stage of marriage · The couple usually breaks their fast at this time · Witnesses may not enter the room'},
+        ]
+      },
+      {
+        id: 'lifecycle-death',
+        name: 'Death & Mourning',
+        emoji: '🕯️',
+        desc: 'Aninut, burial, shiva, shloshim, and yahrzeit — the Jewish approach to loss and grief',
+        cards: [
+          {id:'lc-d01', q:'What is Aninut?',                              a:'The period between death and burial — the mourner (onen) is exempt from all positive commandments because burying the dead takes precedence', note:'"Kevod hameis" (honor of the dead) and "kvod hachai" (honor of the living) are both at stake · The onen may not eat meat, drink wine, bathe, or engage in normal activities · This is the most intense period of grief — the body is never left alone (shmirah — watching)'},
+          {id:'lc-d02', q:'What is Kria?',                                a:'Tearing one\'s garment — done upon hearing of the death of one of the seven close relatives (father, mother, sibling, spouse, child)', note:'Torn on the left side (over the heart) for parents · On the right side for other relatives · Done standing · The garment is worn throughout shiva · Based on: Yaakov tore his garments upon seeing Yosef\'s coat (Bereishis 37:34)'},
+          {id:'lc-d03', q:'What is proper Jewish burial (Kevurah)?',      a:'Burial in the ground as soon as possible after death — ideally the same day · The body is washed (tahara), dressed in white linen shrouds (tachrichim), and buried without a coffin (in Eretz Yisrael)', note:'"For dust you are and to dust you shall return" (Bereishis 3:19) · Embalming, cremation, and open-casket viewing are forbidden · The Chevra Kadisha (burial society) performs the tahara · In the Diaspora, a coffin is used but with holes · Watching over the body (shmirah) is required until burial'},
+          {id:'lc-d04', q:'What is Shiva?',                               a:'Seven days of mourning after burial — mourners stay home, sit low, are forbidden from bathing, leather shoes, marital relations, haircuts, and Torah study', note:'"Shiva" = seven · Friends and family visit to comfort the mourners (nichum aveilim) · Mourners do not initiate conversation — visitors wait for them to speak · The Shabbos during shiva is counted but mourning is not practiced publicly · The community provides the mourners\' first meal after burial (seudat havra\'ah)'},
+          {id:'lc-d05', q:'What is Shloshim?',                            a:'Thirty days of mourning — a reduced mourning period after shiva ends · Mourners may not get haircuts, attend celebrations, or listen to music', note:'"Shloshim" = thirty · Includes the shiva days · After shloshim, most mourning restrictions lift except for a parent · For a parent, mourning continues for 12 months: no haircut until people comment, no music, no celebrations'},
+          {id:'lc-d06', q:'What is Kaddish?',                             a:'The mourner\'s prayer — recited by mourners for 11 months after a parent\'s death and on yahrzeit · Praises God without mentioning death', note:'Recited three times a day for 11 months (not 12 — 12 months is the full judgment period for the wicked; we assume our parents need only 11) · Requires a minyan · Said for parents, not typically for other relatives (though opinions vary) · The Kaddish does not mention death — it is an affirmation of faith in God despite loss'},
+          {id:'lc-d07', q:'What is Yahrzeit?',                            a:'The anniversary of a death (by Jewish date) — observed with a 24-hour candle, reciting Kaddish, and learning Torah in memory of the deceased', note:'"Yahrzeit" = year-time (Yiddish) · Many have the minhag to fast on a parent\'s yahrzeit · Giving tzedakah in the person\'s memory is universal · Getting an aliyah to the Torah on or near the yahrzeit is customary · Some visit the gravesite (kibud av va\'em continues after death)'},
+          {id:'lc-d08', q:'What is the concept of Olam HaBa for the soul?', a:'After death, the soul is judged and enters a process of purification (Gehinnom for up to 12 months) before ascending to Gan Eden — the World to Come', note:'Gehinnom is not eternal punishment for most — it is a purification process · Kaddish and mitzvos performed in the deceased\'s memory help elevate the soul · The righteous go directly to Gan Eden · "The World to Come is not like this world" (Berachos 17a) — it is a world of souls experiencing the Divine Presence directly'},
+        ]
+      },
+    ]
+  },
+
   // ── Ten Commandments ─────────────────────────────────────
   {
     id: 'aseres-hadibros',
@@ -3929,8 +4003,8 @@ const CATEGORIES = [
   { name: 'The Jewish Year',    ids: ['months', 'hol-doraisa', 'hol-drabonon', 'fasts', 'cal-periods', 'israel-days'] },
   { name: 'Tanach',             ids: ['chumash-overview', 'bereishis', 'shemos', 'vayikra', 'bamidbar', 'devarim', 'nach-intro', 'neviim', 'ketuvim'] },
   { name: 'Oral Torah',         ids: ['oral-law-overview', 'rabbinic-eras', 'tannaim', 'amoraim', 'mishnah', 'talmud-study'] },
-  { name: 'Halacha',            ids: ['halacha-basics', 'taryag', 'aseres-hadibros', 'everyday-halacha', 'poskim', 'halacha-books'] },
-  { name: 'Jewish Life',        ids: ['hebrew', 'holidays', 'values', 'prayer', 'zmanim', 'shabbos', 'davening', 'beis-hamikdash'] },
+  { name: 'Halacha',            ids: ['halacha-basics', 'taryag', 'aseres-hadibros', 'poskim', 'halacha-books'] },
+  { name: 'Jewish Life',        ids: ['lifecycle', 'everyday-halacha', 'zmanim', 'shabbos', 'davening', 'beis-hamikdash'] },
 ];
 
 // ═══════════════════════════════════════════════════════════
