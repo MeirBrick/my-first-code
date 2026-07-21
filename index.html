@@ -442,6 +442,318 @@ h1,h2,h3{text-wrap:balance}
 // CONTENT — edit or add decks and cards here
 // ═══════════════════════════════════════════════════════════
 const DECKS = [
+
+  // ── Aleph-Bet ────────────────────────────────────────────
+  {
+    id: 'aleph-bet',
+    name: 'Hebrew Alphabet',
+    emoji: '🔠',
+    desc: 'The 22 letters — names, sounds, and numerical values',
+    cards: [
+      {id:'ab01', q:'א',               a:'Aleph · Silent (takes the sound of its vowel)',          note:'Value: 1 · No inherent sound — like a glottal stop · One of the guttural letters'},
+      {id:'ab02', q:'בּ  /  ב',        a:'Bet / Vet · B (with dagesh) / V (without)',               note:'Value: 2 · One of the six BeGaDKePhaT letters that change with a dagesh'},
+      {id:'ab03', q:'ג',               a:'Gimel · G as in "go"',                                   note:'Value: 3 · In some traditions a soft "gh" sound without dagesh'},
+      {id:'ab04', q:'ד',               a:'Dalet · D as in "door"',                                 note:'Value: 4 · BeGaDKePhaT letter; soft "dh" in some Sephardic traditions without dagesh'},
+      {id:'ab05', q:'ה',               a:'Hey · H (soft, like a breath)',                          note:'Value: 5 · Silent at the end of a word · Guttural letter · Represents one of God\'s names'},
+      {id:'ab06', q:'ו',               a:'Vav · V (or W in Yemenite/Sephardic)',                   note:'Value: 6 · Also serves as the vowels Cholam (וֹ) and Shuruk (וּ) · "Vav HaChibur" connects words'},
+      {id:'ab07', q:'ז',               a:'Zayin · Z as in "zero"',                                 note:'Value: 7'},
+      {id:'ab08', q:'ח',               a:'Chet · Guttural CH (like "Bach")',                       note:'Value: 8 · Never softens — always guttural · One of the four guttural letters (א ה ח ע)'},
+      {id:'ab09', q:'ט',               a:'Tet · T as in "top"',                                    note:'Value: 9 · Emphatic T — same sound as Tav in modern Hebrew · Appears less frequently'},
+      {id:'ab10', q:'י',               a:'Yud · Y as in "yes"',                                    note:'Value: 10 · Smallest letter in the aleph-bet · Also serves as the vowel Chirik (יִ)'},
+      {id:'ab11', q:'כּ  /  כ  (ך)',   a:'Kaf / Chaf · K (with dagesh) / CH (without)',            note:'Value: 20 · BeGaDKePhaT letter · Final form ך at end of word · "Chaf" sounds like "Bach"'},
+      {id:'ab12', q:'ל',               a:'Lamed · L as in "let"',                                  note:'Value: 30 · The tallest letter in the aleph-bet'},
+      {id:'ab13', q:'מ  (ם)',          a:'Mem · M as in "mother"',                                 note:'Value: 40 · Final form ם (closed) at end of word'},
+      {id:'ab14', q:'נ  (ן)',          a:'Nun · N as in "now"',                                    note:'Value: 50 · Final form ן at end of word · Drops out in certain grammatical contexts'},
+      {id:'ab15', q:'ס',               a:'Samech · S as in "sun"',                                 note:'Value: 60 · Same sound as Sin (שׂ) in modern Hebrew'},
+      {id:'ab16', q:'ע',               a:'Ayin · Silent in Ashkenazic · Guttural in Sephardic/Mizrachi',note:'Value: 70 · Like Aleph, it takes its vowel\'s sound in most Western pronunciation · Guttural letter'},
+      {id:'ab17', q:'פּ  /  פ  (ף)',   a:'Pey / Fey · P (with dagesh) / F (without)',              note:'Value: 80 · BeGaDKePhaT letter · Final form ף at end of word'},
+      {id:'ab18', q:'צ  (ץ)',          a:'Tzadi · TZ as in "pizza"',                               note:'Value: 90 · Final form ץ at end of word · In Yemenite tradition, a different sound'},
+      {id:'ab19', q:'ק',               a:'Kuf · K (from back of throat)',                          note:'Value: 100 · Sounds identical to Kaf in modern Hebrew; traditionally a distinct sound'},
+      {id:'ab20', q:'ר',               a:'Resh · R (slightly rolled or guttural)',                  note:'Value: 200 · Does NOT take a dagesh chazak'},
+      {id:'ab21', q:'שׁ  /  שׂ',       a:'Shin / Sin · SH (dot right) / S (dot left)',              note:'Value: 300 · One letter, two sounds based on the dot\'s position · Sin = S like Samech'},
+      {id:'ab22', q:'ת',               a:'Tav · T as in "top"',                                    note:'Value: 400 · BeGaDKePhaT letter; in Ashkenazic tradition without dagesh = "S" (Sav)'},
+      {id:'ab23', q:'What are the five "sofit" (final) letters?', a:'כ→ך · מ→ם · נ→ן · פ→ף · צ→ץ', note:'These letters take a different form when they appear at the END of a word · Mnemonic: "KaMeNaFaTZ"'},
+      {id:'ab24', q:'What are the BeGaDKePhaT letters?', a:'ב ג ד כ פ ת — letters that change sound based on a dagesh', note:'With dagesh kal: hard sound (B, G, D, K, P, T) · Without: soft sound (V, soft-G, Dh, Ch, F, S/Th) · In modern Hebrew only ב כ פ still alternate'},
+    ]
+  },
+
+  // ── Nikud ────────────────────────────────────────────────
+  {
+    id: 'nikud',
+    name: 'Hebrew Vowels (Nikud)',
+    emoji: '🔡',
+    desc: 'The vowel marks (niqqud) that give Hebrew letters their sounds',
+    cards: [
+      {id:'nk01', q:'בָ  —  Kamatz',         a:'"AH" as in father',                       note:'Long vowel · The most common vowel in Torah · Looks like a T-shape under the letter'},
+      {id:'nk02', q:'בַ  —  Patach',          a:'"AH" as in father (slightly shorter)',    note:'Short vowel · A single horizontal line under the letter · Distinguished from Kamatz in careful/Sephardic speech'},
+      {id:'nk03', q:'בֵ  —  Tzeirei',         a:'"EY" as in they',                        note:'Long vowel · Two horizontal dots under the letter · Can appear as בֵי (Tzeirei Malei with Yud)'},
+      {id:'nk04', q:'בֶ  —  Segol',           a:'"EH" as in bed',                         note:'Short vowel · Three dots in a triangle under the letter · Very common in Ashkenazic pronunciation'},
+      {id:'nk05', q:'בִ  —  Chirik',          a:'"EE" as in feet',                        note:'Short vowel · Single dot under the letter · With Yud (בִי = Chirik Gadol) it\'s a long vowel'},
+      {id:'nk06', q:'בֹ  —  Cholam Chaser',   a:'"OH" as in go',                          note:'Long vowel · A dot above-left of the letter · Full form: וֹ (Vav with dot = Cholam Malei)'},
+      {id:'nk07', q:'וּ  —  Shuruk',          a:'"OO" as in food',                        note:'Long vowel · A Vav with a dot in its center · Always written with a Vav'},
+      {id:'nk08', q:'בֻ  —  Kubutz',          a:'"OO" as in food (shorter)',              note:'Short vowel · Three diagonal dots under the letter · Sounds like Shuruk but shorter'},
+      {id:'nk09', q:'בְ  —  Shva',            a:'Silent (Shva Nach) OR a brief "EH" (Shva Na)',note:'Two vertical dots under the letter · Shva Na: under first letter of a word, or after a long vowel · Shva Nach: end of syllable'},
+      {id:'nk10', q:'בֲ  —  Chataf Patach',   a:'Quick "AH" sound',                       note:'Half-vowel · Used under guttural letters (א ה ח ע) instead of a plain Shva · A Patach with a Shva'},
+      {id:'nk11', q:'בֱ  —  Chataf Segol',    a:'Quick "EH" sound',                       note:'Half-vowel · Used under gutturals, especially א · A Segol with a Shva'},
+      {id:'nk12', q:'בֳ  —  Chataf Kamatz',   a:'Quick "OH" sound',                       note:'Half-vowel · Rarest of the three chataf vowels · A Kamatz Katan with a Shva'},
+      {id:'nk13', q:'What is a Dagesh Kal?',   a:'A dot that hardens a BeGaDKePhaT letter', note:'בּ=B not V · כּ=K not CH · פּ=P not F · ג ד ת also affected in Biblical Hebrew · Appears after a vowel-less (closed) syllable or at start of word'},
+      {id:'nk14', q:'What is a Dagesh Chazak?',a:'A dot that doubles a letter (gemination)', note:'The consonant is pronounced twice: e.g., אַמָּה = am-MA · Cannot appear in the guttural letters (א ה ח ע) or Resh (ר)'},
+      {id:'nk15', q:'What is a Mappik?',        a:'A dot inside a ה at the end of a word, indicating it is pronounced', note:'Final ה is normally silent · With a Mappik (הּ) the ה is sounded · Rare; appears in possessive suffixes'},
+    ]
+  },
+
+  // ── Jewish Months ─────────────────────────────────────────
+  {
+    id: 'months',
+    name: 'Jewish Months',
+    emoji: '🌙',
+    desc: 'The 12 (or 13) months of the Jewish lunar-solar calendar',
+    cards: [
+      {id:'mo01', q:'Tishrei (תִּשְׁרֵי)',   a:'7th month · 30 days · September–October',   note:'Contains: Rosh Hashanah (1–2), Tzom Gedaliah (3), Yom Kippur (10), Sukkot (15–21), Shemini Atzeret/Simchat Torah (22–23) · The busiest month'},
+      {id:'mo02', q:'Cheshvan (חֶשְׁוָן)',   a:'8th month · 29 or 30 days · October–November',note:'Also called Marcheshvan · The only month with no holidays or fast days · Sometimes called "bitter" (Mar) Cheshvan for this reason'},
+      {id:'mo03', q:'Kislev (כִּסְלֵו)',     a:'9th month · 29 or 30 days · November–December',note:'Contains: Chanukah begins 25 Kislev · The length of Kislev varies and determines when Chanukah ends'},
+      {id:'mo04', q:'Tevet (טֵבֵת)',         a:'10th month · 29 days · December–January',   note:'Contains: Asara B\'Tevet (10 Tevet) · Chanukah usually extends into Tevet'},
+      {id:'mo05', q:'Shevat (שְׁבָט)',       a:'11th month · 30 days · January–February',   note:'Contains: Tu B\'Shvat (15 Shevat) — New Year of the Trees'},
+      {id:'mo06', q:'Adar (אֲדָר)',          a:'12th month · 29 days · February–March',     note:'Contains: Ta\'anit Esther (13), Purim (14), Shushan Purim (15) · In a leap year, this becomes Adar I (30 days) and Adar II is added'},
+      {id:'mo07', q:'Nissan (נִיסָן)',       a:'1st month · 30 days · March–April',         note:'"First of months" in the Torah · Contains: Pesach (15–22) · The month of redemption and freedom'},
+      {id:'mo08', q:'Iyar (אִיָּר)',         a:'2nd month · 29 days · April–May',           note:'Contains: Yom HaShoah (27 Nissan/some use Iyar), Yom HaZikaron (4), Yom HaAtzmaut (5), Lag B\'Omer (18), Yom Yerushalayim (28) · Entire month = Sefirat HaOmer'},
+      {id:'mo09', q:'Sivan (סִיוָן)',        a:'3rd month · 30 days · May–June',            note:'Contains: Shavuot (6–7) — the giving of the Torah at Sinai'},
+      {id:'mo10', q:'Tammuz (תַּמּוּז)',     a:'4th month · 29 days · June–July',           note:'Contains: Shiva Asar B\'Tammuz (17) — breach of Jerusalem\'s walls · Begins the Three Weeks of mourning'},
+      {id:'mo11', q:'Av (אָב)',              a:'5th month · 30 days · July–August',         note:'Contains: Tisha B\'Av (9 Av) · Most tragic month in Jewish history · Three Weeks end on 9 Av · After 9 Av we say "Menachem Av" — consolation arrives'},
+      {id:'mo12', q:'Elul (אֱלוּל)',         a:'6th month · 29 days · August–September',   note:'Month of repentance and preparation before Rosh Hashanah · Shofar blown every morning · "Ani l\'dodi v\'dodi li" — I am to my beloved · Elul = each letter begins a word of this phrase'},
+      {id:'mo13', q:'What is a Jewish leap year?', a:'A year with 13 months — a second Adar (Adar II) is added', note:'Occurs 7 times in a 19-year cycle (Metonic cycle) · Keeps lunar months aligned with solar seasons · Purim is observed in Adar II in leap years'},
+      {id:'mo14', q:'Why does Nissan count as the "first month"?', a:'God commanded it as the first month of the year to mark the Exodus from Egypt (Shemot 12:2)', note:'But the New Year (Rosh Hashanah) falls in Tishrei, the 7th month — there are actually four "new years" in the Jewish calendar (Rosh Hashanah, Tu B\'Shvat, 1 Nissan, 1 Elul)'},
+    ]
+  },
+
+  // ── D'Oraisa Holidays ─────────────────────────────────────
+  {
+    id: 'hol-doraisa',
+    name: "Holidays — D'Oraisa",
+    emoji: '⭐',
+    desc: 'Biblical holidays commanded directly in the Torah (Vayikra 23)',
+    cards: [
+      {id:'do01', q:"What does D'Oraisa mean?",         a:"From the Torah — a Biblical commandment",              note:'From Aramaic "Oraita" (Torah) · The highest level of Jewish law obligation · Cannot be overridden'},
+      {id:'do02', q:'Shabbat',                           a:"D'Oraisa · Every Friday sundown to Saturday night",   note:'Shemot 20:8 — "Remember the Shabbat" (one of the Ten Commandments) · Also "Shamor" (guard) in Devarim 5:12 · 39 prohibited labors (melachot)'},
+      {id:'do03', q:'Rosh Hashanah — D\'Oraisa basis',  a:'Yom Teruah (Day of Shofar Blowing) · 1 Tishrei',     note:'Vayikra 23:24 · The Torah only calls it Yom Teruah — Rosh Hashanah themes (judgment, new year) are Rabbinic · Shofar blowing is D\'Oraisa'},
+      {id:'do04', q:'Yom Kippur',                        a:"D'Oraisa · 10 Tishrei · 25-hour fast",               note:'Vayikra 23:27 · 5 prohibitions: eating/drinking, washing, anointing, leather shoes, marital relations · Confession (Vidui) is D\'Oraisa'},
+      {id:'do05', q:'Sukkot — first and last days',      a:"D'Oraisa Yom Tov · 15 Tishrei and 22 Tishrei (Shemini Atzeret)", note:'Vayikra 23:34–36 · Dwelling in sukkah and taking arba minim (four species) are D\'Oraisa · Intermediate days (Chol HaMoed) are Rabbinic restriction'},
+      {id:'do06', q:'Pesach — first and seventh days',   a:"D'Oraisa Yom Tov · 15 Nissan and 21 Nissan",        note:'Vayikra 23:7–8 · Eating matzah on Seder night and prohibition on chametz are D\'Oraisa · Four cups, Seder plate order are Rabbinic'},
+      {id:'do07', q:'Shavuot',                           a:"D'Oraisa Yom Tov · 6 Sivan",                         note:'Vayikra 23:21 · Counting 49 days of Omer (Sefirat HaOmer) is D\'Oraisa · The holiday has no stated reason in the Torah — Rabbis identified it with Matan Torah'},
+      {id:'do08', q:'What is a Yom Tov?',               a:'A Jewish holiday on which most types of labor are prohibited — similar to Shabbat but with exceptions',note:'Cooking for the holiday is permitted on Yom Tov (unlike Shabbat) · Transferring fire is permitted · The six Biblical Yamim Tovim are the D\'Oraisa holidays'},
+      {id:'do09', q:'What is Sefirat HaOmer?',          a:'Counting 49 days from the second night of Pesach to Shavuot',note:'Vayikra 23:15 — "You shall count for yourselves seven complete weeks" · D\'Oraisa · Each day and week is counted verbally after nightfall · Day 33 = Lag B\'Omer'},
+    ]
+  },
+
+  // ── D'Rabbanan Holidays ───────────────────────────────────
+  {
+    id: 'hol-drabonon',
+    name: "Holidays — D'Rabbanan",
+    emoji: '🕎',
+    desc: 'Holidays instituted by the Rabbis through their Torah authority',
+    cards: [
+      {id:'dr01', q:"What does D'Rabbanan mean?",  a:"From the Rabbis — a Rabbinic commandment",          note:'"Do not deviate from what they tell you" (Devarim 17:11) gives Rabbis authority · Still obligatory, but a lower level of obligation than D\'Oraisa'},
+      {id:'dr02', q:'Chanukah',                    a:"D'Rabbanan · 25 Kislev, 8 days",                    note:'Instituted by the Hasmoneans after the Temple miracle of oil (165 BCE) · Mitzvot: lighting menorah, Hallel (all 8 days) · No work prohibition · "Al HaNissim" added to prayers'},
+      {id:'dr03', q:'Purim',                       a:"D'Rabbanan · 14 Adar (15 in walled cities)",        note:'Instituted by Mordechai and Esther · 4 mitzvot: Megillah reading, Mishloach Manot (food gifts), Matanot La\'evyonim (charity), Purim Seudah (feast) · "Al HaNissim" added'},
+      {id:'dr04', q:'Rosh Chodesh',                a:"D'Rabbanan (with Biblical roots) · 1st of each month",note:'The Biblical mitzvah was witnesses sanctifying the new moon · Today we follow a fixed calendar · Half-Hallel recited · Musaf prayer added · Work technically permitted but women have a custom not to'},
+      {id:'dr05', q:'Chol HaMoed',                 a:'Intermediate days of Pesach (4 days) and Sukkot (5 days)',note:'Work is Rabbinically restricted — different opinions on what is permitted · Hallel recited (half on Pesach except first day) · Musaf added · A joyous time — outings and family gatherings'},
+      {id:'dr06', q:'Purim Katan',                 a:'14 Adar I in a Jewish leap year',                   note:'"Minor Purim" · Tachanun not recited · No full Purim obligations · Full Purim is observed in Adar II in leap years'},
+      {id:'dr07', q:'Shushan Purim',               a:'15 Adar — Purim observed in cities walled since Joshua\'s time',note:'Jerusalem, Shushan (Persia), and a few other cities celebrate one day later · The Megillah is read on the 15th instead of 14th'},
+    ]
+  },
+
+  // ── Fast Days ─────────────────────────────────────────────
+  {
+    id: 'fasts',
+    name: 'Fast Days',
+    emoji: '🕯️',
+    desc: 'The Jewish fast days and their historical significance',
+    cards: [
+      {id:'fa01', q:'Yom Kippur',             a:"Major fast · D'Oraisa · 10 Tishrei · 25 hours",          note:'The only D\'Oraisa fast · 5 prohibitions: eating/drinking, washing, anointing, leather shoes, marital relations · Most serious fast of the year'},
+      {id:'fa02', q:"Tisha B'Av",             a:"Major fast · D'Rabbanan · 9 Av · 25 hours",              note:'Mourns: both Temples destroyed, Spies\' report, expulsion from Spain (1492), and other tragedies · All 5 Yom Kippur prohibitions apply · Eichah read; kinot (elegies) recited'},
+      {id:'fa03', q:'Shiva Asar B\'Tammuz',   a:'Minor fast · 17 Tammuz · Dawn to nightfall',             note:'Commemorates the breach of Jerusalem\'s walls before each Temple\'s destruction · Begins the Three Weeks (Bein HaMetzarim) leading to Tisha B\'Av'},
+      {id:'fa04', q:'Tzom Gedaliah',          a:'Minor fast · 3 Tishrei · Dawn to nightfall',             note:'Mourns the assassination of Gedaliah ben Ahikam — the last Jewish governor after the First Temple\'s destruction · Occurs right after Rosh Hashanah (pushed to 4th if 3rd is Shabbat)'},
+      {id:'fa05', q:"Asara B'Tevet",          a:'Minor fast · 10 Tevet · Dawn to nightfall',              note:'Commemorates Nebuchadnezzar\'s siege of Jerusalem · Beginning of the events that led to the First Temple\'s destruction · One of the few fasts that can fall on Friday'},
+      {id:'fa06', q:"Ta'anit Esther",         a:'Minor fast · 13 Adar · Dawn to nightfall',               note:'Recalls the three-day fast Esther and the Jews observed before she approached Achashveirosh · Observed the day before Purim (pushed to 11th if 13th is Shabbat)'},
+      {id:'fa07', q:'What are the Three Weeks?', a:'Period of mourning from 17 Tammuz to 9 Av',            note:'Weddings and haircuts are avoided throughout · The Nine Days (1–9 Av): no meat or wine, no swimming, no new clothes · The week of Tisha B\'Av itself is most stringent'},
+      {id:'fa08', q:"Ta'anit Bechorot",       a:'Fast of the Firstborns · 14 Nissan (erev Pesach)',       note:'Firstborn males fast to commemorate being spared in the Plague of the Firstborn · Most attend a Siyum (completion of a Torah text) which permits them to eat'},
+    ]
+  },
+
+  // ── Israeli National Days ──────────────────────────────────
+  {
+    id: 'israel-days',
+    name: 'Israeli National Days',
+    emoji: '🇮🇱',
+    desc: 'Modern commemorations in the Jewish calendar',
+    cards: [
+      {id:'il01', q:'Yom HaShoah',     a:'Holocaust Remembrance Day · 27 Nissan',    note:'Full name: Yom HaShoah V\'HaGvurah (Holocaust and Heroism Remembrance Day) · Established by Israeli Knesset, 1951 · Sirens sound in Israel; all activity stops · In Israel, moved if 27 Nissan falls near Shabbat'},
+      {id:'il02', q:'Yom HaZikaron',   a:"Israel's Memorial Day · 4 Iyar",          note:'Remembers fallen IDF soldiers and civilian terror victims · Immediately precedes Yom HaAtzmaut — the transition from grief to joy is intentional · Two sirens during the day'},
+      {id:'il03', q:'Yom HaAtzmaut',   a:"Israel Independence Day · 5 Iyar",        note:'Celebrates the Declaration of Independence on 5 Iyar 5708 (May 14, 1948) · Many religious communities recite Hallel (some with a blessing, some without) · Date shifts if it would fall on Shabbat or Friday'},
+      {id:'il04', q:'Yom Yerushalayim',a:'Jerusalem Day · 28 Iyar',                 note:'Celebrates the reunification of Jerusalem in the Six-Day War (June 7, 1967 = 28 Iyar 5727) · Hallel recited in many communities · Some observe it as a full Yom Tov'},
+      {id:'il05', q:'Observance across communities', a:'Varies widely based on religious and political affiliation', note:'Religious Zionist communities observe all four with prayer and Hallel · Charedi communities generally do not observe as religious holidays · A nuanced and important conversation to have with your rabbi'},
+    ]
+  },
+
+  // ── Eras of Torah Scholarship ─────────────────────────────
+  {
+    id: 'rabbinic-eras',
+    name: 'Eras of Torah Scholarship',
+    emoji: '📜',
+    desc: 'The major periods of Jewish learning — Zugot through Acharonim',
+    cards: [
+      {id:'re01', q:'Zugot (זוּגוֹת)',         a:'"Pairs" · ~200 BCE – 10 CE',              note:'Five pairs of scholars who led the Sanhedrin · Culminates in Hillel and Shammai · Their disputes are woven throughout the Mishnah'},
+      {id:'re02', q:'Tannaim (תַּנָּאִים)',     a:'"Repeaters/Teachers" · ~10 CE – 220 CE', note:'Sages whose opinions are recorded in the Mishnah and Baraita · Period ends when Rabbi Yehudah HaNasi compiled the Mishnah · Cannot be overruled by Amoraim'},
+      {id:'re03', q:'Amoraim (אָמוֹרָאִים)',   a:'"Speakers/Interpreters" · ~220 – 500 CE', note:'Sages in Eretz Yisrael (Yerushalmi) and Babylonia (Bavli) who analyzed the Mishnah · Their discussions form the Gemara · Cannot overrule Tannaim'},
+      {id:'re04', q:'Savoraim (סָבוֹרָאִים)', a:'"Reasoners" · ~500 – 650 CE',             note:'Post-Talmudic sages who edited and finalized the Babylonian Talmud · Added explanatory phrases and resolved difficulties left by the Amoraim'},
+      {id:'re05', q:'Geonim (גְּאוֹנִים)',     a:'"Excellencies" · ~650 – 1050 CE',         note:'Heads of the great Babylonian academies (Sura and Pumbedita) · Responded to halachic questions from communities worldwide (Teshuvot/Responsa) · Notable: Rav Saadia Gaon, Rav Hai Gaon'},
+      {id:'re06', q:'Rishonim (רִאשׁוֹנִים)',  a:'"Early Ones" · ~1050 – 1500 CE',          note:'Major medieval commentators and codifiers · Include Rashi, Rambam, Ramban, Rashba, Ba\'al HaTurim · Foundational to halacha · Acharonim generally do not rule against Rishonim'},
+      {id:'re07', q:'Acharonim (אַחֲרוֹנִים)', a:'"Later Ones" · ~1500 CE – present',       note:'From the Shulchan Aruch onward · Include Rema, Vilna Gaon (GRA), Chofetz Chaim, Rav Moshe Feinstein · We live in the era of Acharonim'},
+      {id:'re08', q:'Yeridat HaDorot',          a:'"Descent of the generations" — each era is spiritually/intellectually lesser than the previous',note:'"If earlier generations were like angels, we are like humans; if like humans, we are like donkeys" (Shabbat 112b) · This is why later authorities are cautious about overruling earlier ones'},
+      {id:'re09', q:'Who compiled the Mishnah?',a:'Rabbi Yehudah HaNasi ("Rebbi") · ~200–220 CE', note:'"From Moses to Rebbi, we have not found Torah and greatness in one place" · Organized centuries of oral tradition into written form · Ended the Tannaitic period'},
+      {id:'re10', q:'Who compiled the Talmud Bavli?',a:'Rav Ashi and Ravina · ~500 CE, with Savoraic editing',note:'"Rav Ashi and Ravina — end of hora\'ah (ruling)" (Bava Metzia 86a) · Their work over 60 years organized the Amoraic tradition · Savoraim made final edits'},
+    ]
+  },
+
+  // ── Tannaim ───────────────────────────────────────────────
+  {
+    id: 'tannaim',
+    name: 'Key Tannaim',
+    emoji: '👨‍🏫',
+    desc: 'The great sages of the Mishnaic era (10–220 CE)',
+    cards: [
+      {id:'ta01', q:'Hillel HaZaken',             a:'1st generation · Founded Beit Hillel · ~110 BCE – 10 CE',  note:'"What is hateful to you, do not do to others — that is the whole Torah; the rest is commentary, go and learn" · Known for extreme patience and welcoming converts'},
+      {id:'ta02', q:'Shammai',                    a:'1st generation · Founded Beit Shammai · Contemporary of Hillel',note:'Generally ruled more strictly than Hillel · The Mishnah records over 300 disputes between Beit Hillel and Beit Shammai · "Halacha follows Beit Hillel" (except for 18 rulings)'},
+      {id:'ta03', q:'Rabban Yochanan ben Zakkai', a:'1st–2nd generation · Rebuilt Jewish life after the Temple\'s destruction',note:'Smuggled out of besieged Jerusalem; asked Vespasian for "Yavneh and its sages" · Moved the Sanhedrin to Yavneh · Ensured the continuity of Torah after 70 CE'},
+      {id:'ta04', q:'Rabbi Akiva',                a:'3rd generation · "Father of the Mishnah" · ~50–135 CE',   note:'Began learning Torah at age 40 · Had 24,000 students, all of whom died in a plague · Supported Bar Kochba revolt · One of the Ten Martyrs — died reciting the Shema'},
+      {id:'ta05', q:'Rabbi Yishmael',             a:'3rd generation · Authored the 13 principles of Torah interpretation',note:'His 13 middot (hermeneutical rules) are recited in morning prayers · Debated Rabbi Akiva extensively on Biblical interpretation · Edited the Mechilta on Shemot'},
+      {id:'ta06', q:'Rabbi Meir',                 a:'4th generation · Student of Rabbi Akiva',                 note:'"The Sages could not determine the halacha like Rabbi Meir because they could not fathom his reasoning" · His wife Bruriah was renowned for her own scholarship'},
+      {id:'ta07', q:'Rabbi Shimon bar Yochai',    a:'4th generation · Student of Rabbi Akiva · Attributed with the Zohar',note:'Hid in a cave for 13 years to escape Roman persecution · His yahrzeit (Lag B\'Omer) is celebrated with bonfires, especially in Meron · Rashbi is his acronym'},
+      {id:'ta08', q:'Rabbi Yehudah bar Ilai',     a:'4th generation · Most frequently quoted Tanna in the Mishnah',note:'"The first to speak in every gathering" · He and his student once shared a single garment due to poverty · Student of Rabbi Akiva'},
+      {id:'ta09', q:'Rabbi Yose bar Chalafta',    a:'4th generation · Student of Rabbi Akiva · Author of Seder Olam Rabbah',note:'Seder Olam is the foundational work on the Jewish calendar and chronology · His rulings are often accepted as halacha'},
+      {id:'ta10', q:'Rabbi Yehudah HaNasi (Rebbi)',a:'5th generation · Compiled and edited the Mishnah · ~135–217 CE',note:'"From Moses to Rebbi, we have not found Torah and greatness combined in one place" (Gittin 59a) · Close friend of Emperor Antoninus · Simply called "Rebbi" — our teacher'},
+    ]
+  },
+
+  // ── Amoraim ───────────────────────────────────────────────
+  {
+    id: 'amoraim',
+    name: 'Key Amoraim',
+    emoji: '🏛️',
+    desc: 'The great sages of the Talmudic era (220–500 CE)',
+    cards: [
+      {id:'am01', q:'Rav (Abba Arikha)',          a:'1st generation Babylonian Amora · Founded the Sura academy · ~175–247 CE',note:'Student of Rebbi · Brought deep Torah scholarship to Babylonia · Often debates Shmuel in the Talmud · "Rav" alone refers to him'},
+      {id:'am02', q:'Shmuel (of Nehardea)',        a:'1st generation Babylonian Amora · Headed the Nehardea academy',         note:'"Dina d\'malchuta dina" — the law of the land is the law · Astronomer and physician · Debates with Rav define much of the first generation of the Bavli'},
+      {id:'am03', q:'Rabbi Yochanan bar Napcha',   a:'1st–2nd generation Amora of Eretz Yisrael · ~180–279 CE',               note:'Primary architect of the Yerushalmi Talmud · His debates with his brother-in-law Reish Lakish are legendary · "Rabbi Yochanan" in the Talmud refers to him'},
+      {id:'am04', q:'Reish Lakish',               a:'2nd generation Amora of Eretz Yisrael · Former gladiator turned scholar', note:'Raised to greatness by Rabbi Yochanan (his brother-in-law) · "When Reish Lakish was alive, I had 24 challenges for every ruling I gave" (Rabbi Yochanan, mourning his death)'},
+      {id:'am05', q:'Rav Huna',                   a:'2nd generation Babylonian Amora · Head of Sura after Rav',               note:'The Sura academy grew to 800 students under him · Known for extraordinary personal piety and charity · "A person should always sell even the beams of his house to buy himself a wife" (Yevamot)'},
+      {id:'am06', q:'Rabbah bar Nahmani',         a:'3rd generation Babylonian Amora · Head of Pumbedita',                    note:'Known as "Oker Harim" — uprooter of mountains — for his sharp intellect · Hid from Persian authorities for 12 years · His death is recounted dramatically in the Talmud (Bava Metzia 86a)'},
+      {id:'am07', q:'Abaye',                      a:'4th generation Babylonian Amora · Head of Pumbedita · ~280–339 CE',      note:'Orphan raised by his uncle Rabbah · His disputes with Rava fill much of the Talmud · The halacha follows Rava over Abaye in all but 6 cases (YaL KGaM)'},
+      {id:'am08', q:'Rava',                       a:'4th generation Babylonian Amora · Head of Machoza · ~280–352 CE',        note:'The halacha follows Rava over Abaye in all but 6 cases · His academy at Machoza thrived · "Rava said" introduces countless definitive rulings in the Bavli'},
+      {id:'am09', q:'Rav Ashi',                   a:'6th generation Babylonian Amora · ~352–427 CE · Began final compilation of Talmud Bavli',note:'Spent 60 years organizing and editing the Talmud at Mata Machsiya · With Ravina, marks the end of hora\'ah (authoritative ruling) · "Rav Ashi and Ravina — end of hora\'ah"'},
+      {id:'am10', q:'What does "Stam HaTalmud" mean?', a:'The anonymous editorial voice of the Talmud — questions, objections, and connecting tissue between quotes', note:'Most of the Talmud\'s structure — "Come and hear," "What is the reason?", "Raise an objection" — is the stam, likely from the Savoraim · It\'s the "glue" that makes the Talmud a conversation'},
+    ]
+  },
+
+  // ── Five Books of Torah ───────────────────────────────────
+  {
+    id: 'five-books',
+    name: 'Five Books of Torah',
+    emoji: '📖',
+    desc: 'The Chumash — themes, structure, and key events',
+    cards: [
+      {id:'fb01', q:'Bereishit (בְּרֵאשִׁית)',  a:'Genesis — "In the beginning" · 50 chapters · 12 parshiyot',  note:'Creation → Avraham → Yitzchak → Yaakov → 12 Tribes → Joseph in Egypt · The book of beginnings — world, humanity, and the Jewish people'},
+      {id:'fb02', q:'Shemot (שְׁמוֹת)',         a:'Exodus — "Names" · 40 chapters · 11 parshiyot',             note:'Slavery in Egypt → Moshe\'s birth → Ten Plagues → Exodus → Splitting the Sea → Matan Torah → Golden Calf → Building the Mishkan'},
+      {id:'fb03', q:'Vayikra (וַיִּקְרָא)',      a:'Leviticus — "And He called" · 27 chapters · 10 parshiyot',  note:'Laws of korbanot (offerings) · Kashrut · Yom Kippur service (Acharei Mot) · Holiness Code (Kedoshim) · Jewish holidays (Emor) · The most halachic book'},
+      {id:'fb04', q:'Bamidbar (בְּמִדְבַּר)',   a:'Numbers — "In the desert" · 36 chapters · 10 parshiyot',    note:'Census of the Tribes → Spies\' sin → Korach\'s rebellion → Balak and Bilam → Pinchas → Second census → Laws of inheritance (Zelophechad\'s daughters)'},
+      {id:'fb05', q:'Devarim (דְּבָרִים)',       a:'Deuteronomy — "Words" · 34 chapters · 11 parshiyot',        note:'Moshe\'s three farewell speeches · Review of the Torah · The Shema · Tochacha (rebuke) · Song of Haazinu · Moshe\'s death on Har Nevo · Final parasha: V\'Zot HaBracha'},
+      {id:'fb06', q:'What is a Parasha/Sidra?', a:'The weekly Torah portion read in synagogue on Shabbat morning',note:'The Torah is divided into 54 parshiyot, completing the cycle once a year · Some weeks two parshiyot are combined · Reading begins with Bereishit on Shabbat after Simchat Torah'},
+      {id:'fb07', q:'How many mitzvot are in the Torah?', a:'613 commandments (Taryag Mitzvot)',               note:'248 positive mitzvot ("do") = number of limbs in the body · 365 negative mitzvot ("do not") = days of the year · First counted by Rabbi Simlai (Makkot 23b)'},
+      {id:'fb08', q:'What is the Torah\'s most fundamental principle?', a:'"Love your neighbor as yourself" — Rabbi Akiva · Or: "These are the generations of Adam" — Ben Azzai (implying all humans share one Creator)',note:'Vayikra 19:18 · The debate in the Talmud (Yerushalmi Nedarim) between Rabbi Akiva and Ben Azzai · Both are foundational to Jewish ethics'},
+    ]
+  },
+
+  // ── Nach ──────────────────────────────────────────────────
+  {
+    id: 'nach',
+    name: 'Nach — Prophets & Writings',
+    emoji: '📚',
+    desc: "Nevi'im (Prophets) and Ketuvim (Writings) — the 24 books of Tanach beyond the Torah",
+    cards: [
+      {id:'na01', q:'What is Nach?',               a:"Nevi'im (Prophets) + Ketuvim (Writings)",               note:'"Nach" is an acronym: נ (Nevi\'im) + כ (Ketuvim) · Together with Torah = "TaNaCH" · 19 books of Nevi\'im + 13 books of Ketuvim (counted differently by tradition) = 24 books total'},
+      {id:'na02', q:"Nevi'im Rishonim",            a:'Early Prophets · Yehoshua, Shoftim, Shmuel (I & II), Melachim (I & II)',note:'Historical narrative: entering Canaan → period of judges → united monarchy → divided kingdom → destruction of First Temple · Contains stories of Shimshon, Shmuel, Shaul, David, Shlomo, Eliyahu, Elisha'},
+      {id:'na03', q:"Nevi'im Acharonim",           a:'Later Prophets · Yeshayahu, Yirmiyahu, Yechezkel, Trei Asar',note:'Literary prophets with their own books · Yeshayahu: vision and consolation · Yirmiyahu: warnings before the destruction · Yechezkel: in Babylonian exile; future Temple vision'},
+      {id:'na04', q:'Trei Asar (תְּרֵי עֶשַׂר)',  a:'The 12 Minor Prophets — counted as ONE book in Tanach',   note:'Hoshea, Yoel, Amos, Ovadiah, Yonah, Micha, Nachum, Chavakuk, Tzefaniah, Chaggai, Zechariah, Malachi · "Minor" = shorter books, not lesser importance'},
+      {id:'na05', q:'Ketuvim (כְּתוּבִים)',        a:'Writings — 3 sections: poetry, wisdom literature, historical books',note:'Sifrei Emet (poetry, acrostic): Tehillim, Mishlei, Iyov · Chamesh Megillot · Later books: Daniel, Ezra-Nechemiah, Divrei HaYamim (I & II)'},
+      {id:'na06', q:'Tehillim (Psalms)',            a:'150 Psalms attributed primarily to King David',            note:'Recited in times of distress and joy · Psalms 113–118 = Hallel · Psalm 145 (Ashrei) recited 3x daily · Some communities recite all of Tehillim on Shabbat Mevarchim'},
+      {id:'na07', q:'Chamesh Megillot',            a:'Five Scrolls, each read on a specific occasion',           note:'Shir HaShirim (Pesach) · Rut (Shavuot) · Eichah (Tisha B\'Av) · Kohelet (Sukkot) · Esther (Purim) · Each explores a different dimension of Jewish life'},
+      {id:'na08', q:'Eichah (Lamentations)',        a:'Kinot over the destruction of the First Temple · Attributed to Yirmiyahu',note:'Read on Tisha B\'Av night · Each of the first 4 chapters is an alphabetical acrostic · Chapter 5 has 22 verses (= letters of aleph-bet) but is not an acrostic · Ends with a plea for return'},
+      {id:'na09', q:'What are the Sifrei Emet?',   a:'Tehillim, Mishlei, and Iyov — the three poetical books',  note:'"Emet" (אמת) is an acronym of their first letters: א (Iyov) · מ (Mishlei) · ת (Tehillim) · They use a unique cantillation (trop) system different from the rest of Tanach'},
+      {id:'na10', q:'When was the Biblical canon closed?',a:'~450–400 BCE by the Men of the Great Assembly (Anshei Knesset HaGedolah)',note:'Malachi is traditionally the last prophet · The Talmud discusses which books were debated: Kohelet, Shir HaShirim, Esther · Sefer Ben Sira was excluded despite being respected'},
+    ]
+  },
+
+  // ── Mishnah ───────────────────────────────────────────────
+  {
+    id: 'mishnah',
+    name: 'Mishnah — Six Sedarim',
+    emoji: '📋',
+    desc: 'The six orders of the Oral Torah, compiled by Rabbi Yehudah HaNasi (~220 CE)',
+    cards: [
+      {id:'ms01', q:'What is the Mishnah?',         a:'The codified Oral Torah, compiled ~220 CE by Rabbi Yehudah HaNasi', note:'"Mishnah" = to repeat or to study · 6 sedarim (orders) · 63 masekhtot (tractates) · ~525 chapters · Written in concise, precise Mishnaic Hebrew · The Gemara is commentary on it'},
+      {id:'ms02', q:'Seder Zeraim (זְרָעִים)',      a:'"Seeds" · 11 tractates · Agricultural laws and prayer',  note:'Opens with Berakhot (blessings and prayers) · Agricultural laws include tithes, first fruits, Shemitah (sabbatical year), Orlah · Bavli Gemara only for Berakhot; Yerushalmi has it all'},
+      {id:'ms03', q:'Seder Moed (מוֹעֵד)',           a:'"Appointed Times" · 12 tractates · Shabbat and holidays', note:'Includes: Shabbat, Eruvin, Pesachim, Shekalim, Yoma, Sukkah, Beitzah, Rosh Hashanah, Taanit, Megillah, Moed Katan, Chagigah · Most practically relevant to daily/annual observance'},
+      {id:'ms04', q:'Seder Nashim (נָשִׁים)',        a:'"Women" · 7 tractates · Marriage, divorce, and vows',    note:'Yevamot (levirate marriage), Ketubot (marriage contract), Nedarim (vows), Nazir, Sotah (suspected adulteress), Gittin (divorce), Kiddushin (betrothal) · Core family law'},
+      {id:'ms05', q:'Seder Nezikin (נְזִיקִין)',     a:'"Damages" · 10 tractates · Civil and criminal law',      note:'Bava Kamma, Bava Metzia, Bava Batra (the three "Gates"), Sanhedrin, Makkot, Shevuot, Eduyot, Avodah Zarah, Pirkei Avot, Horayot · Covers torts, contracts, courts, capital law'},
+      {id:'ms06', q:'Seder Kodashim (קָדָשִׁים)',   a:'"Holy Things" · 11 tractates · Temple service and sacrifices',note:'Zevachim, Menachot, Chulin (ritual slaughter — still widely studied for kashrut), Bechorot, Arachin, Temurah, Keritot, Meilah, Tamid, Middot, Kinnim · Much of this awaits the rebuilt Temple'},
+      {id:'ms07', q:'Seder Taharot (טָהֳרוֹת)',    a:'"Purities" · 12 tractates · Ritual purity and impurity', note:'Keilim, Ohalot, Negaim, Parah, Taharot, Mikvaot, Niddah, Makhshirin, Zavim, Tevul Yom, Yadayim, Uktzin · Most complex seder · Bavli only for Niddah · Less applicable today (no Temple)'},
+      {id:'ms08', q:'Pirkei Avot',                  a:'Ethics of the Fathers — 6 chapters of ethical teachings in Seder Nezikin',note:'"Turn it and turn it — everything is in it" (Ben Bag Bag) · Read each Shabbat afternoon between Pesach and Rosh Hashanah (some: Shavuot) · Contains famous sayings of every major Tanna'},
+      {id:'ms09', q:'How many masekhtot in the Mishnah?', a:'63 tractates total',                             note:'Zeraim: 11 · Moed: 12 · Nashim: 7 · Nezikin: 10 · Kodashim: 11 · Taharot: 12 · Total: 63 · Some count 60, grouping some tractates differently'},
+      {id:'ms10', q:'What is a Baraita?',           a:'A Tannaitic teaching NOT included in the Mishnah, quoted in the Gemara',note:'From Aramaic "bar" = outside · Introduced as "Tanya" or "It was taught..." · The Tosefta is the largest collection of Baraitot · Baraita has authority like the Mishnah, but Mishnah takes precedence if they conflict'},
+    ]
+  },
+
+  // ── Talmud ────────────────────────────────────────────────
+  {
+    id: 'talmud-study',
+    name: 'Talmud',
+    emoji: '🔍',
+    desc: 'The Gemara — the sea of Talmudic discussion and law',
+    cards: [
+      {id:'tl01', q:'What is the Talmud?',          a:'The Mishnah + the Gemara (Amoraic discussion of the Mishnah)',        note:'"Talmud" = learning · The Gemara analyzes, debates, and applies the Mishnah · Two versions: Babylonian (Bavli) and Jerusalem (Yerushalmi) · Cornerstone of Jewish law and practice'},
+      {id:'tl02', q:'Talmud Bavli',                 a:'Babylonian Talmud · Compiled ~500 CE · The authoritative Talmud',    note:'Compiled at the academies of Sura and Pumbedita (Babylonia) · ~2,711 folio pages (dapim) · Halacha follows the Bavli · Printed in the Vilna Shas (1880s) format used universally today'},
+      {id:'tl03', q:'Talmud Yerushalmi',            a:'Jerusalem Talmud · Compiled ~400 CE in Eretz Yisrael',               note:'More terse and less edited than Bavli · Produced under Roman/Byzantine pressure · Covers all of Zeraim (Bavli does not) · Used for depth study and halachic comparison · Also called "Talmud d\'Eretz Yisrael"'},
+      {id:'tl04', q:'Daf Yomi',                     a:'Daily study of one folio page (daf) of Talmud Bavli, completing all 2,711 pages in 7.5 years',note:'Instituted by Rabbi Meir Shapiro of Lublin at the First Knessia Gedolah (1923) · Millions worldwide study the same page each day · Siyum HaShas (completion celebration) draws tens of thousands'},
+      {id:'tl05', q:'Structure of a Talmud page',  a:'Mishnah text · Gemara discussion · Rashi (inner margin) · Tosafot (outer margin)',note:'The Vilna Shas standardized this layout in the 1880s · Page numbers: daf number + side (amud aleph א or amud beit ב) · e.g., Berakhot 2a = first page, first side'},
+      {id:'tl06', q:'Rashi on the Talmud',          a:'Rabbi Shlomo Yitzchaki · 1040–1105, Troyes, France · Inner-margin commentary on every page',note:'"Without Rashi, the Talmud would be a closed book" · Explains difficult words and provides the clearest reading of each passage · His script ("Rashi script") is still used in print'},
+      {id:'tl07', q:'Tosafot',                      a:'Franco-German medieval scholars (12th–14th c.) · Outer-margin commentary',note:'Students and descendants of Rashi · Raise and resolve contradictions between different Talmudic passages · "Ba\'alei HaTosafot" · Pioneered the analytical (pilpul) style of Talmud study'},
+      {id:'tl08', q:'What is a Sugya?',             a:'A self-contained unit of Talmudic discussion on one topic',           note:'The Talmud is structured in sugyot, not chapters · A sugya can span several pages and weave together multiple generations of sages · Learning Talmud means following the logic of each sugya'},
+      {id:'tl09', q:'What is the Tosefta?',         a:'A collection of Tannaitic teachings parallel to the Mishnah, compiled separately',note:'"Tosefta" = addition · Organized like the Mishnah across 6 sedarim · More expansive than the Mishnah · Frequently quoted in the Gemara as a Baraita · Less authoritative than the Mishnah'},
+      {id:'tl10', q:'What language is the Talmud in?', a:'Aramaic (Gemara) and Hebrew (Mishnah)',                           note:'Two Aramaic dialects: Western (Yerushalmi) and Eastern (Bavli) · Hebrew Mishnah text is quoted throughout · Certain phrases: "Tanya" (it was taught), "Amar Rav" (Rav said), "Teku" (unresolved question)'},
+    ]
+  },
+
+  // ── Major Halacha Works ───────────────────────────────────
+  {
+    id: 'halacha-books',
+    name: 'Major Halacha Works',
+    emoji: '⚖️',
+    desc: 'The landmark codes and responsa that shape Jewish law today',
+    cards: [
+      {id:'hb01', q:'Mishneh Torah (יַד הַחֲזָקָה)',  a:'Rambam (Maimonides) · Completed ~1180 CE · 14 books covering all of halacha',   note:'"Yad" = hand (14 in gematria) = "strong hand" · First comprehensive halachic code covering all areas, including laws not currently applicable · Clear Mishnaic Hebrew · Still a primary reference'},
+      {id:'hb02', q:'Sefer HaMitzvot',               a:'Rambam · List and explanation of all 613 commandments',                          note:'Preceded the Mishneh Torah · Includes 14 principles for counting mitzvot · Ramban wrote extensive critical notes · Foundational for understanding the structure of Jewish law'},
+      {id:'hb03', q:"Arba'ah Turim (טוּר)",          a:"Rabbi Yaakov ben Asher (Ba'al HaTurim) · ~1300 CE · 4 sections",                note:'Father = Rosh; grew up in Germany, settled in Toledo · The Tur\'s four-part structure was adopted by the Shulchan Aruch · Comprehensive survey of Rishonic opinions on every topic'},
+      {id:'hb04', q:'Shulchan Aruch (שֻׁלְחָן עָרוּךְ)', a:'Rabbi Yosef Karo · 1563 CE · "The Set Table" — the definitive code of Jewish law', note:'Based on the Tur · Follows Sephardic custom (3 authorities: Rif, Rambam, Rosh) · 4 sections: Orach Chaim, Yoreh Deah, Even HaEzer, Choshen Mishpat · Rabbi Karo also wrote the Beit Yosef (the full commentary on the Tur)'},
+      {id:'hb05', q:'Rema (מַפָּה)',                  a:'Rabbi Moshe Isserles · Krakow · ~1570 CE · Ashkenazic glosses on the Shulchan Aruch',note:'"Mapa" = tablecloth laid on the "set table" · The Rema\'s notes appear directly in the Shulchan Aruch · Wherever they differ, Ashkenazim follow the Rema, Sephardim follow Rabbi Karo'},
+      {id:'hb06', q:'Four sections of Shulchan Aruch', a:'Orach Chaim · Yoreh Deah · Even HaEzer · Choshen Mishpat',                  note:'Orach Chaim: daily life, prayer, Shabbat, holidays · Yoreh Deah: kashrut, converts, mourning, niddah · Even HaEzer: marriage and family · Choshen Mishpat: civil and business law'},
+      {id:'hb07', q:'Mishnah Berurah',               a:'Chofetz Chaim (Rabbi Yisrael Meir Kagan) · 1884–1907 · Commentary on Orach Chaim', note:'6 volumes · The most widely used halachic guide for Ashkenazim on daily practice and prayer · The Chofetz Chaim also wrote Sefer Chofetz Chaim (laws of speech) and Shmirat HaLashon'},
+      {id:'hb08', q:'Kaf HaChaim',                   a:'Rabbi Yaakov Chaim Sofer · Baghdad/Jerusalem · Early 20th century',               note:'Sephardic parallel to Mishnah Berurah · Comprehensive commentary on Orach Chaim and Yoreh Deah · Draws on Kabbalistic sources alongside halacha · Primary guide for many Sephardic communities'},
+      {id:'hb09', q:'Igrot Moshe',                    a:'Rabbi Moshe Feinstein · New York · 1959–1986 · 8 volumes of responsa',           note:'The preeminent Ashkenazic posek in America in the 20th century · Addressed halachic questions specific to modern American life · "Reb Moshe" was universally revered across communities'},
+      {id:'hb10', q:'Who is a Posek?',               a:'A halachic decisor — a rabbi qualified to rule on questions of Jewish law',        note:'From "pasak" = to rule · Each generation\'s poskim shape how halacha develops and applies to new situations · Asking a qualified posek one\'s halachic questions is itself part of the halachic process'},
+    ]
+  },
+
+  // ── Original General Decks (kept as a starting point) ─────
   {
     id: 'hebrew',
     name: 'Hebrew Essentials',
