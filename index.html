@@ -328,6 +328,82 @@ h1,h2,h3{text-wrap:balance}
 }
 @keyframes xp-up{from{transform:translateY(0);opacity:1}to{transform:translateY(-56px);opacity:0}}
 
+/* ── Deck card actions ──────────────────────────────────── */
+.deck-actions{display:flex;gap:.5rem;margin-top:.9rem}
+.deck-btn{
+  flex:1;padding:.48rem .5rem;border-radius:7px;
+  font-size:.8rem;font-weight:600;text-align:center;
+  transition:background var(--trans),transform .12s,box-shadow .12s;
+}
+.deck-btn:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.deck-btn-learn{
+  background:var(--surface-2);color:var(--ink-2);
+  border:1px solid rgba(26,23,48,.1);
+}
+.deck-btn-learn:hover{background:rgba(27,59,138,.1);color:var(--blue)}
+.deck-btn-quiz{background:var(--blue);color:#fff}
+.deck-btn-quiz:hover{background:var(--blue-lt);transform:translateY(-1px);box-shadow:0 3px 10px rgba(27,59,138,.25)}
+
+/* ── Learn screen ───────────────────────────────────────── */
+.learn-wrap{max-width:680px;margin:0 auto;padding:1.5rem 1.5rem 5rem}
+.learn-top{display:flex;align-items:flex-start;gap:.9rem;margin-bottom:1.5rem}
+.learn-deck-title{
+  font-family:Georgia,'Times New Roman',serif;
+  font-size:1.3rem;color:var(--ink);line-height:1.2;
+}
+.learn-meta{display:flex;gap:.75rem;align-items:center;margin-top:.35rem}
+.learn-desc{font-size:.83rem;color:var(--ink-2)}
+.learn-pill{
+  font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  background:rgba(27,59,138,.1);color:var(--blue);
+  padding:.15rem .5rem;border-radius:8px;flex-shrink:0;
+}
+.learn-quick-quiz{
+  display:flex;justify-content:flex-end;margin-bottom:1.25rem;
+}
+.learn-quick-quiz button{
+  font-size:.82rem;font-weight:600;color:var(--blue);
+  border:1.5px solid rgba(27,59,138,.25);
+  padding:.4rem .9rem;border-radius:7px;
+  background:rgba(27,59,138,.07);
+  transition:background var(--trans);
+}
+.learn-quick-quiz button:hover{background:rgba(27,59,138,.14)}
+.learn-divider{
+  border:none;border-top:1px solid rgba(26,23,48,.08);
+  margin-bottom:1.25rem;
+}
+.learn-entries{display:flex;flex-direction:column;gap:.6rem;margin-bottom:2rem}
+.learn-entry{
+  background:var(--surface);border-radius:var(--radius);
+  border:1px solid rgba(26,23,48,.07);box-shadow:var(--shadow);
+  padding:1rem 1.2rem;display:grid;
+  grid-template-columns:1.5rem 1fr;gap:.2rem .75rem;
+  align-items:start;
+}
+.learn-num{
+  font-size:.72rem;font-weight:700;color:var(--muted);
+  padding-top:.3rem;font-variant-numeric:tabular-nums;
+  grid-row:1;
+}
+.learn-term{
+  font-family:Georgia,'Times New Roman',serif;
+  font-size:1.1rem;color:var(--ink);line-height:1.3;
+  grid-column:2;grid-row:1;
+}
+.learn-def{
+  font-size:.9rem;color:var(--ink-2);line-height:1.5;
+  grid-column:2;grid-row:2;margin-top:.2rem;
+}
+.learn-note{
+  font-size:.76rem;color:var(--muted);line-height:1.5;
+  grid-column:2;grid-row:3;
+  margin-top:.4rem;padding-top:.4rem;
+  border-top:1px solid rgba(26,23,48,.06);
+}
+.learn-cta{text-align:center}
+.learn-cta .btn-primary{box-shadow:0 4px 20px rgba(27,59,138,.22)}
+
 /* ── Responsive ─────────────────────────────────────────── */
 @media(max-width:580px){
   .header{padding:0 1rem}
@@ -432,6 +508,30 @@ h1,h2,h3{text-wrap:balance}
     <div class="results-actions">
       <button class="btn-primary" id="r-again">Study Again</button>
       <button class="btn-ghost" id="r-home">← Back to Home</button>
+    </div>
+  </div>
+</div>
+
+<!-- Learn / Study Guide Screen -->
+<div class="screen" id="screen-learn">
+  <div class="learn-wrap">
+    <div class="learn-top">
+      <button class="back-btn" id="learn-back-btn" aria-label="Back">←</button>
+      <div>
+        <div class="learn-deck-title" id="learn-deck-title"></div>
+        <div class="learn-meta">
+          <span class="learn-desc" id="learn-deck-desc"></span>
+          <span class="learn-pill" id="learn-card-count"></span>
+        </div>
+      </div>
+    </div>
+    <div class="learn-quick-quiz">
+      <button id="learn-quiz-top-btn">Already know it? Start Quiz →</button>
+    </div>
+    <hr class="learn-divider">
+    <div class="learn-entries" id="learn-entries"></div>
+    <div class="learn-cta">
+      <button class="btn-primary" id="learn-quiz-btn">Start Quiz →</button>
     </div>
   </div>
 </div>
@@ -1098,7 +1198,7 @@ function renderHome() {
     const dueN=d.cards.filter(c=>isDue(c.id)).length;
     const reviewed=d.cards.filter(c=>cs(c.id).total>0).length;
     const pct=Math.round(reviewed/d.cards.length*100);
-    return `<div class="deck-card" tabindex="0" role="button" data-id="${d.id}" aria-label="Study ${d.name}">
+    return `<div class="deck-card" data-id="${d.id}">
       <div class="deck-emoji">${d.emoji}</div>
       <div class="deck-name">${d.name}</div>
       <div class="deck-desc">${d.desc}</div>
@@ -1107,6 +1207,10 @@ function renderHome() {
         <span>${d.cards.length} cards</span>
       </div>
       <div class="deck-bar"><div class="deck-bar-fill" style="width:${pct}%"></div></div>
+      <div class="deck-actions">
+        <button class="deck-btn deck-btn-learn" data-id="${d.id}" aria-label="Study guide for ${d.name}">📖 Study Guide</button>
+        <button class="deck-btn deck-btn-quiz"  data-id="${d.id}" aria-label="Quiz for ${d.name}">▶ Quiz</button>
+      </div>
     </div>`;
   }
   document.getElementById('decks-section').innerHTML = CATEGORIES.map(cat => {
@@ -1117,9 +1221,11 @@ function renderHome() {
       <div class="decks-grid">${catDecks.map(deckCardHTML).join('')}</div>
     </div>`;
   }).join('');
-  document.querySelectorAll('.deck-card').forEach(el=>{
+  document.querySelectorAll('.deck-btn-learn').forEach(el=>{
+    el.addEventListener('click',()=>showLearnScreen(el.dataset.id));
+  });
+  document.querySelectorAll('.deck-btn-quiz').forEach(el=>{
     el.addEventListener('click',()=>startSession(el.dataset.id));
-    el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();startSession(el.dataset.id);}});
   });
 
   const acc=S.totalCards?Math.round(S.totalCorrect/S.totalCards*100)+'%':'—';
@@ -1137,6 +1243,31 @@ function renderHome() {
   }).join('');
 
   updateHeader();
+}
+
+// ═══════════════════════════════════════════════════════════
+// LEARN SCREEN
+// ═══════════════════════════════════════════════════════════
+function showLearnScreen(deckId) {
+  const deck = DECKS.find(d=>d.id===deckId);
+  if (!deck) return;
+  document.getElementById('learn-deck-title').textContent = deck.emoji+' '+deck.name;
+  document.getElementById('learn-deck-desc').textContent = deck.desc;
+  document.getElementById('learn-card-count').textContent = deck.cards.length+' terms';
+  document.getElementById('learn-entries').innerHTML = deck.cards.map((c,i)=>`
+    <div class="learn-entry">
+      <div class="learn-num">${i+1}</div>
+      <div class="learn-term">${c.q}</div>
+      <div class="learn-def">${c.a}</div>
+      ${c.note?`<div class="learn-note">${c.note}</div>`:''}
+    </div>`).join('');
+  const startQuiz = ()=>startSession(deckId);
+  document.getElementById('learn-quiz-btn').onclick = startQuiz;
+  document.getElementById('learn-quiz-top-btn').onclick = startQuiz;
+  document.getElementById('learn-back-btn').onclick = ()=>{ show('home'); renderHome(); };
+  show('learn');
+  document.getElementById('screen-learn').scrollTop = 0;
+  window.scrollTo(0,0);
 }
 
 // ═══════════════════════════════════════════════════════════
