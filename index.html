@@ -793,6 +793,76 @@ const DECKS = [
     ]
   },
 
+  // ── Gematria ──────────────────────────────────────────────
+  {
+    id: 'gematria',
+    requires: 'aleph-bet',
+    level: 2,
+    name: 'גִּימַטְרִיָּה — Gematria',
+    emoji: '🔢',
+    desc: 'The numerical value of every Hebrew letter — from Aleph (1) to Tav (400)',
+    guide: [
+      {h:'מָה הִיא גִּימַטְרִיָּה? — What is Gematria?', b:[
+        'Every Hebrew letter has a fixed numerical value — this system is called גִּימַטְרִיָּה (gematria)',
+        'Gematria is not a novelty — it is embedded in the Torah itself and used throughout Tanach, Chazal, and Kabbalah to reveal hidden connections',
+        'Three groups: units (א–ט = 1–9), tens (י–צ = 10–90), hundreds (ק–ת = 100–400)',
+        'The final (sofit) forms of כ מ נ פ צ are sometimes given extended values: 500, 600, 700, 800, 900 — though the standard system uses the base values',
+        'Famous example: אֶחָד (echad, "one") = 1+8+4 = 13 · אַהֲבָה (ahavah, "love") = 1+5+2+5 = 13 → love and oneness share the same root value',
+        'Another: נַחָשׁ (nachash, "serpent") = 358 = מָשִׁיחַ (Moshiach) → the Midrash uses this to teach that the power of the yetzer hara is equal to the power of the Moshiach who will defeat it',
+      ]},
+      {h:'הָאוֹתִיּוֹת בְּמִסְפָּרִים — The Letters in Numbers', b:[
+        'א = 1 · ב = 2 · ג = 3 · ד = 4 · ה = 5 · ו = 6 · ז = 7 · ח = 8 · ט = 9',
+        'י = 10 · כ = 20 · ל = 30 · מ = 40 · נ = 50 · ס = 60 · ע = 70 · פ = 80 · צ = 90',
+        'ק = 100 · ר = 200 · ש = 300 · ת = 400',
+        'The grouping reflects ancient Semitic number systems — the letters were the original numerals in Hebrew manuscripts',
+        'In a Torah scroll there are no Arabic numerals — numbers in the text are always spelled out as words',
+      ]},
+      {h:'שֵׁמוֹת הָאוֹתִיּוֹת — The Letter Names', b:[
+        'א אָלֶף · ב בֵּית · ג גִּימֶל · ד דָּלֶת · ה הֵא · ו וָאו · ז זַיִן · ח חֵית · ט טֵית',
+        'י יוֹד · כ כַּף · ל לָמֶד · מ מֵם · נ נוּן · ס סָמֶך · ע עַיִן · פ פֵּא · צ צָדִי',
+        'ק קוֹף · ר רֵישׁ · ש שִׁין · ת תָּו',
+      ]},
+      {h:'שִׁימּוּשִׁים בְּגִימַטְרִיָּה — Uses of Gematria', b:[
+        'Dating: years are written in Hebrew letters — e.g., תשפ״ה = 785 (from 5000, giving 5785 = 2024–25)',
+        'Halacha: the number of mitzvos is 613 (תרי״ג) — the word תּוֹרָה = 611; Moshe gave us 611 mitzvos; the first 2 we heard directly from Hashem (אָנֹכִי and לֹא יִהְיֶה)',
+        'Prayer: the word אֶחָד at the end of Shema has 13 — corresponding to the 13 Attributes of Mercy and the 13 principles of faith',
+        'Architecture of Creation: the Sefer Yetzirah teaches that Hashem created the world with 22 letters and 10 Sefiros — 32 paths of wisdom (לֵב = heart = 32)',
+      ]},
+    ],
+    cards: [
+      // ── Units (אחדות) ──
+      {id:'gm01', q:'א\nאָלֶף', a:'1 — אֶחָד', note:'First letter · Gematria 1 · Aleph represents Oneness — the beginning of all counting and all creation'},
+      {id:'gm02', q:'ב\nבֵּית', a:'2 — שְׁנַיִם', note:'Gematria 2 · The Torah begins with Beis (בְּרֵאשִׁית) — Chazal ask: why not Aleph? Beis hints at בְּרָכָה (blessing)'},
+      {id:'gm03', q:'ג\nגִּימֶל', a:'3 — שָׁלוֹשׁ', note:'Gematria 3 · גִּימֶל means "camel" — tradition teaches it is running to help the poor (דָּלֶת)'},
+      {id:'gm04', q:'ד\nדָּלֶת', a:'4 — אַרְבַּע', note:'Gematria 4 · דָּלֶת means "door" and also hints at דַּל — the poor person being helped by the Gimel'},
+      {id:'gm05', q:'ה\nהֵא', a:'5 — חָמֵשׁ', note:'Gematria 5 · One of Hashem\'s names is formed from ה · At the end of a word, ה is usually silent'},
+      {id:'gm06', q:'ו\nוָאו', a:'6 — שֵׁשׁ', note:'Gematria 6 · The world was created in 6 days · Vav also means "hook" and connects (וָאו הַחִיבּוּר = "and")'},
+      {id:'gm07', q:'ז\nזַיִן', a:'7 — שֶׁבַע', note:'Gematria 7 · Shabbos is the 7th day · זַיִן means "weapon" · Seven is the number of completion in Torah'},
+      {id:'gm08', q:'ח\nחֵית', a:'8 — שְׁמוֹנֶה', note:'Gematria 8 · Bris milah on the 8th day · 8 represents transcending nature (7 = nature; 8 = above it) · Chanukah is 8 days'},
+      {id:'gm09', q:'ט\nטֵית', a:'9 — תֵּשַׁע', note:'Gematria 9 · טֵית = "good" (טוֹב) · First ט in Torah appears in the word טוֹב (Bereishis 1:4) · 9 = the highest single digit'},
+      // ── Tens (עשרות) ──
+      {id:'gm10', q:'י\nיוֹד', a:'10 — עֶשֶׂר', note:'Gematria 10 · Smallest letter · 10 Commandments · 10 makos · 10 Sefiros · Yud begins the Name of Hashem (יהוה)'},
+      {id:'gm11', q:'כ\nכַּף', a:'20 — עֶשְׂרִים', note:'Gematria 20 · כַּף means "palm of hand" · Has a sofit form: ך (value still 20 in standard gematria)'},
+      {id:'gm12', q:'ל\nלָמֶד', a:'30 — שְׁלֹשִׁים', note:'Gematria 30 · Tallest letter in the aleph-beis · לָמֶד = "to learn/teach" — the root of לִמּוּד (learning)'},
+      {id:'gm13', q:'מ\nמֵם', a:'40 — אַרְבָּעִים', note:'Gematria 40 · 40 years in the desert · 40 days of flood · 40 days Moshe on Har Sinai · Has a sofit form: ם'},
+      {id:'gm14', q:'נ\nנוּן', a:'50 — חֲמִשִּׁים', note:'Gematria 50 · 50 gates of understanding (שַׁעֲרֵי בִינָה) · Yovel (Jubilee) is the 50th year · Has sofit form: ן'},
+      {id:'gm15', q:'ס\nסָמֶך', a:'60 — שִׁשִּׁים', note:'Gematria 60 · סָמֶך is round and closed — represents Hashem\'s encompassing protection (סוֹבֵב כָּל עָלְמִין)'},
+      {id:'gm16', q:'ע\nעַיִן', a:'70 — שִׁבְעִים', note:'Gematria 70 · עַיִן means "eye" · 70 nations of the world · 70 faces of Torah (שִׁבְעִים פָּנִים לַתּוֹרָה) · 70 elders (זְקֵנִים)'},
+      {id:'gm17', q:'פ\nפֵּא', a:'80 — שְׁמוֹנִים', note:'Gematria 80 · פֶּה means "mouth" · Represents speech — פֶּה is the organ of prayer and Torah learning · Has sofit form: ף'},
+      {id:'gm18', q:'צ\nצָדִי', a:'90 — תִּשְׁעִים', note:'Gematria 90 · צַדִּיק = righteous person · The letter shape shows a person bowing in humility · Has sofit form: ץ'},
+      // ── Hundreds (מאות) ──
+      {id:'gm19', q:'ק\nקוֹף', a:'100 — מֵאָה', note:'Gematria 100 · קוֹף means "monkey" in Aramaic — or "eye of a needle" · Sarah was 100 when Yitzchak was born (Bereishis 17:17)'},
+      {id:'gm20', q:'ר\nרֵישׁ', a:'200 — מָאתַיִם', note:'Gematria 200 · רֵישׁ means "head/beginning" · Does not take a dagesh chazak · רֵאשִׁית — the very first word of Torah begins with this idea'},
+      {id:'gm21', q:'ש\nשִׁין', a:'300 — שְׁלֹשׁ מֵאוֹת', note:'Gematria 300 · Two sounds: שׁ (Shin, right dot) = SH · שׂ (Sin, left dot) = S · The three prongs represent the three Patriarchs'},
+      {id:'gm22', q:'ת\nתָּו', a:'400 — אַרְבַּע מֵאוֹת', note:'Gematria 400 · Last letter of the aleph-beis · תּוֹרָה = 611 · אֱמֶת (truth) = א+מ+ת = 1+40+400 = 441 = first+middle+last letters of the aleph-beis'},
+      // ── Concept cards ──
+      {id:'gm23', q:'שָׁלוֹשׁ קְבוּצוֹת\nאֶחָדוֹת · עֲשָׂרוֹת · מֵאוֹת', a:'א–ט = 1–9 (units)\nי–צ = 10–90 (tens)\nק–ת = 100–400 (hundreds)', note:'22 letters cover values 1 through 400 · The system then used final-letter extensions (ך=500, ם=600, ן=700, ף=800, ץ=900) in some traditions'},
+      {id:'gm24', q:'מַה הִיא גִּימַטְרִיָּה שֶׁל אֶחָד?\nא + ח + ד', a:'1 + 8 + 4 = 13', note:'אַהֲבָה (love) = א+ה+ב+ה = 1+5+2+5 = 13 · Both words equal 13 → "love" and "oneness" are the same divine concept'},
+      {id:'gm25', q:'מַה הִיא גִּימַטְרִיָּה שֶׁל תּוֹרָה?\nת + ו + ר + ה', a:'400 + 6 + 200 + 5 = 611', note:'613 mitzvos − 611 = 2 · The first 2 commandments (אָנֹכִי and לֹא יִהְיֶה) were heard directly from Hashem; Moshe transmitted the remaining 611'},
+      {id:'gm26', q:'כֵּיצַד כּוֹתְבִים שָׁנָה בְּעִבְרִית?\nלְדוּגְמָה: תשפ״ה', a:'מֵאוֹת + עֲשָׂרוֹת + אֶחָדוֹת — with a גֶּרְשַׁיִם ״ before the last letter', note:'תשפ״ה = 400+300+80+5 = 785 → year 5785 (2024–25) · The thousands digit (5000) is omitted by convention · גֶּרְשַׁיִם marks it as a number'},
+    ]
+  },
+
   // ── Jewish Months ─────────────────────────────────────────
   {
     id: 'months',
@@ -2141,7 +2211,7 @@ const DECKS = [
 // CATEGORIES — controls grouping on the home screen
 // ═══════════════════════════════════════════════════════════
 const CATEGORIES = [
-  { name: 'Hebrew Language',    ids: ['aleph-bet', 'nikud'] },
+  { name: 'Hebrew Language',    ids: ['aleph-bet', 'nikud', 'gematria'] },
   { name: 'The Jewish Year',    ids: ['months', 'hol-doraisa', 'hol-drabonon', 'fasts', 'cal-periods', 'israel-days'] },
   { name: 'Rabbinic History',   ids: ['rabbinic-eras', 'tannaim', 'amoraim'] },
   { name: 'Torah/Chumash',      ids: ['chumash-overview', 'bereishis', 'shemos', 'vayikra', 'bamidbar', 'devarim'] },
