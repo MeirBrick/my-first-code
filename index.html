@@ -1,12 +1,852 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My First Code</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Olami ASU · Study</title>
+<style>
+/* ── Tokens ─────────────────────────────────────────────── */
+:root {
+  --bg:        #F5F3EE;
+  --surface:   #FFFFFF;
+  --surface-2: #ECEAE4;
+  --ink:       #1A1730;
+  --ink-2:     #4A4A6A;
+  --muted:     #8A8DAA;
+  --blue:      #1B3B8A;
+  --blue-lt:   #2D55C8;
+  --gold:      #C8840F;
+  --gold-lt:   #F0A83A;
+  --green:     #2A7A52;
+  --red:       #B83228;
+  --radius:    12px;
+  --shadow:    0 2px 12px rgba(27,59,138,.08);
+  --shadow-lg: 0 8px 32px rgba(27,59,138,.15);
+  --trans:     .2s ease;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:        #0C1428;
+    --surface:   #162040;
+    --surface-2: #1D2B52;
+    --ink:       #DDE1F0;
+    --ink-2:     #9BA3C8;
+    --muted:     #5A618A;
+    --blue:      #4D76E8;
+    --blue-lt:   #7CA4FF;
+    --gold:      #E8A020;
+    --gold-lt:   #FFD06A;
+    --green:     #3DB87A;
+    --red:       #E05A4E;
+    --shadow:    0 2px 12px rgba(0,0,0,.3);
+    --shadow-lg: 0 8px 32px rgba(0,0,0,.5);
+  }
+}
+:root[data-theme="light"] {
+  --bg:#F5F3EE;--surface:#FFFFFF;--surface-2:#ECEAE4;
+  --ink:#1A1730;--ink-2:#4A4A6A;--muted:#8A8DAA;
+  --blue:#1B3B8A;--blue-lt:#2D55C8;--gold:#C8840F;--gold-lt:#F0A83A;
+  --green:#2A7A52;--red:#B83228;
+  --shadow:0 2px 12px rgba(27,59,138,.08);--shadow-lg:0 8px 32px rgba(27,59,138,.15);
+}
+:root[data-theme="dark"] {
+  --bg:#0C1428;--surface:#162040;--surface-2:#1D2B52;
+  --ink:#DDE1F0;--ink-2:#9BA3C8;--muted:#5A618A;
+  --blue:#4D76E8;--blue-lt:#7CA4FF;--gold:#E8A020;--gold-lt:#FFD06A;
+  --green:#3DB87A;--red:#E05A4E;
+  --shadow:0 2px 12px rgba(0,0,0,.3);--shadow-lg:0 8px 32px rgba(0,0,0,.5);
+}
+
+/* ── Reset ──────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{height:100%}
+body{
+  min-height:100%;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  font-size:16px;line-height:1.5;
+  transition:background var(--trans),color var(--trans);
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+button{cursor:pointer;border:none;background:none;font:inherit;color:inherit}
+h1,h2,h3{text-wrap:balance}
+
+/* ── Header ─────────────────────────────────────────────── */
+.header{
+  position:sticky;top:0;z-index:100;
+  background:var(--surface);
+  border-bottom:1px solid rgba(26,23,48,.08);
+  box-shadow:var(--shadow);
+  padding:0 1.5rem;height:64px;
+  display:flex;align-items:center;gap:1rem;
+}
+.header-logo{
+  font-family:Georgia,'Times New Roman',serif;
+  font-size:1.15rem;font-weight:bold;color:var(--blue);
+  letter-spacing:-.01em;flex-shrink:0;
+}
+.header-logo span{color:var(--gold)}
+.xp-bar-wrap{flex:1;max-width:300px}
+.xp-label{
+  display:flex;justify-content:space-between;align-items:baseline;
+  font-size:.68rem;font-weight:700;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:4px;
+}
+.xp-level{color:var(--blue)}
+.xp-bar{height:6px;border-radius:3px;background:rgba(27,59,138,.12);overflow:hidden}
+.xp-fill{
+  height:100%;border-radius:3px;
+  background:linear-gradient(90deg,var(--blue),var(--blue-lt));
+  transition:width .6s cubic-bezier(.4,0,.2,1);
+}
+.streak-chip{
+  display:flex;align-items:center;gap:.3rem;
+  background:rgba(200,132,15,.13);color:var(--gold);
+  font-size:.85rem;font-weight:700;padding:.3rem .7rem;border-radius:20px;flex-shrink:0;
+  font-variant-numeric:tabular-nums;
+}
+.theme-btn{
+  width:34px;height:34px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--surface-2);font-size:.95rem;
+  transition:background var(--trans);
+}
+.theme-btn:hover{background:rgba(27,59,138,.12)}
+.theme-btn:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+
+/* ── Screens ────────────────────────────────────────────── */
+.screen{display:none}
+.screen.active{display:block}
+
+/* ── Home ───────────────────────────────────────────────── */
+.home-wrap{max-width:960px;margin:0 auto;padding:2rem 1.5rem 5rem}
+.home-head{margin-bottom:2rem}
+.home-head h1{
+  font-family:Georgia,'Times New Roman',serif;
+  font-size:2rem;font-weight:normal;line-height:1.2;
+}
+.home-head p{color:var(--ink-2);margin-top:.3rem}
+.sec-label{
+  font-size:.68rem;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:.9rem;
+}
+.decks-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+  gap:1rem;margin-bottom:2.5rem;
+}
+.deck-card{
+  background:var(--surface);border-radius:var(--radius);
+  padding:1.25rem;cursor:pointer;
+  border:1px solid rgba(26,23,48,.07);box-shadow:var(--shadow);
+  transition:transform var(--trans),box-shadow var(--trans),border-color var(--trans);
+  position:relative;overflow:hidden;
+}
+.deck-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--blue),var(--blue-lt));
+  opacity:0;transition:opacity var(--trans);
+}
+.deck-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg);border-color:rgba(27,59,138,.2)}
+.deck-card:hover::before{opacity:1}
+.deck-card:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.deck-emoji{font-size:1.8rem;margin-bottom:.65rem;line-height:1}
+.deck-name{font-family:Georgia,serif;font-size:1.05rem;font-weight:bold;margin-bottom:.2rem}
+.deck-desc{font-size:.83rem;color:var(--ink-2);margin-bottom:.9rem}
+.deck-meta{display:flex;gap:.75rem;align-items:center;font-size:.77rem;color:var(--muted)}
+.due-chip{
+  background:rgba(27,59,138,.1);color:var(--blue);
+  font-weight:700;padding:.1rem .45rem;border-radius:8px;
+}
+.due-chip.done{background:rgba(42,122,82,.1);color:var(--green)}
+.deck-bar{margin-top:.9rem;height:4px;border-radius:2px;background:rgba(26,23,48,.08);overflow:hidden}
+.deck-bar-fill{
+  height:100%;border-radius:2px;
+  background:linear-gradient(90deg,var(--green),rgba(42,122,82,.6));
+  transition:width .4s ease;
+}
+
+.stats-row{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));
+  gap:1rem;margin-bottom:2.5rem;
+}
+.stat-card{
+  background:var(--surface);border-radius:var(--radius);padding:1rem;
+  border:1px solid rgba(26,23,48,.07);box-shadow:var(--shadow);
+}
+.stat-val{
+  font-family:Georgia,serif;font-size:1.8rem;font-weight:bold;
+  color:var(--ink);line-height:1;font-variant-numeric:tabular-nums;
+}
+.stat-lbl{font-size:.73rem;color:var(--muted);margin-top:.2rem}
+
+.badges-grid{display:flex;flex-wrap:wrap;gap:.6rem}
+.badge-item{
+  background:var(--surface);border-radius:var(--radius);
+  padding:.6rem .9rem;border:1px solid rgba(26,23,48,.07);
+  display:flex;align-items:center;gap:.55rem;font-size:.82rem;
+  opacity:.35;transition:opacity var(--trans),border-color var(--trans),box-shadow var(--trans);
+}
+.badge-item.earned{
+  opacity:1;border-color:rgba(200,132,15,.35);
+  box-shadow:0 0 0 1px rgba(200,132,15,.15);
+}
+.badge-icon{font-size:1.3rem;line-height:1}
+.badge-name{font-weight:600;color:var(--ink)}
+.badge-desc{font-size:.7rem;color:var(--muted)}
+
+/* ── Study ──────────────────────────────────────────────── */
+.study-wrap{
+  max-width:640px;margin:0 auto;
+  padding:1.5rem 1.5rem 4rem;
+  min-height:calc(100vh - 64px);
+  display:flex;flex-direction:column;
+}
+.study-top{display:flex;align-items:center;gap:.9rem;margin-bottom:1.5rem}
+.back-btn{
+  width:36px;height:36px;border-radius:50%;flex-shrink:0;
+  background:var(--surface);border:1px solid rgba(26,23,48,.1);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.9rem;color:var(--ink-2);transition:background var(--trans);
+}
+.back-btn:hover{background:var(--surface-2)}
+.back-btn:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.study-deck-name{font-family:Georgia,serif;font-size:1.05rem}
+.study-prog-bar{height:6px;border-radius:3px;background:rgba(26,23,48,.08);overflow:hidden;margin-top:.3rem}
+.study-prog-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--blue),var(--blue-lt));transition:width .4s ease}
+.study-count{font-size:.75rem;color:var(--muted);text-align:right;margin-top:.2rem}
+
+.card-scene{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1rem 0}
+.card-wrap{width:100%;max-width:540px;perspective:1200px;cursor:pointer}
+.card-inner{
+  position:relative;width:100%;padding-top:62%;
+  transform-style:preserve-3d;
+  transition:transform .5s cubic-bezier(.4,0,.2,1);
+}
+.card-inner.flipped{transform:rotateY(180deg)}
+.card-face{
+  position:absolute;inset:0;border-radius:18px;
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:2rem;text-align:center;
+}
+.card-front{
+  background:var(--surface);
+  border:1px solid rgba(27,59,138,.14);
+  box-shadow:var(--shadow-lg),0 0 0 5px rgba(27,59,138,.05);
+}
+.card-back{
+  background:var(--surface);
+  border:1px solid rgba(200,132,15,.22);
+  box-shadow:var(--shadow-lg),0 0 0 5px rgba(200,132,15,.06);
+  transform:rotateY(180deg);
+}
+.card-badge{
+  font-size:.63rem;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:.6rem;
+}
+.card-badge.ans{color:var(--gold)}
+.card-text{
+  font-family:Georgia,'Times New Roman',serif;
+  font-size:clamp(1.25rem,4vw,2rem);color:var(--ink);line-height:1.3;
+}
+.card-sub{font-size:.83rem;color:var(--ink-2);margin-top:.5rem;line-height:1.5}
+.card-hint{margin-top:1rem;font-size:.72rem;color:var(--muted)}
+
+.rating-area{text-align:center;padding:.75rem 0}
+.rating-prompt{
+  font-size:.72rem;color:var(--muted);margin-bottom:.7rem;
+  text-transform:uppercase;letter-spacing:.07em;font-weight:600;
+}
+.rating-btns{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap}
+.r-btn{
+  padding:.6rem 1.1rem;border-radius:8px;font-size:.88rem;font-weight:600;
+  border:1.5px solid transparent;
+  transition:transform .12s,box-shadow .12s;
+}
+.r-btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.1)}
+.r-btn:active{transform:none}
+.r-btn:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+.r-again{background:rgba(184,50,40,.1);color:var(--red);border-color:rgba(184,50,40,.22)}
+.r-hard {background:rgba(200,132,15,.1);color:var(--gold);border-color:rgba(200,132,15,.22)}
+.r-good {background:rgba(27,59,138,.1);color:var(--blue);border-color:rgba(27,59,138,.22)}
+.r-easy {background:rgba(42,122,82,.1);color:var(--green);border-color:rgba(42,122,82,.22)}
+
+/* ── Results ────────────────────────────────────────────── */
+.results-wrap{max-width:520px;margin:0 auto;padding:3rem 1.5rem 5rem;text-align:center}
+.results-emoji{font-size:3rem;margin-bottom:.6rem}
+.results-title{font-family:Georgia,serif;font-size:2rem;margin-bottom:.4rem}
+.results-sub{color:var(--ink-2);margin-bottom:2rem}
+.r-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-bottom:1.5rem}
+.r-stat{background:var(--surface);border-radius:var(--radius);padding:.9rem;border:1px solid rgba(26,23,48,.07)}
+.r-stat-val{font-family:Georgia,serif;font-size:1.9rem;font-weight:bold;font-variant-numeric:tabular-nums}
+.r-stat-lbl{font-size:.72rem;color:var(--muted);margin-top:.15rem}
+.xp-banner{
+  background:linear-gradient(135deg,var(--blue),var(--blue-lt));
+  color:#fff;border-radius:var(--radius);padding:1.1rem;
+  font-size:1.15rem;font-weight:700;margin-bottom:1.5rem;
+  box-shadow:0 4px 20px rgba(27,59,138,.3);
+}
+.new-badges-title{
+  font-size:.72rem;font-weight:700;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:.65rem;
+}
+.results-actions{display:flex;flex-direction:column;gap:.6rem;align-items:center;margin-top:1.5rem}
+.btn-primary{
+  background:var(--blue);color:#fff;font-weight:600;
+  padding:.75rem 2rem;border-radius:8px;font-size:1rem;
+  width:100%;max-width:260px;
+  transition:background var(--trans),transform .12s;
+}
+.btn-primary:hover{background:var(--blue-lt);transform:translateY(-1px)}
+.btn-primary:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.btn-ghost{color:var(--ink-2);font-size:.88rem;text-decoration:underline}
+.btn-ghost:hover{color:var(--blue)}
+
+/* ── Toast ──────────────────────────────────────────────── */
+.toast-wrap{position:fixed;bottom:1.5rem;right:1.5rem;z-index:999;display:flex;flex-direction:column;gap:.5rem;pointer-events:none}
+.toast{
+  background:var(--surface);
+  border:1px solid rgba(200,132,15,.38);
+  box-shadow:0 4px 24px rgba(0,0,0,.18);
+  border-radius:var(--radius);padding:.7rem 1rem;
+  display:flex;align-items:center;gap:.7rem;
+  animation:toast-in .4s cubic-bezier(.34,1.56,.64,1) both;
+  max-width:270px;
+}
+@keyframes toast-in{from{transform:translateX(110%);opacity:0}to{transform:none;opacity:1}}
+.toast-icon{font-size:1.7rem;flex-shrink:0}
+.toast-hl{font-size:.67rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+.toast-name{font-weight:700;font-size:.9rem}
+.toast-desc{font-size:.75rem;color:var(--ink-2)}
+
+/* ── XP float ───────────────────────────────────────────── */
+.xp-float{
+  position:fixed;font-family:Georgia,serif;font-size:1.05rem;font-weight:bold;
+  color:var(--gold);pointer-events:none;z-index:998;
+  animation:xp-up 1.1s ease-out both;
+}
+@keyframes xp-up{from{transform:translateY(0);opacity:1}to{transform:translateY(-56px);opacity:0}}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media(max-width:580px){
+  .header{padding:0 1rem}
+  .xp-bar-wrap{max-width:160px}
+  .home-wrap{padding:1.25rem 1rem 4rem}
+  .r-stats{grid-template-columns:1fr 1fr}
+  .card-face{padding:1.25rem}
+  .r-btn{padding:.55rem .85rem;font-size:.82rem}
+}
+</style>
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <p>This is my first repository on GitHub.</p>
+
+<header class="header">
+  <div class="header-logo">Olami <span>ASU</span></div>
+  <div class="xp-bar-wrap">
+    <div class="xp-label">
+      <span class="xp-level" id="hdr-level">Lv 1 · Novice</span>
+      <span id="hdr-xp" style="font-variant-numeric:tabular-nums">0 XP</span>
+    </div>
+    <div class="xp-bar"><div class="xp-fill" id="hdr-fill" style="width:0%"></div></div>
+  </div>
+  <div class="streak-chip" id="hdr-streak">🔥 0</div>
+  <button class="theme-btn" id="theme-btn" aria-label="Toggle theme">☀️</button>
+</header>
+
+<!-- Home -->
+<div class="screen active" id="screen-home">
+  <div class="home-wrap">
+    <div class="home-head">
+      <h1 id="greeting">Welcome</h1>
+      <p id="greeting-sub">Choose a deck to begin</p>
+    </div>
+    <div class="sec-label">Study Decks</div>
+    <div class="decks-grid" id="decks-grid"></div>
+    <div class="sec-label">Your Progress</div>
+    <div class="stats-row">
+      <div class="stat-card"><div class="stat-val" id="s-cards">0</div><div class="stat-lbl">Cards Reviewed</div></div>
+      <div class="stat-card"><div class="stat-val" id="s-sessions">0</div><div class="stat-lbl">Sessions</div></div>
+      <div class="stat-card"><div class="stat-val" id="s-acc">—</div><div class="stat-lbl">Accuracy</div></div>
+      <div class="stat-card"><div class="stat-val" id="s-streak">0</div><div class="stat-lbl">Best Streak</div></div>
+    </div>
+    <div class="sec-label">Badges</div>
+    <div class="badges-grid" id="badges-grid"></div>
+  </div>
+</div>
+
+<!-- Study -->
+<div class="screen" id="screen-study">
+  <div class="study-wrap">
+    <div class="study-top">
+      <button class="back-btn" id="back-btn" aria-label="Back">←</button>
+      <div style="flex:1">
+        <div class="study-deck-name" id="study-deck-name"></div>
+        <div class="study-prog-bar"><div class="study-prog-fill" id="study-fill" style="width:0%"></div></div>
+        <div class="study-count" id="study-count"></div>
+      </div>
+    </div>
+    <div class="card-scene">
+      <div class="card-wrap" id="card-wrap" role="button" tabindex="0" aria-label="Flip card">
+        <div class="card-inner" id="card-inner">
+          <div class="card-face card-front">
+            <div class="card-badge">Question</div>
+            <div class="card-text" id="cf-text"></div>
+            <div class="card-hint">tap to reveal answer · or press Space</div>
+          </div>
+          <div class="card-face card-back">
+            <div class="card-badge ans">Answer</div>
+            <div class="card-text" id="cb-text"></div>
+            <div class="card-sub" id="cb-sub"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="rating-area" id="rating-area" style="visibility:hidden">
+      <div class="rating-prompt">How well did you know this?</div>
+      <div class="rating-btns">
+        <button class="r-btn r-again" data-q="1">😕 Again</button>
+        <button class="r-btn r-hard"  data-q="3">😤 Hard</button>
+        <button class="r-btn r-good"  data-q="4">😊 Good</button>
+        <button class="r-btn r-easy"  data-q="5">⚡ Easy</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Results -->
+<div class="screen" id="screen-results">
+  <div class="results-wrap">
+    <div class="results-emoji" id="r-emoji">🌟</div>
+    <h1 class="results-title" id="r-title">Session Complete!</h1>
+    <p class="results-sub" id="r-sub"></p>
+    <div class="r-stats">
+      <div class="r-stat"><div class="r-stat-val" id="r-rev">0</div><div class="r-stat-lbl">Reviewed</div></div>
+      <div class="r-stat"><div class="r-stat-val" id="r-cor">0</div><div class="r-stat-lbl">Correct</div></div>
+      <div class="r-stat"><div class="r-stat-val" id="r-pct">0%</div><div class="r-stat-lbl">Accuracy</div></div>
+    </div>
+    <div class="xp-banner" id="r-xp">+0 XP earned</div>
+    <div id="r-badges-wrap" style="display:none;margin-bottom:1rem">
+      <div class="new-badges-title">🏅 Badges Unlocked</div>
+      <div class="badges-grid" id="r-badges-grid"></div>
+    </div>
+    <div class="results-actions">
+      <button class="btn-primary" id="r-again">Study Again</button>
+      <button class="btn-ghost" id="r-home">← Back to Home</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast-wrap" id="toast-wrap"></div>
+
+<script>
+// ═══════════════════════════════════════════════════════════
+// CONTENT — edit or add decks and cards here
+// ═══════════════════════════════════════════════════════════
+const DECKS = [
+  {
+    id: 'hebrew',
+    name: 'Hebrew Essentials',
+    emoji: '✡️',
+    desc: 'Core vocabulary for Jewish life',
+    cards: [
+      {id:'h01', q:'Shalom',       a:'Peace · Hello · Goodbye',                   note:'The most versatile word in Hebrew'},
+      {id:'h02', q:'Toda',         a:'Thank you',                                  note:'"Toda raba" = thank you very much'},
+      {id:'h03', q:'Mitzvah',      a:'Commandment · Good deed',                    note:'There are 613 mitzvot in the Torah'},
+      {id:'h04', q:'Torah',        a:'The Five Books of Moses',                    note:'Bereishit, Shemot, Vayikra, Bamidbar, Devarim'},
+      {id:'h05', q:'Talmud',       a:'Rabbinic discussions and Jewish law',        note:'Includes the Mishnah and Gemara'},
+      {id:'h06', q:'Challah',      a:'Braided bread for Shabbat and holidays',     note:'Two loaves recall the double portion of manna'},
+      {id:'h07', q:'Mezuzah',      a:'A scroll affixed to the doorpost',           note:'Contains the Shema; marks a Jewish home'},
+      {id:'h08', q:'Kiddush',      a:'Blessing sanctifying Shabbat over wine',     note:'From "kadosh" — holy'},
+      {id:'h09', q:'Havdalah',     a:'Ceremony ending Shabbat',                   note:'"Separation" — between holy and weekday'},
+      {id:'h10', q:'Teshuvah',     a:'Repentance · Return',                       note:'Returning to your best self; core to the High Holidays'},
+      {id:'h11', q:'Chesed',       a:'Loving-kindness',                            note:'One of the pillars the world stands on'},
+      {id:'h12', q:'Tzedakah',     a:'Charity · Justice',                          note:'An obligation, not optional generosity'},
+      {id:'h13', q:'Minyan',       a:'Quorum of 10 for communal prayer',           note:'Required for Kaddish and Torah reading'},
+      {id:'h14', q:'Siddur',       a:'Jewish prayer book',                         note:'From "seder" — order'},
+      {id:'h15', q:'Kosher',       a:'Fitting · Permissible food',                 note:'Describes food meeting Jewish dietary laws'},
+    ]
+  },
+  {
+    id: 'holidays',
+    name: 'Jewish Holidays',
+    emoji: '🕯️',
+    desc: 'The cycle of the Jewish year',
+    cards: [
+      {id:'jh01', q:'Rosh Hashanah', a:'The Jewish New Year',                          note:'Tishrei 1–2; "Head of the Year"'},
+      {id:'jh02', q:'Yom Kippur',    a:'The Day of Atonement',                         note:'Tishrei 10; holiest day of the year; fasting and prayer'},
+      {id:'jh03', q:'Sukkot',        a:'Festival of Booths — 7 days',                  note:'Tishrei 15–21; we dwell in temporary huts'},
+      {id:'jh04', q:'Simchat Torah', a:'Celebration completing the Torah cycle',       note:'We finish Devarim and immediately restart Bereishit'},
+      {id:'jh05', q:'Chanukah',      a:'Festival of Lights — 8 days',                  note:'Kislev 25; celebrates the miracle of oil'},
+      {id:'jh06', q:"Tu B'Shvat",    a:"New Year of the Trees",                        note:'Shvat 15; Jewish "Arbor Day"; fruits of Israel are eaten'},
+      {id:'jh07', q:'Purim',         a:"Festival celebrating Esther's story",          note:'Adar 14; costumes, megillah, mishloach manot'},
+      {id:'jh08', q:'Pesach',        a:'Passover — commemorates the Exodus',           note:'Nissan 15–22; matzah, Seder, four cups of wine'},
+      {id:'jh09', q:'Shavuot',       a:'Giving of the Torah at Mount Sinai',           note:'Sivan 6–7; all-night Torah study (Tikkun Leil Shavuot)'},
+      {id:'jh10', q:"Lag B'Omer",    a:'33rd day of the Omer counting',                note:'A joyous break; bonfires, haircuts, weddings'},
+      {id:'jh11', q:"Tisha B'Av",    a:"Day of mourning for the Temple's destruction", note:"Av 9; the saddest day on the Jewish calendar; fasting"},
+      {id:'jh12', q:'Shabbat',       a:'The weekly day of rest',                       note:'Friday sundown to Saturday night; third star = end'},
+    ]
+  },
+  {
+    id: 'values',
+    name: 'Jewish Values (Middot)',
+    emoji: '💎',
+    desc: 'Character traits at the heart of Jewish ethics',
+    cards: [
+      {id:'jv01', q:'Emet',          a:'Truth',                                note:'"The seal of God is truth" (Talmud, Shabbat 55a)'},
+      {id:'jv02', q:'Chesed',        a:'Loving-kindness',                      note:'One of the three pillars the world stands on (Avot 1:2)'},
+      {id:'jv03', q:'Anavah',        a:'Humility',                             note:'Moses was called the most humble person who ever lived'},
+      {id:'jv04', q:'Kavod',         a:'Respect · Honor',                      note:'We are commanded to honor parents and elders'},
+      {id:'jv05', q:'Savlanut',      a:'Patience',                             note:'Essential for healthy relationships and personal growth'},
+      {id:'jv06', q:'Hakarat HaTov', a:'Gratitude · "Recognizing the good"',  note:'Noticing and appreciating what others do for us'},
+      {id:'jv07', q:'Ahavat Yisrael',a:'Love of fellow Jews',                 note:'"Love your neighbor as yourself" (Vayikra 19:18)'},
+      {id:'jv08', q:'Tikkun Olam',   a:'Repairing the world',                 note:'Acting to improve society and be a light to the nations'},
+      {id:'jv09', q:'Simcha',        a:'Joy',                                  note:'"Serve God with joy!" (Psalm 100:2)'},
+      {id:'jv10', q:'Bitachon',      a:'Trust in God',                         note:'Confidence that things unfold according to a higher plan'},
+      {id:'jv11', q:'Tzniut',        a:'Modesty · Dignity',                   note:'Applies to dress, speech, and behavior'},
+      {id:'jv12', q:'Shalom',        a:'Peace',                                note:'"Seek peace and pursue it" (Psalm 34:15)'},
+    ]
+  },
+  {
+    id: 'torah',
+    name: 'Torah Basics',
+    emoji: '📖',
+    desc: 'Foundational people, places, and texts',
+    cards: [
+      {id:'tb01', q:'Bereishit',       a:'Genesis — "In the beginning"',            note:'Creation through Joseph in Egypt'},
+      {id:'tb02', q:'Shemot',          a:'Exodus — "Names"',                        note:'The Exodus, Ten Commandments, building the Mishkan'},
+      {id:'tb03', q:'Vayikra',         a:'Leviticus — "And He called"',             note:'Laws of sacrifices, purity, and priestly service'},
+      {id:'tb04', q:'Bamidbar',        a:'Numbers — "In the desert"',               note:'40 years of wandering in the wilderness'},
+      {id:'tb05', q:'Devarim',         a:'Deuteronomy — "Words"',                   note:"Moses's final speeches before Israel enters the Land"},
+      {id:'tb06', q:'Avraham Avinu',   a:'Abraham — Father of the Jewish People',   note:'First patriarch; passed 10 tests; first covenant with God'},
+      {id:'tb07', q:'Sarah Imeinu',    a:'Sarah — First Matriarch',                 note:"Avraham's wife; mother of Yitzchak; renowned prophetess"},
+      {id:'tb08', q:'Moshe Rabbeinu',  a:'Moses — Our Teacher',                     note:'Greatest prophet in Jewish history; transmitted the Torah'},
+      {id:'tb09', q:'Har Sinai',       a:'Mount Sinai',                             note:'Where God gave the Torah; the central event of Jewish history'},
+      {id:'tb10', q:'The Shema',       a:'Central declaration of Jewish faith',     note:'"Hear O Israel, the Lord our God, the Lord is One" (Dev. 6:4)'},
+      {id:'tb11', q:'Mishkan',         a:'The portable Tabernacle in the desert',   note:"God's dwelling; later became the permanent Temple"},
+      {id:'tb12', q:'Eretz Yisrael',   a:'The Land of Israel',                      note:'Promised to Avraham and his descendants'},
+    ]
+  },
+  {
+    id: 'prayer',
+    name: 'Prayer & Liturgy',
+    emoji: '🙏',
+    desc: 'The language of Jewish prayer',
+    cards: [
+      {id:'pl01', q:'Shacharit',      a:'Morning prayer service',                       note:"Corresponds to Avraham's morning prayer"},
+      {id:'pl02', q:'Mincha',         a:'Afternoon prayer service',                     note:"Corresponds to Yitzchak's afternoon prayer"},
+      {id:'pl03', q:'Maariv',         a:'Evening prayer service',                       note:"Corresponds to Yaakov's night prayer"},
+      {id:'pl04', q:'Amidah',         a:'The standing prayer — 19 blessings on weekdays',note:'Also called "Shmoneh Esrei"; the core of every service'},
+      {id:'pl05', q:'Kaddish',        a:'Doxology recited during mourning',             note:'Ironically contains no mention of death — only praises God'},
+      {id:'pl06', q:'Hallel',         a:'Psalms of praise (Psalms 113–118)',            note:'Recited on Rosh Chodesh and most holidays'},
+      {id:'pl07', q:'Aleinu',         a:'Closing prayer of every service',              note:'Speaks of our mission to perfect the world'},
+      {id:'pl08', q:'Birkat Hamazon', a:'Grace after meals',                            note:'Four blessings of thanksgiving after eating bread'},
+      {id:'pl09', q:'Modeh Ani',      a:'"I give thanks" — first words on waking',     note:'Thanking God for returning our soul each morning'},
+      {id:'pl10', q:'Ashrei',         a:'Psalm 145 — recited three times daily',        note:'"Praiseworthy are those who dwell in Your House"'},
+    ]
+  },
+];
+
+// ═══════════════════════════════════════════════════════════
+// BADGES — add new badges here
+// ═══════════════════════════════════════════════════════════
+const BADGE_DEFS = [
+  {id:'first',    icon:'🌱', name:'First Steps',        desc:'Review your first card',                   fn: s => s.totalCards >= 1},
+  {id:'run5',     icon:'🔥', name:'On a Roll',           desc:'5 correct answers in a row',               fn: s => s.bestRun >= 5},
+  {id:'run10',    icon:'⚡', name:'Unstoppable',         desc:'10 correct answers in a row',              fn: s => s.bestRun >= 10},
+  {id:'c10',      icon:'📚', name:'Eager Learner',       desc:'Review 10 cards total',                    fn: s => s.totalCards >= 10},
+  {id:'c50',      icon:'🎓', name:'Scholar',             desc:'Review 50 cards total',                    fn: s => s.totalCards >= 50},
+  {id:'c100',     icon:'🏛️', name:'Talmid',              desc:'Review 100 cards total',                   fn: s => s.totalCards >= 100},
+  {id:'c500',     icon:'👑', name:'Talmid Chacham',      desc:'Review 500 cards total',                   fn: s => s.totalCards >= 500},
+  {id:'str3',     icon:'🌟', name:'Three-Day Streak',    desc:'Study 3 days in a row',                   fn: s => s.streak >= 3},
+  {id:'str7',     icon:'🏆', name:'Week Warrior',        desc:'Study 7 days in a row',                   fn: s => s.streak >= 7},
+  {id:'str30',    icon:'💫', name:'Month of Learning',   desc:'Study 30 days in a row',                  fn: s => s.streak >= 30},
+  {id:'perfect',  icon:'💯', name:'Perfect Session',     desc:'100% accuracy in a session (10+ cards)',   fn: s => s.hadPerfect},
+  {id:'ses10',    icon:'🎯', name:'Dedicated',           desc:'Complete 10 study sessions',               fn: s => s.sessions >= 10},
+  {id:'ses50',    icon:'🔮', name:'Devoted',             desc:'Complete 50 study sessions',               fn: s => s.sessions >= 50},
+  {id:'late',     icon:'🦉', name:'Night Owl',           desc:'Study after 10 PM',                        fn: s => s.studiedLate},
+  {id:'early',    icon:'🌅', name:'Early Bird',          desc:'Study before 7 AM',                        fn: s => s.studiedEarly},
+  {id:'explorer', icon:'🗺️', name:'Explorer',            desc:'Study all available decks',                fn: s => s.decksStudied >= DECKS.length},
+];
+
+// ═══════════════════════════════════════════════════════════
+// LEVELS
+// ═══════════════════════════════════════════════════════════
+const LEVELS = [
+  {name:'Novice',         min:0},
+  {name:'Learner',        min:100},
+  {name:'Student',        min:300},
+  {name:'Scholar',        min:700},
+  {name:'Sage',           min:1200},
+  {name:'Chacham',        min:2000},
+  {name:'Rabbi',          min:3200},
+  {name:'Talmid Chacham', min:5000},
+  {name:'Gadol',          min:8000},
+];
+
+// ═══════════════════════════════════════════════════════════
+// STATE
+// ═══════════════════════════════════════════════════════════
+const KEY = 'olami_asu_v1';
+function load() {
+  try { const r = localStorage.getItem(KEY); if (r) return JSON.parse(r); } catch(e){}
+  return {
+    xp:0, totalCards:0, sessions:0, totalCorrect:0,
+    streak:0, bestStreak:0, lastStudy:null,
+    badges:[], hadPerfect:false, studiedLate:false, studiedEarly:false,
+    decksStudied:0, decksSet:[], bestRun:0,
+    cards:{}, theme:'auto',
+  };
+}
+let S = load();
+function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch(e){} }
+
+// ═══════════════════════════════════════════════════════════
+// SM-2
+// ═══════════════════════════════════════════════════════════
+function sm2(c, q) {
+  let {ef=2.5, iv=0, reps=0, total=0} = c;
+  if (q < 3) { reps=0; iv=1; }
+  else {
+    if (reps===0) iv=1; else if (reps===1) iv=6; else iv=Math.round(iv*ef);
+    reps++;
+  }
+  ef = Math.max(1.3, ef + 0.1 - (5-q)*(0.08+(5-q)*0.02));
+  return {ef, iv, reps, total:total+1, next: Date.now()+iv*86400000};
+}
+function cs(id) { return S.cards[id] || {ef:2.5,iv:0,reps:0,total:0,next:0}; }
+function isDue(id) { return cs(id).next <= Date.now(); }
+
+// ═══════════════════════════════════════════════════════════
+// LEVELS & BADGES
+// ═══════════════════════════════════════════════════════════
+function lvInfo(xp) {
+  let i=0;
+  for (let j=0;j<LEVELS.length;j++) if (xp>=LEVELS[j].min) i=j;
+  const cur=LEVELS[i].min, next=LEVELS[i+1]?LEVELS[i+1].min:cur+1000;
+  return {i, name:LEVELS[i].name, pct:Math.min(100,((xp-cur)/(next-cur))*100)};
+}
+function checkBadges() {
+  const nb=[];
+  for (const b of BADGE_DEFS) {
+    if (!S.badges.includes(b.id) && b.fn(S)) { S.badges.push(b.id); nb.push(b); }
+  }
+  return nb;
+}
+function updateStreak() {
+  const today=new Date().toDateString(), yest=new Date(Date.now()-86400000).toDateString();
+  if (S.lastStudy===today) return;
+  S.streak = (S.lastStudy===yest) ? S.streak+1 : 1;
+  S.bestStreak = Math.max(S.bestStreak, S.streak);
+  S.lastStudy = today;
+  const h=new Date().getHours();
+  if (h>=22) S.studiedLate=true;
+  if (h<7)   S.studiedEarly=true;
+}
+
+// ═══════════════════════════════════════════════════════════
+// SESSION
+// ═══════════════════════════════════════════════════════════
+let sess=null;
+
+function startSession(deckId) {
+  const deck=DECKS.find(d=>d.id===deckId);
+  if (!deck) return;
+  let due=deck.cards.filter(c=>isDue(c.id));
+  let queue=[...(due.length?due:deck.cards)];
+  for (let i=queue.length-1;i>0;i--) { const j=Math.floor(Math.random()*(i+1)); [queue[i],queue[j]]=[queue[j],queue[i]]; }
+  if (!S.decksSet) S.decksSet=[];
+  if (!S.decksSet.includes(deckId)) { S.decksSet.push(deckId); S.decksStudied=S.decksSet.length; }
+  updateStreak();
+  sess={deck, queue, total:queue.length, idx:0, reviewed:0, correct:0, xp:0, run:0, newBadges:[], flipped:false};
+  show('study');
+  renderCard();
+}
+
+function renderCard() {
+  if (!sess) return;
+  const {queue,idx,total,reviewed} = sess;
+  document.getElementById('study-deck-name').textContent = sess.deck.emoji+' '+sess.deck.name;
+  document.getElementById('study-fill').style.width = (reviewed/Math.max(total,1)*100)+'%';
+  document.getElementById('study-count').textContent = `${reviewed} / ${total}`;
+  if (idx>=queue.length) { endSession(); return; }
+  const c=queue[idx];
+  document.getElementById('cf-text').textContent=c.q;
+  document.getElementById('cb-text').textContent=c.a;
+  document.getElementById('cb-sub').textContent=c.note||'';
+  document.getElementById('card-inner').classList.remove('flipped');
+  document.getElementById('rating-area').style.visibility='hidden';
+  sess.flipped=false;
+}
+
+function flip() {
+  if (!sess||sess.flipped) return;
+  sess.flipped=true;
+  document.getElementById('card-inner').classList.add('flipped');
+  document.getElementById('rating-area').style.visibility='visible';
+}
+
+function rate(q) {
+  if (!sess||!sess.flipped) return;
+  const c=sess.queue[sess.idx];
+  S.cards[c.id]=sm2(cs(c.id),q);
+  const ok=q>=3;
+  if (ok) { sess.correct++; sess.run++; S.totalCorrect++; S.bestRun=Math.max(S.bestRun,sess.run); }
+  else sess.run=0;
+  const xp=q===1?0:q===3?5:q===4?10:15;
+  sess.xp+=xp; S.xp+=xp; S.totalCards++;
+  if (xp>0) floatXP('+'+xp+' XP');
+  const nb=checkBadges();
+  for (const b of nb) { sess.newBadges.push(b); toast(b); }
+  save(); updateHeader();
+  sess.idx++; sess.reviewed++;
+  renderCard();
+}
+
+function endSession() {
+  S.sessions++;
+  const {correct,total,xp,newBadges,deck}=sess;
+  const acc=total?Math.round(correct/total*100):0;
+  if (acc===100&&total>=10) { S.hadPerfect=true; const nb=checkBadges(); for(const b of nb){newBadges.push(b);toast(b);} }
+  save();
+  // results
+  document.getElementById('r-rev').textContent=total;
+  document.getElementById('r-cor').textContent=correct;
+  document.getElementById('r-pct').textContent=acc+'%';
+  document.getElementById('r-xp').textContent='+'+xp+' XP earned';
+  let emoji='⭐',title='Session Complete!',sub='';
+  if (acc===100) {emoji='🏆';title='Perfect Score!';sub='You knew every card — outstanding!';}
+  else if (acc>=80) {emoji='🌟';title='Great Job!';sub=`${correct} of ${total} correct.`;}
+  else if (acc>=50) {emoji='💪';title='Keep Going!';sub=`${correct} of ${total} correct. Practice builds memory.`;}
+  else {emoji='🌱';title='Room to Grow';sub='Every review plants a seed. Come back tomorrow!';}
+  document.getElementById('r-emoji').textContent=emoji;
+  document.getElementById('r-title').textContent=title;
+  document.getElementById('r-sub').textContent=sub;
+  const bw=document.getElementById('r-badges-wrap'), bg=document.getElementById('r-badges-grid');
+  if (newBadges.length) {
+    bw.style.display='';
+    bg.innerHTML=newBadges.map(b=>`<div class="badge-item earned"><span class="badge-icon">${b.icon}</span><div><div class="badge-name">${b.name}</div><div class="badge-desc">${b.desc}</div></div></div>`).join('');
+  } else bw.style.display='none';
+  document.getElementById('r-again').onclick=()=>startSession(deck.id);
+  document.getElementById('r-home').onclick=()=>{show('home');renderHome();};
+  show('results');
+}
+
+// ═══════════════════════════════════════════════════════════
+// UI HELPERS
+// ═══════════════════════════════════════════════════════════
+function floatXP(txt) {
+  const el=document.createElement('div');
+  el.className='xp-float'; el.textContent=txt;
+  el.style.cssText='left:50%;top:45%;transform:translate(-50%,-50%)';
+  document.body.appendChild(el);
+  el.addEventListener('animationend',()=>el.remove());
+}
+function toast(b) {
+  const w=document.getElementById('toast-wrap');
+  const el=document.createElement('div'); el.className='toast';
+  el.innerHTML=`<div class="toast-icon">${b.icon}</div><div><div class="toast-hl">Badge Unlocked!</div><div class="toast-name">${b.name}</div><div class="toast-desc">${b.desc}</div></div>`;
+  w.appendChild(el); setTimeout(()=>el.remove(),4500);
+}
+function show(name) {
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById('screen-'+name).classList.add('active');
+}
+function updateHeader() {
+  const {i,name,pct}=lvInfo(S.xp);
+  document.getElementById('hdr-level').textContent=`Lv ${i+1} · ${name}`;
+  document.getElementById('hdr-xp').textContent=S.xp.toLocaleString()+' XP';
+  document.getElementById('hdr-fill').style.width=pct+'%';
+  document.getElementById('hdr-streak').textContent='🔥 '+S.streak;
+}
+
+// ═══════════════════════════════════════════════════════════
+// HOME RENDER
+// ═══════════════════════════════════════════════════════════
+function renderHome() {
+  const h=new Date().getHours();
+  const greet=h<12?'Good morning':h<17?'Good afternoon':'Good evening';
+  document.getElementById('greeting').textContent=greet;
+  const due=DECKS.reduce((n,d)=>n+d.cards.filter(c=>isDue(c.id)).length,0);
+  document.getElementById('greeting-sub').textContent=due>0
+    ?`You have ${due} card${due!==1?'s':''} due for review`
+    :'All caught up — choose a deck to practice';
+
+  document.getElementById('decks-grid').innerHTML=DECKS.map(d=>{
+    const dueN=d.cards.filter(c=>isDue(c.id)).length;
+    const reviewed=d.cards.filter(c=>cs(c.id).total>0).length;
+    const pct=Math.round(reviewed/d.cards.length*100);
+    return `<div class="deck-card" tabindex="0" role="button" data-id="${d.id}" aria-label="Study ${d.name}">
+      <div class="deck-emoji">${d.emoji}</div>
+      <div class="deck-name">${d.name}</div>
+      <div class="deck-desc">${d.desc}</div>
+      <div class="deck-meta">
+        <span class="due-chip ${dueN===0?'done':''}">${dueN===0?'✓ Done':dueN+' due'}</span>
+        <span>${d.cards.length} cards</span>
+      </div>
+      <div class="deck-bar"><div class="deck-bar-fill" style="width:${pct}%"></div></div>
+    </div>`;
+  }).join('');
+  document.querySelectorAll('.deck-card').forEach(el=>{
+    el.addEventListener('click',()=>startSession(el.dataset.id));
+    el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();startSession(el.dataset.id);}});
+  });
+
+  const acc=S.totalCards?Math.round(S.totalCorrect/S.totalCards*100)+'%':'—';
+  document.getElementById('s-cards').textContent=S.totalCards.toLocaleString();
+  document.getElementById('s-sessions').textContent=S.sessions.toLocaleString();
+  document.getElementById('s-acc').textContent=acc;
+  document.getElementById('s-streak').textContent=S.bestStreak;
+
+  document.getElementById('badges-grid').innerHTML=BADGE_DEFS.map(b=>{
+    const e=S.badges.includes(b.id);
+    return `<div class="badge-item ${e?'earned':''}" title="${b.desc}">
+      <span class="badge-icon">${b.icon}</span>
+      <div><div class="badge-name">${b.name}</div><div class="badge-desc">${b.desc}</div></div>
+    </div>`;
+  }).join('');
+
+  updateHeader();
+}
+
+// ═══════════════════════════════════════════════════════════
+// THEME
+// ═══════════════════════════════════════════════════════════
+const THEMES=['auto','dark','light'];
+const ICONS={auto:'☀️',dark:'☀️',light:'🌙'};
+function applyTheme(t) {
+  if (t==='auto') document.documentElement.removeAttribute('data-theme');
+  else document.documentElement.setAttribute('data-theme',t);
+  document.getElementById('theme-btn').textContent=ICONS[t];
+}
+document.getElementById('theme-btn').addEventListener('click',()=>{
+  S.theme=THEMES[(THEMES.indexOf(S.theme||'auto')+1)%THEMES.length];
+  applyTheme(S.theme); save();
+});
+
+// ═══════════════════════════════════════════════════════════
+// EVENTS
+// ═══════════════════════════════════════════════════════════
+document.getElementById('card-wrap').addEventListener('click',flip);
+document.getElementById('card-wrap').addEventListener('keydown',e=>{
+  if(e.key==='Enter'||e.key===' '){e.preventDefault();flip();}
+});
+document.querySelectorAll('.r-btn').forEach(b=>b.addEventListener('click',()=>rate(+b.dataset.q)));
+document.getElementById('back-btn').addEventListener('click',()=>{show('home');renderHome();});
+document.addEventListener('keydown',e=>{
+  if(document.querySelector('.screen.active')?.id!=='screen-study') return;
+  if(e.key===' '||e.key==='f'){e.preventDefault();flip();}
+  if(sess?.flipped){
+    if(e.key==='1') rate(1);
+    if(e.key==='2') rate(3);
+    if(e.key==='3') rate(4);
+    if(e.key==='4') rate(5);
+  }
+});
+
+// ═══════════════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════════════
+applyTheme(S.theme||'auto');
+renderHome();
+</script>
 </body>
 </html>
