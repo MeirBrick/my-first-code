@@ -414,6 +414,16 @@ h1,h2,h3{text-wrap:balance}
 .guide-bullets li{font-size:1rem;color:var(--ink-2);line-height:1.7;}
 .guide-ref-label{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:2rem 0 1rem;padding-top:1.5rem;border-top:2px solid rgba(26,23,48,.07);}
 
+/* ── Deck levels & lock ──────────────────────────────────── */
+.level-chip{font-size:.6rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;background:var(--blue-lt);color:#fff;border-radius:4px;padding:2px 6px;vertical-align:middle;margin-left:.3rem;}
+.passed-chip{font-size:.6rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;background:#2d6a4f;color:#fff;border-radius:4px;padding:2px 6px;vertical-align:middle;margin-left:.2rem;}
+.deck-locked{opacity:.6;cursor:default;}
+.deck-locked .deck-name{color:var(--muted);}
+.deck-lock-msg{font-size:.82rem;color:var(--muted);margin:.5rem 0 .75rem;line-height:1.5;}
+.deck-lock-msg strong{color:var(--ink-2);}
+.unlock-banner{background:linear-gradient(135deg,#1b4332,#2d6a4f);color:#fff;border-radius:var(--radius);padding:.9rem 1.2rem;margin-bottom:.75rem;font-size:.95rem;font-weight:600;text-align:center;box-shadow:0 2px 12px rgba(45,106,79,.35);}
+.unlock-banner strong{color:#b7e4c7;}
+
 /* ── Responsive ─────────────────────────────────────────── */
 @media(max-width:580px){
   .header{padding:0 1rem}
@@ -515,6 +525,7 @@ h1,h2,h3{text-wrap:balance}
       <div class="new-badges-title">🏅 Badges Unlocked</div>
       <div class="badges-grid" id="r-badges-grid"></div>
     </div>
+    <div id="r-unlocks" style="display:none;margin-bottom:1rem"></div>
     <div class="results-actions">
       <button class="btn-primary" id="r-again">Study Again</button>
       <button class="btn-ghost" id="r-home">← Back to Home</button>
@@ -601,6 +612,8 @@ const DECKS = [
   // ── Nikud ────────────────────────────────────────────────
   {
     id: 'nikud',
+    requires: 'aleph-bet',
+    level: 2,
     name: 'Hebrew Vowels (Nikud)',
     emoji: '🔡',
     desc: 'The vowel marks (niqqud) that give Hebrew letters their sounds',
@@ -746,6 +759,8 @@ const DECKS = [
   // ── D'Rabbanan Holidays ───────────────────────────────────
   {
     id: 'hol-drabonon',
+    requires: 'hol-doraisa',
+    level: 2,
     name: "Holidays — D'Rabbanan",
     emoji: '🕎',
     desc: 'Holidays instituted by the Rabbis through their Torah authority',
@@ -920,6 +935,8 @@ const DECKS = [
   // ── Tannaim ───────────────────────────────────────────────
   {
     id: 'tannaim',
+    requires: 'rabbinic-eras',
+    level: 2,
     name: 'Key Tannaim',
     emoji: '👨‍🏫',
     desc: 'The great sages of the Mishnaic era (10–220 CE)',
@@ -950,6 +967,8 @@ const DECKS = [
   // ── Amoraim ───────────────────────────────────────────────
   {
     id: 'amoraim',
+    requires: 'tannaim',
+    level: 3,
     name: 'Key Amoraim',
     emoji: '🏛️',
     desc: 'The great sages of the Talmudic era (220–500 CE)',
@@ -1040,6 +1059,8 @@ const DECKS = [
   // ── Mishnah ───────────────────────────────────────────────
   {
     id: 'mishnah',
+    requires: 'nach',
+    level: 2,
     name: 'Mishnah — Six Sedarim',
     emoji: '📋',
     desc: 'The six orders of the Oral Torah, compiled by Rabbi Yehudah HaNasi (~220 CE)',
@@ -1070,6 +1091,8 @@ const DECKS = [
   // ── Talmud ────────────────────────────────────────────────
   {
     id: 'talmud-study',
+    requires: 'mishnah',
+    level: 3,
     name: 'Talmud',
     emoji: '🔍',
     desc: 'The Gemara — the sea of Talmudic discussion and law',
@@ -1101,6 +1124,8 @@ const DECKS = [
   // ── Major Halacha Works ───────────────────────────────────
   {
     id: 'halacha-books',
+    requires: 'talmud-study',
+    level: 4,
     name: 'Major Halacha Works',
     emoji: '⚖️',
     desc: 'The landmark codes and responsa that shape Jewish law today',
@@ -1163,6 +1188,8 @@ const DECKS = [
   // ── Bereishis ─────────────────────────────────────────────
   {
     id: 'bereishis',
+    requires: 'chumash-overview',
+    level: 2,
     name: 'Bereishis — Genesis',
     emoji: '🌱',
     desc: 'Creation, the Avos, and Yosef — the story of our beginnings',
@@ -1197,6 +1224,8 @@ const DECKS = [
   // ── Shemos ────────────────────────────────────────────────
   {
     id: 'shemos',
+    requires: 'chumash-overview',
+    level: 2,
     name: 'Shemos — Exodus',
     emoji: '🔥',
     desc: 'Slavery, redemption, Matan Torah, and the Mishkan',
@@ -1231,6 +1260,8 @@ const DECKS = [
   // ── Vayikra ───────────────────────────────────────────────
   {
     id: 'vayikra',
+    requires: 'chumash-overview',
+    level: 2,
     name: 'Vayikra — Leviticus',
     emoji: '🕍',
     desc: 'Korbanot, kedushah, kashrut, and the laws of the Kohanim',
@@ -1262,6 +1293,8 @@ const DECKS = [
   // ── Bamidbar ──────────────────────────────────────────────
   {
     id: 'bamidbar',
+    requires: 'chumash-overview',
+    level: 2,
     name: 'Bamidbar — Numbers',
     emoji: '🏕️',
     desc: 'The 40 years in the desert — census, rebellion, and journeys',
@@ -1293,6 +1326,8 @@ const DECKS = [
   // ── Devarim ───────────────────────────────────────────────
   {
     id: 'devarim',
+    requires: 'chumash-overview',
+    level: 2,
     name: 'Devarim — Deuteronomy',
     emoji: '📜',
     desc: 'Moshe\'s farewell — the Shema, Tochacha, and the last parasha',
@@ -1475,6 +1510,8 @@ const DECKS = [
   },
   {
     id: 'zmanim',
+    requires: 'prayer',
+    level: 2,
     name: 'Times of the Day (Zmanim)',
     emoji: '🕰️',
     desc: 'The halachic times that structure every Jewish day',
@@ -1589,7 +1626,7 @@ function load() {
     streak:0, bestStreak:0, lastStudy:null,
     badges:[], hadPerfect:false, studiedLate:false, studiedEarly:false,
     decksStudied:0, decksSet:[], bestRun:0,
-    cards:{}, theme:'auto',
+    cards:{}, theme:'auto', passed:{},
   };
 }
 let S = load();
@@ -1610,6 +1647,7 @@ function sm2(c, q) {
 }
 function cs(id) { return S.cards[id] || {ef:2.5,iv:0,reps:0,total:0,next:0}; }
 function isDue(id) { return cs(id).next <= Date.now(); }
+function isLocked(deck) { return !!(deck.requires && !S.passed[deck.requires]); }
 
 // ═══════════════════════════════════════════════════════════
 // LEVELS & BADGES
@@ -1702,6 +1740,12 @@ function endSession() {
   const {correct,total,xp,newBadges,deck}=sess;
   const acc=total?Math.round(correct/total*100):0;
   if (acc===100&&total>=10) { S.hadPerfect=true; const nb=checkBadges(); for(const b of nb){newBadges.push(b);toast(b);} }
+  // deck unlock tracking
+  let newUnlocks=[];
+  if (acc>=80 && !S.passed[deck.id]) {
+    S.passed[deck.id]=true;
+    newUnlocks=DECKS.filter(d=>d.requires===deck.id);
+  }
   save();
   // results
   document.getElementById('r-rev').textContent=total;
@@ -1721,6 +1765,11 @@ function endSession() {
     bw.style.display='';
     bg.innerHTML=newBadges.map(b=>`<div class="badge-item earned"><span class="badge-icon">${b.icon}</span><div><div class="badge-name">${b.name}</div><div class="badge-desc">${b.desc}</div></div></div>`).join('');
   } else bw.style.display='none';
+  const unlockEl=document.getElementById('r-unlocks');
+  if (newUnlocks.length) {
+    unlockEl.style.display='';
+    unlockEl.innerHTML=newUnlocks.map(d=>`<div class="unlock-banner">🔓 Unlocked: ${d.emoji} <strong>${d.name}</strong></div>`).join('');
+  } else unlockEl.style.display='none';
   document.getElementById('r-again').onclick=()=>startSession(deck.id);
   document.getElementById('r-home').onclick=()=>{show('home');renderHome();};
   show('results');
@@ -1767,12 +1816,26 @@ function renderHome() {
     :'All caught up — choose a deck to practice';
 
   function deckCardHTML(d) {
+    const locked = isLocked(d);
     const dueN=d.cards.filter(c=>isDue(c.id)).length;
     const reviewed=d.cards.filter(c=>cs(c.id).total>0).length;
     const pct=Math.round(reviewed/d.cards.length*100);
+    const levelChip=d.level?`<span class="level-chip">Lvl ${d.level}</span>`:'';
+    const passedChip=S.passed[d.id]?`<span class="passed-chip">✓ Passed</span>`:'';
+    if (locked) {
+      const reqDeck=DECKS.find(x=>x.id===d.requires);
+      const reqName=reqDeck?reqDeck.name:d.requires;
+      return `<div class="deck-card deck-locked" data-id="${d.id}">
+        <div class="deck-emoji" style="opacity:.4">🔒</div>
+        <div class="deck-name">${d.name} ${levelChip}</div>
+        <div class="deck-desc">${d.desc}</div>
+        <div class="deck-lock-msg">Complete <strong>${reqName}</strong> with 80%+ to unlock</div>
+        <div class="deck-bar"><div class="deck-bar-fill" style="width:0%"></div></div>
+      </div>`;
+    }
     return `<div class="deck-card" data-id="${d.id}">
       <div class="deck-emoji">${d.emoji}</div>
-      <div class="deck-name">${d.name}</div>
+      <div class="deck-name">${d.name} ${levelChip} ${passedChip}</div>
       <div class="deck-desc">${d.desc}</div>
       <div class="deck-meta">
         <span class="due-chip ${dueN===0?'done':''}">${dueN===0?'✓ Done':dueN+' due'}</span>
