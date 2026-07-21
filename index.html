@@ -1408,29 +1408,141 @@ const DECKS = [
     id: 'nach',
     name: 'Nach — Prophets & Writings',
     emoji: '📚',
-    desc: "Nevi'im (Prophets) and Ketuvim (Writings) — the 24 books of Tanach beyond the Torah",
+    desc: "Nevi'im and Ketuvim — the 24 books of Tanach beyond the Torah",
     guide: [
       {h:'What Is Nach?', b:[
-        'Nach = Nevi\'im (Prophets) + Kesuvim (Writings) · Together with Torah = TaNaCh — the complete Hebrew Bible',
-        '24 books total in the Jewish canon',
-        'Nevi\'im Rishonim (Early Prophets): Yehoshua, Shoftim, Shmuel, Melachim — historical narrative',
-        'Nevi\'im Acharonim (Later Prophets): Yeshayahu, Yirmiyahu, Yechezkel, Trei Asar (the 12 Minor Prophets, counted as one book)',
-        'Kesuvim: Sifrei Emes (Tehillim, Mishlei, Iyov) · Chamesh Megilos (Shir HaShirim, Rus, Eichah, Koheles, Esther) · later historical books (Daniel, Ezra-Nechemiah, Divrei HaYamim)',
+        'Nach = נְבִיאִים (Nevi\'im, Prophets) + כְּתוּבִים (Ketuvim, Writings) · Together with Torah = TaNaCH — the complete Hebrew Bible',
+        '24 books total in the Jewish canon · The 24-book count is traditional (e.g., Shmuel I & II count as one; Melachim I & II count as one)',
+        'Nevi\'im Rishonim (Early Prophets): Yehoshua, Shoftim, Shmuel, Melachim — historical books written by prophets',
+        'Nevi\'im Acharonim (Later Prophets): Yeshayahu, Yirmiyahu, Yechezkel, and Trei Asar (the 12 Minor Prophets, counted as one book)',
+        'Ketuvim: Sifrei Emes (Tehillim, Mishlei, Iyov) · Chamesh Megilos · later books (Daniel, Ezra-Nechemiah, Divrei HaYamim)',
         'Canon sealed by the Anshei Knesses HaGedolah ~450–400 BCE; Malachi was the last navi',
-        'Nach is the word of Hashem through the nevi\'im — essential to a complete Torah education',
       ]},
     ],
-    cards: [
-      {id:'na01', q:'What is Nach?',               a:"Nevi'im (Prophets) + Ketuvim (Writings)",               note:'"Nach" is an acronym: נ (Nevi\'im) + כ (Ketuvim) · Together with Torah = "TaNaCH" · 19 books of Nevi\'im + 13 books of Ketuvim (counted differently by tradition) = 24 books total'},
-      {id:'na02', q:"Nevi'im Rishonim",            a:'Early Prophets · Yehoshua, Shoftim, Shmuel (I & II), Melachim (I & II)',note:'Historical narrative: entering Canaan → period of judges → united monarchy → divided kingdom → destruction of First Temple · Contains stories of Shimshon, Shmuel, Shaul, David, Shlomo, Eliyahu, Elisha'},
-      {id:'na03', q:"Nevi'im Acharonim",           a:'Later Prophets · Yeshayahu, Yirmiyahu, Yechezkel, Trei Asar',note:'Literary prophets with their own books · Yeshayahu: vision and consolation · Yirmiyahu: warnings before the destruction · Yechezkel: in Babylonian exile; future Temple vision'},
-      {id:'na04', q:'Trei Asar (תְּרֵי עֶשַׂר)',  a:'The 12 Minor Prophets — counted as ONE book in Tanach',   note:'Hoshea, Yoel, Amos, Ovadiah, Yonah, Micha, Nachum, Chavakuk, Tzefaniah, Chaggai, Zechariah, Malachi · "Minor" = shorter books, not lesser importance'},
-      {id:'na05', q:'Ketuvim (כְּתוּבִים)',        a:'Writings — 3 sections: poetry, wisdom literature, historical books',note:'Sifrei Emet (poetry, acrostic): Tehillim, Mishlei, Iyov · Chamesh Megillot · Later books: Daniel, Ezra-Nechemiah, Divrei HaYamim (I & II)'},
-      {id:'na06', q:'Tehillim (Psalms)',            a:'150 Psalms attributed primarily to King David',            note:'Recited in times of distress and joy · Psalms 113–118 = Hallel · Psalm 145 (Ashrei) recited 3x daily · Some communities recite all of Tehillim on Shabbat Mevarchim'},
-      {id:'na07', q:'Chamesh Megillot',            a:'Five Scrolls, each read on a specific occasion',           note:'Shir HaShirim (Pesach) · Rut (Shavuot) · Eichah (Tisha B\'Av) · Kohelet (Sukkot) · Esther (Purim) · Each explores a different dimension of Jewish life'},
-      {id:'na08', q:'Eichah (Lamentations)',        a:'Kinot over the destruction of the First Temple · Attributed to Yirmiyahu',note:'Read on Tisha B\'Av night · Each of the first 4 chapters is an alphabetical acrostic · Chapter 5 has 22 verses (= letters of aleph-bet) but is not an acrostic · Ends with a plea for return'},
-      {id:'na09', q:'What are the Sifrei Emet?',   a:'Tehillim, Mishlei, and Iyov — the three poetical books',  note:'"Emet" (אמת) is an acronym of their first letters: א (Iyov) · מ (Mishlei) · ת (Tehillim) · They use a unique cantillation (trop) system different from the rest of Tanach'},
-      {id:'na10', q:'When was the Biblical canon closed?',a:'~450–400 BCE by the Men of the Great Assembly (Anshei Knesset HaGedolah)',note:'Malachi is traditionally the last prophet · The Talmud discusses which books were debated: Kohelet, Shir HaShirim, Esther · Sefer Ben Sira was excluded despite being respected'},
+    sections: [
+      // ── Nevi'im Content ──────────────────────────────────
+      {
+        id: 'nach-neviim',
+        name: "נְבִיאִים — Nevi'im",
+        emoji: '📜',
+        desc: "The books of the Prophets — what each seifer contains",
+        guide: [
+          {h:"Nevi'im Rishonim — Early Prophets", b:[
+            'Four books: Yehoshua, Shoftim, Shmuel (I & II), Melachim (I & II)',
+            'Historical narrative written by prophets — tracing Jewish history from entering Canaan to the destruction of the First Temple',
+            'Yehoshua: conquest and settlement · Shoftim: the judges era · Shmuel: Shaul and David · Melachim: the monarchy, its division, and exile',
+            'Key figures: Yehoshua, Devorah, Gideon, Shimshon, Shmuel, Shaul, David, Shlomo, Eliyahu, Elisha',
+          ]},
+          {h:"Nevi'im Acharonim — Later Prophets", b:[
+            'Four books: Yeshayahu, Yirmiyahu, Yechezkel, and Trei Asar (12 minor prophets as one book)',
+            'These prophets wrote their own books of prophecy — rebuke, consolation, and vision',
+            'Yeshayahu: great prophecies of comfort and the messianic era · Yirmiyahu: warnings before and laments over the Churban · Yechezkel: visions in Babylonian exile including the future Beis HaMikdash',
+            'Trei Asar ("Twelve" in Aramaic): 12 shorter prophetic books counted as one — Hoshea through Malachi · "Minor" = shorter, not lesser importance',
+          ]},
+        ],
+        cards: [
+          // Nevi'im Rishonim
+          {id:'nv01', q:'יְהוֹשֻׁעַ — Yehoshua',   a:'Conquest and settlement of Canaan under Yehoshua bin Nun',        note:'After Moshe\'s death, Yehoshua leads the Bnei Yisrael across the Yarden · Conquest of the land, miraculous battles (Yericho, sun stopping at Givon) · Division of the land among the 12 tribes · Yehoshua\'s final farewell covenant at Shechem'},
+          {id:'nv02', q:'שׁוֹפְטִים — Shoftim',    a:'The era of the Judges — cycles of sin, oppression, repentance, and salvation',note:'Covers ~350 years after Yehoshua · Recurring pattern: Yisrael sins → enemies oppress → Yisrael cries out → a shofet (judge/deliverer) arises · Key figures: Devorah, Gideon, Yiftach, Shimshon · Ends with the story of Pesel Micha and the civil war with Binyamin'},
+          {id:'nv03', q:'שְׁמוּאֵל — Shmuel',       a:'From the last judge to the first kings — Shmuel, Shaul, and David',  note:'Two books counted as one · Shmuel\'s birth, calling, and leadership · Shaul anointed as first king, his failures and downfall · David anointed, his rise, wars, psalms, and the Batsheva episode · Ends with David\'s final census and Shlomo\'s anointing'},
+          {id:'nv04', q:'מְלָכִים — Melachim',      a:'The united and divided monarchy through the destruction of both Temples', note:'Two books counted as one · Shlomo\'s reign and building of the Beis HaMikdash · Kingdom splits into Yehudah and Yisrael (10 tribes) after Shlomo · Eliyahu and Elisha · Exile of the Northern Kingdom (721 BCE) · Chizkiyahu · Yoshiyahu\'s reform · Destruction of First Beis HaMikdash (586 BCE)'},
+          // Nevi'im Acharonim
+          {id:'nv05', q:'יְשַׁעְיָהוּ — Yeshayahu', a:'66 chapters · Prophecy spanning Assyrian invasion through messianic consolation', note:'Called the "greatest of the literary prophets" · Rebukes Yehudah and the nations · Famous visions of the end of days: swords into plowshares · 40 chapters of "Nechama" (consolation) begin at ch. 40: "Nachamu nachamu ami" · Servant of Hashem passages · Quoted heavily in the Siddur and holidays'},
+          {id:'nv06', q:'יִרְמְיָהוּ — Yirmiyahu',  a:'52 chapters · Prophet who warned of the Churban and mourned its fulfillment',note:'Called to prophecy as a youth · Wept over Yisrael\'s sins and predicted destruction of Jerusalem · Suffered greatly — imprisoned, thrown in a pit — for his unpopular message · Witnessed the Churban (586 BCE) · Attributed author of Eichah · Famous for the promise of the future return: "There is hope for your end, says Hashem"'},
+          {id:'nv07', q:'יְחֶזְקֵאל — Yechezkel',  a:'48 chapters · Prophet in Babylonian exile — visions, rebuke, and the future Temple',note:'Received prophecy in Babylonia by the Chebar River · Elaborate visions: the Divine Chariot (Merkavah) at the start; the Valley of Dry Bones (ch. 37) — prophecy of national resurrection · Chapters 40–48: detailed plan for the future Beis HaMikdash · The Merkavah chapters (1, 10) are the basis of Jewish mystical tradition'},
+          {id:'nv08', q:'תְּרֵי עָשָׂר — Trei Asar', a:'The 12 Minor Prophets — counted as ONE book in Tanach',              note:'Hoshea · Yoel · Amos · Ovadiah · Yonah · Micha · Nachum · Chavakuk · Tzefaniah · Chaggai · Zechariah · Malachi · "Minor" = shorter books, not lesser importance · Together counted as the 4th book of Nevi\'im Acharonim'},
+          // Individual Trei Asar highlights
+          {id:'nv09', q:'יוֹנָה — Yonah',           a:'The prophet who fled from Hashem and was swallowed by a great fish',  note:'Commanded to rebuke Nineveh · Flees by ship, storm, lots reveal him, thrown overboard · Three days in the fish · Nineveh repents — the only non-Jewish city in Tanach to fully repent · Yonah struggles with Hashem\'s mercy · Read in its entirety as the Mincha Haftarah on Yom Kippur afternoon'},
+          {id:'nv10', q:'מִיכָה — Micha',            a:'Contains one of the most famous messianic prophecies in all of Tanach',note:'"And you, Beit Lechem Efratah… from you shall emerge for Me the one who is to rule Yisrael" (5:1) · "What does Hashem require of you? Only to do justice, love kindness, and walk humbly with your God" (6:8) · Contemporary of Yeshayahu'},
+          {id:'nv11', q:'מַלְאָכִי — Malachi',       a:'The last of the prophets — closes the era of prophecy',             note:'Rebukes intermarriage, lax tithing, cynicism toward Divine justice · Foretells Eliyahu HaNavi\'s return before the "great and awesome day of Hashem" · "Eliyahu HaNavi" sung at Havdalah and at the Seder · With Malachi, the spirit of prophecy departed from Yisrael (Sanhedrin 11a)'},
+        ]
+      },
+      // ── Nevi'im Order ────────────────────────────────────
+      {
+        id: 'nach-neviim-order',
+        name: "Nevi'im in Order",
+        emoji: '↕️',
+        desc: "The eight books of Nevi'im in canonical sequence",
+        orderable: true,
+        orderItems: [
+          'יְהוֹשֻׁעַ — Yehoshua',
+          'שׁוֹפְטִים — Shoftim',
+          'שְׁמוּאֵל — Shmuel',
+          'מְלָכִים — Melachim',
+          'יְשַׁעְיָהוּ — Yeshayahu',
+          'יִרְמְיָהוּ — Yirmiyahu',
+          'יְחֶזְקֵאל — Yechezkel',
+          'תְּרֵי עָשָׂר — Trei Asar (12 Minor Prophets)',
+        ],
+        cards: []
+      },
+      // ── Ketuvim Content ──────────────────────────────────
+      {
+        id: 'nach-ketuvim',
+        name: 'כְּתוּבִים — Ketuvim',
+        emoji: '✍️',
+        desc: 'The Writings — poetry, wisdom, scrolls, and history',
+        guide: [
+          {h:'Sifrei Emet — The Three Poetical Books', b:[
+            'Tehillim (Psalms), Mishlei (Proverbs), Iyov (Job)',
+            '"Emet" (אמת) is an acronym of their first letters: א (Iyov) · מ (Mishlei) · ת (Tehillim)',
+            'These three books use a unique cantillation (trop) system different from the rest of Tanach',
+            'All three explore the deepest questions of human experience: praise and lament (Tehillim), wisdom and its limits (Mishlei), suffering and faith (Iyov)',
+          ]},
+          {h:'Chamesh Megilos — The Five Scrolls', b:[
+            'Five short books, each associated with a specific occasion in the Jewish year',
+            'Shir HaShirim (Pesach) · Rus (Shavuos) · Eichah (Tisha B\'Av) · Koheles (Sukkos) · Esther (Purim)',
+            'Each is read (or chanted) as part of the observance of its holiday',
+            'The Chamesh Megilos are printed together in many editions and are among the most widely read books of Ketuvim',
+          ]},
+          {h:'Later Historical Books', b:[
+            'Daniel, Ezra-Nechemiah (counted as one), Divrei HaYamim I & II (counted as one)',
+            'These books cover the Babylonian exile, the return to Eretz Yisrael under Koresh (Cyrus), and the building of the Second Beis HaMikdash',
+            'Divrei HaYamim (Chronicles) retells much of the history from Shmuel and Melachim from a priestly perspective — emphasizing the Beis HaMikdash and its service',
+          ]},
+        ],
+        cards: [
+          // Sifrei Emet
+          {id:'kv01', q:'תְּהִלִּים — Tehillim',        a:'150 Psalms · Attributed primarily to King David · Book of praise and prayer',note:'Written over many centuries; King David compiled them · Recited in distress, joy, and daily tefillah · Psalms 113–118 = Hallel · Psalm 145 (Ashrei) recited 3× daily · Divided into 5 "books" paralleling the 5 books of Moshe'},
+          {id:'kv02', q:'מִשְׁלֵי — Mishlei',           a:'Proverbs · Attributed to Shlomo HaMelech · Practical and moral wisdom',  note:'31 chapters · Begins with the famous "Eishes Chayil" (ch. 31) — read Friday night · Theme: wisdom begins with יִרְאַת ה\' (awe of Hashem) · Contains the most quoted wisdom lines in Jewish life · Shlomo is said to have composed 3,000 proverbs'},
+          {id:'kv03', q:'אִיּוֹב — Iyov',               a:'Job · A righteous man who suffers terribly — a profound wrestling with theodicy',note:'Genre: wisdom/poetry · Iyov (Job) loses everything despite being perfectly righteous · Three friends debate him; Elihu rebukes them all · Hashem speaks from the whirlwind · Resolution: not an explanation of suffering but a deeper encounter with the Divine · Read and studied on Tisha B\'Av (one of few Torah texts permitted)'},
+          // Chamesh Megilos
+          {id:'kv04', q:'שִׁיר הַשִּׁירִים — Shir HaShirim', a:'Song of Songs · Pesach · Attributed to Shlomo · The great love poem', note:'Rabbi Akiva: "All the Writings are holy, but Shir HaShirim is the Holy of Holies" · On the surface: a love poem between a shepherd and shepherdess · Traditionally understood as the love between Hashem and Klal Yisrael · Read on Shabbat of Pesach'},
+          {id:'kv05', q:'רוּת — Rus',                    a:'Ruth · Shavuos · A Moabite woman\'s devotion to Naomi and conversion to Judaism',note:'"Where you go I will go, where you die I will die" · Rus converts and gleans in Boaz\'s fields · Boaz redeems her as a גּוֹאֵל · From their union descends David HaMelech · Read on Shavuos — both tell of accepting Torah joyfully · Also: the harvest setting mirrors the Omer season'},
+          {id:'kv06', q:'אֵיכָה — Eichah',              a:"Lamentations · Tisha B'Av · Yirmiyahu's kinah over the destroyed Temple", note:'5 chapters · Chapters 1–4 are alphabetical acrostics · Chapter 3 has 3 verses per letter · Chapter 5 has 22 verses but is not an acrostic · Recited to a distinctive mournful tune on Tisha B\'Av night · Ends: "Restore us to You, O Hashem… renew our days as of old"'},
+          {id:'kv07', q:'קֹהֶלֶת — Koheles',            a:'Ecclesiastes · Sukkos · Shlomo reflects on the vanity of worldly pursuits',note:'"Vanity of vanities, all is vanity" (1:2) · Shlomo explores wisdom, wealth, pleasure — and concludes: "Fear God and keep His commandments — this is the whole of man" (12:13) · Read on Shabbat Chol HaMoed Sukkos · The most philosophically challenging book in Tanach'},
+          {id:'kv08', q:'אֶסְתֵּר — Esther',            a:'Esther · Purim · The hidden miracle of Mordechai and Esther in Persia',  note:'The only Megillah required to be read from a handwritten parchment scroll (klaf) · The name of Hashem does not appear — yet His hand is hidden throughout · Esther and Mordechai save the Jewish people from Haman\'s decree · The last of the Chamesh Megilos to be included in the canon'},
+          // Later books
+          {id:'kv09', q:'דָּנִיֵּאל — Daniel',           a:'Visions and prophecies in the Babylonian and Persian exile',           note:'Two parts: narrative stories (Nebuchadnezzar\'s dream, the fiery furnace, the lion\'s den) and apocalyptic visions · Daniel interprets dreams for Babylonian kings · Famous prophecy of the "70 weeks" · Contains the most explicit Tanach references to the resurrection of the dead and the End of Days'},
+          {id:'kv10', q:'עֶזְרָא-נְחֶמְיָה — Ezra-Nechemiah', a:'The return from Babylonian exile and rebuilding of the Second Temple', note:'Counted as one book · Ezra: leads a group of returnees from Babylon, reestablishes Torah observance, confronts intermarriage · Nechemiah: governor who rebuilds the walls of Jerusalem · Together: the founding story of the Second Temple period · Ezra is credited with establishing the public Torah reading'},
+          {id:'kv11', q:'דִּבְרֵי הַיָּמִים — Divrei HaYamim', a:'Chronicles — retells history from Adam through the end of Babylonian exile', note:'Two books counted as one · Chronicles the same history as Shmuel and Melachim but from a priestly/Levitical perspective emphasizing the Beis HaMikdash and its service · Ends with Koresh\'s (Cyrus\'s) decree allowing the Jews to return — the same verse that opens Ezra · Traditionally attributed to Ezra'},
+          // Overview cards
+          {id:'kv12', q:'מַה הֵן הַחָמֵשׁ מְגִלּוֹת?', a:'Shir HaShirim · Rus · Eichah · Koheles · Esther',              note:'Each is read on a specific occasion · Shir HaShirim (Pesach) · Rus (Shavuos) · Eichah (Tisha B\'Av) · Koheles (Sukkos) · Esther (Purim)'},
+          {id:'kv13', q:'מַה הֵן סִפְרֵי אֱמֶת?',      a:'Tehillim, Mishlei, Iyov — the three poetical books of Ketuvim',     note:'"Emet" (אֱמֶת) is an acronym: א = Iyov · מ = Mishlei · ת = Tehillim · These three use a unique trop (cantillation) system different from the rest of Tanach'},
+        ]
+      },
+      // ── Ketuvim Order ────────────────────────────────────
+      {
+        id: 'nach-ketuvim-order',
+        name: 'Ketuvim in Order',
+        emoji: '↕️',
+        desc: 'The eleven books of Ketuvim in canonical sequence',
+        orderable: true,
+        orderItems: [
+          'תְּהִלִּים — Tehillim',
+          'מִשְׁלֵי — Mishlei',
+          'אִיּוֹב — Iyov',
+          'שִׁיר הַשִּׁירִים — Shir HaShirim',
+          'רוּת — Rus',
+          'אֵיכָה — Eichah',
+          'קֹהֶלֶת — Koheles',
+          'אֶסְתֵּר — Esther',
+          'דָּנִיֵּאל — Daniel',
+          'עֶזְרָא-נְחֶמְיָה — Ezra-Nechemiah',
+          'דִּבְרֵי הַיָּמִים — Divrei HaYamim',
+        ],
+        cards: []
+      },
     ]
   },
 
