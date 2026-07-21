@@ -2019,10 +2019,16 @@ function renderCard() {
   document.getElementById('study-count').textContent = `${reviewed} / ${total}`;
   if (idx>=queue.length) { endSession(); return; }
   const c=queue[idx];
+  const inner=document.getElementById('card-inner');
+  // Snap back instantly (no transition) so the back face never shows mid-flip
+  inner.style.transition='none';
+  inner.classList.remove('flipped');
+  // Force a reflow so the snap is applied before re-enabling the transition
+  inner.getBoundingClientRect();
+  inner.style.transition='';
   document.getElementById('cf-text').textContent=c.q;
   document.getElementById('cb-text').textContent=c.a;
   document.getElementById('cb-sub').textContent=c.note||'';
-  document.getElementById('card-inner').classList.remove('flipped');
   document.getElementById('rating-area').style.visibility='hidden';
   sess.flipped=false;
 }
