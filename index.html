@@ -863,6 +863,49 @@ const DECKS = [
     ]
   },
 
+  // ── Rashi Script ──────────────────────────────────────────
+  {
+    id: 'rashi-script',
+    requires: 'aleph-bet',
+    level: 2,
+    name: 'כְּתַב רַשִׁ"י — Rashi Script',
+    emoji: '🖋️',
+    desc: 'Read the semi-cursive script of Rashi and classic mefarshim — every letter, its look, and how it differs from square script',
+    cards: [
+      {id:'rs00', q:'What is Rashi script?',
+        a:'A semi-cursive Hebrew typeface used in traditional commentaries — Rashi, Tosafos, Ramban, and most mefarshim printed in a standard Chumash or Gemara',
+        note:'Named after Rashi (1040–1105), though he did not design it · It evolved from Sephardic cursive script · If you can read square (Assyrian) Hebrew letters you already know the shapes — Rashi letters are stylized versions of the same 22'},
+      {id:'rs01', q:'𐤀 / א — Aleph in Rashi script', a:'Looks like two diagonal strokes meeting a vertical — the same concept as square Aleph but with curved, flowing lines · Silent; carries a vowel', note:'In Rashi script the letter is more angular at the joints · Value: 1 · Identical function to square Aleph'},
+      {id:'rs02', q:'𐤁 / ב — Beis in Rashi script', a:'A wide, flat, open base curving up on the right — similar to square Beis but the left side is open and the top hook is smaller', note:'With dagesh = B sound · Without dagesh = V sound · Same rule as square script'},
+      {id:'rs03', q:'𐤂 / ג — Gimmel in Rashi script', a:'A tall vertical stroke with a short foot angled right — resembles a person walking; simpler curve than square Gimmel', note:'G sound (always hard) · Value: 3 · The foot points toward Dalet — tradition: Gimmel chases Dalet (chesed chasing the poor)'},
+      {id:'rs04', q:'𐤃 / ד — Dalet in Rashi script', a:'A flat horizontal top with a short descending right stroke — in Rashi script the corner is rounder and the descender is shorter than square Dalet', note:'D sound · Value: 4 · Dalet = דָּלוּת (poverty) — the letter that Gimmel runs toward'},
+      {id:'rs05', q:'𐤄 / ה — Hey in Rashi script', a:'Like a square Hey — a flat top, left leg, and a short right leg that does not touch the top — but in Rashi script the gap is more pronounced and the strokes are thinner', note:'H sound (or silent at end of word) · Value: 5 · One of the letters in the divine name · The gap represents the breath of creation'},
+      {id:'rs06', q:'𐤅 / ו — Vav in Rashi script', a:'A single vertical stroke with a small rounded head — thinner and more curved than square Vav, often resembling a curved nail', note:'V sound · Also serves as a vowel letter (cholem, shuruk) · Value: 6 · וָו means "hook" in Hebrew'},
+      {id:'rs07', q:'𐤆 / ז — Zayin in Rashi script', a:'Similar to Vav but with a wider, more pronounced horizontal crossbar at the top — the crossbar distinguishes it clearly from Rashi Vav', note:'Z sound · Value: 7 · זַיִן means "weapon" · The key distinction from Vav is that wider top stroke'},
+      {id:'rs08', q:'𐤇 / ח — Ches in Rashi script', a:'Two vertical strokes joined at the top by a connecting arch — in Rashi script the arch is more rounded and the right stroke may be slightly taller', note:'CH sound (guttural, like Bach) · Value: 8 · Two Zavins joined = two opposing sides brought into unity · A common source of confusion with square Ches'},
+      {id:'rs09', q:'𐤈 / ט — Tes in Rashi script', a:'A curved enclosure open at the top-right — in Rashi script it looks like a backwards J curling inward, more rounded than square Tes', note:'T sound (emphatic, like Tefillah) · Value: 9 · Tes does not begin any of the divine names · The inward curl represents hidden good (טוֹב)'},
+      {id:'rs10', q:'𐤉 / י — Yud in Rashi script', a:'The smallest letter — a small curved stroke or teardrop, often with a slight tail pointing left — even smaller and more delicate than square Yud', note:'Y sound (or vowel letter) · Value: 10 · Smallest letter in the aleph-beis · The Yud in Rashi script is the key to reading many other letters — it appears as a tiny serif or tag'},
+      {id:'rs11', q:'𐤊 / כ / ך — Kaf and Final Kaf in Rashi script', a:'Kaf: an open curved shape like a cupped palm, with a small head at top-right · Final Kaf (ך): the same but the descender drops far below the line', note:'With dagesh = K sound · Without dagesh = CH · Value: 20 · The palm shape represents כַּף יָד (palm of the hand)'},
+      {id:'rs12', q:'𐤋 / ל — Lamed in Rashi script', a:'A tall letter — a vertical stroke with a curved hook at the top reaching left and upward — in Rashi script the hook is more of a smooth curve than the angular tower of square Lamed', note:'L sound · Value: 30 · Lamed is the tallest letter in the aleph-beis · לֵב (heart) — some say Lamed = the heart of Torah'},
+      {id:'rs13', q:'𐤌 / מ / ם — Mem and Final Mem in Rashi script', a:'Mem: an enclosed square-ish shape with a small opening at bottom-left · Final Mem (ם): fully closed on all sides — in Rashi script both are rounder, less blocky', note:'M sound · Value: 40 · The open Mem = revealed Torah · The closed Final Mem = hidden Torah (used only once in the middle of a word — Isaiah 9:6)'},
+      {id:'rs14', q:'𐤍 / נ / ן — Nun and Final Nun in Rashi script', a:'Nun: a short stroke curving right at the bottom · Final Nun (ן): the same stroke but descending far below the baseline — in Rashi script Nun is often easy to confuse with Gimmel', note:'N sound · Value: 50 · נְפִילָה (falling) — Nun is the letter that "fell" and was not written in Ashrei (Tehillim 145)'},
+      {id:'rs15', q:'𐤎 / ס — Samech in Rashi script', a:'A fully closed rounded loop — in Rashi script more oval than the square version, resembling a small circle or ring', note:'S sound (same as Shin with left dot) · Value: 60 · The closed circle represents support and encirclement (סְמִיכָה) · Often confused with Final Mem in Rashi script'},
+      {id:'rs16', q:'𐤏 / ע — Ayin in Rashi script', a:'Two strokes meeting at the bottom — in Rashi script they form a smooth V-shape or a curved Y with the left stroke longer, unlike the more angular square Ayin', note:'Guttural / silent in modern Ashkenazic pronunciation · Value: 70 · עַיִן means "eye" — the letter looks like two eyes meeting'},
+      {id:'rs17', q:'𐤐 / פ / ף — Pey and Final Pey in Rashi script', a:'Pey: a rounded head with a small inner Yud-like tooth and an open bottom · Final Pey (ף): descends below the line — in Rashi script Pey is more curved and the inner tooth is prominent', note:'With dagesh = P sound · Without dagesh = F sound · Value: 80 · פֶּה means "mouth" — the tooth inside represents the tongue within the mouth'},
+      {id:'rs18', q:'𐤑 / צ / ץ — Tzadi and Final Tzadi in Rashi script', a:'Tzadi: a Nun-like base with a Yud on top-right — in Rashi script the two components are more merged into a single fluid shape · Final Tzadi (ץ): descends below baseline', note:'TZ sound (tzaddik) · Value: 90 · צַדִּיק — the righteous one · The Yud atop Nun = humility bearing a crown'},
+      {id:'rs19', q:'𐤒 / ק — Kuf in Rashi script', a:'A vertical stroke with a rounded head, and a second stroke descending below the line to the left — in Rashi script it resembles a Reysh with a dangling left leg', note:'K sound · Value: 100 · קוֹף means "monkey" — the descending leg may symbolize the body hanging below · One of the few letters whose leg goes below the line in non-final position'},
+      {id:'rs20', q:'𐤓 / ר — Reysh in Rashi script', a:'A short vertical descending from a rounded top-right corner — in Rashi script it is rounder and shorter than square Reysh, and is easily confused with Dalet (which has a more squared top)', note:'R sound · Value: 200 · The distinction from Dalet: Reysh has a rounded top corner; Dalet has a flat horizontal top with a more angular turn · Critical to distinguish in Rashi script'},
+      {id:'rs21', q:'𐤔 / ש — Shin in Rashi script', a:'Three upward strokes from a common base — in Rashi script the strokes are more curved and the letter looks like a trident or candelabra; the dot appears above-right (Shin) or above-left (Sin)', note:'Shin = SH sound · Sin = S sound · Value: 300 · שַׁלְהֶבֶת (flame) — the three prongs represent fire · Shin appears on a mezuzah and tefillin'},
+      {id:'rs22', q:'𐤕 / ת — Tav in Rashi script', a:'Two legs — in Rashi script the right leg curves outward (like a foot) while the left is straight — the top is a flat horizontal; appears softer and more cursive than square Tav', note:'T sound (in Sephardic/modern); some Ashkenazim say S for Tav without dagesh · Value: 400 · Last letter · תּוֹרָה = 611 · אֶמֶת (truth) ends with Tav — truth has permanence'},
+      {id:'rs23', q:'Which Rashi script letters most commonly cause confusion?',
+        a:'ב/כ · ו/ז · ד/ר · ח/ה · נ/ג · ס/ם · ק/ר — these pairs look similar in Rashi script and require context to distinguish',
+        note:'With practice, context resolves most ambiguities · The most common stumbling block for beginners is ו vs ז (width of the top stroke) and ד vs ר (flat top vs rounded corner) · Reading Rashi inside a Chumash is the fastest way to build fluency'},
+      {id:'rs24', q:'How does Rashi script relate to square (Assyrian) script?',
+        a:'Both use the same 22-letter alphabet — Rashi script is a stylized, semi-cursive adaptation of the same letters, not a different alphabet · Once you know one, learning the other is recognition, not memorization',
+        note:'Square script (כְּתַב אַשּׁוּרִי) is used for Torah scrolls, mezuzos, and tefillin · Rashi script is used for commentaries and rabbinic texts · Most printed Gemaras use square script for the Talmud text and Rashi script for Rashi\'s commentary on the same page'},
+    ]
+  },
+
   // ── Jewish Months ─────────────────────────────────────────
   {
     id: 'months',
@@ -4136,7 +4179,7 @@ const DECKS = [
 // CATEGORIES — controls grouping on the home screen
 // ═══════════════════════════════════════════════════════════
 const CATEGORIES = [
-  { name: 'Hebrew Language',    ids: ['aleph-bet', 'nikud', 'gematria'] },
+  { name: 'Hebrew Language',    ids: ['aleph-bet', 'nikud', 'gematria', 'rashi-script'] },
   { name: 'The Jewish Year',    ids: ['months', 'hol-doraisa', 'hol-drabonon', 'fasts', 'cal-periods', 'israel-days'] },
   { name: 'Tanach',             ids: ['chumash-overview', 'bereishis', 'shemos', 'vayikra', 'bamidbar', 'devarim', 'nach-intro', 'neviim', 'ketuvim'] },
   { name: 'Oral Torah',         ids: ['oral-law-overview', 'mishnah', 'rabbinic-eras', 'tannaim', 'amoraim', 'talmud-study'] },
