@@ -1557,24 +1557,184 @@ const DECKS = [
     guide: [
       {h:'What Is the Mishnah?', b:[
         'The first written compilation of the Torah she\'b\'al peh (Oral Torah) — compiled by Rabbi Yehudah HaNasi ("Rebbi") ~200–220 CE',
-        'Before Rebbi, the Oral Torah was transmitted entirely by memory from rebbe to talmid; he compiled it fearing Roman persecution would cause it to be forgotten',
+        'Before Rebbi, the Oral Torah was transmitted entirely by memory; he compiled it fearing Roman persecution would cause it to be forgotten',
         '"Mishnah" — from the root meaning "to repeat/to study"; students learned by repeating their teacher\'s words',
-        'Written in concise Mishnaic Hebrew · 6 sedarim (orders) · 63 masechtos (tractates)',
-        'Not a law code — records debates, minority opinions, and accepted rulings alongside each other',
-        'The Gemara (Amoraic commentary on the Mishnah) was redacted centuries later · Mishnah + Gemara = the Talmud',
+        'Written in concise Mishnaic Hebrew · 6 sedarim (orders) · 63 masechtos (tractates) · ~525 chapters',
+        'Not a law code — records debates, minority opinions, and accepted rulings side by side',
+        'Mishnah + Gemara (Amoraic discussion) = the Talmud',
       ]},
     ],
-    cards: [
-      {id:'ms01', q:'What is the Mishnah?',         a:'The codified Oral Torah, compiled ~220 CE by Rabbi Yehudah HaNasi', note:'"Mishnah" = to repeat or to study · 6 sedarim (orders) · 63 masekhtot (tractates) · ~525 chapters · Written in concise, precise Mishnaic Hebrew · The Gemara is commentary on it'},
-      {id:'ms02', q:'Seder Zeraim (זְרָעִים)',      a:'"Seeds" · 11 tractates · Agricultural laws and prayer',  note:'Opens with Berakhot (blessings and prayers) · Agricultural laws include tithes, first fruits, Shemitah (sabbatical year), Orlah · Bavli Gemara only for Berakhot; Yerushalmi has it all'},
-      {id:'ms03', q:'Seder Moed (מוֹעֵד)',           a:'"Appointed Times" · 12 tractates · Shabbat and holidays', note:'Includes: Shabbat, Eruvin, Pesachim, Shekalim, Yoma, Sukkah, Beitzah, Rosh Hashanah, Taanit, Megillah, Moed Katan, Chagigah · Most practically relevant to daily/annual observance'},
-      {id:'ms04', q:'Seder Nashim (נָשִׁים)',        a:'"Women" · 7 tractates · Marriage, divorce, and vows',    note:'Yevamot (levirate marriage), Ketubot (marriage contract), Nedarim (vows), Nazir, Sotah (suspected adulteress), Gittin (divorce), Kiddushin (betrothal) · Core family law'},
-      {id:'ms05', q:'Seder Nezikin (נְזִיקִין)',     a:'"Damages" · 10 tractates · Civil and criminal law',      note:'Bava Kamma, Bava Metzia, Bava Batra (the three "Gates"), Sanhedrin, Makkot, Shevuot, Eduyot, Avodah Zarah, Pirkei Avot, Horayot · Covers torts, contracts, courts, capital law'},
-      {id:'ms06', q:'Seder Kodashim (קָדָשִׁים)',   a:'"Holy Things" · 11 tractates · Temple service and sacrifices',note:'Zevachim, Menachot, Chulin (ritual slaughter — still widely studied for kashrut), Bechorot, Arachin, Temurah, Keritot, Meilah, Tamid, Middot, Kinnim · Much of this awaits the rebuilt Temple'},
-      {id:'ms07', q:'Seder Taharot (טָהֳרוֹת)',    a:'"Purities" · 12 tractates · Ritual purity and impurity', note:'Keilim, Ohalot, Negaim, Parah, Taharot, Mikvaot, Niddah, Makhshirin, Zavim, Tevul Yom, Yadayim, Uktzin · Most complex seder · Bavli only for Niddah · Less applicable today (no Temple)'},
-      {id:'ms08', q:'Pirkei Avot',                  a:'Ethics of the Fathers — 6 chapters of ethical teachings in Seder Nezikin',note:'"Turn it and turn it — everything is in it" (Ben Bag Bag) · Read each Shabbat afternoon between Pesach and Rosh Hashanah (some: Shavuot) · Contains famous sayings of every major Tanna'},
-      {id:'ms09', q:'How many masekhtot in the Mishnah?', a:'63 tractates total',                             note:'Zeraim: 11 · Moed: 12 · Nashim: 7 · Nezikin: 10 · Kodashim: 11 · Taharot: 12 · Total: 63 · Some count 60, grouping some tractates differently'},
-      {id:'ms10', q:'What is a Baraita?',           a:'A Tannaitic teaching NOT included in the Mishnah, quoted in the Gemara',note:'From Aramaic "bar" = outside · Introduced as "Tanya" or "It was taught..." · The Tosefta is the largest collection of Baraitot · Baraita has authority like the Mishnah, but Mishnah takes precedence if they conflict'},
+    sections: [
+      // ── Zeraim ───────────────────────────────────────────
+      {
+        id: 'mishnah-zeraim',
+        name: 'סֵדֶר זְרָעִים — Zeraim',
+        emoji: '🌱',
+        desc: '"Seeds" — 11 tractates covering prayer and agricultural law',
+        guide: [
+          {h:'What Is Seder Zeraim?', b:[
+            '"Zeraim" = Seeds · 11 masechtos · The only seder that opens with a non-agricultural topic: Berakhot (blessings and prayer)',
+            'Why begin here? The farmer must first bless Hashem before working the land — prayer precedes agricultural life',
+            'Topics: the proper times and forms of prayer · the various tithes and portions separated from crops · the sabbatical year · first fruits',
+            'Bavli Gemara exists only for Berakhot; the Yerushalmi covers all 11 masechtos',
+            'The 11 masechtos: בְּרָכוֹת · פֵּאָה · דְּמַאי · כִּלְאַיִם · שְׁבִיעִית · תְּרוּמוֹת · מַעֲשְׂרוֹת · מַעֲשֵׂר שֵׁנִי · חַלָּה · עׇרְלָה · בִּכּוּרִים',
+          ]},
+        ],
+        cards: [
+          {id:'ms01', q:'What does Seder Zeraim cover?',   a:'"Seeds" — prayer (Berakhot) and agricultural laws · 11 masechtos', note:'Unique: opens with Berakhot (prayer) rather than an agricultural topic · Bavli Gemara only for Berakhot; Yerushalmi has all 11 · Laws of tithes, Shemitah, first fruits, and forbidden mixtures'},
+          {id:'mz01', q:'בְּרָכוֹת — Berakhot',           a:'Blessings and prayer · The first and most studied masechta of Zeraim',note:'Laws of Shema (when/how to recite) · Laws of tefillah (Shmoneh Esreh) · Blessings before and after food · "Daf aleph of Berakhot" = the very first page of the Talmud Bavli · One of the most broadly relevant masechtos'},
+          {id:'mz02', q:'פֵּאָה — Peah',                  a:'"Corner" — the portion of the field left unharvested for the poor',note:'Torah-level mitzvah: "Do not fully reap the corner of your field" (Vayikra 19:9) · Amount of Peah is not specified in the Torah — the Mishnah establishes at least 1/60th · Also covers Leket (gleanings), Shikchah (forgotten produce), and Maasros'},
+          {id:'mz03', q:'כִּלְאַיִם — Kilayim',           a:'"Mixed kinds" — prohibitions on mixing species, fabrics, and animals',note:'Kilei zera: don\'t plant two species together · Kilei haKerem: don\'t plant produce in a vineyard · Kilei beheima: don\'t mate different animal species · Kilei begadim: sha\'atnez — no wool-linen mixtures in garments'},
+          {id:'mz04', q:'שְׁבִיעִית — Sheviis',           a:'The sabbatical (7th) year — fields must lie fallow',           note:'Every 7th year: no plowing, planting, pruning, or harvesting in the usual manner · Produce that grows on its own has kedushas shevii (7th-year sanctity) and must be eaten or disposed of appropriately · Shemitas kesafim: loan forgiveness · Prozbul (Hillel\'s enactment): allows pre-Shemitah loan collection'},
+          {id:'mz05', q:'תְּרוּמוֹת — Terumos',          a:'Priestly portions separated from produce',                       note:'Terumah gedolah: a portion of grain, wine, and oil given to a Kohen · Amount: the Torah gives no minimum; Chazal suggest 1/40 to 1/60 · Only Kohanim (and their households) may eat it · Terumah in a state of tumah (impurity) must be burned, not eaten · Still has practical halachic dimensions today'},
+          {id:'mz06', q:'מַעֲשְׂרוֹת — Maasros',         a:'Tithes — the 10% separated from agricultural produce',          note:'Maaser Rishon (first tithe): given to a Levi · Maaser Sheni (second tithe): taken to Jerusalem and eaten there · Maaser Ani (tithe for the poor): given in the 3rd and 6th year of the shemitah cycle in place of Maaser Sheni · Untithed produce = tevel — forbidden to eat'},
+          {id:'mz07', q:'חַלָּה — Challah',               a:'The dough portion separated when baking bread and given to a Kohen',note:'Torah source: Bamidbar 15:20 · Minimum amount to be obligated: dough made from at least 43.2 eggs\' volume of flour · Today: challah is separated (without a blessing outside Israel; with a blessing in Israel) and burned · Still practically relevant whenever baking bread'},
+          {id:'mz08', q:'בִּכּוּרִים — Bikkurim',         a:'First fruits brought to the Beis HaMikdash and given to a Kohen', note:'The beautiful declaration recited when bringing bikkurim (Devarim 26:5–10) — "A wandering Aramean was my father…" — is the basis for the Pesach Haggadah · Only from the seven species of Eretz Yisrael · Brought between Shavuos and Sukkos'},
+        ]
+      },
+      // ── Moed ─────────────────────────────────────────────
+      {
+        id: 'mishnah-moed',
+        name: 'סֵדֶר מוֹעֵד — Moed',
+        emoji: '🕯️',
+        desc: '"Appointed Times" — 12 tractates on Shabbos and the holidays',
+        guide: [
+          {h:'What Is Seder Moed?', b:[
+            '"Moed" = Appointed Time · 12 masechtos · The most practically relevant seder for everyday Jewish life',
+            'Covers the laws of every Shabbos and Yom Tov in the calendar',
+            'The 12 masechtos: שַׁבָּת · עֵרוּבִין · פְּסָחִים · שְׁקָלִים · יוֹמָא · סוּכָּה · בֵּיצָה · רֹאשׁ הַשָּׁנָה · תַּעֲנִית · מְגִלָּה · מוֹעֵד קָטָן · חֲגִיגָה',
+            'Among the most-studied masechtos in Daf Yomi and yeshiva learning',
+          ]},
+        ],
+        cards: [
+          {id:'ms03', q:'What does Seder Moed cover?',    a:'"Appointed Times" — Shabbos and all the Yomim Tovim · 12 masechtos', note:'The most practically relevant seder · Every Shabbos and holiday has its masechta · Shabbos and Eruvin alone are ~157 dapim · All 12 have Bavli and Yerushalmi Gemara'},
+          {id:'mm01', q:'שַׁבָּת — Shabbos',             a:'The 39 melachos (prohibited labors) and all laws of Shabbos',  note:'The largest masechta in Moed · 39 melachos derived from the work of building the Mishkan · Includes carrying (hotza\'ah), cooking, writing, building, and more · "He who transgresses the Shabbos is like one who worships idols" — and he who observes it is as if he kept the entire Torah'},
+          {id:'mm02', q:'עֵרוּבִין — Eruvin',            a:'The legal fictions that extend Shabbos domains and permit carrying and walking', note:'Eruv chatzeros: allows carrying between private domains in a shared courtyard · Eruv techumin: extends the 2,000-amah Shabbos walking limit · Eruv tavshilin: allows cooking on Yom Tov for Shabbos · The modern "eruv" (the wire/string boundary around a city) is based on these laws'},
+          {id:'mm03', q:'פְּסָחִים — Pesachim',          a:'Laws of Pesach — searching for chametz, the Seder, and the Korban Pesach', note:'Bedikas chametz (the search) · Biur chametz (the burning) · The Seder and all its obligations · The Korban Pesach — how it was offered in the Beis HaMikdash · The Haggadah\'s structure is derived from the Mishnah in Pesachim · One of the most studied masechtos before Pesach'},
+          {id:'mm04', q:'יוֹמָא — Yoma',                 a:'The Yom Kippur service in the Beis HaMikdash, and the laws of fasting', note:'"Yoma" = "The Day" in Aramaic · The Kohen Gadol\'s 5-part immersion and elaborate service · The two goats: one for Hashem, one sent to Azazel (the "scapegoat") · Final chapter: laws of the Yom Kippur fast — the five inuyim · Teshuvah: sins between man and God vs. sins between people'},
+          {id:'mm05', q:'סוּכָּה — Sukkah',              a:'Laws of the sukkah structure and the Arba Minim',               note:'Dimensions of a valid sukkah · Schach (roof material) requirements · The 4 species: esrog, lulav, hadasim, aravos · "Dwelling" in the sukkah: eating, sleeping, living there for 7 days · Lulav must be taken in the right hand — it is the ikkar of the daled minim'},
+          {id:'mm06', q:'רֹאשׁ הַשָּׁנָה — Rosh Hashanah', a:'The laws of the shofar and the Jewish calendar',             note:'Determines when Rosh Chodesh begins (moon sighting) · Laws of shofar: what sounds are required (tekiah, shevarim, teruah) · The four "new years" — 1 Tishrei is the new year for years and kings · Minimum 30 shofar blasts; the minhag of 100 blasts'},
+          {id:'mm07', q:'מְגִלָּה — Megillah',            a:'Laws of reading the Megillas Esther on Purim',                 note:'When the Megillah is read (the 14th, 15th, or earlier depending on location) · The four mitzvos of Purim: Megillah, mishloach manos, matanos l\'evyonim, seudah · Also: laws of Torah reading and the holiness of sacred books (genizah, how a Sefer Torah must be written)'},
+          {id:'mm08', q:'תַּעֲנִית — Taanis',            a:'Fast days — when they are called, how they are observed',       note:'Covers communal fasts for drought and national distress — the sequence escalates: first individuals fast, then the community · Laws of Tisha B\'Av and the minor fasts · The famous story of Choni HaMe\'agel who drew a circle and refused to leave until rain came · "From when does one begin to recite \'Morid HaGeshem\'?" (Taanis 2a — first line of Bavli tractate)'},
+        ]
+      },
+      // ── Nashim ───────────────────────────────────────────
+      {
+        id: 'mishnah-nashim',
+        name: 'סֵדֶר נָשִׁים — Nashim',
+        emoji: '💍',
+        desc: '"Women" — 7 tractates on marriage, divorce, and vows',
+        guide: [
+          {h:'What Is Seder Nashim?', b:[
+            '"Nashim" = Women · 7 masechtos · Core Jewish family law: betrothal, marriage, divorce, levirate marriage, and vows',
+            'The smallest seder by number of masechtos — but each is substantial and densely practical',
+            'The 7 masechtos: יְבָמוֹת · כְּתוּבּוֹת · נְדָרִים · נָזִיר · סוֹטָה · גִּיטִּין · קִדּוּשִׁין',
+            'Among the most frequently studied sedarim in halacha — directly relevant to every Jewish marriage and family',
+          ]},
+        ],
+        cards: [
+          {id:'ms04', q:'What does Seder Nashim cover?',  a:'"Women" — marriage, divorce, levirate marriage, and vows · 7 masechtos', note:'The most directly halachically relevant seder for family life · All 7 masechtos have Bavli Gemara · The smallest seder by count but dense in content'},
+          {id:'mn01', q:'יְבָמוֹת — Yevamos',            a:'Levirate marriage (yibum) and release (chalitzah)',             note:'If a man dies childless, his brother must either marry the widow (yibum) or perform chalitzah (release ritual) · Devarim 25:5–10 · The masechta also discusses forbidden relationships and who is considered a valid Jew · "Rabbi Yochanan says…" — one of the most frequently cited sources in family law halacha'},
+          {id:'mn02', q:'כְּתוּבּוֹת — Kesubos',         a:'The marriage document — financial obligations of marriage',     note:'The kesubah: a woman\'s financial protection in case of divorce or widowhood · Minimum kesubah amounts: 200 zuz for a virgin, 100 for a widow · Husband\'s obligations: food, clothing, conjugal rights · Wife\'s obligations · Grounds for divorce · "Onah" — the conjugal obligation is a Torah-level mitzvah'},
+          {id:'mn03', q:'נְדָרִים — Nedarim',             a:'Vows — how they are made, their binding nature, and how they can be annulled', note:'Taking a vow in Hashem\'s name is binding (Bamidbar 30:3) · A husband or father may annul certain vows of a wife or daughter on the day they hear them · A talmid chacham or a panel of three can annul vows ("hatarat nedarim") · "Better not to vow than to vow and not fulfill" (Koheles 5:4)'},
+          {id:'mn04', q:'גִּיטִּין — Gittin',             a:'The get (bill of divorce) — how it is written, delivered, and validated', note:'A Jewish divorce requires a handwritten get on parchment, written for this specific couple, and delivered by the husband to the wife · The masechta\'s last chapter contains the debate between Beis Shammai and Beis Hillel on grounds for divorce · Hillel: even if she burned the food; Shammai: only for unchastity · Famous aggadah: "Kol hamegareish ishto, even the Altar sheds tears"'},
+          {id:'mn05', q:'קִדּוּשִׁין — Kiddushin',        a:'Betrothal — how kiddushin (marriage) is effected and who may marry whom', note:'Three modes of kiddushin: money (kesef), document (shtar), or cohabitation (biah — not practiced) · "A woman is acquired in three ways…" — famous opening · Forbidden relationships: the 35 arayos · Genealogical fitness · The mitzvah to honor one\'s father and mother — derived from here · The concept of "mitzvos aseh shehazman grama" (time-bound positive mitzvos from which women are exempt)'},
+          {id:'mn06', q:'נָזִיר — Nazir',                a:'The Nazir — who takes a vow to abstain from wine, haircuts, and corpse impurity', note:'Bamidbar 6: a person who voluntarily takes on extra holiness by abstaining from grape products, cutting hair, and becoming tamei · Period: 30 days minimum · At the end: brings korbanot and shaves the hair · Shimshon and Shmuel are called Nazirim in Tanach · The gemara debates whether being a Nazir is praiseworthy or unnecessary self-denial'},
+          {id:'mn07', q:'סוֹטָה — Sotah',                a:'The suspected adulteress — the Temple-era procedure of the bitter waters', note:'Bamidbar 5:11–31 · If a husband warned his wife not to seclude herself with a specific man, and she did — she may be brought to the Beis HaMikdash for the sotah procedure · The bitter waters test · When the Beis HaMikdash was destroyed, Rabban Yochanan ben Zakkai abolished the practice · Famous final chapter: the state of the world in the pre-Messianic era ("Iktav Pnei HaDor K\'fnei HaKelev")'},
+        ]
+      },
+      // ── Nezikin ──────────────────────────────────────────
+      {
+        id: 'mishnah-nezikin',
+        name: 'סֵדֶר נְזִיקִין — Nezikin',
+        emoji: '⚖️',
+        desc: '"Damages" — 10 tractates on civil law, courts, and ethics',
+        guide: [
+          {h:'What Is Seder Nezikin?', b:[
+            '"Nezikin" = Damages · 10 masechtos · Jewish civil law, tort law, criminal law, and ethics',
+            'The three "Bava" masechtos (Kamma, Metzia, Basra) were originally one large masechta called "Nezikin"',
+            'The 10 masechtos: בָּבָא קַמָּא · בָּבָא מְצִיעָא · בָּבָא בַּתְרָא · סַנְהֶדְרִין · מַכּוֹת · שְׁבוּעוֹת · עֵדֻיּוֹת · עֲבוֹדָה זָרָה · אָבוֹת · הוֹרָיוֹת',
+            'Contains Pirkei Avos — the only masechta with no legal content, only ethical teachings',
+          ]},
+        ],
+        cards: [
+          {id:'ms05', q:'What does Seder Nezikin cover?',  a:'"Damages" — civil and criminal law, courts, and ethics · 10 masechtos', note:'The three Bava masechtos were originally one large masechta called "Nezikin" · Contains Pirkei Avos — the only non-legal masechta · All 10 have Bavli Gemara'},
+          {id:'mne01', q:'בָּבָא קַמָּא — Bava Kamma',    a:'"First Gate" — torts: physical damages, theft, and bodily injury', note:'The four primary categories of damage (avos nezikin): the Ox, the Pit, the Eating animal, and the Fire · Laws of theft (ganav) vs. robbery (gazlan) · Physical injury: 5 components of compensation — damage, pain, medical costs, lost work, humiliation · "HaMazik chaveiro" — one who damages another must pay'},
+          {id:'mne02', q:'בָּבָא מְצִיעָא — Bava Metzia',  a:'"Middle Gate" — bailments, rentals, loans, and found objects',  note:'"Two people grab a garment…" — famous opening about disputed ownership · Lost objects: finder\'s obligations and rights · Ribis (interest): prohibition on charging/paying interest to a fellow Jew · Heter iska: the halachic mechanism used in modern Jewish lending · Oppression of a worker or a stranger'},
+          {id:'mne03', q:'בָּבָא בַּתְרָא — Bava Basra',   a:'"Last Gate" — real estate, commerce, and inheritance',          note:'Neighbors\' rights · Laws of sales (mekach umimkar) · What constitutes a valid legal document · Inheritance: the Torah order of inheritors (sons before daughters; husband inherits wife; etc.) · "Chazakah" — presumptive ownership after 3 years of undisputed use'},
+          {id:'mne04', q:'סַנְהֶדְרִין — Sanhedrin',       a:'Courts and their jurisdiction — up to capital cases',           note:'Three levels of courts: 3-judge court, 23-judge Sanhedrin (small), 71-judge Great Sanhedrin · Capital cases: 23 judges minimum, strict evidence requirements, automatic acquittal if all judges vote guilty · Famous chapter: those who have no share in the World to Come · Includes laws of the king, the false prophet, and the rebellious elder'},
+          {id:'mne05', q:'אָבוֹת — Pirkei Avos',          a:'Ethics of the Fathers — 6 chapters of ethical and moral teachings', note:'The only masechta in Shas with no halachic content · Chain of transmission: Moshe → Yehoshua → Elders → Nevi\'im → Anshei Knesses HaGedolah → pairs of Tannaim · Famous sayings of every major Tanna · Read Shabbos afternoon between Pesach and Rosh Hashanah · "Turn it and turn it — everything is in it" (Ben Bag Bag)'},
+          {id:'mne06', q:'עֲבוֹדָה זָרָה — Avodah Zarah',  a:'Idolatry — laws governing interaction with idol worshipers and their objects', note:'Prohibitions on business dealings near idolater holidays · Forbidden benefit from objects of idolatry · Yayin nesech (wine touched by a non-Jew) — where this prohibition comes from · Bishul akum, pas akum — cooked and baked goods of non-Jews · Basis for many of the practical halachos of Jewish-non-Jewish interaction'},
+          {id:'mne07', q:'מַכּוֹת — Makkos',              a:'Lashes — the punishment of 39 lashes, and the cities of refuge', note:'Originally the last chapter of Sanhedrin · Three chapters: (1) false witnesses receive the punishment they sought to impose; (2) cities of refuge (arei miklat) for accidental killers; (3) the 39 lashes — who receives them and for which transgressions · Famous ending: Rabbi Akiva\'s laughter at the ruins of the Beis HaMikdash'},
+        ]
+      },
+      // ── Kodashim ─────────────────────────────────────────
+      {
+        id: 'mishnah-kodashim',
+        name: 'סֵדֶר קָדָשִׁים — Kodashim',
+        emoji: '🏛️',
+        desc: '"Holy Things" — 11 tractates on Temple service and sacrifices',
+        guide: [
+          {h:'What Is Seder Kodashim?', b:[
+            '"Kodashim" = Holy Things · 11 masechtos · The Temple service, korbanot (sacrifices), and ritual slaughter',
+            'Much of this seder describes practices that cannot be performed today — yet its study is considered a form of avodah and brings the Geulah closer',
+            '"Whoever occupies himself with the Temple service, it is as if the Temple was built in his days" (Menachos 110a)',
+            'The 11 masechtos: זְבָחִים · מְנָחוֹת · חֻלִּין · בְּכוֹרוֹת · עֲרָכִין · תְּמוּרָה · כְּרֵיתוֹת · מְעִילָה · תָּמִיד · מִדּוֹת · קִנִּים',
+            'Chulin (ritual slaughter of non-sacred animals for food) is the most practically relevant masechta today — studied for kashrut',
+          ]},
+        ],
+        cards: [
+          {id:'ms06', q:'What does Seder Kodashim cover?', a:'"Holy Things" — Temple service, sacrifices, and ritual slaughter · 11 masechtos', note:'Most laws await the rebuilt Beis HaMikdash · Chulin is the major exception — directly relevant for kashrut today · "Studying the laws of the korbanot is considered as if you offered them" (Taanis 27b)'},
+          {id:'mk01', q:'זְבָחִים — Zevachim',            a:'Animal sacrifices — the laws of slaughter, sprinkling the blood, and burning the parts', note:'First masechta of Kodashim · "For the sake of what" — intention during the sacrifice · Four "avodas hadam": shechita, kabbalah, holachah, zerikah (slaughter, receiving blood, carrying, sprinkling) · Piggul, nosar, tamei — three disqualifications of a korban'},
+          {id:'mk02', q:'מְנָחוֹת — Menachos',           a:'Meal offerings — flour, oil, and frankincense offerings in the Beis HaMikdash', note:'The various flour offerings: the Omer, the Shtei HaLechem (Shavuos), the Lechem HaPanim (showbread) · Tzitzis: a famous chapter derives many tzitzis laws from the korban context · "An ox is a large offering; a bird is a small offering — Hashem values equally the one who gives his heart" (Menachos 110a)'},
+          {id:'mk03', q:'חֻלִּין — Chulin',              a:'Ritual slaughter of non-sacred animals — the practical kashrut masechta', note:'The only masechta of Kodashim widely learned for practical halacha today · Laws of shechita (ritual slaughter): the knife, the act, the shochet\'s qualifications · Treifos: the 18+ categories of internal injuries that render an animal non-kosher · Basar b\'chalav: meat and milk prohibition — derived here · Kisuy hadam: covering the blood after slaughter'},
+          {id:'mk04', q:'תָּמִיד — Tamid',               a:'The daily (tamid) offering — a step-by-step account of the Temple morning service', note:'One of the few masechtos written in narrative rather than legal form — reads like a firsthand account · The Kohanim\'s lottery for the morning tasks · Cleaning the Menorah · The tamid offering procedure · Recitation of the Shema and the Ten Commandments in the Temple · Gives a vivid picture of daily life in the Beis HaMikdash'},
+          {id:'mk05', q:'מִדּוֹת — Midos',               a:'The measurements and architecture of the Second Beis HaMikdash', note:'"Midos" = measurements · A blueprint of the Temple compound — dimensions of gates, courtyards, the Heichal, and the Kodesh HaKedoshim · Studied both for its own sake and in connection with the future Temple described in Yechezkel 40–48 · Short masechta (5 chapters) with no Gemara — but rich in detail · Studied by builders of the Third Beis HaMikdash in our imagination and in prayer'},
+          {id:'mk06', q:'בְּכוֹרוֹת — Bechoros',         a:'The firstborn — of animals and of humans',                       note:'Torah mitzvah: the firstborn male of a kosher animal is sacred and given to a Kohen · A firstborn with a blemish (mum) may be eaten by the Kohen · Pidyon HaBen: redeeming the firstborn son (30 days old) from a Kohen for 5 silver coins · Still practiced today — Pidyon HaBen is a real and joyous celebration in most communities'},
+        ]
+      },
+      // ── Taharos ──────────────────────────────────────────
+      {
+        id: 'mishnah-taharos',
+        name: 'סֵדֶר טָהֳרוֹת — Taharos',
+        emoji: '💧',
+        desc: '"Purities" — 12 tractates on ritual purity and impurity',
+        guide: [
+          {h:'What Is Seder Taharos?', b:[
+            '"Taharos" = Purities · 12 masechtos — the largest seder · The most complex and least studied of the six',
+            'Covers the vast system of tumah (ritual impurity) and taharah (purity) — much of which is only fully operative when the Beis HaMikdash stands',
+            'Bavli Gemara exists only for Niddah; the Yerushalmi covers more, but large sections remain without Gemara',
+            'The 12 masechtos: כֵּלִים · אֳהָלוֹת · נְגָעִים · פָּרָה · טָהֳרוֹת · מִקְוָאוֹת · נִדָּה · מַכְשִׁירִין · זָבִים · טְבוּל יוֹם · יָדַיִם · עׇקְצִין',
+            'Despite its distance from current practice, studying Taharos builds the complete Torah scholar — the Gaon of Vilna and the Chofetz Chaim both emphasized its mastery',
+          ]},
+        ],
+        cards: [
+          {id:'ms07', q:'What does Seder Taharos cover?', a:'"Purities" — ritual purity and impurity · 12 masechtos · The most complex seder', note:'Most applicable only when the Beis HaMikdash stands · Bavli Gemara only for Niddah · Niddah is the most practically studied masechta today · The Vilna Gaon and Chofetz Chaim emphasized mastery of this seder'},
+          {id:'mt01', q:'כֵּלִים — Keilim',              a:'Vessels — which types of vessels can become tamei and how',     note:'The first and longest masechta in Taharos (30 chapters) · Four materials: earthenware, metal, wood, fabric — each has different susceptibility and purification · An earthen vessel becomes tamei from inside (not outside) · A broken vessel loses its tumah status · Foundational masechta for the entire seder'},
+          {id:'mt02', q:'נְגָעִים — Negaim',              a:'Skin afflictions (tzaraas) — the laws of the Torah\'s "leprosy"', note:'Vayikra 13–14: the Kohen examines and diagnoses negaim on skin, garments, and homes · Tzaraas is not a physical illness but a spiritual sign — linked by Chazal to lashon hara (evil speech) · The metzora\'s purification involves two birds, cedar wood, crimson thread, and hyssop · The Kohen is the diagnostic authority, not a doctor'},
+          {id:'mt03', q:'פָּרָה — Parah',                 a:'The Red Heifer — the chok that purifies from corpse impurity',  note:'Bamidbar 19: the parah adumah (red heifer) is burned; its ashes mixed with water purify a person who became tamei through contact with a corpse · The classic chok — its logic is beyond human understanding; Shlomo HaMelech said "I have mastered all of Torah but this eludes me" · Paradox: the one who sprinkles the water becomes tamei while the tamei person becomes tahor'},
+          {id:'mt04', q:'מִקְוָאוֹת — Mikvaos',          a:'The mikveh — construction, water requirements, and validity',   note:'A mikveh requires 40 seah (~250 gallons) of kosher water · Categories of water: zochalin (flowing), ashboren (pooled), and drawn water (which invalidates) · A pool of 40 seah of rainwater that is then connected to tap water remains valid (bitul) · Still entirely relevant today — the mikveh is fundamental to Jewish family purity'},
+          {id:'mt05', q:'נִדָּה — Niddah',                a:'Menstrual purity — the laws of the niddah cycle',             note:'The only masechta in Taharos with both Bavli and Yerushalmi Gemara · Core laws of taharat hamishpacha (family purity): a woman who sees dam niddah is a niddah until she counts 7 clean days and immerses in a mikveh · Still practiced today and central to Jewish family life · Opens with the famous Shammai/Hillel debate on retroactive tumah'},
+          {id:'mt06', q:'יָדַיִם — Yadayim',              a:'Handwashing for purity — and the canonical status of certain books', note:'Laws of ritual handwashing (netilas yadayim) · The famous debate about whether Shir HaShirim and Koheles "defile the hands" (a sign of their canonical holiness) — both were ultimately included in Tanach · The rabbinic decree of washing before touching terumah · The washing we do before bread is derived from here'},
+        ]
+      },
+      // ── Sedarim in Order ─────────────────────────────────
+      {
+        id: 'mishnah-order',
+        name: 'Six Sedarim in Order',
+        emoji: '↕️',
+        desc: 'The six orders of the Mishnah in their traditional sequence',
+        orderable: true,
+        orderItems: [
+          'זְרָעִים — Zeraim (Seeds)',
+          'מוֹעֵד — Moed (Appointed Times)',
+          'נָשִׁים — Nashim (Women)',
+          'נְזִיקִין — Nezikin (Damages)',
+          'קָדָשִׁים — Kodashim (Holy Things)',
+          'טָהֳרוֹת — Taharos (Purities)',
+        ],
+        cards: []
+      },
     ]
   },
 
