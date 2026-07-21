@@ -3544,6 +3544,271 @@ const DECKS = [
     ]
   },
 
+  // ── Beis HaMikdash ───────────────────────────────────────
+  {
+    id: 'beis-hamikdash',
+    name: 'בֵּית הַמִּקְדָּשׁ — The Holy Temple',
+    emoji: '🕍',
+    desc: 'The structure, vessels, service, and meaning of the Beis HaMikdash — past and future',
+    guide: [
+      {h:'Why the Beis HaMikdash Matters', b:[
+        'The Beis HaMikdash (Holy Temple) was the singular dwelling place of the Shechina (Divine Presence) on earth — the center of Jewish worship and national life',
+        'Three Temples: the Mishkan (portable Tabernacle in the desert) · First Temple built by Shlomo (~960 BCE, destroyed 586 BCE) · Second Temple built by Ezra/Nechemiah (~516 BCE, expanded by Herod, destroyed 70 CE)',
+        'The study of the Beis HaMikdash and its service is itself a mitzvah — "the study of them is credited to them as if they had built it" (Megilla 3b)',
+        'The Rambam: one of the three commandments upon entering the land is to build a Beis HaMikdash (alongside appointing a king and destroying Amalek)',
+      ]},
+    ],
+    sections: [
+      {
+        id: 'bhmk-overview',
+        name: 'Overview & History',
+        emoji: '📖',
+        desc: 'The story of the Beis HaMikdash — from the Mishkan to the future Third Temple',
+        guide: [
+          {h:'From Mishkan to Mikdash', b:[
+            'The Mishkan (Tabernacle) was built at Sinai under Moshe · Portable sanctuary that accompanied Bnei Yisrael in the desert and into the land',
+            'It stood at Shiloh for 369 years after entering Canaan · Destroyed when the Philistines captured the Ark (Shmuel I, ch. 4)',
+            'David HaMelech purchased the site (Har HaMoriah — threshing floor of Aravnah the Jebusite) and collected materials · Shlomo his son built the First Temple',
+            'Even HaShtiya — the Foundation Stone at the center of the Holy of Holies — is where the world was created and where the Akeidah took place',
+          ]},
+          {h:'Churban and Exile', b:[
+            'First Temple destroyed by Nevuchadnetzar of Babylon on 9 Av, 3338 (586 BCE) · Cause: the three cardinal sins — idol worship, sexual immorality, and bloodshed',
+            'Second Temple destroyed by the Romans under Titus on 9 Av, 3830 (70 CE) · Cause: sinas chinam — baseless hatred among Jews',
+            '"Both temples were destroyed on the same date — to teach that sinas chinam is as severe as the three cardinal sins combined" (Yoma 9b)',
+            'The Ark of the Covenant: hidden before the First Temple\'s destruction (Yoma 52b) — its location remains unknown · The Second Temple had no Ark; the Kodesh HaKodashim was empty',
+          ]},
+        ],
+        cards: [
+          {id:'bhmk-ov01', q:'What is the Beis HaMikdash?',              a:'The Holy Temple in Jerusalem — the singular dwelling place of the Shechina (Divine Presence) and center of Jewish worship', note:'Three versions: Mishkan (portable) · First Temple (Shlomo, ~960–586 BCE) · Second Temple (Ezra, ~516 BCE–70 CE) · The Third Temple awaits the messianic era'},
+          {id:'bhmk-ov02', q:'Where was the Beis HaMikdash built?',       a:'Har HaMoriah — the Temple Mount in Jerusalem · On the site of the Akeidat Yitzchak and where Adam was created from the earth', note:'David purchased the site from Aravnah the Jebusite for 50 silver shekels · The Even HaShtiya (Foundation Stone) — the center of the Kodesh HaKodashim — is considered the center of creation'},
+          {id:'bhmk-ov03', q:'Why was the First Temple destroyed?',        a:'Shlosh aveiros chamuros — the three cardinal sins: avodah zarah (idolatry), gilui arayos (sexual immorality), and shefichas damim (bloodshed)', note:'Destroyed by Nevuchadnetzar, Babylon, on 9 Av 586 BCE · Jews exiled to Babylon for 70 years · The prophet Yirmiyahu witnessed the destruction'},
+          {id:'bhmk-ov04', q:'Why was the Second Temple destroyed?',       a:'Sinas chinam — baseless hatred between Jews · Despite Torah knowledge, the generation was marked by internal hatred and discord', note:'Destroyed by Titus, Rome, on 9 Av 70 CE · The Talmud: sinas chinam is as serious as the three cardinal sins combined (Yoma 9b) · We mourn both churbanot on Tisha B\'Av'},
+          {id:'bhmk-ov05', q:'What happened to the Ark of the Covenant?',  a:'Hidden by Yoshiyahu HaMelech before the First Temple\'s destruction — its location is unknown · The Second Temple had no Ark; the Holy of Holies was empty', note:'Yoma 52b · Some say it was hidden in a tunnel beneath the Temple Mount · Others say it was taken to Babylon · It will be revealed in the messianic era'},
+          {id:'bhmk-ov06', q:'What is Tisha B\'Av?',                       a:'The 9th of Av — the day both Temples were destroyed · Also: the spies\' sin, the fall of Beitar, and the plowing of Jerusalem · The major national day of mourning', note:'Five tragedies occurred on this day (Mishnah Taanit 4:6) · 25-hour fast · Kinos (lamentations) recited · Megilas Eichah read · The Talmud: Mashiach will be born on Tisha B\'Av'},
+          {id:'bhmk-ov07', q:'What will the Third Temple be like?',         a:'It will descend from heaven (Rashi) or be built by Mashiach (Rambam) — there is a dispute · It will stand forever and never be destroyed', note:'Ezekiel ch. 40–48 describes it in detail · The Rambam in Mishneh Torah (Hilchos Beis HaBechira) describes it based on Yechezkel · It will be greater in glory than both previous Temples (Chaggai 2:9)'},
+        ]
+      },
+      {
+        id: 'bhmk-structure',
+        name: 'Structure & Layout',
+        emoji: '🏛️',
+        desc: 'The physical layout of the Temple — courtyards, chambers, and the Holy of Holies',
+        guide: [
+          {h:'The Courtyards', b:[
+            'Ezrat Nashim (Women\'s Courtyard) — the outermost area where women could stand during Temple service · Site of the Simchat Beis HaShoeva celebration on Sukkos',
+            'Ezrat Yisrael (Israelites\' Courtyard) — where Jewish men stood · A narrow strip 11 cubits deep',
+            'Ezrat Kohanim (Priests\' Courtyard) — where the kohanim performed service · Site of the mizbeach (altar)',
+            'The Azarah as a whole refers to the entire Temple courtyard complex · Non-Jews could enter the Har HaBayit (Temple Mount) outer area but not the Azarah itself',
+          ]},
+        ],
+        cards: [
+          {id:'bhmk-st01', q:'What is the Azarah?',                        a:'The Temple courtyard complex containing the Ezrat Nashim, Ezrat Yisrael, Ezrat Kohanim, the Heichal, and the Kodesh HaKodashim', note:'Surrounded by a wall called the Soreg — non-Jews were forbidden past this point · Stone tablets were placed at intervals warning non-Jews not to enter'},
+          {id:'bhmk-st02', q:'What is the Heichal?',                       a:'The Sanctuary — the main hall of the Temple containing the Menorah, Shulchan, and Mizbeach HaZahav (Golden Incense Altar)', note:'Access restricted to kohanim during service · 60 cubits long, 20 wide · The entrance was hung with a large curtain (Parochet) · The Ulam was the entrance hall preceding it'},
+          {id:'bhmk-st03', q:'What is the Kodesh HaKodashim?',             a:'The Holy of Holies — the innermost chamber, 20×20 cubits, where the Aron HaBrit (Ark) stood in the First Temple', note:'Entered only once a year: by the Kohen Gadol on Yom Kippur · In the Second Temple it was empty (no Ark) but the Kohen Gadol still entered · Separated from the Heichal by a double curtain (Parochet)'},
+          {id:'bhmk-st04', q:'What is the Mizbeach HaOlah?',               a:'The Outer Altar — a large ramp-shaped altar in the Azarah where most offerings were burned · Made of unhewn stones (iron tools forbidden)', note:'Dimensions: 32×32 cubits at base · The fire on the Mizbeach was never allowed to go out (a positive commandment) · A fire descended from heaven to kindle it (Zevachim 61b)'},
+          {id:'bhmk-st05', q:'What is Lishkat HaGazit?',                   a:'The Chamber of Hewn Stone — where the Great Sanhedrin (71 judges) sat and ruled on matters of Jewish law', note:'Half of the chamber was in the Azarah (holy ground), half outside · The Sanhedrin left this chamber 40 years before the Temple\'s destruction — a sign that capital cases were no longer being judged'},
+          {id:'bhmk-st06', q:'What is Ezrat Nashim?',                      a:'The Women\'s Courtyard — the large outer courtyard where women stood · Also where men who had not yet immersed in a mikveh stood', note:'Site of the Simchat Beis HaShoeva — the water-drawing celebration on Sukkos · Four large menorahs illuminated the entire Jerusalem on Sukkos nights · The Talmud: "Whoever did not see the Simchat Beis HaShoeva never saw true joy in their life"'},
+        ]
+      },
+      {
+        id: 'bhmk-vessels',
+        name: 'The Sacred Vessels',
+        emoji: '🕎',
+        desc: 'The keilim of the Beis HaMikdash — the Ark, Menorah, Shulchan, altars, and more',
+        cards: [
+          {id:'bhmk-kl01', q:'Aron HaBrit — The Ark of the Covenant',     a:'A gold-covered wooden chest containing the Luchot (Tablets) · Topped by the Kaporet (cover) with two Keruvim (cherubs) facing each other', note:'Dimensions: 2.5 × 1.5 × 1.5 cubits · The Shechina spoke to Moshe from between the Keruvim · Carried on poles (badim) which could never be removed · Present only in the First Temple · Weight: miraculous — the Ark carried its own bearers'},
+          {id:'bhmk-kl02', q:'Menorah — The Seven-Branched Lamp',          a:'A solid gold, seven-branched lampstand lit with pure olive oil — burned in the Heichal from evening through morning', note:'Made from a single piece of gold (kikar zahav) · The westernmost lamp (ner maaravi) miraculously stayed lit all day during the Temple period · The Chanukah menorah commemorates the miracle of oil found in the Second Temple · A symbol of Israel\'s mission to be "a light unto the nations"'},
+          {id:'bhmk-kl03', q:'Shulchan — The Table of Showbread',          a:'A gold table in the Heichal holding 12 loaves of lechem hapanim (showbread) — one for each tribe, replaced every Shabbos', note:'The old loaves were distributed to the kohanim to eat · They remained warm and fresh all week — a miracle (Chagigah 26b) · The Shulchan also held the frankincense (levonah) which was burned when the loaves were changed'},
+          {id:'bhmk-kl04', q:'Mizbeach HaZahav — The Golden Altar',        a:'The Inner Altar in the Heichal where the ketores (incense) was burned twice daily — morning and afternoon', note:'1×1 cubit base, 2 cubits high, covered in gold · On Yom Kippur, the Kohen Gadol placed incense on burning coals inside the Kodesh HaKodashim · The ketores formula was a closely guarded secret of the Avtinas family'},
+          {id:'bhmk-kl05', q:'Kiyor — The Laver',                          a:'A large copper basin in the Azarah where kohanim washed their hands and feet before performing service', note:'Washing from the Kiyor was required before every act of service · A kohein who served without washing was liable to death (Shemos 30:20) · The Kiyor was lowered into a water pit each night to keep the water fresh'},
+          {id:'bhmk-kl06', q:'Parochet — The Temple Curtain',              a:'The thick curtain separating the Heichal from the Kodesh HaKodashim — woven from blue, purple, crimson, and white threads', note:'According to tradition, it was one handbreadth thick and woven by 82 young women · A new one was made each year · In the Second Temple there were two Parochos with a cubit of space between them · Titus slashed it with his sword'},
+          {id:'bhmk-kl07', q:'Urim v\'Tumim',                             a:'A parchment with God\'s name placed inside the Kohen Gadol\'s Choshen (breastplate) — used to divine God\'s will on national questions', note:'Functioned in the First Temple · Not present in the Second Temple (one of the five things missing) · The letters on the 12 gemstones of the Choshen would light up to spell out answers · "Urim" = illuminating; "Tumim" = perfect/complete'},
+        ]
+      },
+      {
+        id: 'bhmk-service',
+        name: 'The Daily Service',
+        emoji: '🔥',
+        desc: 'The daily rhythm of the Temple — tamid, ketores, Menorah, and the Yom Kippur avodah',
+        cards: [
+          {id:'bhmk-sv01', q:'What is the Korban Tamid?',                  a:'The daily communal offering — a lamb brought every morning and afternoon · The heartbeat of the Temple service, never suspended', note:'Bamidbar 28:3-4 · The morning Tamid was brought at dawn; the afternoon Tamid between 2.5 and 3.5 hours before sunset · The Shacharit prayer corresponds to the morning Tamid; Mincha to the afternoon Tamid; Maariv to burning leftover parts through the night'},
+          {id:'bhmk-sv02', q:'What is Ketores?',                           a:'The incense offering — a blend of 11 spices burned on the Golden Altar twice daily, after the morning Tamid and before the afternoon Tamid', note:'The ketores formula was kept secret by the Avtinas family to prevent them from teaching it to non-Jews (Yoma 38a) · The Talmud: the ketores atones for lashon hara (Arachin 16a) · The ketores smoke rose straight up, a sign of Divine favor'},
+          {id:'bhmk-sv03', q:'What is the Yom Kippur Avodah?',             a:'The elaborate service of the Kohen Gadol on Yom Kippur — the only day he enters the Kodesh HaKodashim · Described in detail in Vayikra 16', note:'The Kohen Gadol immersed in a mikveh 5 times and washed his hands and feet 10 times · Wore white linen (not golden) vestments inside · Cast lots over two goats: one for Hashem (korban), one for Azazel (sent to the wilderness) · Recited three confessions (vidui)'},
+          {id:'bhmk-sv04', q:'What are the five things missing in the Second Temple?', a:'Aron (Ark) · Urim v\'Tumim · Aish (Divine fire on altar) · Shechina (Divine Presence as in First Temple) · Ruach HaKodesh (prophetic spirit)', note:'Yoma 21b · Despite the absence of these, the Second Temple service was still obligatory and valid · The Second Temple stood for 420 years (longer than the First Temple\'s 410 years)'},
+          {id:'bhmk-sv05', q:'Who were the Kohen Gadol\'s vestments?',     a:'8 garments: Tzitz (forehead plate) · Choshen (breastplate) · Ephod · Meil (robe with bells and pomegranates) · Tunic · Turban · Belt · Pants', note:'Regular kohanim wore 4 of these 8 (no Tzitz, Choshen, Ephod, or Meil) · Wearing the vestments while serving is a positive commandment · Service performed without proper vestments is invalidated · The bells on the Meil announced his arrival'},
+          {id:'bhmk-sv06', q:'What is Simchat Beis HaShoeva?',             a:'The water-drawing celebration on Sukkos — water was drawn from the Shiloach spring and poured on the Mizbeach each day of Chol HaMoed Sukkos', note:'"Whoever did not see the Simchat Beis HaShoeva never saw true joy in their life" (Sukkah 51a) · Torches, dancing, music all night in the Ezrat Nashim · Great Torah sages juggled and performed · The nisuch hamayim (water libation) is the basis of the celebration'},
+        ]
+      },
+    ]
+  },
+
+  // ── Shabbos ───────────────────────────────────────────────
+  {
+    id: 'shabbos',
+    name: 'שַׁבָּת — Shabbos',
+    emoji: '🕯️',
+    desc: 'The laws, meaning, and beauty of Shabbos — the seventh day, a taste of the World to Come',
+    guide: [
+      {h:'What Is Shabbos?', b:[
+        'Shabbos = the seventh day of the week, from Friday sunset to Saturday nightfall · Commanded in the Ten Commandments twice: "Zachor" (remember) in Shemos; "Shamor" (guard) in Devarim',
+        '"Between Me and Bnei Yisrael it is a sign forever" (Shemos 31:17) · Shabbos testifies that God created the world in six days and rested on the seventh',
+        'The Zohar: Shabbos is "me\'ein olam haba" — a foretaste of the World to Come · The Neshamah Yeteirah (extra soul) arrives on Shabbos · One who observes Shabbos testifies to creation and to the Exodus',
+        'The reward for Shabbos: "If you observe the Shabbos, I will give you a reward beyond the capacity of the world to contain" (Mechilta)',
+      ]},
+    ],
+    sections: [
+      {
+        id: 'shabbos-basics',
+        name: 'Shabbos Basics',
+        emoji: '✨',
+        desc: 'The when, why, and spiritual meaning of Shabbos',
+        cards: [
+          {id:'shb-b01', q:'When does Shabbos begin and end?',             a:'Begins at sundown Friday (or earlier, at candle lighting) · Ends at nightfall Saturday (tzet hakochavim — three stars visible)', note:'Shabbos starts when the sun sets (shekiah) · Bein hashmashot (twilight) is treated as uncertain — Shabbos-like · Ends approximately 40–50 minutes after sunset (Ashkenaz) or at shekiah itself (some Sephardim, though most wait longer)'},
+          {id:'shb-b02', q:'What is the mitzvah of Kiddush?',              a:'לְקַדְּשׁוֹ — to sanctify Shabbos with words · Recite Kiddush over wine on Friday night and again at the Shabbos day meal', note:'Night Kiddush: the Torah-level mitzvah (d\'Oraisa) · Day Kiddush: Rabbinic · Must drink a revi\'it of wine (86ml / 3oz) · If wine is unavailable, Kiddush may be recited over challah (Ashkenaz: only for day Kiddush; night: wine required according to most opinions)'},
+          {id:'shb-b03', q:'What is Havdalah?',                            a:'The ceremony marking the end of Shabbos — over wine, spices (besamim), and a multi-wick candle — separating holy from mundane', note:'Four blessings: wine · spices · fire · the separation (havdalah) itself · "Hamavdil bein kodesh l\'chol" — He who separates between holy and mundane · Cannot do melacha until Havdalah is recited (or at least "Baruch HaMavdil bein kodesh l\'chol" said)'},
+          {id:'shb-b04', q:'What are the Three Shabbos Meals (Seudos)?',   a:'A Torah obligation — three distinct meals on Shabbos: Friday night, Shabbos day, and Seudah Shlishit (late afternoon)', note:'Derived from the three mentions of "today" in the Manna passage (Shemos 16) · Each meal begins with two loaves of challah (lechem mishneh) · Seudah Shlishit: minimum of bread or mezonos · Melaveh Malka (accompanying the departing queen) is a 4th meal on Saturday night — highly praised but not obligatory'},
+          {id:'shb-b05', q:'What is Oneg Shabbos?',                        a:'עֹנֶג שַׁבָּת — delighting in Shabbos · Eating special food, wearing nice clothing, resting, singing zemirot, learning Torah', note:'Yeshayahu 58:13 · The Rambam: Shabbos should be filled with physical and spiritual delight · Sleeping on Shabbos is a mitzvah (oneg) · The Shabbos table is a mikdash me\'at (miniature Temple)'},
+          {id:'shb-b06', q:'What is Neshamah Yeteirah?',                   a:'The "extra soul" a Jew receives on Shabbos — causing a heightened spiritual sensitivity and broader consciousness', note:'Beitzah 16a · Rashi: the heart is more open, the mind more expansive · This is why we smell spices at Havdalah — to revive the soul as the extra dimension departs · The special rest and peace of Shabbos is a physical expression of this spiritual gift'},
+          {id:'shb-b07', q:'What are the candle lighting laws?',            a:'Women (primarily) light at least two candles before sunset Friday · Ashkenaz adds a candle for each child · Recite the bracha before lighting (or, in some customs, cover the eyes and light, then recite)', note:'Rabbinic mitzvah (kavod and oneg Shabbos) · Must be lit before sunset; lighting after sunset is forbidden (melacha) · The candles should burn until after the Shabbos night meal · Many women add candles for each child born'},
+        ]
+      },
+      {
+        id: 'shabbos-melachos',
+        name: 'The 39 Melachos',
+        emoji: '⚙️',
+        desc: 'The 39 categories of creative labor forbidden on Shabbos',
+        guide: [
+          {h:'Origin of the 39 Melachos', b:[
+            'The 39 prohibited melachos (creative labors) are derived from the 39 categories of work performed in building the Mishkan (Tabernacle)',
+            'The Torah places the Shabbos command immediately before the Mishkan command (Shemos 35) — teaching that even the holy Mishkan work is suspended for Shabbos',
+            '"Av melacha" = a primary category · "Toladah" = a derivative of the same category · Both are biblically prohibited · The severity of the violation is the same',
+            'Performing a melacha unintentionally (b\'shogeg) requires a korban chatas · Intentionally (b\'mezid) with witnesses and warning = liable to death by court or karet',
+          ]},
+          {h:'The 11 Groups of 39', b:[
+            'Zore\'a — Agriculture (11): plowing, planting, reaping, binding sheaves, threshing, winnowing, selecting, grinding, sifting, kneading, baking',
+            'Gozeiz — Textiles (13): shearing, whitening, combing, dyeing, spinning, warping, making two loops, weaving two threads, separating two threads, tying, untying, sewing two stitches, tearing to sew two stitches',
+            'Tzud — Trapping/Construction (7): trapping, slaughtering, skinning, salting, tanning, smoothing, cutting to shape',
+            'Kotev — Writing (2): writing two letters, erasing to write two letters',
+            'Boneh — Building (5): building, demolishing, kindling fire, extinguishing fire, the final hammer blow (completing a vessel)',
+            'HaMavir — Carrying (1): carrying from private to public domain (or 4 cubits in public domain)',
+          ]},
+        ],
+        cards: [
+          {id:'shb-m01', q:'Zorea — Planting',                            a:'Planting or watering plants · One of the 11 agricultural melachos · Derived from growing produce for the Mishkan\'s dyes', note:'Toladot include: watering plants, fertilizing, grafting, pruning (to encourage growth), planting a seed'},
+          {id:'shb-m02', q:'Kotzer — Reaping',                            a:'Detaching anything from where it grows · Picking fruit, cutting flowers, pulling grass', note:'Toladot: squeezing fruits for juice (some say this is kotzer, not dash) · Even a single leaf is biblically prohibited · Picking a fallen fruit from the ground is permitted (already detached)'},
+          {id:'shb-m03', q:'Dash — Threshing',                            a:'Extracting food from its natural container · Classic: threshing wheat · Also: squeezing fruit for juice, milking a cow', note:'The primary form is separating grain from stalks · Squeezing lemons into a drink (vs. directly on food) is a Rabbinic stringency based on Dash · Nursing a baby is permitted (only human milk, not for commercial use)'},
+          {id:'shb-m04', q:'Borer — Separating/Selecting',               a:'Selecting the undesirable from the desirable in a mixture — forbidden · Selecting the desirable to eat immediately — permitted under specific conditions', note:'The three conditions for permitted selection: (1) select the ochel (desired item) not the pesoles (waste), (2) by hand not a tool, (3) for immediate use not storage · This melacha requires special care at every Shabbos meal (removing bones from fish, etc.)'},
+          {id:'shb-m05', q:'Bishul — Cooking/Baking',                    a:'Applying heat to cook, bake, fry, or melt a raw substance · One of the most commonly encountered melachos', note:'Food fully cooked before Shabbos may be kept warm (using a blech/plata) but not reheated on an open flame · Solid foods: permitted to reheat if fully cooked · Liquid foods (even fully cooked): Rabbinic prohibition to re-heat · "Ain bishul achar bishul" — cooked food cannot be "cooked again" (for solids)'},
+          {id:'shb-m06', q:'Kotev — Writing',                             a:'Writing two or more letters · Also: drawing, stamping, recording · Erasing to write is a separate but related melacha', note:'Toladot include: typing (modern poskim) · photography · recording · applying makeup (letters or patterns) · Tearing words on a food wrapper can violate erasing · Electronic displays: complex debate among contemporary poskim'},
+          {id:'shb-m07', q:'Boneh — Building',                            a:'Building a permanent structure or making a significant improvement to an existing one', note:'Toladah: assembling furniture permanently · Closing a folding bed that clicks shut · The "final hammer blow" (makeh b\'patish) is a separate av: completing or finishing any object · Even opening a door for the first time (breaking the seal) may be Boneh'},
+          {id:'shb-m08', q:'Hav\'arah — Kindling Fire',                  a:'Igniting a new fire or significantly increasing an existing one — one of the 39 melachos', note:'The only melacha explicitly stated in the Torah for Shabbos (Shemos 35:3) · "Do not kindle fire in all your dwellings on the Shabbos day" · Electricity: most poskim consider completing an electric circuit to be Hav\'arah or Boneh · Permitted: electric timer (Shabbos clock)'},
+          {id:'shb-m09', q:'Hotza\'ah — Carrying',                       a:'Transferring an object between a private domain (reshus hayachid) and a public domain (reshus harabbim), or carrying 4 cubits in a public domain', note:'The only melacha not involving any transformation — just movement · Depends heavily on domain definitions · An eruv creates a halachic "private domain" allowing carrying · Wearing jewelry is permitted (it\'s "worn," not "carried"); a loose item is carried'},
+          {id:'shb-m10', q:'What is Muktzeh?',                            a:'Items that are set aside (muktzeh) and may not be moved on Shabbos — a Rabbinic safeguard', note:'Categories: (1) Muktzeh machmas issur — items used for melacha (pen, hammer) · (2) Muktzeh machmas chesron kis — valuable items not designated for Shabbos use · (3) Nolad — something that "came into existence" on Shabbos (an egg laid on Shabbos) · (4) Grama — base of something forbidden (a candle holder while lit)'},
+        ]
+      },
+      {
+        id: 'shabbos-restrictions',
+        name: 'Key Shabbos Laws',
+        emoji: '📋',
+        desc: 'Practical halachos — eruv, amira l\'akum, uvdin d\'chol, and more',
+        cards: [
+          {id:'shb-r01', q:'What is an Eruv?',                             a:'A halachic enclosure that combines multiple private domains, allowing carrying within it on Shabbos', note:'Types: Eruv chatzeiros (combining courtyards) · Eruv techumin (extending walking distance) · Shituf mevo\'os (combining alleyways) · The eruv must enclose an area and be checked weekly · A city eruv typically uses telephone poles and wire as symbolic walls'},
+          {id:'shb-r02', q:'What is Amira l\'Akum?',                      a:'Asking a non-Jew to perform a forbidden Shabbos labor on your behalf — Rabbinically prohibited', note:'Permitted in cases of: significant loss (davar ha\'avud) · communal need · illness (not life-threatening) · great distress · The non-Jew must act on their own initiative, not because you asked directly during Shabbos · Indirect hints are also restricted'},
+          {id:'shb-r03', q:'What is Uvdin d\'Chol?',                      a:'Activities that are technically permitted but are weekday-like in character — Rabbinically discouraged on Shabbos to preserve the spirit of the day', note:'E.g., reading business documents, walking long distances for non-Shabbos purposes, extensive physical labor in one\'s yard · The principle: Shabbos should feel different from a weekday even when the specific act is permitted'},
+          {id:'shb-r04', q:'What is Shvus?',                               a:'A category of Rabbinic Shabbos prohibition not derived from the 39 melachos — activities set aside because of their weekday character', note:'Examples: climbing a tree · swimming · clapping and dancing (original Rabbinic decree; many permit today) · handling muktzeh · riding an animal · writing for personal use'},
+          {id:'shb-r05', q:'What is Pikuach Nefesh on Shabbos?',           a:'Saving a life overrides all Shabbos prohibitions — "v\'chai bahem" (live by them, not die by them)', note:'Yoma 85a · Not only permitted but obligatory: one who is slow to violate Shabbos to save a life is "damaging" (shofech damim) · Medical emergencies: call the ambulance, drive to the hospital, perform all necessary treatment · "The Shabbos is desecrated for him so that he may keep many future Shabbosos"'},
+          {id:'shb-r06', q:'What is the Shabbos Techumim limit?',          a:'On Shabbos one may not walk more than 2,000 cubits (~1km) beyond the edge of the city or one\'s last location', note:'Bamidbar 35:5 (Rabbinic interpretation) · Eruv techumin can extend this limit by depositing food at the 2,000-cubit mark before Shabbos — that point becomes one\'s "base" · The limit protects Shabbos as a day of rest and community'},
+          {id:'shb-r07', q:'What is Lifnei Iver on Shabbos?',              a:'Prohibition on causing another Jew to violate Shabbos — extends to not offering food from which tevel (untithed produce) has not been separated', note:'Vayikra 19:14 · Practical example: if your guest keeps Shabbos, you may not ask them to carry something in a place without an eruv · Also: selling something that will be used for melacha on Shabbos'},
+        ]
+      },
+    ]
+  },
+
+  // ── Davening ─────────────────────────────────────────────
+  {
+    id: 'davening',
+    name: 'דַּוְונֶן — Davening',
+    emoji: '🤲',
+    desc: 'The structure, meaning, and laws of Jewish prayer — from Birkos HaShachar to Maariv',
+    guide: [
+      {h:'What Is Tefillah?', b:[
+        'Tefillah (prayer) = standing before God and speaking to Him · The root "palel" means to judge or to plead — self-examination before God',
+        'Three daily tefillos: Shacharit (morning) · Mincha (afternoon) · Maariv (evening) · Correspond to the three Avos: Avraham (Shacharit) · Yitzchak (Mincha) · Yaakov (Maariv)',
+        'Also correspond to the Temple offerings: Shacharit — morning Tamid · Mincha — afternoon Tamid · Maariv — burning leftover parts through the night',
+        'D\'Oraisa or d\'Rabbanan? Rambam: the obligation to pray each day is biblical (Shemos 23:25); the specific three-times structure is Rabbinic · Ramban: the entire obligation is Rabbinic',
+      ]},
+    ],
+    sections: [
+      {
+        id: 'dav-basics',
+        name: 'Tefillah Basics',
+        emoji: '📿',
+        desc: 'What prayer is, its structure, and the conditions for valid tefillah',
+        cards: [
+          {id:'dav-b01', q:'What are the three daily tefillos?',           a:'Shacharit (שַׁחֲרִית) — morning · Mincha (מִנְחָה) — afternoon · Maariv (מַעֲרִיב) — evening', note:'Shacharit: from dawn until a third of the day (l\'chatchila) · Mincha: from 2.5 halachic hours past midday until nightfall · Maariv: from nightfall until midnight (l\'chatchila)'},
+          {id:'dav-b02', q:'What is Kavanah?',                             a:'Intention and concentration during prayer — the minimum requirement is to know before Whom you stand and what you are saying', note:'The Rambam: prayer without kavanah is not prayer · Minimum kavanah: the first bracha of Shemoneh Esrei · If distracted during the first bracha, repeat it with kavanah · Ideally: kavanah for all 19 brachot of the weekday Amidah'},
+          {id:'dav-b03', q:'What is davening b\'tzibbur?',                 a:'Praying with a minyan (quorum of 10 adult Jewish males) — preferred over individual prayer and required for certain parts of the service', note:'Tefilla b\'tzibbur is a higher level of prayer — "God does not reject the prayer of the many" (Berachos 8a) · Chazzan (prayer leader) repeats the Amidah aloud · Kedushah, Kaddish, Barchu, Torah reading — all require a minyan'},
+          {id:'dav-b04', q:'What preparation is required before davening?', a:'Wash hands (netilas yadayim) · Cover one\'s body modestly · Face Yerushalayim · Achieve a calm state — not after anger, frivolity, or distraction', note:'"Do not stand in tefillah from divin (sadness) or idleness... but rather from simcha shel mitzvah (joy of a mitzvah)" (Berachos 31a) · The Chassidic masters emphasized preparation before prayer as more important than the prayer itself'},
+          {id:'dav-b05', q:'What is the role of the Chazzan (Shaliach Tzibbur)?', a:'The prayer leader who repeats the Amidah aloud (Chazarat HaShatz) so those who cannot pray on their own fulfill their obligation through listening', note:'Today most people can pray themselves, so the repetition functions primarily for communal Kedushah · The Chazzan should have a pleasant voice, be acceptable to the community, and be free of serious halachic blemish · "Lifnei aron kodesh" — stands before the Holy Ark as the community\'s representative'},
+          {id:'dav-b06', q:'What is a Minyan?',                            a:'A quorum of 10 adult Jewish males — required for communal prayer, Torah reading, Kedushah, Kaddish, and certain other sacred acts', note:'Bamidbar 14:27 — "this evil congregation" of 10 spies (Sanhedrin 74b) · Some hold that women count in a minyan for certain purposes (Sephardic and Modern Orthodox responsa) · Without a minyan, one still must pray — but certain elements are omitted'},
+        ]
+      },
+      {
+        id: 'dav-amidah',
+        name: 'The Amidah (Shemoneh Esrei)',
+        emoji: '🧎',
+        desc: 'The central prayer of every service — its structure, laws, and 19 blessings',
+        guide: [
+          {h:'Structure of the Amidah', b:[
+            'Three sections: 3 blessings of praise (Avot, Gevurot, Kedushat Hashem) · 13 middle blessings of petition (weekday) · 3 blessings of thanks (Avodah, Hoda\'ah, Shalom)',
+            'On Shabbos and Yom Tov: the 13 middle blessings are replaced by a single blessing of the day (Kedushat HaYom) — 7 blessings total',
+            'Rosh Hashanah: 9 blessings (Malchiyot, Zichronot, Shofarot added) · Yom Kippur: the Ne\'ila service has an extra closing blessing',
+          ]},
+        ],
+        cards: [
+          {id:'dav-am01', q:'What is the Amidah?',                         a:'עֲמִידָה (standing) — the central prayer of every service, known as "Tefillah" par excellence · Recited silently, standing, facing Jerusalem', note:'Also called Shemoneh Esrei (18 — the original number; a 19th bracha against informers was added in Yavneh) · The weekday Amidah has 19 brachot; Shabbos has 7; Rosh Hashanah has 9'},
+          {id:'dav-am02', q:'Bracha 1 — Avot (Patriarchs)',               a:'Praises God as the God of Avraham, Yitzchak, and Yaakov — the God of our ancestors who remembers their deeds and brings a redeemer', note:'Contains the promise of redemption (go\'el Yisrael) · "Magen Avraham" — Shield of Avraham · If one loses their place in the Amidah, they may restart from here'},
+          {id:'dav-am03', q:'Bracha 2 — Gevurot (God\'s Power)',          a:'Praises God\'s power — resurrection of the dead, healing the sick, freeing the captive, supporting the fallen', note:'"Mechayeh hameitim" — He who revives the dead · Mashiv haruach u\'morid hagashem (wind and rain) added in winter · Morid hatal (dew) recited in Nusach Sefard/Edos HaMizrach in summer'},
+          {id:'dav-am04', q:'Brachot 4-9 — Personal requests',            a:'Da\'at (wisdom) · Teshuva · Selicha (forgiveness) · Geulah (redemption) · Refuah (healing) · Birkat HaShanim (prosperity)', note:'The order: first ask for the tools (wisdom, teshuva) · then for what went wrong (forgiveness) · then for what you need (redemption from trouble, health, livelihood) · Logical progression reflects a coherent theology of need'},
+          {id:'dav-am05', q:'Brachot 10-15 — Communal requests',          a:'Kibbuts Galuyot (ingathering of exiles) · Hashavat Mishpat (justice/judges) · Against heretics (Birkat HaMinim) · For the righteous · Yerushalayim · Davidic kingdom (Mashiach)', note:'"Tekah b\'shofar gadol" — blow the great shofar · "V\'lirushalayim ircha" — return to Jerusalem · "Es tzemach David" — the Davidic dynasty · These six brachot form the national redemption sequence'},
+          {id:'dav-am06', q:'Brachot 17-19 — Thanksgiving',               a:'Avodah (Temple service — "Retzei") · Hoda\'ah (Modim — gratitude) · Shalom (peace — Sim Shalom / Shalom Rav)', note:'"Retzei" — accept our prayer as Israel accepted the Temple service · Modim: the only bracha where the congregation bows and recites Modim d\'Rabbanan while the chazzan leads · Sim Shalom closes with the Birkat Kohanim connection'},
+          {id:'dav-am07', q:'Laws of reciting the Amidah',                a:'Stand with feet together · Face Yerushalayim · Whisper (audible to yourself) · Do not interrupt · Take 3 steps back and bow at conclusion', note:'Bow at: beginning and end of Avot · beginning and end of Modim · Bowing at any other point is inappropriate · Do not respond to anything during the Amidah — not even Kaddish or Kedushah (listen and have in mind, but don\'t speak)'},
+        ]
+      },
+      {
+        id: 'dav-shacharit',
+        name: 'Shacharit — Morning Prayer',
+        emoji: '🌅',
+        desc: 'The structure of the morning service from Birkos HaShachar through the Amidah',
+        cards: [
+          {id:'dav-sh01', q:'What are Birkos HaShachar?',                  a:'The morning blessings — recited upon awakening, thanking God for bodily functions, clothing, sight, freedom, and being Jewish', note:'Originally recited as one performed each act of awakening (putting on shoes, standing up, etc.) · Now recited together in shul · Includes: Asher Yatzar (after bathroom) · Al Netilat Yadayim (handwashing) · Elokai Neshamah (my soul) · La\'asok b\'divrei Torah'},
+          {id:'dav-sh02', q:'What are Pesukei d\'Zimra?',                  a:'Verses of Praise — a section of Tehillim and hymns recited before Shacharit to prepare the heart for prayer', note:'From Baruch She\'amar to Yishtabach · Core: Ashrei (Psalm 145) + Psalms 146-150 · On weekdays: shorter · On Shabbos/Yom Tov: expanded with additional psalms and Nishmat · Cannot talk during Pesukei d\'Zimra except for the very limited exceptions'},
+          {id:'dav-sh03', q:'What is Barchu?',                             a:'The call to prayer — the chazzan calls "Barchu et Hashem hamevorach" and the congregation responds "Baruch Hashem hamevorach l\'olam va\'ed"', note:'Requires a minyan · Marks the transition from Pesukei d\'Zimra to the formal prayer service · Recited again at the beginning of Maariv'},
+          {id:'dav-sh04', q:'What are the Brachot of Krias Shema?',        a:'Two blessings before Shema and one after (morning) · Two before and two after (evening) · They frame the Shema as the central declaration of faith', note:'Morning: Yotzer Or (God creates light) · Ahavah Rabbah (God\'s love and Torah) · Emet V\'Yatziv (truth and redemption — the Geulah bracha) · It is important to connect the Geulah bracha directly to the Amidah without interruption'},
+          {id:'dav-sh05', q:'What is Tachanun?',                           a:'Supplication prayers recited after the Amidah on weekdays — falling on the arm (nefilat apayim) and confessing sins', note:'Not recited on: Shabbos · Yom Tov and their eves · Rosh Chodesh · Chanukah · Purim · during a period when a chasan is present in shul · when there is a bris milah · during Nissan · other joyful occasions'},
+          {id:'dav-sh06', q:'What is Hallel?',                             a:'Psalms 113-118 — recited as praise on Yom Tov, Chanukah, and Rosh Chodesh · "Full Hallel" vs. "Half Hallel" depending on the occasion', note:'Full Hallel: Sukkot (all 7 days) · Shemini Atzeret · Pesach (first night/day) · Shavuot · Chanukah · Rosh Hashanah/Yom Kippur: no Hallel (a day of judgment) · Half Hallel: Rosh Chodesh · last 6 days of Pesach · Reason for half: Egyptians drowned — "My creations are drowning and you sing songs?" (Megilah 10b)'},
+          {id:'dav-sh07', q:'What is the Torah reading service?',           a:'Torah is read publicly on Monday, Thursday, Shabbos, Yom Tov, Rosh Chodesh, and fast days · Each parsha is divided into aliyot', note:'Established by Moshe/Ezra · Weekday: 3 aliyot · Shabbos morning: 7 aliyot + maftir · Maftir reads the Haftarah from Nevi\'im · The person called up recites brachot before and after the reading · The Sefer Torah is taken from the Aron and returned with ceremony (Hagbah and Gelilah)'},
+        ]
+      },
+      {
+        id: 'dav-key-prayers',
+        name: 'Key Prayers to Know',
+        emoji: '📜',
+        desc: 'The most important individual prayers — Shema, Ashrei, Aleinu, Kaddish, and more',
+        cards: [
+          {id:'dav-kp01', q:'Shema Yisrael',                              a:'שְׁמַע יִשְׂרָאֵל ה\' אֱלֹקֵינוּ ה\' אֶחָד · Hear O Israel — the Lord is our God, the Lord is One', note:'The central declaration of Jewish faith · Three paragraphs: V\'Ahavta (Devarim 6:4-9) · V\'Haya Im Shamoa (Devarim 11:13-21) · Vayomer (Bamidbar 15:37-41) · Must be said with intention · The word "Echad" extended: dwell on the "One" — God is King over the heavens, earth, and four directions'},
+          {id:'dav-kp02', q:'Ashrei',                                     a:'Psalm 145 — an alphabetical acrostic praising God · "Happy are those who dwell in Your house" · Recited three times daily', note:'"Whoever recites Ashrei three times daily is guaranteed a portion in the World to Come" (Berachos 4b) · The letter Nun is skipped (associated with "nefilah" — falling, as in Amos 5:2) · Immediately followed by Yehalelu and the return of the Torah on Shabbos/Yom Tov'},
+          {id:'dav-kp03', q:'Aleinu',                                     a:'A two-paragraph prayer declaring God\'s kingship — first acknowledging Israel\'s unique role, then praying for universal recognition of God', note:'Originally recited only on Rosh Hashanah (part of Malchiyot) · Later moved to the end of every service · Composed by Yehoshua (tradition) or the Men of the Great Assembly · "L\'taken olam b\'malchut Shaddai" — to perfect the world under God\'s sovereignty'},
+          {id:'dav-kp04', q:'Kaddish',                                    a:'An Aramaic doxology praising God\'s greatness — recited at transitions in the service and by mourners · Requires a minyan', note:'Five types: Kaddish Yatom (mourner\'s) · Kaddish d\'Rabbanan (after Torah study) · Chatzi Kaddish (half — between sections) · Kaddish Shalem (full — after Amidah repetition) · Kaddish l\'Eitusa (at burial) · The congregation\'s response — "Yehei Shemei Rabbah mevarach" — is the key element'},
+          {id:'dav-kp05', q:'Kedushah',                                   a:'The sanctification of God\'s name — recited responsively during the Amidah repetition · Three verses: Kadosh, Baruch, Yimloch', note:'"Kadosh Kadosh Kadosh" (Yeshayahu 6:3) · "Baruch kevod Hashem mimkomo" (Yechezkel 3:12) · "Yimloch Hashem l\'olam" (Tehillim 146:10) · Requires a minyan · Stand with feet together, rise on toes at each "Kadosh" · Do not speak during Kedushah'},
+          {id:'dav-kp06', q:'Modim (Hoda\'ah)',                           a:'The 18th bracha of the Amidah — thanksgiving · The congregation recites Modim d\'Rabbanan quietly while the chazzan leads', note:'"We thank You for our lives entrusted to Your hand, for our souls in Your care, for Your miracles every day" · Al Hanisim is inserted here on Chanukah and Purim · Bow from the waist at "Modim" and straighten at "Hashem"'},
+          {id:'dav-kp07', q:'Nishmat Kol Chai',                           a:'A poetic prayer of praise recited at the end of Pesukei d\'Zimra on Shabbos/Yom Tov and at the Pesach seder', note:'"The soul of every living thing shall bless Your name" · Ends with Yishtabach-like praise · One of the most beautiful and expansive prayers in the siddur · Tradition: composed by Shlomo HaMelech or by the Anshei Knesses HaGedolah'},
+          {id:'dav-kp08', q:'Avinu Malkeinu',                             a:'Our Father, Our King — a list of petitions recited on Rosh Hashanah, Yom Kippur, and fast days', note:'Composed by Rabbi Akiva (Taanit 25b) after his prayer ended a drought · 44 verses in common nusach · Final verse sung to a beloved melody: "Avinu Malkeinu, choneinu va\'aneinu ki ein banu maasim" — be gracious to us for we have no deeds to our credit · Not recited on Shabbos (we don\'t petition on Shabbos)'},
+        ]
+      },
+    ]
+  },
+
 ];
 
 // ═══════════════════════════════════════════════════════════
@@ -3555,7 +3820,7 @@ const CATEGORIES = [
   { name: 'Tanach',             ids: ['chumash-overview', 'bereishis', 'shemos', 'vayikra', 'bamidbar', 'devarim', 'nach-intro', 'neviim', 'ketuvim'] },
   { name: 'Oral Torah',         ids: ['rabbinic-eras', 'tannaim', 'amoraim', 'mishnah', 'talmud-study'] },
   { name: 'Halacha',            ids: ['halacha-basics', 'taryag', 'everyday-halacha', 'poskim', 'halacha-books'] },
-  { name: 'Jewish Life',        ids: ['hebrew', 'holidays', 'values', 'prayer', 'zmanim'] },
+  { name: 'Jewish Life',        ids: ['hebrew', 'holidays', 'values', 'prayer', 'zmanim', 'shabbos', 'davening', 'beis-hamikdash'] },
 ];
 
 // ═══════════════════════════════════════════════════════════
