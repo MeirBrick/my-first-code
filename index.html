@@ -2651,6 +2651,193 @@ const DECKS = [
     ]
   },
 
+  // ── Halacha Basics ───────────────────────────────────────
+  {
+    id: 'halacha-basics',
+    name: 'Foundations of Halacha',
+    emoji: '🏗️',
+    desc: 'What halacha is, where it comes from, and how its layers work',
+    guide: [
+      {h:'The Architecture of Halacha', b:[
+        'Halacha flows from multiple sources, each with its own authority and its own rules for doubt and stringency',
+        'The layers — D\'Oraisa, D\'Rabanan, and Minhag — are not equally binding, but all are part of Torah life',
+        'Understanding the difference shapes how you ask a question, how a posek rules, and how halacha evolves across generations',
+      ]},
+    ],
+    sections: [
+
+      // ── What Is Halacha ──────────────────────────────────
+      {
+        id: 'halacha-basics-what',
+        name: 'What Is Halacha?',
+        emoji: '📖',
+        desc: 'The nature, sources, and development of Jewish law',
+        guide: [
+          {h:'Walking the Path', b:[
+            '"Halacha" derives from הָלַךְ — to walk · It is the path of Jewish law, the practical way to live a Torah life',
+            'Halacha is not a rigid static code but a living system — it interprets eternal Torah principles and applies them to every era and situation',
+            'The Talmud is not a law code; it records debate, minority opinions, and multiple views side by side · Codification came later through works like the Mishneh Torah and Shulchan Aruch',
+            'Three layers of halachic authority: (1) D\'Oraisa — directly from the Torah · (2) D\'Rabanan — Rabbinic enactments · (3) Minhag — custom',
+            'A posek (halachic decisor) draws on all three layers, along with the principles of the Oral Torah, responsa literature, and precedent',
+          ]},
+          {h:'The Chain of Transmission', b:[
+            'Moshe received the Torah — Written and Oral — at Har Sinai and transmitted it to Yehoshua → Elders → Prophets → Men of the Great Assembly (Anshei Knesses HaGedolah)',
+            'The Sanhedrin (71-judge Supreme Court) had the authority to enact rabbinic law with full binding force for all of Israel',
+            'After the Sanhedrin ceased to function (~358 CE), rulings became authoritative through consensus of the Jewish people over time ("minhag Yisrael Torah hi")',
+            'Today: there is no Sanhedrin, but poskim of each generation rule on new questions · The more widely a ruling is accepted, the stronger its authority',
+          ]},
+        ],
+        cards: [
+          {id:'hb-w01', q:'What does "halacha" mean?',           a:'"The path/way of walking" — the practical legal path of Jewish life', note:'From הָלַךְ (to walk) · Covers everything from prayer, food, business, family life, speech, and dress · Not just "what is permitted" but "how to live with Hashem" · The word implies an ongoing journey, not a destination'},
+          {id:'hb-w02', q:'What is the Written Torah (Torah Shebichtav)?', a:'The Five Books of Moshe — directly dictated by Hashem and written by Moshe word for word', note:'Every letter of the Torah is divine (Rambam\'s 8th Principle of Faith) · Source of all D\'Oraisa obligations · Also: the Prophets and Writings are part of Tanach but have different levels of divine inspiration · The Torah itself says "you shall not add or subtract" (Devarim 4:2)'},
+          {id:'hb-w03', q:'What is the Oral Torah (Torah Sheba\'al Peh)?', a:'The interpretive tradition given to Moshe alongside the Written Torah — transmitted orally for generations', note:'"The Torah cannot be understood without the Oral Torah" — the Written Torah says "slaughter as I have commanded you" (Devarim 12:21) but never specifies the method; those details are in the Oral Torah · Written down as the Mishnah (~220 CE) to prevent it from being forgotten · The Gemara is commentary on the Mishnah'},
+          {id:'hb-w04', q:'What is a posek?',                    a:'A qualified halachic decisor who rules on questions of Jewish law',note:'From פָּסַק — to rule/cut off (reaching a conclusion) · A posek must master Talmud, Rishonim, Acharonim, and responsa literature · "Asking your rav" is itself a halachic obligation — psak halacha requires expertise · Different communities have their own poskim; widely accepted poskim can influence halacha globally'},
+          {id:'hb-w05', q:'What is the Sanhedrin?',              a:'The supreme Jewish court of 71 judges — the final halachic and judicial authority in Temple times', note:'Met in the Lishkas HaGazis (Chamber of Hewn Stone) in the Temple complex · Had authority to enact binding rabbinic law for all of Israel · Ceased to function ~358 CE when Roman persecution made formal ordination (semichah) impossible · Its re-establishment is linked to the Messianic era'},
+          {id:'hb-w06', q:'What is the difference between "l\'chatchilah" and "b\'dieved"?', a:'L\'chatchilah = ideally, before the act · B\'dieved = after the fact, if already done', note:'Many halachos have a higher ideal standard (l\'chatchilah) and a more permissive ruling for after the fact (b\'dieved) · Example: one should ideally daven Shacharis by sunrise (l\'chatchilah); after the fact, until end of 4th halachic hour (b\'dieved) · A posek determines whether a situation is b\'dieved and what its ruling is'},
+          {id:'hb-w07', q:'What is "safek" in halacha?',        a:'Halachic doubt — uncertainty about whether a law applies or has been fulfilled', note:'Key rule: safek D\'Oraisa l\'chumra — doubt in a Torah law → rule strictly · Safek D\'Rabanan l\'kula — doubt in a Rabbinic law → rule leniently · This asymmetry reflects the different levels of authority · "When in doubt, throw it out" only applies to D\'Oraisa doubt; for D\'Rabanan doubt, the default is leniency'},
+        ]
+      },
+
+      // ── D'Oraisa ─────────────────────────────────────────
+      {
+        id: 'halacha-basics-doraisa',
+        name: "דְּאוֹרַיְיתָא — D'Oraisa",
+        emoji: '📜',
+        desc: 'Laws directly from the Torah — the highest level of halachic authority',
+        guide: [
+          {h:"What Is D'Oraisa?", b:[
+            '"D\'Oraisa" (Aramaic: מִן אוֹרַיְיתָא) = from the Torah · A law is D\'Oraisa if it is derived directly from a verse in the Torah',
+            'D\'Oraisa laws have the highest level of authority — violating them is the most serious category of transgression',
+            'There are 613 D\'Oraisa mitzvos: 248 positive (aseh) and 365 negative (lo taaseh)',
+            'The four methods of Torah derivation (as formulated by the Talmud): כְּתִיב (written explicitly) · מִדְרָשׁ (derived by one of the 13 hermeneutical principles) · הֲלָכָה לְמשֶׁה מִסִּינַי (oral tradition from Sinai without a verse) · סְבָרָא (logical necessity, as obvious as reading itself)',
+          ]},
+          {h:"Rules of D'Oraisa Doubt", b:[
+            'When in doubt whether a D\'Oraisa law has been violated: rule strictly (l\'chumra)',
+            '"Safek D\'Oraisa l\'chumra" — a doubtful situation is treated as if the prohibition was violated',
+            'Example: if you are unsure whether you said Shema this morning → say it again (even though you might be saying a bracha l\'vatalah) because the doubt of a D\'Oraisa obligation is treated strictly',
+            'Exception: where reciting again would cause a definite problem (e.g., definite bracha l\'vatalah), the calculation becomes more complex — ask a posek',
+          ]},
+        ],
+        cards: [
+          {id:'hb-d01', q:'What is a D\'Oraisa law?',            a:'A law derived directly from the Torah — the highest level of halachic authority', note:'Also spelled "D\'Oraisa," "D\'Orayta" · Three subtypes: (1) explicit verse; (2) derived by one of the 13 principles of Rabbi Yishmael; (3) halacha l\'Moshe miSinai (oral tradition from Sinai) · 613 such mitzvos'},
+          {id:'hb-d02', q:'What is a מִצְוַת עֲשֵׂה — mitzvas aseh?', a:'A positive commandment — "do this" · One of the 248 positive D\'Oraisa mitzvos', note:'248 = the number of limbs in the human body · "The 248 positive mitzvos correspond to the 248 limbs; each limb says to you: please do this mitzvah" (Tanchuma) · Examples: hear the shofar, dwell in the sukkah, give tzedakah, honor your parents · Violation: less severe than a prohibition'},
+          {id:'hb-d03', q:'What is a מִצְוַת לֹא תַעֲשֶׂה — mitzvas lo taaseh?', a:'A negative commandment — "do not do this" · One of the 365 prohibitions', note:'365 = number of days in the solar year · "Every day the sun rises and says to you: do not do this sin" (Tanchuma) · Examples: do not eat chametz on Pesach, do not eat non-kosher animals, do not bear false witness · Deliberate violation is more serious than violating a positive mitzvah · Karet and malkus (lashes) apply to certain prohibitions'},
+          {id:'hb-d04', q:'What is "halacha l\'Moshe miSinai"?',   a:'An oral law tradition given to Moshe at Sinai — not derived from a verse but accepted as fully authoritative', note:'Examples: the exact dimensions of a mikveh (40 seah), the meaning of "beautiful fruit" for lulav/esrog, the shape of the letter shin on tefillin · These have no Biblical source but are treated as D\'Oraisa because they came from Sinai · The Rambam lists them separately from other Torah laws'},
+          {id:'hb-d05', q:'What is "safek D\'Oraisa l\'chumra"?',   a:'In cases of D\'Oraisa doubt: rule strictly', note:'"When in doubt about a Torah law — be strict" · If unsure whether pork entered the food: treat it as non-kosher · If unsure whether you said Shema: say it again · The D\'Oraisa risk outweighs the minor inconvenience of extra stringency · Contrast: safek D\'Rabanan l\'kula — doubt in Rabbinic law → rule leniently'},
+          {id:'hb-d06', q:'What is "seyag laTorah"?',              a:'"A fence around the Torah" — extra precautions to prevent accidentally violating D\'Oraisa laws', note:'Pirkei Avos 1:1: "Make a fence around the Torah" · Many Rabbinic laws exist as fences · Example: Rabbinic prohibition on even owning chametz (bitul and mechiras chametz) to protect the D\'Oraisa prohibition against eating it · The fence is D\'Rabanan; the Torah law it protects is D\'Oraisa'},
+        ]
+      },
+
+      // ── D'Rabanan ────────────────────────────────────────
+      {
+        id: 'halacha-basics-drabanan',
+        name: "דְּרַבָּנָן — D'Rabanan",
+        emoji: '🏛️',
+        desc: 'Rabbinic enactments — binding laws added by the Sages',
+        guide: [
+          {h:"What Is D'Rabanan?", b:[
+            '"D\'Rabanan" (Aramaic: מִן רַבָּנָן) = from the Rabbis · Laws enacted by the Sages with the authority granted to them by the Torah itself',
+            '"You shall not deviate from what they tell you, right or left" (Devarim 17:11) — the Torah commands us to follow the rulings of the Sages',
+            'Two main categories of D\'Rabanan law: (1) גְּזֵירָה (gezeirah) — a precautionary decree to prevent a Torah violation · (2) תַּקָּנָה (takanah) — a positive enactment instituting a practice',
+            'D\'Rabanan laws are fully binding — one who violates them deliberately transgresses a Torah prohibition ("lo tasur")',
+            'However, in cases of doubt: safek D\'Rabanan l\'kula — doubt in a Rabbinic law → be lenient (since the Sages themselves did not extend their authority to doubtful cases)',
+          ]},
+          {h:'Why Did the Rabbis Add to the Torah?', b:[
+            'To protect Torah law from accidental violation (gezeiros/fences): "If we do not add a protective layer, people will accidentally cross the real line"',
+            'To adapt Torah principles to changing conditions (takanos): Hillel\'s Pruzbul adapted the Torah\'s shemitas kesafim (loan release) for a changed economy; Ezra instituted public Torah reading',
+            'To preserve practices that originated in Sinai but were not formally written (minhag kadmon)',
+            '"The words of the Soferim are more beloved than the words of the Torah" (Yerushalmi Sanhedrin 11:4) — Rabbinic law is adhered to with great care precisely because its boundaries are less explicit',
+          ]},
+        ],
+        cards: [
+          {id:'hb-r01', q:'What is a D\'Rabanan law?',            a:'A law enacted by the Rabbis — binding, but derived from Rabbinic rather than Biblical authority', note:'"Lo tasur" (Devarim 17:11) — "Do not deviate" from the rulings of the Sages — gives D\'Rabanan laws their binding force at a Torah level · D\'Rabanan laws are fully obligatory · The Sages were careful not to create too many decrees (gezeiros lo gezru); each D\'Rabanan law has a reason'},
+          {id:'hb-r02', q:'What is a gezeirah?',                  a:'A Rabbinic precautionary decree designed to prevent violation of a D\'Oraisa law', note:'A fence around the fence · Example: writing is forbidden on Shabbos (D\'Oraisa) → the Sages added: reading business documents on Shabbos is forbidden (D\'Rabanan gezeirah) lest you come to write · The Sages required significant justification to make a gezeirah — "lo gezru ela al davar heshakul b\'rovo" (only enact what most people can handle)'},
+          {id:'hb-r03', q:'What is a takanah?',                   a:'A positive Rabbinic enactment instituting a new practice — not a fence, but a new obligation', note:'Examples: Ezra\'s takanah of reading the Torah on Mondays, Thursdays, and Shabbos afternoon · Hillel\'s Pruzbul (allowing collection of loans after shemitah) · Rabbenu Gershom\'s takanah against polygamy (for Ashkenazim, ~1000 CE) · Reading Megillas Esther on Purim · Lighting Chanukah candles'},
+          {id:'hb-r04', q:'What is "safek D\'Rabanan l\'kula"?',   a:'In cases of doubt about a Rabbinic law: rule leniently', note:'The Sages did not extend their authority to doubtful cases · If uncertain whether you made Havdalah: l\'kula (lenient) — you do not need to repeat it · Contrast: safek D\'Oraisa l\'chumra · This is why knowing the status of a law (D\'Oraisa vs. D\'Rabanan) matters practically in everyday life'},
+          {id:'hb-r05', q:'What is "lo plug"?',                   a:'The principle that a Rabbinic decree applies uniformly — even in cases where its reason doesn\'t apply', note:'"The Rabbis did not differentiate within their decree" · Example: Rabbinic law prohibits handling muktzah on Shabbos even for someone who would never violate Shabbos · The decree was applied uniformly to avoid distinctions that would confuse people · A key tool in halachic reasoning when a case seems like an exception'},
+          {id:'hb-r06', q:'What is "divrei sofrim"?',             a:'"Words of the Scribes" — another term for Rabbinic law, often used for the earliest layer of Rabbinic tradition', note:'Sometimes overlapping with "D\'Rabanan," sometimes referring specifically to laws whose Rabbinic status is itself debated · Some acharonim distinguish: divrei sofrim = a tradition of Sinai origin transmitted by the Sages (quasi-D\'Oraisa status) vs. pure Rabbinic enactment'},
+          {id:'hb-r07', q:'Give three examples of D\'Rabanan mitzvos we do every day', a:'Lighting Shabbos/Yom Tov candles · Washing hands before bread · Reading Megillas Esther', note:'Also: Chanukah candles · Hallel on holidays · Eruv · The entire structure of the siddur · Many of the brachos formulas · Muktzah laws · Second day of Yom Tov outside of Israel · All are Rabbinic but fully obligatory'},
+        ]
+      },
+
+      // ── Minhag ───────────────────────────────────────────
+      {
+        id: 'halacha-basics-minhag',
+        name: 'מִנְהָג — Minhag',
+        emoji: '🕍',
+        desc: 'Custom — the third layer of Jewish practice',
+        guide: [
+          {h:'What Is Minhag?', b:[
+            '"Minhag" = custom · Practices that arose through communal or individual adoption rather than formal Rabbinic decree, but became binding through consistent observance',
+            'Halacha recognizes minhag as a genuine third tier of Jewish law: "Minhag Yisrael Torah hi" — the custom of Israel is itself Torah (Talmud Yerushalmi)',
+            'Different Jewish communities developed different minhagim based on their locale, their great rabbis, and their history — Ashkenaz, Sephardim, Yemenites, Chassidim all have distinct customs',
+            'Minhag can sometimes override D\'Rabanan law, and in rare situations even affect how D\'Oraisa law is applied',
+          ]},
+          {h:'Types of Minhag', b:[
+            'מִנְהַג הַמָּקוֹם (Minhag HaMakom): the custom of a specific locale · "When you come to a place, follow its custom" (Pesachim 50a)',
+            'מִנְהַג אָבוֹת (Minhag Avos): ancestral custom passed down in a family · "Do not abandon your mother\'s Torah" (Mishlei 1:8)',
+            'מִנְהַג יִשְׂרָאֵל (Minhag Yisrael): a universal Jewish custom, accepted by all communities — has near-D\'Rabanan authority',
+            'Chumra (stringency): a personal or communal practice of being stricter than the baseline halacha requires · Valid and praiseworthy, but must not be treated as obligatory upon others',
+            'Minhag to break (minhag taus): a custom based on a mistake in halacha — can and should be abandoned',
+          ]},
+        ],
+        cards: [
+          {id:'hb-m01', q:'What is a minhag?',                    a:'Custom — a practice that became binding through consistent communal observance', note:'"Minhag Yisrael Torah hi" — the custom of Israel is itself Torah (Yerushalmi) · Minhag fills gaps where halacha does not specify, and sometimes preserves traditions older than any written source · A firm minhag can have near-D\'Rabanan authority'},
+          {id:'hb-m02', q:'What is "minhag avos"?',              a:'The ancestral custom of one\'s family — which one is obligated to continue', note:'"Do not abandon your mother\'s Torah" (Mishlei 1:8) · Even if you move to a new community with different minhagim, your family\'s customs remain binding unless you formally adopt the new community\'s customs · A rav should be consulted when minhagim conflict or when switching communities'},
+          {id:'hb-m03', q:'What is "minhag hamakom"?',           a:'The custom of the place — when in a new location, follow the local custom', note:'Pesachim 50a: Hillel and Shammai schools of thought differed on this · When someone visits a stricter community: must follow their stringencies publicly · When returning home: may return to own custom · Applied famously: Ashkenazim abroad on Yom Tov observe two days even if their community is Israeli'},
+          {id:'hb-m04', q:'What is the difference between Ashkenaz and Sephardic minhag?', a:'Different halachic traditions developed in northern Europe (Ashkenaz) vs. Spain/Middle East (Sephardim)', note:'Ashkenaz: follows the Rema\'s rulings on the Shulchan Aruch · Sephardim: follow Rabbi Yosef Karo\'s Shulchan Aruch · Examples: Ashkenazim don\'t eat kitniyos on Pesach; Sephardim do · Ashkenazim wait 6 hours between meat and milk; some Sephardim wait less · Both are fully valid Torah practice'},
+          {id:'hb-m05', q:'What is a "chumra"?',                 a:'A stringency — a practice that goes beyond the basic halachic requirement', note:'From חוּמְרָא (severity) · Examples: waiting 6 hours after meat when 3 would suffice; using only chalak (glatt) meat when treif inspection already passed; wearing two pairs of tefillin · A valid and praiseworthy personal practice · Important: a chumra that imposes on others, leads to arrogance, or creates a prohibited situation can be wrong'},
+          {id:'hb-m06', q:'What is a "kula"?',                   a:'A leniency — relying on a more permissive halachic opinion', note:'From קוּלָא (lightness) · Not inherently negative — poskim often rule leniently where warranted · "The Torah was not given to angels" (Brachos 25b) — halacha accounts for human limitation · Problem: "stacking kulahs" — combining multiple lenient opinions that no single posek would permit together (this is called "kula k\'vula") · A kula should come from a qualified posek, not personal preference'},
+          {id:'hb-m07', q:'What is "minhag taus" and can it be abandoned?', a:'A mistaken custom — one based on a halachic error — which should be abandoned', note:'"Minhag taus ein morin kein" — you may not teach based on a mistaken custom · If a community practiced something that later proved halachically incorrect, a posek can rule it must stop · Distinct from a valid minhag that differs from your home community\'s practice — that must be respected even if the reason is unknown'},
+        ]
+      },
+    ]
+  },
+
+  // ── Major Poskim ─────────────────────────────────────────
+  {
+    id: 'poskim',
+    name: 'Major Poskim',
+    emoji: '👨‍⚖️',
+    desc: 'The great halachic decisors from the Rishonim to the contemporary era',
+    guide: [
+      {h:'Rishonim — The Early Authorities (1000–1500 CE)', b:[
+        '"Rishonim" = first ones · The great Talmudic scholars from the Geonic period through the generation just before the Shulchan Aruch',
+        'Their rulings are treated with near-Talmudic authority — an Acharon (later authority) generally cannot dispute a Rishon directly',
+        'Key Rishonim who shaped halacha: Rif, Rambam, Ramban, Rashba, Rosh, Tur',
+        'The Rif, Rambam, and Rosh are the "three pillars" that Rabbi Yosef Karo used as his primary sources when writing the Shulchan Aruch',
+      ]},
+      {h:'Acharonim — The Later Authorities (1500–present)', b:[
+        '"Acharonim" = later ones · Poskim from the generation of the Shulchan Aruch onward',
+        'An Acharon generally rules within the framework established by the Rishonim and the Shulchan Aruch/Rema',
+        'The Shulchan Aruch and its major commentaries (Magen Avraham, Taz, Mishnah Berurah, etc.) form the core of daily psak today',
+        'Contemporary poskim (20th–21st century) address entirely new situations — modern technology, medicine, business — that no earlier posek could have anticipated',
+      ]},
+    ],
+    cards: [
+      // ── Rishonim ──
+      {id:'pk01', q:'Rif — Rabbi Yitzchak Alfasi',       a:'1013–1103 · Morocco → Spain · Author of the Hilchos HaRif',   note:'"Rif" = initials of Rabbi Yitzchak Fasi (from Fez) · His work is essentially the Talmud condensed to practical rulings only · One of the three primary authorities used by Rabbi Yosef Karo for the Shulchan Aruch · "The Rif is the halacha" — in most cases where Rif rules, the law follows him'},
+      {id:'pk02', q:'Rambam — Rabbi Moshe ben Maimon (Maimonides)', a:'1138–1204 · Spain → Egypt · Author of the Mishneh Torah and more', note:'The greatest Jewish philosopher and halachist of the medieval era · Mishneh Torah: 14-book code covering all of halacha · Moreh Nevuchim (Guide for the Perplexed): philosophy · Sefer HaMitzvos: enumeration of the 613 mitzvos · "From Moshe to Moshe, there arose none like Moshe" · One of Karo\'s three primary Shulchan Aruch sources'},
+      {id:'pk03', q:'Ramban — Rabbi Moshe ben Nachman (Nachmanides)', a:'1194–1270 · Gerona, Spain → Acre, Israel · Major Rishon and Kabbalist', note:'Greatest Spanish Talmudist and a leader of Kabbalistic tradition · Wrote extensive critiques of Rambam\'s Sefer HaMitzvos · Famous debates with Christians (Barcelona Disputation, 1263) · His Torah commentary is among the most profound · Moved to Eretz Yisrael in his final years'},
+      {id:'pk04', q:'Rashba — Rabbi Shlomo ben Aderes',   a:'1235–1310 · Barcelona · Thousands of responsa spanning Jewish law', note:'"Rashba" = initials · Student of the Ramban · His responsa (she\'eilos u\'teshuvos) address nearly every area of halacha and are still widely cited · Teacher of the Ritva and Ran · A pillar of Sephardic halachic tradition'},
+      {id:'pk05', q:'Rosh — Rabbeinu Asher ben Yechiel',  a:'~1250–1327 · Germany → Toledo, Spain · Halachic compendium on the Talmud', note:'"Rosh" = initials · Fled Germany; became chief rabbi of Toledo · His legal compendium (Piskei HaRosh) summarizes halachic conclusions at the end of each Talmudic chapter · One of Karo\'s three primary Shulchan Aruch sources · Father of Rabbi Yaakov ben Asher (the Tur)'},
+      {id:'pk06', q:'Tur — Rabbi Yaakov ben Asher (Ba\'al HaTurim)', a:'1269–1343 · Toledo · Author of the Arba\'ah Turim', note:'"Tur" = short for "Turim" · Son of the Rosh · Organized all of halacha into four sections (Orach Chaim, Yoreh Deah, Even HaEzer, Choshen Mishpat) — the structure adopted by the Shulchan Aruch · Also wrote gematria commentary on the Torah (Ba\'al HaTurim)'},
+      // ── Acharonim ──
+      {id:'pk07', q:'Maran — Rabbi Yosef Karo',           a:'1488–1575 · Ottoman Empire (Tzfas) · Author of the Shulchan Aruch and Beit Yosef', note:'"Maran" = our master · Born in Spain before the Expulsion (1492) · The Beit Yosef is a comprehensive commentary on the Tur; the Shulchan Aruch (1563) is the condensed code derived from it · Based on three pillars: Rif, Rambam, Rosh · The definitive Sephardic halachic authority'},
+      {id:'pk08', q:'Rema — Rabbi Moshe Isserles',        a:'1530–1572 · Krakow, Poland · Author of the Mapa (Ashkenazic glosses on the Shulchan Aruch)', note:'"Rema" = initials · "Mapa" = tablecloth laid on the Shulchan Aruch (set table) · His notes appear directly in the text of the Shulchan Aruch wherever Ashkenazic practice differs from Karo\'s Sephardic ruling · The Rema is to Ashkenazim what Rabbi Karo is to Sephardim'},
+      {id:'pk09', q:'Taz — Rabbi David HaLevi Segal',     a:'1586–1667 · Poland · Turei Zahav — major commentary on Shulchan Aruch', note:'"Taz" = initials of Turei Zahav (Golden Rows) · Commentary on all four sections of the Shulchan Aruch · Known for sharp analysis and frequent disagreement with the Magen Avraham · Still cited in every contemporary halachic discussion'},
+      {id:'pk10', q:'Magen Avraham — Rabbi Avraham Gombiner', a:'1637–1683 · Poland · Major commentary on Orach Chaim',   note:'"Magen Avraham" = Shield of Avraham · The most widely cited Acharon on Orach Chaim · Known for tremendous breadth and bringing previously unstudied sources into the mainstream · The Mishnah Berurah heavily cites and evaluates the Magen Avraham\'s positions'},
+      {id:'pk11', q:'Vilna Gaon — Rabbi Eliyahu of Vilna (GRA)', a:'1720–1797 · Vilna · The greatest Torah scholar of the modern era', note:'"GRA" = Gaon Rabbi Eliyahu · Did not write a single halachic code but his glosses and opinions are treated with extraordinary authority · Founded the tradition of "going back to sources" rather than relying solely on later codes · His student Rabbi Chaim of Volozhin founded the Volozhiner Yeshiva'},
+      {id:'pk12', q:'Chofetz Chaim — Rabbi Yisrael Meir Kagan', a:'1839–1933 · Radin, Poland · Author of Mishnah Berurah and Chofetz Chaim', note:'The most widely followed contemporary guide for Ashkenazic daily halacha · Mishnah Berurah: 6-volume commentary on Orach Chaim · Chofetz Chaim: codified the laws of speech (lashon hara) · Known for extraordinary personal piety · "The Chofetz Chaim" is named for his first work on the laws of speech'},
+      {id:'pk13', q:'Aruch HaShulchan — Rabbi Yechiel Michel Epstein', a:'1829–1908 · Navarodok · Comprehensive halachic code parallel to the Shulchan Aruch', note:'Covers all four sections of Shulchan Aruch with historical and halachic analysis · Cites how the law was actually practiced in his time, not just ideally · A major counterpart to the Mishnah Berurah — both are cited constantly, sometimes agreeing, sometimes differing'},
+      {id:'pk14', q:'Ben Ish Chai — Rabbi Yosef Chaim of Baghdad', a:'1835–1909 · Baghdad · The dominant Sephardic posek of the modern era', note:'"Ben Ish Chai" = named for his most famous halachic work · Also a major Kabbalist · His rulings form the basis of Iraqi Jewish practice and are widely followed by Sephardim worldwide · Also authored Od Yosef Chai (responsa) and Ben Yehoyada (Talmudic commentary)'},
+      {id:'pk15', q:'Chazon Ish — Rabbi Avraham Yeshayahu Karelitz', a:'1878–1953 · Belarus → Bnei Brak · Landmark rulings on halacha and Jewish agriculture in Israel', note:'"Chazon Ish" = named for his major work · Refused any official rabbinic position but became the de facto halachic authority for the Charedi world in Israel · Known for rulings on shemitah (sabbatical year), basar b\'chalav, and modern medicine · His meeting with Ben-Gurion shaped Israeli policy on religious exemptions'},
+      {id:'pk16', q:'Rav Moshe Feinstein',                a:'1895–1986 · Russia → New York · Igros Moshe — 8 volumes of responsa', note:'The preeminent Ashkenazic posek in America in the 20th century · Addressed halachic questions specific to American life: artificial insemination, medical ethics, synagogue design, business law · "Reb Moshe" was revered across all communities · Known for both his breadth of leniency (where warranted) and his principled stringencies'},
+      {id:'pk17', q:'Rav Ovadia Yosef',                   a:'1920–2013 · Israel · Yechave Daas, Yabi\'a Omer — revived Sephardic halachic identity', note:'Chief Sephardic Rabbi of Israel · His primary mission: return Sephardic Jews to following the rulings of Rabbi Yosef Karo rather than Ashkenazic customs · Known for both groundbreaking leniencies and strict rulings · Founded the Shas political party · Considered the greatest Sephardic posek of the 20th–21st century'},
+      {id:'pk18', q:'Rav Shlomo Zalman Auerbach',         a:'1910–1995 · Jerusalem · Minhas Shlomo — halacha and modern technology', note:'The leading Israeli Ashkenazic posek of the late 20th century · Specialized in new technologies: electricity on Shabbos, medical ethics, hearing aids · Known for warmth, precision, and rulings accessible to every Jew · "Ask Rav Shlomo Zalman" was the standard phrase in the Jerusalem religious world'},
+    ]
+  },
+
   // ── Original General Decks (kept as a starting point) ─────
   {
     id: 'hebrew',
@@ -2869,8 +3056,8 @@ const CATEGORIES = [
   { name: 'The Jewish Year',    ids: ['months', 'hol-doraisa', 'hol-drabonon', 'fasts', 'cal-periods', 'israel-days'] },
   { name: 'Rabbinic History',   ids: ['rabbinic-eras', 'tannaim', 'amoraim'] },
   { name: 'Torah/Chumash',      ids: ['chumash-overview', 'bereishis', 'shemos', 'vayikra', 'bamidbar', 'devarim'] },
-  { name: 'Jewish Texts',       ids: ['nach', 'mishnah', 'talmud-study', 'halacha-books'] },
-  { name: 'Everyday Halacha',   ids: ['everyday-halacha'] },
+  { name: 'Jewish Texts',       ids: ['nach', 'mishnah', 'talmud-study'] },
+  { name: 'Halacha',            ids: ['halacha-basics', 'everyday-halacha', 'poskim', 'halacha-books'] },
   { name: 'Jewish Life',        ids: ['hebrew', 'holidays', 'values', 'prayer', 'zmanim'] },
 ];
 
