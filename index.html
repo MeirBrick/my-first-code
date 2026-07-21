@@ -3993,6 +3993,142 @@ const DECKS = [
     ]
   },
 
+  // ── Timeline ─────────────────────────────────────────────
+  {
+    id: 'timeline',
+    name: 'Jewish Timeline',
+    emoji: '🕰️',
+    desc: 'The sweep of Jewish history — from Creation through the messianic era, in order',
+    guide: [
+      {h:'History as Theology', b:[
+        'For Judaism, history is not random — it is a directed story moving toward a purpose · The Exodus, the giving of the Torah, the Temples, the exiles, and the redemption are all chapters in one unfolding narrative',
+        'The Talmud (Avoda Zarah 9a) divides world history into three 2,000-year eras and teaches that the world is created for 6,000 years, followed by an eternal Shabbos (the 7th millennium)',
+        'Every generation fits somewhere on this timeline — and knowing where you stand helps you understand what is expected of you',
+      ]},
+    ],
+    sections: [
+      // ── 2000-Year Cycles ────────────────────────────────
+      {
+        id: 'tl-cycles',
+        name: 'The 2,000-Year Cycles',
+        emoji: '♾️',
+        desc: 'The three eras of world history — Tohu, Torah, and Mashiach — and the world\'s Shabbos',
+        guide: [
+          {h:'Avoda Zarah 9a', b:[
+            '"The world will exist for six thousand years: two thousand of Tohu (desolation/void), two thousand of Torah, and two thousand of the era of Mashiach"',
+            '"And because of our many sins, so many of those years have passed [without Mashiach coming]"',
+            'The seventh millennium is the cosmic Shabbos — a time beyond ordinary history, entirely holy · "A day in the eyes of God is like a thousand years" (Tehillim 90:4)',
+            'The six days of Creation correspond to six thousand years of history · The Shabbos of Creation corresponds to the 7th millennium',
+          ]},
+        ],
+        cards: [
+          {id:'tl-cy01', q:'What are the three 2,000-year eras?',          a:'Tohu (void/desolation) · Torah · Era of Mashiach — each 2,000 years, totaling 6,000 years of history', note:'Avoda Zarah 9a · The world was created to last 6,000 years · The 7th millennium is the cosmic Shabbos — entirely outside ordinary time'},
+          {id:'tl-cy02', q:'Era 1 — 2,000 Years of Tohu\n(Years 1–2000)',  a:'From Creation to Avraham Avinu beginning to spread knowledge of God (~year 1948 or 2000)',          note:'A period of spiritual desolation — the world existed but God\'s presence was not consciously recognized · Ends when Avraham discovers monotheism and begins teaching · Adam · Noach · the Tower of Babel all fall in this era'},
+          {id:'tl-cy03', q:'Era 2 — 2,000 Years of Torah\n(Years 2000–4000)', a:'From Avraham to approximately the era of the Tannaim (~200 CE, year ~4000)',                  note:'The era of Torah: Avraham · the Avos · Moshe · the Torah at Sinai · Yehoshua · the Judges · the Kings · the Prophets · the First Temple · the Second Temple · the Mishnah · Mashiach should have come at the end of this era but did not, due to our sins'},
+          {id:'tl-cy04', q:'Era 3 — 2,000 Years of Mashiach\n(Years 4000–6000)', a:'From ~200 CE to ~2240 CE (year 6000) — the era when Mashiach should come and redeem Israel', note:'"Because of our many sins, so many of those years have passed" (Avoda Zarah 9a) · We are currently in this era · The Vilna Gaon and many others held that the ingathering of exiles and return to Eretz Yisrael are the beginning of the redemption'},
+          {id:'tl-cy05', q:'The 7th Millennium',                            a:'After year 6000 — the cosmic Shabbos · A world entirely beyond ordinary time, entirely holy, entirely devoted to God', note:'"A day in God\'s eyes is like a thousand years" (Tehillim 90:4) · The Talmud: the 7th millennium is "yom shekulo Shabbos" — a day that is entirely Shabbos · Physical existence as we know it ceases; souls bask in the Divine Presence · The ultimate Olam HaBa'},
+          {id:'tl-cy06', q:'What year is it now in the Jewish calendar?',   a:'The year 5785 (as of 2024–2025 CE) — meaning we are approximately 215 years from the year 6000',  note:'The Jewish year counts from Creation (Anno Mundi — AM) · Year 1 = 3761 BCE · The calendar was established by the Sages with a fixed calculation · Some authorities debate the precise timing, but the general framework is universally accepted'},
+        ]
+      },
+      // ── Days of Creation ────────────────────────────────
+      {
+        id: 'tl-creation',
+        name: 'The Days of Creation',
+        emoji: '🌍',
+        desc: 'What God created on each of the six days — and the sanctity of the seventh',
+        orderable: true,
+        orderItems: [
+          'Day 1 — אוֹר · Light · God separated light from darkness · Created day and night',
+          'Day 2 — רָקִיעַ · Sky/Firmament · Separated the upper waters from the lower waters',
+          'Day 3 — יַבָּשָׁה וְצֶמַח · Dry land, seas, and vegetation · Earth produced plants and trees',
+          'Day 4 — מְאוֹרוֹת · Sun, moon, and stars · Set to mark times, days, and years',
+          'Day 5 — דָּגִים וְעוֹפוֹת · Fish and birds · "Be fruitful and multiply"',
+          'Day 6 — חַיּוֹת וְאָדָם · Land animals and humanity · Adam and Chava created; "very good"',
+          'Day 7 — שַׁבָּת · Shabbos · God rested and sanctified the seventh day',
+        ],
+        cards: []
+      },
+      // ── Key Figures in Order ─────────────────────────────
+      {
+        id: 'tl-figures',
+        name: 'Key Figures Through Tanach',
+        emoji: '👥',
+        desc: 'The major people we follow in chronological order from Adam through the close of Tanach',
+        orderable: true,
+        orderItems: [
+          'אָדָם וְחַוָּה — Adam & Chava · First humans · Gan Eden · the first sin',
+          'נֹחַ — Noach · The flood · covenant of the rainbow · 10 generations after Adam',
+          'אַבְרָהָם — Avraham · First of the Avos · covenant of circumcision · Akeidah',
+          'יִצְחָק — Yitzchak · Second Av · Akeidah · blesses Yaakov and Eisav',
+          'יַעֲקֹב — Yaakov · Third Av · 12 sons · wrestles the angel · becomes Yisrael',
+          'יוֹסֵף — Yosef · Sold into Egypt · rises to viceroy · brings family to Egypt',
+          'מֹשֶׁה — Moshe · Exodus from Egypt · Torah at Sinai · 40 years in the desert',
+          'יְהוֹשֻׁעַ — Yehoshua · Conquers Canaan · divides the land among the tribes',
+          'הַשּׁוֹפְטִים — The Judges · Era of cycles: sin · oppression · repentance · salvation',
+          'שְׁמוּאֵל — Shmuel · Last judge · anoints Shaul, then David',
+          'שָׁאוּל — Shaul · First king of Israel · battles Amalek · falls at Gilboa',
+          'דָּוִד — David · Greatest king · Jerusalem as capital · Psalms · plans the Temple',
+          'שְׁלֹמֹה — Shlomo · Builds the First Temple · Mishlei · Koheles · Shir HaShirim',
+          'אֵלִיָּהוּ — Eliyahu HaNavi · Battles Baal worship · taken to heaven alive · will return before Mashiach',
+          'יְשַׁעְיָהוּ — Yeshayahu · Greatest literary prophet · visions of the messianic era',
+          'יִרְמְיָהוּ — Yirmiyahu · Witnessed the Churban · wrote Eichah · promise of return',
+          'דָּנִיֵּאל — Daniel · Exile in Babylon · interprets dreams · visions of End of Days',
+          'עֶזְרָא וּנְחֶמְיָה — Ezra & Nechemiah · Return from Babylon · rebuild Jerusalem · the Great Assembly',
+        ],
+        cards: []
+      },
+      // ── Eras of Torah Scholarship ────────────────────────
+      {
+        id: 'tl-scholarship',
+        name: 'Eras of Torah Scholarship',
+        emoji: '📜',
+        desc: 'The chain of Torah transmission — from the Men of the Great Assembly to the Acharonim',
+        orderable: true,
+        orderItems: [
+          'אַנְשֵׁי כְּנֶסֶת הַגְּדוֹלָה — Anshei Knesses HaGedolah · Men of the Great Assembly · ~450–300 BCE',
+          'זוּגוֹת — Zugot · The Pairs · ~300–70 BCE · ending with Hillel & Shammai',
+          'תַּנָּאִים — Tannaim · Sages of the Mishnah · ~70–220 CE · compiled by Rabbi Yehudah HaNasi',
+          'אָמוֹרָאִים — Amoraim · Sages of the Talmud · ~220–500 CE · Yerushalmi & Bavli',
+          'סָבוֹרָאִים — Savoraim · Editors who gave the Talmud its final form · ~500–650 CE',
+          'גְּאוֹנִים — Geonim · Heads of Babylonian academies · ~650–1050 CE',
+          'רִאשׁוֹנִים — Rishonim · The Early Authorities · ~1050–1500 CE · Rambam, Rashi, Tosafos',
+          'אַחֲרוֹנִים — Acharonim · The Later Authorities · 1500 CE–present',
+        ],
+        cards: []
+      },
+      // ── The Exiles ───────────────────────────────────────
+      {
+        id: 'tl-exiles',
+        name: 'The Exiles',
+        emoji: '🌍',
+        desc: 'Each major exile — its cause, duration, and what ended it',
+        cards: [
+          {id:'tl-ex01', q:'Egyptian Exile (Galus Mitzrayim)',             a:'210 years in Egypt (by Jewish tradition) · ~1523–1313 BCE · Ended with the Exodus (יְצִיאַת מִצְרַיִם)',   note:'The verse says 400 years (Bereishis 15:13) — counted from Yitzchak\'s birth · Actual enslavement was 210 years · Ended through 10 plagues and the splitting of the Sea · 15 Nissan — Pesach · The foundational exile that defines all later ones: "Remember that you were slaves in Egypt"'},
+          {id:'tl-ex02', q:'Babylonian Exile (Galus Bavel)',               a:'70 years · 586–516 BCE · Nevuchadnetzar destroys the First Temple · ended by the decree of Koresh (Cyrus) of Persia', note:'Cause: the three cardinal sins — idolatry, immorality, bloodshed (Yoma 9b) · The Nevi\'im had warned for generations · Many Jews stayed in Babylon even after the return · Yirmiyahu predicted 70 years (Yirmiyahu 25:11) · Ezra and Nechemiah led the return'},
+          {id:'tl-ex03', q:'Persian-Greek Period',                         a:'~516–142 BCE · Second Temple period · not technically an exile but under foreign rule — Persia, then Greece (Alexander, then the Seleucids)', note:'Purim (Persia, ~480 BCE) · Chanukah (Syrian-Greeks, 167 BCE) · The Anshei Knesses HaGedolah and the Zugot lived in this period · The Hasmonean revolt (Maccabees) briefly restored Jewish sovereignty'},
+          {id:'tl-ex04', q:'Roman Exile (Galus Edom / Galus HaRomim)',    a:'70 CE – present · Titus destroys the Second Temple on 9 Av · the longest exile — nearly 2,000 years', note:'Cause: sinas chinam — baseless hatred (Yoma 9b) · The Bar Kochba revolt (135 CE) ended with the destruction of Beitar and renaming of Jerusalem as Aelia Capitolina · Jews scattered across the world · The State of Israel (1948) is viewed by many as the beginning of the ingathering of exiles and the start of the final redemption'},
+          {id:'tl-ex05', q:'Why four exiles?',                             a:'Tradition identifies four exiles corresponding to four kingdoms in Daniel\'s vision: Babylon · Persia-Media · Greece · Rome (Edom)', note:'Daniel ch. 2 and 7 · The four kingdoms are followed by an eternal kingdom — the messianic era · "Galus Edom" (Roman exile) is the last and longest · Rome became Christian → Christian Europe → Western civilization; hence the exile continues even as Rome fell, because its successor civilizations continue to define the world'},
+          {id:'tl-ex06', q:'What is the Ge\'ulah (Redemption)?',          a:'The final redemption — when Mashiach comes, the exiles are gathered, the Temple is rebuilt, and the world recognizes God\'s kingship', note:'Preceded by signs: ingathering of exiles · wars · spiritual awakening or spiritual collapse · Eliyahu HaNavi heralding Mashiach · "Even if he delays, wait for him" (Ani Maamin #12) · Two views: the redemption comes through merit (b\'achishena) or inevitably at the appointed time (b\'ito)'},
+        ]
+      },
+      // ── The Temples ─────────────────────────────────────
+      {
+        id: 'tl-temples',
+        name: 'The Batei Mikdash',
+        emoji: '🕍',
+        desc: 'Each Beis HaMikdash — who built it, how long it stood, how it ended, and what it meant',
+        cards: [
+          {id:'tl-tm01', q:'The Mishkan (Tabernacle)\n~1313–957 BCE',     a:'Portable sanctuary built at Sinai under Moshe · accompanied Israel through the desert and into Canaan · stood at Shiloh for 369 years', note:'Built in year 2449 (1312 BCE) · The model for all future Temples · Destroyed when Philistines captured the Ark (~1050 BCE, during Eli HaKohein\'s time) · The Aron never returned to Shiloh — kept in Kiryat Ye\'arim until David brought it to Jerusalem'},
+          {id:'tl-tm02', q:'First Beis HaMikdash\n~957–586 BCE (410 years)', a:'Built by Shlomo HaMelech · stood for 410 years · destroyed by Nevuchadnetzar of Babylon on 9 Av 586 BCE', note:'Jewish year 2928 (957 BCE) — 7.5 years to build · More glorious than the Mishkan · Housed the Aron, the Urim v\'Tumim, the Divine fire · The Shechina rested visibly · Destroyed 9 Av 3338 (586 BCE) · Both tablets and the Ark hidden before the destruction'},
+          {id:'tl-tm03', q:'Second Beis HaMikdash\n~516 BCE–70 CE (420 years)', a:'Built by Zerubavel, Ezra, and Nechemiah after Koresh\'s decree · expanded by Herod · stood 420 years · destroyed by Titus of Rome on 9 Av 70 CE', note:'Jewish tradition: 420 years (secular chronology counts ~586 years — a well-known discrepancy in Persian-era dating) · Five things present in First Temple but absent in Second: Aron · Urim v\'Tumim · Divine fire · Shechina · Ruach HaKodesh · Destroyed 9 Av 3830 (70 CE) · The Western Wall (Kosel) remains'},
+          {id:'tl-tm04', q:'The Kosel (Western Wall)',                    a:'The last remaining outer retaining wall of Herod\'s Temple Mount — the holiest accessible site for Jews today since the Temple Mount itself is restricted', note:'"The Shechina never departed from the Western Wall" (Midrash Shemos Rabbah 2:2) · Jews have prayed at the Kosel since the Byzantine period · Controlled by Jordan 1948–1967; captured by Israel in the Six-Day War, June 1967 · The liberation of the Kosel (28 Iyar) is celebrated as Yom Yerushalayim'},
+          {id:'tl-tm05', q:'The Third Beis HaMikdash — Future',           a:'Will be built in the messianic era — either descending from heaven (Rashi) or built by Mashiach (Rambam) · will stand forever and never be destroyed', note:'Yechezkel ch. 40–48 describes it in detail · Greater in glory than both previous Temples (Chaggai 2:9) · All exiles will be gathered · The entire world will recognize God · The Rambam: study of the Temple\'s laws is itself a form of building it · "The merit of studying [the Temple] is as if they built it" (Menachos 110a)'},
+          {id:'tl-tm06', q:'Why were both Temples destroyed on the same date?', a:'Both the First and Second Temples were destroyed on 9 Av — to teach that sinas chinam (baseless hatred) is as severe as the three cardinal sins', note:'Yoma 9b · Five tragedies occurred on 9 Av: the sin of the spies (decree to die in the desert) · First Temple destroyed · Second Temple destroyed · Beitar fell · Jerusalem was plowed under · The date is observed as Tisha B\'Av — our national day of mourning and fasting'},
+        ]
+      },
+    ]
+  },
+
 ];
 
 // ═══════════════════════════════════════════════════════════
@@ -4005,6 +4141,7 @@ const CATEGORIES = [
   { name: 'Oral Torah',         ids: ['oral-law-overview', 'rabbinic-eras', 'tannaim', 'amoraim', 'mishnah', 'talmud-study'] },
   { name: 'Halacha',            ids: ['halacha-basics', 'taryag', 'aseres-hadibros', 'poskim', 'halacha-books'] },
   { name: 'Jewish Life',        ids: ['lifecycle', 'everyday-halacha', 'zmanim', 'shabbos', 'davening', 'beis-hamikdash'] },
+  { name: 'Timeline',           ids: ['timeline'] },
 ];
 
 // ═══════════════════════════════════════════════════════════
