@@ -168,6 +168,8 @@ h1,h2,h3{text-wrap:balance}
   display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));
   gap:1rem;margin-bottom:2.5rem;
 }
+.cat-section{margin-bottom:2.5rem}
+.cat-section .decks-grid{margin-bottom:0}
 .stat-card{
   background:var(--surface);border-radius:var(--radius);padding:1rem;
   border:1px solid rgba(26,23,48,.07);box-shadow:var(--shadow);
@@ -359,8 +361,7 @@ h1,h2,h3{text-wrap:balance}
       <h1 id="greeting">Welcome</h1>
       <p id="greeting-sub">Choose a deck to begin</p>
     </div>
-    <div class="sec-label">Study Decks</div>
-    <div class="decks-grid" id="decks-grid"></div>
+    <div id="decks-section"></div>
     <div class="sec-label">Your Progress</div>
     <div class="stats-row">
       <div class="stat-card"><div class="stat-val" id="s-cards">0</div><div class="stat-lbl">Cards Reviewed</div></div>
@@ -858,6 +859,17 @@ const DECKS = [
 ];
 
 // ═══════════════════════════════════════════════════════════
+// CATEGORIES — controls grouping on the home screen
+// ═══════════════════════════════════════════════════════════
+const CATEGORIES = [
+  { name: 'Hebrew Language',    ids: ['aleph-bet', 'nikud'] },
+  { name: 'The Jewish Year',    ids: ['months', 'hol-doraisa', 'hol-drabonon', 'fasts', 'israel-days'] },
+  { name: 'Rabbinic History',   ids: ['rabbinic-eras', 'tannaim', 'amoraim'] },
+  { name: 'Jewish Texts',       ids: ['five-books', 'nach', 'mishnah', 'talmud-study', 'halacha-books'] },
+  { name: 'Jewish Life',        ids: ['hebrew', 'holidays', 'values', 'torah', 'prayer'] },
+];
+
+// ═══════════════════════════════════════════════════════════
 // BADGES — add new badges here
 // ═══════════════════════════════════════════════════════════
 const BADGE_DEFS = [
@@ -1082,7 +1094,7 @@ function renderHome() {
     ?`You have ${due} card${due!==1?'s':''} due for review`
     :'All caught up — choose a deck to practice';
 
-  document.getElementById('decks-grid').innerHTML=DECKS.map(d=>{
+  function deckCardHTML(d) {
     const dueN=d.cards.filter(c=>isDue(c.id)).length;
     const reviewed=d.cards.filter(c=>cs(c.id).total>0).length;
     const pct=Math.round(reviewed/d.cards.length*100);
@@ -1095,6 +1107,14 @@ function renderHome() {
         <span>${d.cards.length} cards</span>
       </div>
       <div class="deck-bar"><div class="deck-bar-fill" style="width:${pct}%"></div></div>
+    </div>`;
+  }
+  document.getElementById('decks-section').innerHTML = CATEGORIES.map(cat => {
+    const catDecks = cat.ids.map(id=>DECKS.find(d=>d.id===id)).filter(Boolean);
+    if (!catDecks.length) return '';
+    return `<div class="cat-section">
+      <div class="sec-label">${cat.name}</div>
+      <div class="decks-grid">${catDecks.map(deckCardHTML).join('')}</div>
     </div>`;
   }).join('');
   document.querySelectorAll('.deck-card').forEach(el=>{
