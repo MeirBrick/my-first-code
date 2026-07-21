@@ -1473,6 +1473,60 @@ const DECKS = [
       {id:'pl10', q:'Ashrei',         a:'Psalm 145 — recited three times daily',        note:'"Praiseworthy are those who dwell in Your House"'},
     ]
   },
+  {
+    id: 'zmanim',
+    name: 'Times of the Day (Zmanim)',
+    emoji: '🕰️',
+    desc: 'The halachic times that structure every Jewish day',
+    guide: [
+      {h:'What Are Zmanim?', b:[
+        'Zmanim (זמנים) are precise halachic time-points calculated from sunrise and sunset each day — they shift with the season and your location on Earth',
+        'The basic unit is the שעה זמנית (sha\'ah zemanit) — a "halachic hour" — calculated by dividing daylight (or the full day, depending on the opinion) into 12 equal parts; in summer an hour can be 70+ minutes, in winter under 50',
+        'Most halachic deadlines — when to daven, when Shabbos begins, when you\'re allowed to eat chametz — are measured in these proportional hours, not clock time',
+        'There are often two main opinions: Magen Avraham (MA) and Gra/Baal HaTanya (GRA), calculated from different points; many people follow the stricter of the two for kulos (leniencies) and the more lenient for chumros (stringencies)',
+        'A zmanim calendar (available in apps like MyZmanim or Luach) gives your exact daily times; knowing the names and their meanings helps you understand what you\'re looking at',
+      ]},
+      {h:'Dawn Through Morning', b:[
+        'עלות השחר (Alot HaShachar) — halachic dawn; the first faint light on the horizon; Shabbos and Yom Tov nights end here for certain leniencies',
+        'משיכיר (Misheyakir) — "when one can recognize"; earliest time to put on tallis and read Shema; determined by recognizable light, before sunrise',
+        'נץ החמה (Netz HaChamah) — sunrise; the ideal time to begin Shacharis; "vatikín" daveners daven exactly at this moment to fulfill the mitzvah in the most optimal way',
+      ]},
+      {h:'Morning Deadlines', b:[
+        'סוף זמן קריאת שמע (Sof Zman Kriat Shema) — latest time to recite Shema in the morning; end of the 3rd halachic hour; missing it requires reciting Shema without its blessing',
+        'סוף זמן תפילה (Sof Zman Tefillah) — latest time for Shacharis (the Amidah); end of the 4th halachic hour; still praiseworthy to daven until Chatzot if missed',
+      ]},
+      {h:'Midday', b:[
+        'חצות (Chatzot) — halachic midday (exactly 6 hours after halachic sunrise); Mincha may be davened after this point; also the time the Beis HaMikdash korbanot were brought',
+        'מנחה גדולה (Mincha Gedolah) — earliest time for Mincha; 6.5 halachic hours into the day; corresponds to when the afternoon tamid offering became valid',
+      ]},
+      {h:'Afternoon', b:[
+        'מנחה קטנה (Mincha Ketanah) — 9.5 halachic hours; the "preferred" time for Mincha; Ashkenazim preferably daven Mincha during this window',
+        'פלג המנחה (Plag HaMincha) — "half of Mincha" — 10.75 halachic hours; important cutoff: one who accepts Shabbos early (davening Maariv before sunset) must do so after Plag',
+      ]},
+      {h:'Evening & Night', b:[
+        'שקיעה (Shekiah) — sunset; Shabbos and Yom Tov begin; after this point many prohibitions kick in immediately according to some opinions',
+        'בין השמשות (Bein HaShmashot) — twilight; the uncertain period between sunset and nightfall; treated as both day and night simultaneously for most halachos — avoid Shabbos-forbidden work, but don\'t count it as a complete day for sefirah or the like',
+        'צאת הכוכבים (Tzet HaKochavim) — "emergence of the stars" — halachic nightfall; 3 medium stars visible; Shabbos ends here (plus Rabbeinu Tam\'s longer opinion); Maariv may be recited; the new halachic day has definitively begun',
+        'חצות הלילה (Chatzot HaLailah) — halachic midnight; some fast days (like Tisha B\'Av) have leniencies before this point; the Arizal taught that midnight is an especially propitious time for Torah study (Tikkun Chatzot)',
+      ]},
+    ],
+    cards: [
+      {id:'zm01', q:'שעה זמנית\nSha\'ah Zemanit', a:'Halachic hour — 1/12 of daylight (or full day)', note:'Changes with the season; longer in summer, shorter in winter — all zmanim are based on this unit'},
+      {id:'zm02', q:'עלות השחר\nAlot HaShachar', a:'Halachic dawn — first light on the horizon', note:'Earliest point of the halachic day; some fasts begin here; latest point to eat before a fast that starts "from morning"'},
+      {id:'zm03', q:'משיכיר\nMisheyakir', a:'Earliest time to put on tallis and recite Shema', note:'"When one can recognize a familiar person at arm\'s length" — comes after Alot but before sunrise'},
+      {id:'zm04', q:'נץ החמה\nNetz HaChamah', a:'Sunrise — the ideal start time for Shacharis', note:'Vatikin daven the Amidah exactly at Netz; also: eating before davening is permitted only until sunrise'},
+      {id:'zm05', q:'סוף זמן קריאת שמע\nSof Zman Kriat Shema', a:'Latest time for morning Shema — end of the 3rd halachic hour', note:'Missing this requires saying Shema without the blessings; two opinions: Magen Avraham (earlier) and GRA (later)'},
+      {id:'zm06', q:'סוף זמן תפילה\nSof Zman Tefillah', a:'Latest time for Shacharis — end of the 4th halachic hour', note:'Still praiseworthy to daven until Chatzot if the deadline is missed; Mincha cannot substitute for a missed Shacharis'},
+      {id:'zm07', q:'חצות\nChatzot', a:'Halachic midday — exactly 6 halachic hours after sunrise', note:'After Chatzot: Mincha may be davened; Chametz on Erev Pesach must be burned before this; Chatzot also applies at night (midnight)'},
+      {id:'zm08', q:'מנחה גדולה\nMincha Gedolah', a:'Earliest time for Mincha — 6.5 halachic hours', note:'Corresponds to the earliest the afternoon tamid offering was brought in the Beis HaMikdash'},
+      {id:'zm09', q:'מנחה קטנה\nMincha Ketanah', a:'Preferred time for Mincha — 9.5 halachic hours', note:'The time the afternoon tamid was regularly brought; Ashkenazic practice prefers davening Mincha during this window'},
+      {id:'zm10', q:'פלג המנחה\nPlag HaMincha', a:'10.75 halachic hours — "half of the Mincha period"', note:'Key cutoff for early Shabbos: one who accepts Shabbos before sunset (davening Maariv early) must do so after Plag'},
+      {id:'zm11', q:'שקיעה\nShekiah', a:'Sunset — Shabbos and Yom Tov begin', note:'According to the GRA, Shabbos begins definitively at sunset; fast days (except Yom Kippur and Tisha B\'Av) end at Shekiah for some opinions'},
+      {id:'zm12', q:'בין השמשות\nBein HaShmashot', a:'Twilight — the halachically uncertain period between sunset and nightfall', note:'Treated as both day and night simultaneously; avoid Shabbos-forbidden work; don\'t recite Havdalah yet'},
+      {id:'zm13', q:'צאת הכוכבים\nTzet HaKochavim', a:'Nightfall — 3 stars visible; halachic night begins definitively', note:'Shabbos ends (Rabbeinu Tam adds extra time); Maariv can be said; sefirah counted; a new halachic day has begun'},
+      {id:'zm14', q:'חצות הלילה\nChatzot HaLailah', a:'Halachic midnight — 6 halachic hours into the night', note:'Auspicious time for Torah study (Tikkun Chatzot); some Tisha B\'Av leniencies apply before midnight; korban Pesach had to be eaten before this'},
+    ]
+  },
 ];
 
 // ═══════════════════════════════════════════════════════════
@@ -1484,7 +1538,7 @@ const CATEGORIES = [
   { name: 'Rabbinic History',   ids: ['rabbinic-eras', 'tannaim', 'amoraim'] },
   { name: 'Torah/Chumash',      ids: ['chumash-overview', 'bereishis', 'shemos', 'vayikra', 'bamidbar', 'devarim'] },
   { name: 'Jewish Texts',       ids: ['nach', 'mishnah', 'talmud-study', 'halacha-books'] },
-  { name: 'Jewish Life',        ids: ['hebrew', 'holidays', 'values', 'prayer'] },
+  { name: 'Jewish Life',        ids: ['hebrew', 'holidays', 'values', 'prayer', 'zmanim'] },
 ];
 
 // ═══════════════════════════════════════════════════════════
