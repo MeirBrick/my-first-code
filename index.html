@@ -424,6 +424,26 @@ h1,h2,h3{text-wrap:balance}
 .unlock-banner{background:linear-gradient(135deg,#1b4332,#2d6a4f);color:#fff;border-radius:var(--radius);padding:.9rem 1.2rem;margin-bottom:.75rem;font-size:.95rem;font-weight:600;text-align:center;box-shadow:0 2px 12px rgba(45,106,79,.35);}
 .unlock-banner strong{color:#b7e4c7;}
 
+/* ── Section cards (inside deck detail screen) ───────────── */
+.sections-grid{display:flex;flex-direction:column;gap:.9rem;margin-bottom:2rem;}
+.section-card{background:var(--surface);border-radius:var(--radius);border:1px solid rgba(26,23,48,.07);box-shadow:var(--shadow);padding:1.1rem 1.25rem;display:flex;align-items:center;gap:1rem;}
+.section-card.sec-locked{opacity:.55;filter:grayscale(.35);}
+.section-icon{font-size:1.5rem;flex-shrink:0;width:2.2rem;text-align:center;}
+.section-body{flex:1;min-width:0;}
+.section-name{font-size:1rem;font-weight:700;color:var(--ink-1);display:flex;align-items:center;gap:.4rem;flex-wrap:wrap;}
+.section-meta{font-size:.8rem;color:var(--muted);margin:.15rem 0 .5rem;}
+.section-lock-msg{font-size:.8rem;color:var(--muted);margin-top:.25rem;}
+.section-lock-msg strong{color:var(--ink-2);}
+.section-bar{height:4px;background:rgba(26,23,48,.08);border-radius:2px;overflow:hidden;margin-bottom:.65rem;}
+.section-bar-fill{height:100%;background:var(--blue-lt);border-radius:2px;transition:width .4s;}
+.section-actions{display:flex;gap:.5rem;flex-shrink:0;}
+.sec-btn{font-size:.8rem;padding:.4rem .75rem;border-radius:8px;border:none;cursor:pointer;font-weight:600;transition:opacity .15s;}
+.sec-btn-quiz{background:var(--blue-lt);color:#fff;}
+.sec-btn-learn{background:transparent;border:1.5px solid var(--blue-lt);color:var(--blue-lt);}
+.sec-btn:disabled{opacity:.35;cursor:default;}
+/* home deck card open-sections button */
+.deck-btn-open{background:var(--blue-lt);color:#fff;}
+
 /* ── Responsive ─────────────────────────────────────────── */
 @media(max-width:580px){
   .header{padding:0 1rem}
@@ -528,6 +548,7 @@ h1,h2,h3{text-wrap:balance}
     <div id="r-unlocks" style="display:none;margin-bottom:1rem"></div>
     <div class="results-actions">
       <button class="btn-primary" id="r-again">Study Again</button>
+      <button class="btn-ghost" id="r-deck" style="display:none">← Back to Deck</button>
       <button class="btn-ghost" id="r-home">← Back to Home</button>
     </div>
   </div>
@@ -554,6 +575,24 @@ h1,h2,h3{text-wrap:balance}
     <div class="learn-cta">
       <button class="btn-primary" id="learn-quiz-btn">Start Quiz →</button>
     </div>
+  </div>
+</div>
+
+<!-- Deck Detail / Sections Screen -->
+<div class="screen" id="screen-deck">
+  <div class="learn-wrap">
+    <div class="learn-top">
+      <button class="back-btn" id="deck-back-btn" aria-label="Back">←</button>
+      <div>
+        <div class="learn-deck-title" id="deck-screen-title"></div>
+        <div class="learn-meta">
+          <span class="learn-desc" id="deck-screen-desc"></span>
+        </div>
+      </div>
+    </div>
+    <div id="deck-screen-guide"></div>
+    <div class="guide-ref-label" style="margin-top:1.5rem">Sections</div>
+    <div id="deck-sections-grid"></div>
   </div>
 </div>
 
@@ -1202,22 +1241,80 @@ const DECKS = [
         'The Ramban: the stories of the Avos are a "ma\'aseh avos siman l\'banim" — the actions of the forefathers are a sign/preview for their children',
       ]},
     ],
-    cards: [
-      {id:'br01', q:'Adam HaRishon',    a:'The first human being, created by Hashem from the earth on the 6th day of Creation', note:'Created b\'tzelem Elokim — in the image of God (Bereishis 1:27) · Placed in Gan Eden to work and guard it · His sin: eating from the Eitz HaDaas'},
-      {id:'br02', q:'Chavah',           a:'The first woman, created from Adam\'s rib (tzela) as his partner (eizer k\'negdo)', note:'Her name means "life" — "for she is the mother of all life" · She was approached by the nachash (serpent) and ate from the Eitz HaDaas'},
-      {id:'br03', q:'Noach',            a:'Righteous man who survived the Mabul (Flood) with his family', note:'"Noach was a righteous man, perfect in his generations" (6:9) · Built the Teivah (ark) as commanded · After the Mabul, Hashem made the Bris Keshet (rainbow covenant) — never again a worldwide flood'},
-      {id:'br04', q:'Avraham Avinu',    a:'The first of the three Avos · Founder of ethical monotheism · Father of the Jewish people', note:'Left Ur Kasdim at Hashem\'s command · Passed 10 tests · Bris Bein HaBesarim: covenant of the pieces · Received Bris Milah at 99 · Bound Yitzchak at the Akeidah'},
-      {id:'br05', q:'Sarah Imeinu',     a:'First of the four Imahos · Wife of Avraham · Mother of Yitzchak', note:'Born Sarai; renamed Sarah ("princess of all") · "In all things Avraham did, follow Sarah\'s voice" · Died at 127 — the only woman whose age at death is recorded in the Torah'},
-      {id:'br06', q:'Yitzchak Avinu',   a:'Second of the three Avos · Son of Avraham and Sarah · Father of Yaakov and Eisav', note:'Born miraculously when Avraham was 100 and Sarah was 90 · Bound on Har Moriah at the Akeidah · His marriage to Rivkah is the first love story in the Torah · Associated with the attribute of Gevurah/Yirah (awe of God)'},
-      {id:'br07', q:'The Akeidah',      a:'Avraham\'s binding of Yitzchak on Har Moriah — the 10th and greatest of Avraham\'s tests', note:'Bereishis 22 · Hashem commanded it; stopped Avraham at the last moment · A ram was sacrificed in Yitzchak\'s place · Har Moriah = site of the future Beis HaMikdash · We invoke the Akeidah\'s merit in Rosh Hashanah tefillah'},
-      {id:'br08', q:'Yaakov Avinu',     a:'Third of the three Avos · Father of the 12 Tribes · Renamed Yisrael after wrestling with an angel', note:'"Yisrael" = "he struggled with God and man, and prevailed" (32:29) · Associated with the attribute of Emes (truth) · His 12 sons become the 12 Shvatim (Tribes of Israel)'},
-      {id:'br09', q:'Yosef HaTzaddik',  a:'11th son of Yaakov · Sold into slavery by his brothers · Rose to become Viceroy of Egypt', note:'Resisted the advances of Potiphar\'s wife — the paradigm of shmiras habris · His dreams (sheaves, sun/moon/stars) predicted his future greatness · Sustained Yaakov\'s family during the famine · Said "it was not you who sent me here but God" — no grudge toward his brothers'},
-      {id:'br10', q:'The Mabul (Flood)', a:'Global flood in Noach\'s generation that destroyed all land life except those in the Teivah', note:'Brought because "the earth was filled with chamas (lawlessness)" (6:11) · Lasted 40 days of rain + additional months of water · Hashem made a bris with Noach: never again a worldwide flood · Symbol: the keshet (rainbow)'},
-      {id:'br11', q:'Bris Bein HaBesarim', a:'"Covenant of the Pieces" — Hashem\'s covenant with Avraham foretelling the Jewish future', note:'Bereishis 15 · Avraham split animals, Hashem passed through as fire and smoke · Hashem promised: the land of Canaan to Avraham\'s descendants · Foretold: 400 years of exile → redemption → return to the land'},
-      {id:'br12', q:'Bris Milah',        a:'The covenant of circumcision — commanded to Avraham and all male descendants forever', note:'Bereishis 17 · The sign of the covenant between Hashem and Klal Yisrael · Performed on the 8th day of a baby boy\'s life · Avraham circumcised himself at age 99'},
-      {id:'br13', q:'Mechiras Yosef',    a:'The sale of Yosef by his brothers to Midianite merchants for 20 pieces of silver', note:'Bereishis 37 · The brothers were jealous of Yosef\'s coat of many colors and his dreams · They told Yaakov that Yosef was killed by a wild animal · Yosef was brought to Egypt and sold to Potiphar · The Tikkunei Zohar says the galus (exile) began here'},
-      {id:'br14', q:'What does "b\'tzelem Elokim" mean?', a:'"In the image of God" — the basis of human dignity and worth', note:'Bereishis 1:27 · Every human being is created in God\'s image — the foundation of Jewish ethics · Ben Azzai says this verse is the fundamental principle of the Torah · Source for kavod habriyos (human dignity)'},
-      {id:'br15', q:'Migdal Bavel',      a:'The Tower of Babel — humanity\'s attempt to build a tower to the heavens', note:'Bereishis 11 · One generation after the Mabul · Hashem dispersed humanity and confused their languages → origin of the world\'s nations and languages · Before this, all humanity spoke one language'},
+    sections: [
+      {
+        id: 'bereishis-events',
+        name: 'Major Events',
+        emoji: '⚡',
+        cards: [
+          {id:'br-ev01', q:'Maaseh Bereishis — Creation', a:'Hashem created the world in 6 days and rested on the 7th (Shabbos)', note:'Day 1: light · Day 2: sky · Day 3: land and plants · Day 4: sun, moon, stars · Day 5: fish and birds · Day 6: animals and Adam · Day 7: Shabbos · "And Hashem saw all that He had made, and behold it was very good" (1:31)'},
+          {id:'br-ev02', q:'Gan Eden and the Sin', a:'Adam and Chavah lived in the Garden of Eden and ate from the forbidden Eitz HaDaas (Tree of Knowledge)', note:'The nachash (serpent) convinced Chavah · Both Adam and Chavah ate · Punished: exile from Gan Eden, pain in childbirth, toiling the earth for bread · The Nefesh HaChaim: the first sin introduced mortality and the yetzer hara into the world'},
+          {id:'br-ev03', q:'Kayin and Hevel', a:'Kayin (Cain) murdered his brother Hevel (Abel) — the first murder in history', note:'Both brought offerings; Hashem accepted Hevel\'s but not Kayin\'s · Kayin killed Hevel out of jealousy · "Am I my brother\'s keeper?" · Kayin was exiled but given a protective mark · Teaches: unchecked jealousy leads to destruction'},
+          {id:'br-ev04', q:'The Mabul (Flood)', a:'A global flood destroyed all land life except Noach\'s family and the animals in the Teivah', note:'"The earth was filled with chamas (lawlessness/theft)" (6:11) · 40 days and nights of rain · Total flood lasted ~1 year · Hashem made the Bris Keshet (rainbow covenant): never again a worldwide flood'},
+          {id:'br-ev05', q:'Migdal Bavel', a:'Humanity built a tower to the heavens; Hashem confused their language and dispersed them', note:'Bereishis 11 · Before this: all humanity spoke one language · After: 70 nations and languages emerged · The sin: unifying against Hashem rather than spreading out as commanded · One generation after the Mabul'},
+          {id:'br-ev06', q:'Bris Bein HaBesarim', a:'"Covenant of the Pieces" — Hashem\'s covenant with Avraham about the future of the Jewish people', note:'Bereishis 15 · Avraham cut animals in half; Hashem passed between them as fire and smoke · Foretold: 400 years of exile, redemption, and return to Canaan · "Know that your descendants will be strangers in a land not their own"'},
+          {id:'br-ev07', q:'The Akeidah', a:'Avraham\'s binding of Yitzchak on Har Moriah — the 10th and greatest of Avraham\'s tests', note:'Bereishis 22 · Hashem stopped Avraham at the last moment; a ram was offered in Yitzchak\'s place · Har Moriah = site of both future Batei Mikdash · We invoke the Akeidah\'s merit in Rosh Hashanah davening · "Now I know that you fear God"'},
+          {id:'br-ev08', q:'Mechiras Yosef', a:'Yosef was sold by his brothers to Midianite merchants for 20 pieces of silver and brought to Egypt', note:'Bereishis 37 · Brothers were jealous of the kesoness passim (coat of many colors) and Yosef\'s dreams · Told Yaakov he was killed by a wild animal · Yosef sold to Potiphar in Egypt · The Tikkunei Zohar: galus began here · The 10 sons sold as slaves to Rome on Yom Kippur (Asara Harugei Malchus) are linked to this'},
+          {id:'br-ev09', q:'Yosef Rises to Power', a:'Yosef interpreted Pharaoh\'s dreams and was appointed Viceroy of Egypt (Mishneh LaMelech)', note:'Bereishis 41 · 7 years of plenty, 7 years of famine · Yosef stored grain during the plenty and distributed it during the famine · Yaakov sent his sons to Egypt to buy food · Yosef recognized his brothers but did not yet reveal himself'},
+          {id:'br-ev10', q:'Yaakov\'s Family Descends to Egypt', a:'Yaakov and his entire family — 70 souls — descended to Egypt, beginning the Egyptian exile', note:'Bereishis 46 · Hashem appeared to Yaakov: "Do not fear going down to Egypt — I will make you a great nation there" · Yosef revealed himself with tears: "I am Yosef — is my father still alive?" · The galus had begun, but so had the path to geulah'},
+        ]
+      },
+      {
+        id: 'bereishis-parshas',
+        name: 'Parshas in Order',
+        emoji: '📜',
+        requires: 'bereishis-events',
+        level: 2,
+        cards: [
+          {id:'br-pr01', q:'Parshas Bereishis', a:'Creation of the world, Gan Eden, Adam and Chavah\'s sin, Kayin and Hevel', note:'Covers the first ~1,600 years of human history in just a few chapters · Opens: "In the beginning Hashem created the heavens and the earth"'},
+          {id:'br-pr02', q:'Parshas Noach', a:'The Mabul (Flood), Noach\'s ark, the rainbow covenant, Migdal Bavel, genealogy of 70 nations', note:'Noach and his family are the only survivors · Hashem commands: "Be fruitful and multiply" · The 7 Noachide laws are derived from this parasha'},
+          {id:'br-pr03', q:'Parshas Lech Lecha', a:'Avraham\'s journey from Ur Kasdim, the covenant of Bris Milah, Hagar and Yishmael, Bris Bein HaBesarim', note:'"Go for yourself, from your land, your birthplace, and your father\'s house" · Avraham renamed from Avram · First use of the name "Ivri" (Hebrew)'},
+          {id:'br-pr04', q:'Parshas Vayeira', a:'The three angels, Lot in Sodom, Avraham\'s prayer for Sodom, birth of Yitzchak, Akeidah', note:'Avraham is visited while recovering from his Bris Milah — exemplar of Bikur Cholim · Sarah laughs at the news she will bear a son · The Akeidah is the parasha\'s climax'},
+          {id:'br-pr05', q:'Parshas Chayei Sarah', a:'Sarah\'s death and burial in Maaras HaMachpeilah, the marriage of Yitzchak and Rivkah', note:'Avraham purchases the cave of Machpeilah from Efron HaChitti for 400 silver shekels · Eliezer\'s mission to find Rivkah is the Torah\'s longest narrative about a servant · "The conversations of the servants of the Avos are more beloved than the Torah of the children"'},
+          {id:'br-pr06', q:'Parshas Toldos', a:'Birth of Yaakov and Eisav, the sale of the birthright, Yitzchak in Gerar, Yaakov receives Yitzchak\'s blessing', note:'Yaakov and Eisav struggle in the womb: "Two nations are in your womb" · Eisav sells his birthright for lentil soup · Rivkah engineers Yaakov\'s receipt of the blessings'},
+          {id:'br-pr07', q:'Parshas Vayeitzei', a:'Yaakov flees to Lavan, his dream of the ladder, his marriages to Leah and Rachel, birth of the 12 Tribes', note:'Yaakov\'s ladder: angels ascending and descending · "Surely Hashem is in this place and I did not know it" · 20 years working for Lavan · The 12 sons (and Dina) are born'},
+          {id:'br-pr08', q:'Parshas Vayishlach', a:'Yaakov wrestles with the angel, is renamed Yisrael, reunites with Eisav, Dina\'s abduction, death of Rachel', note:'Yaakov sends gifts and prays before meeting Eisav · "Yisrael" = "he struggled with God and man and prevailed" · Shimon and Levi destroy Shechem · Rachel dies giving birth to Binyamin'},
+          {id:'br-pr09', q:'Parshas Vayeishev', a:'Yosef and his brothers, the coat of many colors, Mechiras Yosef (sale of Yosef), Yosef in Egypt', note:'Yosef\'s dreams of sheaves and stars · Brothers sell him to Midianites for 20 silver · Yosef resists Potiphar\'s wife, is imprisoned · Story of Yehuda and Tamar is interwoven'},
+          {id:'br-pr10', q:'Parshas Miketz', a:'Yosef interprets Pharaoh\'s dreams, is appointed Viceroy, the brothers come to Egypt for food', note:'"There is none as understanding and wise as you" — Pharaoh to Yosef · 7 fat cows/ears = 7 years of plenty; 7 lean = 7 years of famine · Yosef recognizes his brothers but does not reveal himself; tests them'},
+          {id:'br-pr11', q:'Parshas Vayigash', a:'Yehuda\'s plea for Binyamin, Yosef reveals himself, Yaakov\'s family moves to Egypt', note:'"I am Yosef — is my father still alive?" · Yosef weeps · "It was not you who sent me here but God" — Yosef\'s paradigmatic statement of Hashgacha Pratis · Yaakov and 70 family members descend to Egypt'},
+          {id:'br-pr12', q:'Parshas Vayechi', a:'Yaakov blesses his 12 sons and 2 grandsons (Ephraim and Menashe), Yaakov\'s death and burial', note:'Yaakov crosses his hands to give the greater blessing to Ephraim (younger) over Menashe · "May God make you like Ephraim and Menashe" — said to sons on Shabbos eve · Yaakov is buried in Maaras HaMachpeilah · Yosef assures his brothers of forgiveness'},
+        ]
+      },
+      {
+        id: 'bereishis-people',
+        name: 'Key People',
+        emoji: '👥',
+        requires: 'bereishis-parshas',
+        level: 3,
+        cards: [
+          {id:'br-pe01', q:'Adam HaRishon', a:'The first human being, created by Hashem from the earth (adamah) on the 6th day', note:'Created b\'tzelem Elokim (in God\'s image) · Placed in Gan Eden "to work it and guard it" · His sin: eating from the Eitz HaDaas · He named all the animals · Died at age 930'},
+          {id:'br-pe02', q:'Chavah', a:'The first woman, created from Adam\'s rib (tzela) as his eizer k\'negdo (helpmate)', note:'"Mother of all life" · Approached by the nachash; ate from the Eitz HaDaas and gave to Adam · Punished: pain in childbirth · Mother of Kayin, Hevel, and Shes'},
+          {id:'br-pe03', q:'Noach', a:'Righteous man who built the Teivah and survived the Mabul with his family', note:'"Noach was a righteous man, perfect in his generations" (6:9) — debate: righteous only relative to his generation, or absolutely? · After the Mabul: the 7 Noachide laws · Cursed Canaan (Cham\'s son) after a disgraceful act'},
+          {id:'br-pe04', q:'Avraham Avinu', a:'First of the three Avos · Founder of ethical monotheism · Father of the Jewish people', note:'Left Ur Kasdim at God\'s command · Passed 10 tests · Made Bris Bein HaBesarim and Bris Milah · Attribute: Chesed (loving-kindness) · Died at 175 · Known for hospitality (hachnasas orchim)'},
+          {id:'br-pe05', q:'Sarah Imeinu', a:'First of the four Imahos · Wife of Avraham · Mother of Yitzchak', note:'Renamed from Sarai to Sarah · A prophetess — her prophecy was greater than Avraham\'s in one opinion · Died at 127 — only woman whose age at death the Torah records · Her beauty caused repeated complications'},
+          {id:'br-pe06', q:'Yitzchak Avinu', a:'Second of the three Avos · Son of Avraham and Sarah · Father of Yaakov and Eisav', note:'Born miraculously when Avraham was 100 · Akeidah: bound on Har Moriah at age 37 · Associated with Gevurah/Yirah · Married Rivkah · The only Av who never left Eretz Yisrael · Blind in old age'},
+          {id:'br-pe07', q:'Rivkah Imeinu', a:'Second of the four Imahos · Wife of Yitzchak · Mother of Yaakov and Eisav', note:'Daughter of Besuel · Identified by her kindness at the well (she watered all of Eliezer\'s camels) · A prophetess who understood Yaakov\'s destiny · Engineered Yaakov\'s receipt of the blessings'},
+          {id:'br-pe08', q:'Yaakov Avinu', a:'Third of the three Avos · Father of the 12 Tribes · Renamed Yisrael', note:'Associated with Emes (truth) · Learned Torah in the yeshiva of Shem and Ever for 14 years · Married Leah and Rachel · Worked 20 years for Lavan · "Yisrael" = struggled with God and man and prevailed'},
+          {id:'br-pe09', q:'Leah and Rachel', a:'Third and fourth Imahos · Both wives of Yaakov · Mothers of the 12 Tribes', note:'Leah: first wife; mother of Reuven, Shimon, Levi, Yehuda, Yissachar, Zevulun, Dina · Rachel: beloved wife; mother of Yosef and Binyamin · Rachel died giving birth to Binyamin · Leah buried in Maaras HaMachpeilah with the Avos'},
+          {id:'br-pe10', q:'Yosef HaTzaddik', a:'11th son of Yaakov · Sold into slavery · Rose to Viceroy of Egypt', note:'Kesoness passim (coat of many colors) was a source of jealousy · In Egypt: resisted Potiphar\'s wife (paradigm of shmiras habris) · Interpreted dreams in prison and for Pharaoh · "It was not you but God who sent me here" — no resentment · His two sons (Ephraim and Menashe) become tribes'},
+          {id:'br-pe11', q:'Yehuda', a:'Fourth son of Yaakov · Tribe from which the kings of Israel (including Dovid) descend', note:'Suggested selling Yosef rather than killing him · Married Tamar · His stirring plea for Binyamin (Vayigash) is what broke Yosef\'s composure · Yaakov blessed him: "The scepter shall not depart from Yehuda" · Ancestor of Moshiach'},
+        ]
+      },
+      {
+        id: 'bereishis-concepts',
+        name: 'Core Concepts',
+        emoji: '💡',
+        requires: 'bereishis-people',
+        level: 4,
+        cards: [
+          {id:'br-co01', q:'B\'tzelem Elokim', a:'"In the image of God" — every human being is created with inherent divine dignity', note:'Bereishis 1:27 · The foundation of Jewish ethics and human rights · Ben Azzai: this verse is the greatest principle of the Torah · Source for kavod habriyos (human dignity) and the prohibition of murder · Even the face of a person reflects the divine'},
+          {id:'br-co02', q:'Bris Milah', a:'The covenant of circumcision — the eternal sign of the covenant between Hashem and the Jewish people', note:'Bereishis 17 · Commanded to Avraham; fulfilled at age 99 · Performed on the 8th day of a baby boy\'s life · "My covenant shall be in your flesh as an everlasting covenant" · The Chasam Sofer: the first mitzvah given specifically to the Jewish people'},
+          {id:'br-co03', q:'Hashgacha Pratis', a:'Divine individual Providence — Hashem\'s personal involvement in the life of each person', note:'Yosef\'s story is the Torah\'s clearest illustration: what seemed like disaster (being sold) was secretly orchestrated for a higher purpose · "It was not you who sent me here but God" (45:8) · The Baal Shem Tov made this a central pillar of Chasidus'},
+          {id:'br-co04', q:'Ma\'aseh Avos Siman L\'Banim', a:'"The deeds of the forefathers are a sign for the children" — the Avos\' experiences foreshadow the nation\'s future', note:'A principle of the Ramban and Midrash · Avraham went down to Egypt → Israel went down to Egypt · Avraham\'s wife was taken by a king → so too with the Imahos · The Avos\' journeys literally chart the Jewish national story · Their choices and character become the blueprint'},
+          {id:'br-co05', q:'Bris Keshet (Rainbow Covenant)', a:'After the Mabul, Hashem placed a rainbow in the sky as a sign that He will never again destroy the world with a flood', note:'Bereishis 9:11–17 · "I will see it and remember the everlasting covenant" · The rainbow reminds both Hashem and humanity of this promise · Kabbalistic teaching: the rainbow\'s colors reflect the divine attributes · When a rainbow appears, one says a bracha'},
+          {id:'br-co06', q:'Gid HaNasheh', a:'The sciatic nerve — forbidden to eat, in memory of the angel\'s strike on Yaakov\'s hip during their wrestling', note:'Bereishis 32:33 · The only mitzvah whose source is in Sefer Bereishis but applies to all Israel · "Therefore the children of Israel do not eat the gid hanasheh to this day" · Requires checking and removing from the hind leg of kosher animals · The first Jewish dietary restriction tied to a specific historical event'},
+        ]
+      },
     ]
   },
 
@@ -1238,22 +1335,75 @@ const DECKS = [
         '"In every generation a person is obligated to see themselves as if they personally left Egypt" (Pesach Haggadah)',
       ]},
     ],
-    cards: [
-      {id:'sh01', q:'Moshe Rabbeinu',   a:'The greatest navi who ever lived · Redeemer of Israel · Receiver and transmitter of the Torah', note:'"No prophet arose in Israel like Moshe, whom God knew face to face" (Devarim 34:10) · Born to Yocheved and Amram of the tribe of Levi · Hidden as an infant; raised in Pharaoh\'s palace · Called from the Burning Bush · Led Israel for 40 years'},
-      {id:'sh02', q:'Aharon HaKohen',   a:'Moshe\'s older brother · First Kohen Gadol · Paradigm of seeking peace', note:'"Aharon loved peace and pursued peace, loved people and brought them close to Torah" (Avos 1:12) · Spoke for Moshe before Pharaoh · His rod became a snake and swallowed Egypt\'s snakes · Inaugurated as Kohen Gadol in Parshas Shemini'},
-      {id:'sh03', q:'Miriam HaNeviah',  a:'Moshe\'s older sister · Prophetess · Led the women in song after Kriyas Yam Suf', note:'Watched the infant Moshe in the basket · Sang Shiras HaYam with the women (Shemos 15) · Died in Parshas Chukas; well of Miriam dried up after her death · Her punishment for speaking against Moshe (tzara\'as) teaches the severity of lashon hara'},
-      {id:'sh04', q:'The Eser Makos (Ten Plagues)', a:'The ten divine punishments on Egypt: Dam, Tzfardea, Kinim, Arov, Dever, Shechin, Barad, Arbeh, Choshech, Makas Bechoros', note:'Each plague targeted a specific Egyptian deity · Pharaoh hardened his heart repeatedly · The plagues escalated in severity · The 10th plague (firstborn) finally broke Pharaoh\'s resistance · We recall them at the Seder by spilling wine drops'},
-      {id:'sh05', q:'Yetzias Mitzrayim', a:'The Exodus from Egypt — Nissan 15, 2448 (1313 BCE)', note:'The central event of Jewish history · 600,000 adult males left plus women, children, and the Erev Rav (mixed multitude) · After 210 years in Egypt, 116 years of which were harsh slavery · The basis for most mitzvos that mention "because I took you out of Egypt"'},
-      {id:'sh06', q:'Kriyas Yam Suf',   a:'The splitting of the Sea of Reeds — the Yidden passed through on dry land; the Egyptian army drowned', note:'Shemos 14 · Hashem split the sea when Moshe stretched his staff · The Yidden sang Shiras HaYam (Az Yashir) · The Midrash says even a maidservant saw more at the sea than the prophet Yechezkel · Celebrated on the 7th day of Pesach'},
-      {id:'sh07', q:'Matan Torah',       a:'The giving of the Torah at Har Sinai — Sivan 6, 2448 · The entire nation heard Hashem\'s voice', note:'All of Klal Yisrael stood at Har Sinai and experienced divine revelation directly · The Aseres HaDibros were spoken by Hashem · "Na\'aseh v\'nishma" — we will do and we will hear · Celebrated on Shavuos · The defining moment of the Jewish covenant'},
-      {id:'sh08', q:'Aseres HaDibros',   a:'The Ten Commandments — given at Har Sinai and recorded in Parshas Yisro (Shemos) and Parshas Va\'eschanan (Devarim)', note:'(1) I am Hashem · (2) No other gods · (3) Do not take God\'s name in vain · (4) Remember Shabbos · (5) Honor parents · (6) Do not murder · (7) Do not commit adultery · (8) Do not steal · (9) Do not bear false witness · (10) Do not covet'},
-      {id:'sh09', q:'Eigel HaZahav',     a:'The Golden Calf — made by the Yidden while Moshe was on Har Sinai for 40 days', note:'Shemos 32 · The Yidden miscalculated when Moshe would return; Aharon fashioned the calf under pressure · Moshe broke the Luchos when he came down · 3,000 people died · Moshe\'s intercession prevented total destruction · Yom Kippur: the day Hashem forgave for the Eigel'},
-      {id:'sh10', q:'The Luchos',        a:'The two stone tablets engraved by Hashem with the Aseres HaDibros', note:'First Luchos: broken by Moshe when he saw the Eigel · Second Luchos: carved by Moshe, engraved by Hashem · Stored in the Aron (Holy Ark) in the Mishkan and later the Beis HaMikdash · "The writing was the writing of God, engraved on the tablets" (32:16)'},
-      {id:'sh11', q:'The Mishkan',       a:'The portable Tabernacle — Hashem\'s dwelling place in the midbar, built from voluntary donations', note:'Blueprint given to Moshe on Har Sinai · Constructed by Betzalel ben Uri of the tribe of Yehudah · Completed on 1 Nissan, 2449 · Contained: the Menorah, Shulchan, Mizbeiach HaKetores, the Aron · Preceded and prefigured both Batei Mikdash'},
-      {id:'sh12', q:'Shabbos in Shemos', a:'Shabbos is first commanded in Parshas Beshalach (the manna doesn\'t fall on Shabbos) and formally in the Aseres HaDibros (Parshas Yisro)', note:'The 39 melachos are derived from the categories of labor used to build the Mishkan — juxtaposing Mishkan and Shabbos teaches that Mishkan-building itself is prohibited on Shabbos'},
-      {id:'sh13', q:'Yisro (Jethro)',    a:'Moshe\'s father-in-law · Former high priest of Midian · Advised Moshe to appoint a judicial hierarchy', note:'"The advice of Yisro" (Parshas Yisro): appoint judges over thousands, hundreds, fifties, and tens — one of the foundational principles of Jewish governance · He heard of the Exodus and came to join the Yidden · His parasha directly precedes Matan Torah'},
-      {id:'sh14', q:'Burning Bush (Sneh)', a:'The bush that burned without being consumed — the site of Moshe\'s first encounter with Hashem', note:'Shemos 3 · On Har Chorev (Har Sinai) · Hashem revealed Himself as "Ehyeh Asher Ehyeh" (I will be what I will be) · Commissioned Moshe to redeem Israel · The bush that burns but is not consumed: symbol of Israel\'s indestructibility'},
-      {id:'sh15', q:'"Na\'aseh v\'Nishma"', a:'"We will do and we will hear/obey" — the Yidden\'s response to the Torah before hearing all its details', note:'Shemos 24:7 · The Gemara says angels came and tied crowns on each Yid for this declaration · It demonstrates emunah (faith) beyond rational calculation · The Vilna Gaon: this is why Israel merited hearing the Torah directly from Hashem'},
+    sections: [
+      {
+        id: 'shemos-events',
+        name: 'Major Events',
+        emoji: '⚡',
+        cards: [
+          {id:'sh-ev01', q:'Shibud Mitzrayim (Egyptian Slavery)', a:'After Yosef\'s generation died, Pharaoh enslaved the Israelites out of fear that they would outnumber and overpower Egypt', note:'"A new king arose over Egypt who did not know Yosef" (1:8) · Hard labor (avodas perech), brick-making, field work · Decree to kill all newborn Jewish males · The more they were oppressed, the more they multiplied'},
+          {id:'sh-ev02', q:'Birth and Rescue of Moshe', a:'Moshe was born to Yocheved and Amram, hidden for 3 months, placed in a basket on the Nile, and raised in Pharaoh\'s palace', note:'Miriam watched from afar · Pharaoh\'s daughter (Batya/Bisya) found and adopted him · Moshe\'s own mother nursed him · "Moshe" = "drawn from the water" (given by Batya) · Fled to Midian after killing an Egyptian who was beating a Jew'},
+          {id:'sh-ev03', q:'The Burning Bush (Sneh)', a:'Hashem appeared to Moshe in a bush that burned but was not consumed — commissioning him to redeem Israel', note:'Shemos 3 · On Har Chorev (Har Sinai) · Hashem revealed Himself as "Ehyeh Asher Ehyeh" · The bush burning but not consumed = Israel in exile: suffering but not destroyed · Moshe tried to refuse: "I am heavy of mouth and heavy of tongue" — Aharon was appointed as his spokesman'},
+          {id:'sh-ev04', q:'The Eser Makos (Ten Plagues)', a:'Ten divine plagues struck Egypt: Dam, Tzfardea, Kinim, Arov, Dever, Shechin, Barad, Arbeh, Choshech, Makas Bechoros', note:'Each plague targeted an Egyptian deity · Pharaoh hardened his heart repeatedly · The Yidden were spared from most plagues in Goshen · The 10th plague (death of firstborns) finally broke Pharaoh · At the Seder we spill wine drops for each plague, diminishing our joy at Egypt\'s suffering'},
+          {id:'sh-ev05', q:'Yetzias Mitzrayim', a:'The Exodus from Egypt — Nissan 15, 2448 · The central event of Jewish history', note:'600,000 adult males plus women, children, and the Erev Rav (mixed multitude) · Left in haste: the dough did not have time to rise (matza) · Took the bones of Yosef with them as he had requested · After 210 years in Egypt · "Because I took you out of Egypt" is cited in the Torah as the reason for dozens of mitzvos'},
+          {id:'sh-ev06', q:'Kriyas Yam Suf', a:'The Sea of Reeds split — the Yidden crossed on dry land; the Egyptian army pursuing them drowned', note:'Shemos 14 · Moshe stretched his staff; a strong east wind blew all night · "The waters were like a wall on their right and on their left" · Shiras HaYam (Az Yashir) was sung · "A maidservant at the sea saw what Yechezkel the prophet never saw" (Midrash) · Celebrated on the 7th day of Pesach'},
+          {id:'sh-ev07', q:'Matan Torah at Har Sinai', a:'Hashem gave the Torah to the entire Jewish people at Har Sinai — Sivan 6, 2448', note:'The entire nation heard the first two commandments directly from Hashem · The mountain shook with thunder and lightning · "Na\'aseh v\'nishma" — we will do and we will hear · Celebrated as Shavuos · The defining covenant between Hashem and Klal Yisrael · Moshe was on the mountain 40 days'},
+          {id:'sh-ev08', q:'The Eigel HaZahav (Golden Calf)', a:'While Moshe was on Har Sinai for 40 days, the people made a golden calf to worship', note:'Shemos 32 · The people miscalculated Moshe\'s return date · Aharon fashioned the calf under pressure from the crowd · Moshe smashed the Luchos when he descended · 3,000 people died · Moshe interceded and Hashem forgave · Yom Kippur: the day the second Luchos were given — the day of forgiveness for the Eigel'},
+          {id:'sh-ev09', q:'The Building of the Mishkan', a:'Hashem commanded building a portable Tabernacle — a dwelling place for the Shechinah (divine presence) among the Jewish people', note:'Parshas Terumah–Vayakhel-Pekudei · Voluntary donations were collected (gold, silver, copper, fabric, wood) · Betzalel ben Uri designed and built it · Completed on 1 Nissan, 2449 · Contained: Aron, Menorah, Shulchan, Mizbeiach HaKetores, outer altar · Prefigured both Batei Mikdash'},
+        ]
+      },
+      {
+        id: 'shemos-parshas',
+        name: 'Parshas in Order',
+        emoji: '📜',
+        requires: 'shemos-events',
+        level: 2,
+        cards: [
+          {id:'sh-pr01', q:'Parshas Shemos', a:'Slavery in Egypt, birth and rescue of Moshe, Moshe flees to Midian, the Burning Bush, Hashem\'s command to redeem Israel', note:'"A new king arose who did not know Yosef" · God reveals His name as "Ehyeh Asher Ehyeh" · Moshe and Aharon go before Pharaoh for the first time'},
+          {id:'sh-pr02', q:'Parshas Vaeira', a:'The first seven plagues: Dam, Tzfardea, Kinim, Arov, Dever, Shechin, Barad — Pharaoh\'s heart is hardened', note:'Hashem reveals the four expressions of redemption: "I will take you out, rescue you, redeem you, take you as My nation" (the four cups of wine at the Seder) · Moshe again objects: "I have sealed lips"'},
+          {id:'sh-pr03', q:'Parshas Bo', a:'The last three plagues (Arbeh, Choshech, Makas Bechoros), Pesach instituted, the Exodus', note:'The command for the first Pesach: take a lamb, slaughter it, put blood on the doorposts · The mitzvah of Tefillin is first mentioned here · Pharaoh finally releases the Yidden — "Rise up and leave from among my people"'},
+          {id:'sh-pr04', q:'Parshas Beshalach', a:'Yetzias Mitzrayim, Kriyas Yam Suf, Shiras HaYam, the manna begins, Moshe strikes a rock for water, battle with Amalek', note:'"The Shabbos parasha" — the manna doesn\'t fall on Shabbos, teaching Shabbos observance · Amalek attacks without provocation; Yehoshua leads the battle while Moshe holds up his arms · "Hashem is a man of war — Hashem is His name"'},
+          {id:'sh-pr05', q:'Parshas Yisro', a:'Yisro arrives and advises Moshe to appoint judges, Matan Torah, the Aseres HaDibros', note:'The climax of Shemos: "And God spoke all these words saying..." · All of Israel heard Hashem\'s voice · "Na\'aseh v\'nishma" was said in an earlier parasha (Mishpatim context, ch. 24) · The Aseres HaDibros are the foundation of all 613 mitzvos according to many opinions'},
+          {id:'sh-pr06', q:'Parshas Mishpatim', a:'Civil and ethical laws: servants, damages, loans, theft, Shabbos, Shmitah, the three Regalim, "Na\'aseh v\'nishma"', note:'The densest halachic parasha in Shemos · "An eye for an eye" — interpreted by Chazal as monetary compensation · The prohibition of mistreating a ger (stranger) because "you were strangers in Egypt" · "Na\'aseh v\'nishma" (24:7)'},
+          {id:'sh-pr07', q:'Parshas Terumah', a:'The command to build the Mishkan — blueprint for the Aron, Shulchan, Menorah, and the structure itself', note:'"And they shall make Me a sanctuary and I will dwell among them" — God dwells among the people, not within the building · Donations are voluntary (terumah) · Detailed measurements and materials for each vessel'},
+          {id:'sh-pr08', q:'Parshas Tetzaveh', a:'The garments of the Kohanim (priestly vestments), the Kohen Gadol\'s special garments, the inauguration of the altar', note:'The Kohen Gadol\'s 8 garments: Tzitz (golden headplate), Choshen (breastplate), Ephod, Me\'il (robe), Kesones (tunic), Mitznefes (turban), Avnet (belt), Michnasayim (pants) · Moshe\'s name does not appear in this parasha — the only such parasha in the Torah after his birth'},
+          {id:'sh-pr09', q:'Parshas Ki Sisa', a:'The census (half-shekel), the Eigel HaZahav (Golden Calf), Moshe\'s intercession, the second Luchos, Moshe\'s radiant face', note:'The half-shekel: each Jew gave equally, regardless of wealth · Moshe smashes the first Luchos · The 13 Middos of Rachamim (divine attributes of mercy) are revealed here · Moshe\'s face shone so brightly he had to wear a veil'},
+          {id:'sh-pr10', q:'Parshas Vayakhel', a:'Moshe conveys Shabbos laws; the people donate for the Mishkan; Betzalel begins construction', note:'Shabbos is taught right before the Mishkan — teaching that building the Mishkan does not override Shabbos · The people donate so generously that Moshe had to stop them: "Enough!" · Betzalel is identified as filled with "the spirit of God, wisdom, understanding, and knowledge"'},
+          {id:'sh-pr11', q:'Parshas Pekudei', a:'Accounting of all Mishkan donations, completion of the Mishkan, the divine cloud rests upon it', note:'An exact inventory of all gold, silver, and copper donated · The Mishkan is completed and erected on 1 Nissan, 2449 · "And the cloud covered the Tent of Meeting and the glory of Hashem filled the Mishkan" — divine presence descends · The book of Shemos ends with this triumphant moment'},
+        ]
+      },
+      {
+        id: 'shemos-people',
+        name: 'Key People',
+        emoji: '👥',
+        requires: 'shemos-parshas',
+        level: 3,
+        cards: [
+          {id:'sh-pe01', q:'Moshe Rabbeinu', a:'The greatest navi who ever lived · Redeemer of Israel · Receiver and transmitter of the Torah', note:'"No prophet arose in Israel like Moshe, whom God knew face to face" (Devarim 34:10) · Born in Egypt; raised in Pharaoh\'s palace · Called at the Burning Bush · Led Israel for 40 years · Attribute: Humility — "Moshe was the most humble man on the face of the earth" (Bamidbar 12:3)'},
+          {id:'sh-pe02', q:'Aharon HaKohen', a:'Moshe\'s older brother · First Kohen Gadol · "Ohev shalom v\'rodef shalom" — paradigm of peace', note:'"Aharon loved peace and pursued peace, loved people and brought them close to Torah" (Pirkei Avos 1:12) · Spokesperson for Moshe before Pharaoh · Made the Eigel under duress — a tragic moment · His 8 sons (Nadav, Avihu, Elazar, Itamar) were inaugurated as Kohanim'},
+          {id:'sh-pe03', q:'Miriam HaNeviah', a:'Moshe\'s older sister · Prophetess · Led the women in song after Kriyas Yam Suf', note:'Watched the infant Moshe float in the basket · Proposed that their mother nurse him · Led Shiras HaYam with timbrels after the sea split · A well accompanied Israel in the midbar in her merit · Her punishment for speaking against Moshe (tzara\'as) is cited as a teaching about lashon hara'},
+          {id:'sh-pe04', q:'Yocheved', a:'Moshe\'s mother · One of the Jewish midwives in Egypt who defied Pharaoh\'s decree to kill newborn boys', note:'Yocheved and Shifrah (identified by Chazal as Yocheved and Miriam) risked their lives to save Jewish babies · She hid Moshe for 3 months · After placing him in the basket, was hired to be his wet nurse · One of the first recorded acts of civil disobedience in history'},
+          {id:'sh-pe05', q:'Pharaoh', a:'The king of Egypt who enslaved and oppressed the Jewish people and refused to let them go', note:'The Torah gives him no personal name — "Pharaoh" is his title · Hardened his own heart for the first 5 plagues; Hashem hardened it for the last 5 · Refused to release Israel until after his own firstborn died · His army drowned in the sea while pursuing the freed slaves'},
+          {id:'sh-pe06', q:'Yisro (Jethro)', a:'Moshe\'s father-in-law · Former high priest of Midian · Advised Moshe on governance', note:'"The advice of Yisro": appoint judges over thousands, hundreds, fifties, tens · He heard of the Exodus and came to join the camp · His descendants (the Keini) were rewarded with land in Eretz Yisrael · His parasha immediately precedes Matan Torah — a foreigner\'s wisdom is valued'},
+          {id:'sh-pe07', q:'Betzalel ben Uri', a:'Chief architect and builder of the Mishkan · From the tribe of Yehudah · Filled with divine wisdom', note:'"Hashem filled him with the spirit of God, with wisdom, understanding, and knowledge" (35:31) · At age 13, Chazal say, he built the Mishkan · His name means "in the shadow of God" · He intuitively rearranged the building sequence Moshe presented, and Moshe confirmed he was correct'},
+          {id:'sh-pe08', q:'Tzipporah', a:'Moshe\'s wife · Daughter of Yisro · Saved Moshe\'s life by circumcising their son', note:'Shemos 4:24–26 · Hashem sought to kill Moshe because he had not circumcised his son · Tzipporah quickly circumcised the child, touching Moshe\'s feet with the foreskin · "A chasan damim (bridegroom of blood) are you to me" · She and their sons remained in Midian during the Exodus and returned later with Yisro'},
+        ]
+      },
+      {
+        id: 'shemos-concepts',
+        name: 'Core Concepts',
+        emoji: '💡',
+        requires: 'shemos-people',
+        level: 4,
+        cards: [
+          {id:'sh-co01', q:'Galus and Geulah', a:'Exile and Redemption — the foundational rhythm of Jewish history, first played out in Egypt', note:'Egypt was the prototype: exile → oppression → cry out → Hashem hears → redemption · The four expressions of redemption (Shemos 6:6–7) are the basis for the four cups of wine at the Seder · "I will redeem you with an outstretched arm and great judgments" — Geulah requires divine intervention, not just human effort'},
+          {id:'sh-co02', q:'Na\'aseh v\'Nishma', a:'"We will do and we will hear" — Israel accepted the Torah before knowing all its details', note:'Shemos 24:7 · A declaration of faith beyond rational calculation — doing precedes understanding · "When Israel said \'Na\'aseh\' before \'Nishma,\' a heavenly voice called out: who revealed My secret to My children?" (Gemara Shabbos) · The Vilna Gaon: this is why Israel merited hearing the Torah from Hashem directly'},
+          {id:'sh-co03', q:'Shabbos — First in Shemos', a:'Shabbos is first taught in practice through the manna (Beshalach) and formally in the Aseres HaDibros (Yisro)', note:'The manna: a double portion fell on Friday and none on Shabbos — the people had to prepare in advance · "Remember the Shabbos to keep it holy" is the 4th commandment · The 39 melachos (forbidden labors) are derived from the 39 categories of work used in the Mishkan · "Shabbos" appears in the Mishkan commands as a reminder that even holy work stops for Shabbos'},
+          {id:'sh-co04', q:'The Mishkan — Mikdash Me\'at', a:'The Mishkan was a "small sanctuary" — a portable dwelling for the Shechinah that sanctified the entire camp and traveled with Israel', note:'"And they shall make Me a sanctuary, and I will dwell among them" — the purpose is closeness between God and the people · The Ramban: the Mishkan continues the Sinai revelation; the Shechinah that descended at Sinai now dwells permanently among the people · Every vessel carries deep symbolic meaning · Later expanded into both permanent Temples'},
+          {id:'sh-co05', q:'Aseres HaDibros', a:'The Ten Commandments — the foundational summary of the Torah\'s 613 mitzvos', note:'Given at Sinai and heard by all of Israel · The first 5 (man-to-God): I am Hashem, no other gods, don\'t take My name in vain, Shabbos, honor parents · The last 5 (man-to-man): don\'t murder, don\'t commit adultery, don\'t steal, don\'t bear false witness, don\'t covet · The Baal HaTurim: all 613 mitzvos are hinted at within the Aseres HaDibros'},
+          {id:'sh-co06', q:'Klal Yisrael — The Nation is Born', a:'Shemos transforms 70 individuals into a unified nation (am) with a shared covenant, language, and mission', note:'The word "am" (nation/people) is used far more in Shemos than in Bereishis · Shared suffering, shared redemption, and Matan Torah forge a national identity · "You shall be for Me a kingdom of Kohanim and a holy nation" (19:6) · The transition from a family narrative to a national one is complete by the end of Shemos'},
+        ]
+      },
     ]
   },
 
@@ -1274,19 +1424,67 @@ const DECKS = [
         'The Yamim Tovim and the laws of Yom Kippur are found here (Parshas Emor, Acharei Mos)',
       ]},
     ],
-    cards: [
-      {id:'vk01', q:'Korbanot (Sacrifices)', a:'Offerings brought to Hashem in the Mishkan/Beis HaMikdash as an act of divine service', note:'From "karov" — to draw close · Categories: Olah (burnt offering), Shelamim (peace offering), Chatas (sin offering), Asham (guilt offering), Mincha (meal offering) · Today, tefillah (prayer) takes the place of korbanot'},
-      {id:'vk02', q:'Nadav and Avihu',      a:'Aharon\'s two eldest sons · Died on the day of the Mishkan\'s inauguration', note:'Brought an "eish zarah" (alien fire) that Hashem had not commanded · Instantly consumed by a divine fire · Aharon\'s silent response: "Vayidom Aharon" — Aharon was silent · Their death is interpreted as having multiple causes; one opinion: they ruled halacha in front of their teacher Moshe'},
-      {id:'vk03', q:'Yom Kippur Avodah',    a:'The unique Temple service performed by the Kohen Gadol on Yom Kippur — the only day he entered the Holy of Holies', note:'Parshas Acharei Mos · Two identical goats: one offered to Hashem, one sent to Azazel (the "scapegoat") · Four garments instead of the usual eight · The Kohen Gadol immersed five times and washed hands/feet ten times · This avodah is relived through the Yom Kippur Mussaf service'},
-      {id:'vk04', q:'Kashrut — Basic Laws', a:'Laws of permissible and forbidden foods, found primarily in Parshas Shemini (Vayikra 11)', note:'Land animals: must have split hooves AND chew their cud · Sea creatures: must have fins AND scales · Birds: a list of 24 forbidden species (all others permitted) · Insects: generally forbidden · Meat and dairy: forbidden to mix — based on "do not cook a kid in its mother\'s milk" (appears three times in the Torah)'},
-      {id:'vk05', q:'"V\'ahavta l\'re\'acha kamocha"', a:'"Love your neighbor as yourself" — Vayikra 19:18 · Rabbi Akiva called it the great principle of the Torah', note:'Parshas Kedoshim · Rabbi Akiva: "This is the great principle of the Torah" · Ben Azzai: "These are the generations of Adam" (all humans share one Creator) is even more fundamental · Hillel paraphrased it as the entire Torah in a negative formulation: "What is hateful to you, do not do to others"'},
-      {id:'vk06', q:'Parshas Kedoshim',     a:'"You shall be holy, for I, Hashem your God, am holy" — the Holiness Code (Vayikra 19–20)', note:'Contains: love your neighbor, leave corners of fields for the poor (pe\'ah), honest weights and measures, rising before elders, no gossip, no revenge, prohibited mixtures (kilayim), and more · The Ramban: "kedoshim" means to be holy even in things the Torah permits — don\'t be a "naval b\'reshus haTorah" (a disgusting person within the law\'s permission)'},
-      {id:'vk07', q:'Tumah and Tahara',     a:'The system of ritual purity and impurity — governs access to the Mishkan/Beis HaMikdash and certain holy objects', note:'Sources of tumah: a meis (corpse), tzara\'as (skin condition), bodily discharges, contact with certain animals · Purification involves immersion in a mikveh, waiting, and sometimes a korban · Today: niddah and mikveh remain practically applicable; most other tumah laws await the rebuilding of the Beis HaMikdash'},
-      {id:'vk08', q:'Shmitah',              a:'The Sabbatical Year — the land of Israel must lie fallow every 7th year', note:'Vayikra 25 · All agricultural work forbidden · Produce that grows is hefker (ownerless) · Debts are released · The land "rests" just as we rest on Shabbos — a weekly Shabbos for the land · Currently observed in Eretz Yisrael with various halachic mechanisms'},
-      {id:'vk09', q:'Yovel (Jubilee)',       a:'The 50th year — land returns to original tribal owners, and Hebrew slaves go free', note:'Vayikra 25 · Occurs after seven cycles of Shmitah · "You shall proclaim liberty throughout the land" (source for the inscription on the Liberty Bell) · Only observed when all 12 tribes are present in Eretz Yisrael · Affects the selling of land (sold land "returns" in Yovel)'},
-      {id:'vk10', q:'Parshas Emor — Yamim Tovim', a:'Vayikra 23 lists all the Biblical holidays: Shabbos, Pesach, Shavuos, Rosh Hashanah, Yom Kippur, Sukkos, Shemini Atzeres', note:'"These are My appointed times" (23:2) · The foundational source for the Biblical holidays · Includes the command to count the Omer (Sefirat HaOmer) · Sukkos: the command to take the arba minim and to dwell in a sukkah'},
-      {id:'vk11', q:'Bechukosai — Tochacha', a:'Vayikra 26 — blessings for following the Torah, and curses for abandoning it', note:'If we follow the chukim: rain in season, abundant produce, peace, and divine presence · If we don\'t: disease, war, exile, and desolation of the land · The tochacha is read quickly in a hushed tone in shul · The Ramban: the exile we\'ve experienced mirrors the curses here precisely'},
-      {id:'vk12', q:'Pe\'ah (Corner of the Field)', a:'The obligation to leave a corner of one\'s harvest unharvested for the poor', note:'Vayikra 19:9–10 · Also: leket (fallen stalks), shikcha (forgotten sheaves) — all left for the poor · The minimum amount of pe\'ah is 1/60th of the field (though no maximum is set) · Today: the principle of tzedakah and leaving resources for the poor extends this mitzvah'},
+    sections: [
+      {
+        id: 'vayikra-events',
+        name: 'Major Events',
+        emoji: '⚡',
+        cards: [
+          {id:'vk-ev01', q:'Inauguration of the Mishkan', a:'On 1 Nissan, 2449, the Mishkan was erected and the divine presence descended — the first day of Kohen service', note:'Moshe anointed Aharon and his sons as Kohanim · A divine fire descended from heaven and consumed the first offerings · "All the people saw and sang out and fell on their faces" · This was the culmination of the entire Mishkan project'},
+          {id:'vk-ev02', q:'Death of Nadav and Avihu', a:'Aharon\'s two eldest sons died on the first day of Mishkan service when they brought "eish zarah" (unauthorized fire)', note:'Vayikra 10 · Instantly consumed by divine fire · Multiple explanations: entered the Holy of Holies without permission, ruled halacha in front of Moshe, entered while intoxicated · "Vayidom Aharon" — Aharon was silent · Their copper fire pans were incorporated into the Mizbeiach as a perpetual reminder'},
+          {id:'vk-ev03', q:'Yom Kippur Avodah', a:'The unique Temple service performed exclusively by the Kohen Gadol — the only time any person entered the Kodesh HaKodashim (Holy of Holies)', note:'Parshas Acharei Mos · Two identical goats: one for Hashem (korban), one for Azazel (scapegoat — sent to the desert carrying the people\'s sins) · The Kohen Gadol wore only 4 plain white garments · Immersed 5 times; washed hands and feet 10 times · The nation\'s survival for the year depended on this service'},
+          {id:'vk-ev04', q:'The Yamim Tovim Commanded', a:'Parshas Emor (Vayikra 23) lists all seven Biblical holidays with their dates and basic observances', note:'"These are the appointed times of Hashem, holy convocations" · Pesach (Nissan 15–22), Shavuos (Sivan 6), Rosh Hashanah (Tishrei 1), Yom Kippur (Tishrei 10), Sukkos (Tishrei 15–21), Shemini Atzeres (Tishrei 22) · Also: Sefirat HaOmer — count 49 days between Pesach and Shavuos'},
+          {id:'vk-ev05', q:'Bechukosai — Blessings and Curses', a:'Hashem promises abundant blessing for following the Torah, and severe consequences for abandoning it', note:'Vayikra 26 · "If you walk in My statutes and keep My commandments" → rain, harvest, peace, presence of God · If not → disease, defeat, exile, desolation · The Ramban: these curses were fulfilled precisely in the Babylonian and Roman exiles · Read quickly in a hushed voice in shul'},
+        ]
+      },
+      {
+        id: 'vayikra-parshas',
+        name: 'Parshas in Order',
+        emoji: '📜',
+        requires: 'vayikra-events',
+        level: 2,
+        cards: [
+          {id:'vk-pr01', q:'Parshas Vayikra', a:'Introduction to korbanot: the Olah (burnt offering), Mincha (meal offering), Shelamim (peace offering), Chatas (sin offering), Asham (guilt offering)', note:'Opens with Hashem calling to Moshe — the small aleph in "Vayikra" symbolizes Moshe\'s humility · "Karov" (to draw near) is the root of "korban" — offerings bring one closer to God'},
+          {id:'vk-pr02', q:'Parshas Tzav', a:'Laws for the Kohanim regarding the korbanot: the daily Olah, Mincha, Chatas, Asham, Shelamim — and the first 7 days of Mishkan service', note:'The command "Tzav" (command!) is used because the Kohanim might be reluctant to perform the daily fire-tending · The peace offering (Shelamim) is the korban most shared with the person who brought it'},
+          {id:'vk-pr03', q:'Parshas Shemini', a:'The 8th day of Mishkan inauguration, death of Nadav and Avihu, laws of kashrut (kosher animals)', note:'"Shemini" = eighth — the day the divine presence permanently descended · Kashrut laws: land animals (split hoof + chews cud), fish (fins + scales), forbidden birds, forbidden insects · "You shall be holy for I am holy"'},
+          {id:'vk-pr04', q:'Parshas Tazria', a:'Laws of Tumah after childbirth, laws of tzara\'as (a skin condition) — when to show the Kohen', note:'Tzara\'as is not a medical condition but a spiritual one — the Kohen diagnoses it, not a doctor · Chazal: tzara\'as comes as punishment for lashon hara (negative speech) · The word "metzora" is linked to "motzi shem ra" (spreading a bad name)'},
+          {id:'vk-pr05', q:'Parshas Metzora', a:'The purification process for one healed of tzara\'as, tzara\'as of clothing and houses', note:'Two birds: one slaughtered over spring water, one dipped and released · The metzora must shave, immerse, and bring korbanot · Tzara\'as of a house required tearing out infected stones · The process mirrors becoming tamei and returning to the community — a lesson in teshuvah'},
+          {id:'vk-pr06', q:'Parshas Acharei Mos', a:'Yom Kippur Avodah in the Beis HaMikdash, prohibition of blood and forbidden relationships', note:'"After the death" of Nadav and Avihu — the Kohen Gadol is warned not to enter the Kodesh HaKodashim whenever he wants · The Yom Kippur service is detailed here · Prohibition: "You shall not eat blood" · Long list of forbidden relationships (Arayos)'},
+          {id:'vk-pr07', q:'Parshas Kedoshim', a:'"You shall be holy" — the Holiness Code: love your neighbor, honest weights, no gossip, honor the elderly, care for the poor', note:'The most mitzvah-dense parasha in the Torah alongside Ki Seitzei · "V\'ahavta l\'re\'acha kamocha" (19:18) · The Ramban: even in permitted things, be restrained — don\'t be a "naval b\'reshus haTorah" · Pe\'ah, leket, shikcha for the poor'},
+          {id:'vk-pr08', q:'Parshas Emor', a:'Laws of Kohanim (who they may marry, deformities that disqualify from service), laws of all Yamim Tovim, the Omer count, the blasphemer', note:'"Emor el haKohanim" — Moshe told to speak to the Kohanim · Yamim Tovim are listed as "mo\'adei Hashem" — Hashem\'s appointed times, not man\'s · The incident of the blasphemer who was put to death establishes laws of blasphemy'},
+          {id:'vk-pr09', q:'Parshas Behar', a:'Shmitah (the Sabbatical Year), Yovel (Jubilee Year), laws of selling land and Hebrew servants', note:'"Behar Sinai" — this was said at Sinai, teaching that all of Vayikra was given at Sinai · "You shall proclaim liberty throughout the land" (Yovel) — inscribed on the Liberty Bell · Prohibition against charging interest (ribbis) between Jews'},
+          {id:'vk-pr10', q:'Parshas Bechukosai', a:'Blessings for observing the Torah, the Tochacha (curses for abandoning it), laws of consecrated valuations', note:'"If you walk in My statutes" — Rashi: toiling in Torah study · The blessings are general; the curses are detailed and specific · "Erech" (valuation): one who vows to donate the monetary value of a person to the Beis HaMikdash · The book of Vayikra concludes here'},
+        ]
+      },
+      {
+        id: 'vayikra-people',
+        name: 'Key People',
+        emoji: '👥',
+        requires: 'vayikra-parshas',
+        level: 3,
+        cards: [
+          {id:'vk-pe01', q:'Aharon HaKohen (in Vayikra)', a:'Aharon is the central figure of Vayikra — inaugurated as the first Kohen Gadol, his sons serve with him, he performs the Yom Kippur service', note:'His humility and silence after Nadav and Avihu\'s death ("Vayidom Aharon") is held up as a model of acceptance · The Yom Kippur Avodah rests entirely on the Kohen Gadol\'s shoulders — the nation\'s atonement depends on his service'},
+          {id:'vk-pe02', q:'Nadav and Avihu', a:'Aharon\'s two eldest sons, died on the first day of Mishkan service by bringing unauthorized fire', note:'Multiple explanations for their sin in the Talmud · Their deaths prompted laws about when Kohanim may enter the Kodesh HaKodashim and the prohibition on Kohanim drinking wine before service · Moshe told Aharon: "Through those close to Me I am sanctified" — they died in a state of holiness, not disgrace'},
+          {id:'vk-pe03', q:'Elazar and Itamar', a:'Aharon\'s two surviving sons — became Kohanim after their brothers\' deaths', note:'Elazar: took over as Kohen Gadol after Aharon\'s death · Itamar: oversaw the construction of parts of the Mishkan · Their descendants, the Kohanim, served in the Temple until its destruction'},
+          {id:'vk-pe04', q:'The Kohen Gadol', a:'The High Priest — leader of the priestly service, responsible for the Yom Kippur Avodah in the Kodesh HaKodashim', note:'Wore 8 special garments (vs. 4 for regular Kohanim) · Could not marry a widow or divorcée · Had to be a Torah scholar · Needed to prepare for 7 days before Yom Kippur · The nation\'s annual atonement rested on his service · Death of the Kohen Gadol ended the "exile" of accidental killers in Arei Miklat'},
+          {id:'vk-pe05', q:'Rabbi Akiva — on Kedoshim', a:'Rabbi Akiva declared "V\'ahavta l\'re\'acha kamocha" (love your neighbor as yourself) to be "the great principle of the Torah"', note:'His teaching brings Vayikra\'s Holiness Code to its ethical peak · Ben Azzai disagreed: "These are the generations of Adam" (all humans share a Creator) is even more fundamental · The two views represent two approaches: Klal Yisrael as the center vs. all humanity as equal'},
+        ]
+      },
+      {
+        id: 'vayikra-concepts',
+        name: 'Core Concepts',
+        emoji: '💡',
+        requires: 'vayikra-people',
+        level: 4,
+        cards: [
+          {id:'vk-co01', q:'Korbanot', a:'Sacrificial offerings brought to Hashem — the central form of divine service in the Mishkan and Beis HaMikdash', note:'From "karov" — to draw close · Categories: Olah (entirely burned), Shelamim (shared with the bringer), Chatas/Asham (atonement offerings), Mincha (grain/flour) · Today: the three daily tefillot (Shacharis, Mincha, Maariv) correspond to the three daily korbanot and take their place'},
+          {id:'vk-co02', q:'Tumah and Tahara', a:'Ritual impurity and purity — a spiritual-halachic system governing access to sacred space and objects', note:'Sources of Tumah: a meis (corpse, the strongest), certain animals, bodily discharges, tzara\'as · Purification: immersion in a mikveh, waiting, sometimes a korban · Today the main practical applications are niddah/mikveh for married women and Kohanim\'s avoidance of the dead · The deeper concept: some experiences of life (birth, death, illness) require re-entry into the sacred through a process'},
+          {id:'vk-co03', q:'Kedushah (Holiness)', a:'"You shall be holy, for I, Hashem your God, am holy" — the central command of Parshas Kedoshim', note:'The Ramban: "kadosh" means restraint — be holy even in permitted areas; don\'t be a "naval b\'reshus haTorah" (a disgusting person within the Torah\'s permission) · Holiness is not separation from life but elevation within it · The Holiness Code (ch. 19) links holiness to ethical behavior, not only ritual'},
+          {id:'vk-co04', q:'Shmitah and Yovel', a:'The Sabbatical Year (every 7th) and Jubilee Year (every 50th) — the land rests, debts and slavery are released', note:'Shmitah: "The land shall observe a Shabbos for Hashem" · Produce during Shmitah is ownerless (hefker) · Yovel: "Proclaim liberty throughout the land to all its inhabitants" · Together: the economic system has a built-in reset every 50 years, preventing permanent inequality · The Torah views the land as belonging to Hashem — we are tenants'},
+          {id:'vk-co05', q:'V\'ahavta l\'re\'acha kamocha', a:'"Love your neighbor as yourself" — Vayikra 19:18 · Rabbi Akiva: "This is the great principle of the Torah"', note:'Not merely a feeling but an action: treat others as you wish to be treated · Hillel\'s Golden Rule: "What is hateful to you, do not do to your fellow" · The surrounding pesukim give concrete expression: no revenge, no grudges, rebuke your neighbor (don\'t let resentment fester) · The word "re\'acha" (your neighbor) is interpreted broadly in halachic literature'},
+          {id:'vk-co06', q:'Tzara\'as — Spiritual Skin Condition', a:'A divinely-caused skin condition that comes as a consequence of lashon hara (negative speech) and other sins', note:'Chazal: "Metzora" is an acronym for "motzi shem ra" (spreader of a bad name) · The diagnosis is made by a Kohen, not a doctor — it\'s not a medical condition but a spiritual one · The metzora was isolated outside the camp, mirroring how lashon hara isolates communities · Today: a reminder that our words have real consequences'},
+        ]
+      },
     ]
   },
 
@@ -1307,19 +1505,71 @@ const DECKS = [
         'Ends with the nation on the verge of entering Eretz Yisrael — the generation\'s children will succeed where their parents failed',
       ]},
     ],
-    cards: [
-      {id:'bm01', q:'The Census (Pekudim)', a:'A count of all Israelite males aged 20+ fit for military service — 603,550 total', note:'Parshas Bamidbar · Each tribe counted separately · Tribe of Levi counted separately (from age 1 month) for Mishkan service · A second census near the end of the 40 years (Parshas Pinchas) shows similar numbers — an open miracle that the population survived'},
-      {id:'bm02', q:'The Meraglim (Spies)', a:'Twelve tribal leaders sent to scout Eretz Yisrael — ten returned with a negative report', note:'Parshas Shelach · Calev and Yehoshua gave the faithful report · The other ten said: "We cannot go up — they are stronger than us" · The people wept that night (Tisha B\'Av) · Hashem decreed: that entire generation would die in the midbar over 40 years · The greatest national tragedy of the midbar'},
-      {id:'bm03', q:'Calev ben Yefuneh',    a:'One of the two faithful spies · Tribe of Yehudah · Rewarded with Chevron as his inheritance', note:'Stood up against the ten meraglim · "We can certainly go up!" · Silenced the crowd by reminding them of Moshe\'s power · Promised entry to Eretz Yisrael along with Yehoshua · His descendants include Dovid HaMelech'},
-      {id:'bm04', q:'Yehoshua bin Nun',     a:'One of the two faithful spies · Moshe\'s primary student · Appointed successor to Moshe', note:'Originally named "Hoshea" — Moshe added a "yud" (making Yehoshua) to protect him from the counsel of the spies · Served Moshe closely for 40 years · Led the conquest and division of Eretz Yisrael · His book opens Nach (the Early Prophets)'},
-      {id:'bm05', q:'Korach\'s Rebellion',   a:'Korach ben Yitzhar led 250 prominent men in challenging Moshe\'s authority', note:'Parshas Korach · "All the congregation is holy — why do you raise yourself above them?" · Moshe proposed a test: Korach\'s group would offer ketores (incense); the one Hashem chose would be His · The earth opened and swallowed Korach, Dasan, and Aviram · A divine fire consumed the 250 · Their copper fire pans were hammered into plating for the Mizbeiach as a warning'},
-      {id:'bm06', q:'Parah Adumah',          a:'The Red Heifer — the paradigm of a chok (a divine law beyond human understanding)', note:'Parshas Chukas · A completely red cow was burned; its ashes mixed with water purify someone who touched a corpse · The same waters make the pure person who prepares them tamei (impure) · Shlomo HaMelech could not understand it · Teaches that we observe Torah even when we don\'t understand — obedience over comprehension'},
-      {id:'bm07', q:'Mei Merivah',           a:'Moshe struck the rock instead of speaking to it — and lost the right to enter Eretz Yisrael', note:'Parshas Chukas · The people had no water and complained · Hashem told Moshe to speak to the rock · Moshe struck it twice instead · Water flowed · Hashem said: "Because you did not sanctify Me" · Moshe\'s greatest loss — he could see Eretz Yisrael but not enter it · The commentators debate the exact sin'},
-      {id:'bm08', q:'Bilam',                 a:'Non-Jewish prophet hired by Balak king of Moav to curse Yisrael — he blessed them instead', note:'Parshas Balak · "How good are your tents, Yaakov, your dwelling places, Israel!" (Mah Tovu) — said by Bilam, the greatest prophecy of a gentile · Hashem turned every intended curse into a blessing · Bilam\'s donkey spoke to him · Bilam later advised Midian to corrupt Israel through immorality (Parshas Balak/Pinchas)'},
-      {id:'bm09', q:'Pinchas',               a:'Grandson of Aharon · Killed Zimri and Kozbi in a zealous act that stopped a divine plague', note:'Parshas Pinchas · Zimri (tribe of Shimon) publicly sinned with Kozbi (a Midianite princess) · Pinchas acted with zealotry (kana\'us) · 24,000 Yidden had already died in a plague · His act stopped it · Rewarded with Bris Shalom (covenant of peace) and the eternal kehunah (priesthood)'},
-      {id:'bm10', q:'Bnos Tzlofchad',        a:'The five daughters of Tzlofchad who successfully petitioned for their father\'s inheritance in Eretz Yisrael', note:'Parshas Pinchas · Names: Machla, Noa, Chogla, Milka, Tirtza · Their father had no sons · "Why should our father\'s name be lost from his family because he had no son?" · Hashem upheld their claim — daughters inherit when there are no sons · The Gemara: they were wise, learned, and righteous'},
-      {id:'bm11', q:'Nazir',                 a:'One who takes a vow to abstain from wine, haircuts, and contact with the dead for a specified period', note:'Parshas Naso · A voluntary vow of heightened holiness · At the end: brings a korban and shaves his head · Shimshon (Samson) was a lifelong Nazir · Two views: the Nazir is praiseworthy (taking on extra kedushah) OR he needs a korban because he denied himself wine (a gift of God)'},
-      {id:'bm12', q:'Arei Miklat (Cities of Refuge)', a:'Six designated cities where an accidental killer could flee to escape the go\'el hadam (blood avenger)', note:'Parshas Mas\'ei · Three in Eretz Yisrael, three in Ever HaYarden · The killer remains there until the death of the Kohen Gadol · Roads to the cities had to be well-maintained · Teaches the distinction between intentional murder (death penalty) and accidental killing'},
+    sections: [
+      {
+        id: 'bamidbar-events',
+        name: 'Major Events',
+        emoji: '⚡',
+        cards: [
+          {id:'bm-ev01', q:'The First Census', a:'A count of all Israelite males aged 20+ fit for military service — 603,550 total, tribe by tribe', note:'Parshas Bamidbar · Each tribe counted by its leader · Levi counted separately (from age 1 month) for Mishkan service, not military · The nation is organized into a camp formation around the Mishkan · Hashem\'s love for Israel: "They are precious to Me, so I count them constantly"'},
+          {id:'bm-ev02', q:'The Meraglim (12 Spies)', a:'Twelve tribal leaders were sent to scout Eretz Yisrael — ten returned with a frightening report; the nation wept', note:'Parshas Shelach · Calev and Yehoshua gave a faithful report: "We can certainly go up!" · The ten said: "We cannot — they are stronger than us" · Hashem decreed: that entire generation would die in the midbar over 40 years · The night they wept (Tisha B\'Av) became a night of weeping for all generations'},
+          {id:'bm-ev03', q:'Korach\'s Rebellion', a:'Korach ben Yitzhar and 250 prominent men challenged Moshe\'s and Aharon\'s authority over the entire nation', note:'Parshas Korach · "All the congregation is holy — why do you raise yourselves above them?" · Moshe\'s test: all would offer ketores; Hashem would show who was chosen · The earth opened and swallowed Korach, Dasan, and Aviram · Divine fire consumed the 250 · The ultimate lesson: challenge of legitimate authority has catastrophic consequences'},
+          {id:'bm-ev04', q:'Mei Merivah', a:'Moshe struck the rock instead of speaking to it as commanded — and forfeited his right to enter Eretz Yisrael', note:'Parshas Chukas · The people complained about lack of water · Hashem: "Speak to the rock" · Moshe struck it twice in frustration · Water gushed forth · Hashem: "Because you did not sanctify Me" · Moshe could see Eretz Yisrael from Har Nevo but not enter it · The commentators debate the exact sin — calling Israel "rebels," lack of faith, anger'},
+          {id:'bm-ev05', q:'Bilam\'s Blessings', a:'Balak king of Moav hired the gentile prophet Bilam to curse Israel — but every intended curse became a blessing', note:'Parshas Balak · Bilam\'s donkey saw the angel and spoke — Bilam was blind to what the animal saw · Three times Bilam tried to curse; three times he blessed · "Mah Tovu ohalecha Yaakov" (How goodly are your tents, O Yaakov) — said by Bilam, now part of our morning prayers · Bilam later advised corrupting Israel through Midianite women'},
+          {id:'bm-ev06', q:'Pinchas and the Plague', a:'Zimri (tribe of Shimon) publicly sinned with a Midianite princess — 24,000 died in a plague; Pinchas stopped it with a zealous act', note:'Parshas Pinchas · Pinchas killed both Zimri and Kozbi in a public act of kana\'us (zealotry) · The plague immediately stopped · Pinchas was rewarded with Bris Shalom (covenant of peace) and the eternal kehunah · Teaches: there are moments when decisive action in defense of Hashem\'s honor is required'},
+          {id:'bm-ev07', q:'The Second Census', a:'Near the end of the 40 years, a second census was taken — similar numbers to the first, despite 40 years of desert hardship', note:'Parshas Pinchas · 601,730 — slightly fewer than the first count · This new generation would enter Eretz Yisrael · The land was to be divided among the tribes proportionally by census count · An open miracle that the nation maintained its numbers through 40 years of wandering'},
+          {id:'bm-ev08', q:'Bnos Tzlofchad Petition', a:'The five daughters of Tzlofchad petitioned Moshe for their father\'s inheritance — Hashem upheld their claim', note:'Parshas Pinchas · Names: Machla, Noa, Chogla, Milka, Tirtza · "Why should our father\'s name be lost because he had no son?" · Hashem to Moshe: "The daughters of Tzlofchad speak correctly" · New law: daughters inherit when there are no sons · The Gemara: they were wise, learned in Torah, and righteous'},
+        ]
+      },
+      {
+        id: 'bamidbar-parshas',
+        name: 'Parshas in Order',
+        emoji: '📜',
+        requires: 'bamidbar-events',
+        level: 2,
+        cards: [
+          {id:'bm-pr01', q:'Parshas Bamidbar', a:'The first census, the camp formation around the Mishkan, the roles of the Levite families (Kehas, Gershon, Merari)', note:'"In the desert of Sinai" — the Torah was given in a "desert" (ownerless, public space) to emphasize it belongs to all · The camp was arranged with each tribe in its designated position, the Mishkan at the center'},
+          {id:'bm-pr02', q:'Parshas Naso', a:'The Levite count, laws of the Sotah (suspected adulteress), the Nazir, Birkas Kohanim, the tribal leaders\' inauguration offerings', note:'The longest single parasha in the Torah · Birkas Kohanim: "May Hashem bless you and keep you..." — given here, recited to this day · The 12 tribal leaders bring identical offerings on 12 consecutive days; the Torah lists each separately to honor each tribe equally'},
+          {id:'bm-pr03', q:'Parshas Behaalotcha', a:'Menorah lighting instructions, Pesach Sheini, the silver trumpets, the nation\'s travels, Miriam\'s punishment', note:'Aharon lights the Menorah · Pesach Sheini: a second chance for those who missed Pesach — "It is not good that they should be excluded from the korban Pesach" · Miriam speaks against Moshe; she is struck with tzara\'as but healed · "Moshe was the most humble man on earth" (12:3)'},
+          {id:'bm-pr04', q:'Parshas Shelach', a:'The 12 spies, their report, the people\'s weeping, Hashem\'s decree of 40 years in the desert, laws of challah and tzitzis', note:'"Shlach lecha" — "send for yourself" (for your benefit) — Rashi: Moshe didn\'t personally endorse the mission · The spies saw giants and felt like grasshoppers · The mitzvah of tzitzis is given here — "and you shall not stray after your heart and after your eyes" (connecting to the spies\' failure to trust)'},
+          {id:'bm-pr05', q:'Parshas Korach', a:'Korach\'s rebellion, the earth swallowing Korach\'s faction, the budding of Aharon\'s staff, the Kohen-Levite roles confirmed', note:'Aharon\'s staff blossomed overnight and produced almonds — a sign that the priestly role belongs to his family · Korach\'s descendants eventually became Levites who composed psalms (the "sons of Korach" Psalms in Tehillim)'},
+          {id:'bm-pr06', q:'Parshas Chukas', a:'Parah Adumah (Red Heifer), deaths of Miriam and Aharon, Mei Merivah, the bronze serpent (Nachash Nechoshet)', note:'"This is the chok (statute)" — the paradigmatic law that defies human logic: the impure are purified by the ashes, the pure become impure by preparing them · Miriam dies (her well disappears) · Aharon dies on Har HaHar · The nation is bitten by serpents as punishment; the Nachash Nechoshet (copper serpent on a pole) heals those who look up to Hashem'},
+          {id:'bm-pr07', q:'Parshas Balak', a:'Balak hires Bilam to curse Israel; Bilam\'s donkey speaks; Bilam blesses Israel three times instead of cursing', note:'"Mah Tovu ohalecha Yaakov" · Bilam\'s 4 blessings/prophecies are among the most lyrical passages in the Torah · The story ends darkly: Midianite women seduce Israelite men, leading to the plague that Pinchas stops'},
+          {id:'bm-pr08', q:'Parshas Pinchas', a:'Pinchas\'s reward, the second census, the five daughters of Tzlofchad, Moshe told to look at Eretz Yisrael, Yehoshua appointed, Mussaf offerings', note:'Yehoshua is appointed before the whole congregation — a public passing of leadership · The Mussaf offerings for all Yamim Tovim are detailed here · The parasha bridges the old and new generations'},
+          {id:'bm-pr09', q:'Parshas Matos', a:'Laws of nedarim (vows), war against Midian, laws of purifying captured vessels, the tribes of Gad and Reuven settle east of the Jordan', note:'Moshe is angered that the soldiers spared the Midianite women (Bilam\'s advice caused the plague) · Gad and Reuven: "If we find grace in your eyes, let this land be given to your servants" — they wanted to stay east of the Jordan; Moshe agreed on condition they fight alongside their brothers in Canaan'},
+          {id:'bm-pr10', q:'Parshas Masei', a:'The 42 journeys of Israel in the desert, commands to conquer and divide the land, the borders of Eretz Yisrael, the six Cities of Refuge', note:'Each of the 42 journeys is listed by name — the Baal Shem Tov: the 42 journeys mirror the 42 "journeys" of each person\'s lifetime · The Cities of Refuge (Arei Miklat): six cities for the accidental killer to flee · The book of Bamidbar concludes on the plains of Moav, the new generation ready to enter Eretz Yisrael'},
+        ]
+      },
+      {
+        id: 'bamidbar-people',
+        name: 'Key People',
+        emoji: '👥',
+        requires: 'bamidbar-parshas',
+        level: 3,
+        cards: [
+          {id:'bm-pe01', q:'Calev ben Yefuneh', a:'One of the two faithful spies · Tribe of Yehudah · Rewarded with Chevron as his personal inheritance in Eretz Yisrael', note:'"We can certainly go up!" — Calev stood alone initially to calm the crowd before Yehoshua joined him · Prayed at Maaras HaMachpeilah before entering Canaan for strength · At age 85 at the conquest: "I am still as strong as the day Moshe sent me" · His descendants include Dovid HaMelech'},
+          {id:'bm-pe02', q:'Yehoshua bin Nun', a:'Moshe\'s primary disciple · The other faithful spy · Appointed by Moshe as his successor to lead Israel into Eretz Yisrael', note:'Named "Hoshea" originally — Moshe added a "yud": "Yehoshua, may God save you from the counsel of the spies" · Served Moshe for 40 years, never left the Ohel · "He who serves his teacher [as Yehoshua did] merits in his lifetime what others achieve through Torah alone"'},
+          {id:'bm-pe03', q:'Korach ben Yitzhar', a:'A Levite (cousin of Moshe and Aharon) who led the greatest rebellion against Moshe\'s authority in the midbar', note:'"Ish katan" (a small man) motivated by jealousy — resented that his cousin Elitzafan was appointed chief of the Kehas family instead of him · His 250 followers were prominent leaders · His demagoguery ("all are holy!") masked a personal power grab · The Gemara: "Any dispute that is l\'shem Shamayim (for the sake of Heaven) will endure; one that is not will not"'},
+          {id:'bm-pe04', q:'Bilam', a:'A Gentile prophet of great power hired by Balak of Moav to curse Israel — ended up blessing them instead', note:'"Mah Tovu" is considered his greatest prophecy · His donkey saw the angel when Bilam could not — a subtle rebuke of his "wisdom" · Bilam\'s fatal advice: send Midianite women to seduce the Israelites (more effective than any curse) · Ultimately killed in the battle against Midian · "There has not arisen a prophet among the nations like Bilam" (Sifrei)'},
+          {id:'bm-pe05', q:'Pinchas ben Elazar', a:'Grandson of Aharon HaKohen · Stopped the plague by killing Zimri and Kozbi in a public act of zealotry', note:'Rewarded with Bris Shalom (covenant of peace) and the eternal Kehunah · The Talmud debates: kana\'us (zealotry) is only valid when done in the heat of the moment, not premeditated · He is identified by some with Eliyahu HaNavi · His descendants served as Kohanim until the end of the First Temple period'},
+          {id:'bm-pe06', q:'Bnos Tzlofchad', a:'The five daughters of Tzlofchad — Machla, Noa, Chogla, Milka, Tirtza — who successfully petitioned for their father\'s inheritance', note:'Their father died in the midbar without sons · "Why should our father\'s name disappear from his family?" · Hashem upheld their case immediately: "The daughters of Tzlofchad speak correctly" · New inheritance law added to the Torah because of them · The Gemara: they had wisdom, they had good timing, and they were righteous'},
+          {id:'bm-pe07', q:'Miriam (Death in Bamidbar)', a:'Miriam died in Parshas Chukas (Bamidbar 20) — the well that accompanied Israel in the midbar dried up immediately after her death', note:'Her death is mentioned in one verse; no mourning period is recorded · Immediately after her death: no water, the people complain, Mei Merivah — connecting her passing to Israel\'s loss · The Talmud: three great gifts came through three siblings — the manna (Moshe), the Pillar of Cloud (Aharon), the well (Miriam)'},
+        ]
+      },
+      {
+        id: 'bamidbar-concepts',
+        name: 'Core Concepts',
+        emoji: '💡',
+        requires: 'bamidbar-people',
+        level: 4,
+        cards: [
+          {id:'bm-co01', q:'Parah Adumah', a:'The Red Heifer — ashes mixed with spring water purify a person who touched a corpse; paradoxically, those who prepare it become impure', note:'The paradigmatic chok — a divine law beyond human logic · Shlomo HaMelech said he understood all of Torah but this eluded him · Teaches: we observe the mitzvos because Hashem commanded them, not because we comprehend them · The purification process was central to Temple-era life, since corpse-tumah was widespread'},
+          {id:'bm-co02', q:'The Nazir', a:'One who voluntarily vows to abstain from wine, cutting hair, and contact with the dead for a set period', note:'Parshas Naso · The Nazir takes on extra kedushah through restraint · At the end of the term: brings korbanot and shaves · Two Talmudic views: the Nazir is praiseworthy (added holiness) OR the Nazir sins (depriving himself of wine, a divine gift) · Shimshon was a lifelong Nazir · The concept applies to anyone seeking to elevate themselves spiritually through voluntary restriction'},
+          {id:'bm-co03', q:'Birkas Kohanim', a:'The three-part priestly blessing given by the Kohanim to the congregation of Israel', note:'"May Hashem bless you and safeguard you · May Hashem illuminate His face to you and be gracious to you · May Hashem lift His face to you and grant you peace" (Bamidbar 6:24–26) · Recited in shul (daily in Israel, on Yamim Tovim outside Israel) · The Kohen is the conduit — the blessing comes from Hashem, not the Kohen'},
+          {id:'bm-co04', q:'The 42 Journeys', a:'The 42 stops of Israel\'s 40-year journey through the midbar, each recorded by name in Parshas Masei', note:'The Baal Shem Tov: each journey corresponds to a stage in every person\'s lifetime — we all have our own "42 journeys" of spiritual and physical wandering · The midbar was both punishment (for the Meraglim\'s sin) and a protective incubation — a generation raised in miraculous conditions to receive a divine calling · Each name carries a story and a lesson'},
+          {id:'bm-co05', q:'Kana\'us (Zealotry)', a:'Pinchas\'s act of zealotry — acting decisively to defend Hashem\'s honor in a crisis moment — is rewarded but bounded', note:'The halacha: a kana (zealot) may only act in the heat of the moment, when the sin is being committed publicly · If he asks the beis din for permission first, they tell him not to · The reward (Bris Shalom) is paradoxical — the most violent act in Bamidbar is rewarded with "peace" · Teaches: zealotry is a last resort, not a default stance; true peace sometimes requires decisive action'},
+        ]
+      },
     ]
   },
 
@@ -1340,19 +1590,66 @@ const DECKS = [
         'Moshe dies at the end — the only death recorded in the Torah by someone other than the one who died (Hashem writes the last 8 pesukim)',
       ]},
     ],
-    cards: [
-      {id:'dv01', q:'The Shema',          a:'"Shema Yisrael Hashem Elokeinu Hashem Echad" — the central declaration of Jewish faith', note:'Devarim 6:4 · "Hear O Israel — Hashem is our God, Hashem is One" · Recited twice daily (morning and evening) · Recited at one\'s final moment of life · The word "echad" (one) is elongated — meditating on Hashem\'s oneness over all creation'},
-      {id:'dv02', q:'V\'ahavta',           a:'"And you shall love Hashem your God with all your heart, all your soul, and all your might" (Devarim 6:5)', note:'The commandment of love of God · "With all your heart" = with both your inclinations · "With all your soul" = even if He takes your soul · "With all your might" = with all your resources · Followed by: these words should be on your heart, teach them to your children, mezuzah, tefillin'},
-      {id:'dv03', q:'Moshe\'s First Speech', a:'Historical review of the 40 years in the midbar — from Har Sinai through the defeat of Sichon and Og', note:'Devarim 1–3 · Moshe recounts the Meraglim, the wandering, and early conquests · Purpose: inspire the new generation before entering Eretz Yisrael · Notable: Moshe refers to his own punishment (not entering the land) without bitterness'},
-      {id:'dv04', q:'Parshas Shoftim',    a:'"Judges and officers you shall appoint in all your gates" — laws of governance and justice', note:'"Tzedek tzedek tirdof" — Justice, justice shall you pursue (16:20) · Laws of the Sanhedrin, the king, Kohanim, and prophets · False prophet: put to death · Law of the king: must write his own Torah scroll, may not amass too many horses, wives, or gold · "Do not deviate right or left" from the rulings of the Sanhedrin'},
-      {id:'dv05', q:'Parshas Ki Seitzei', a:'The parasha with the most mitzvos — 74 commandments covering a wide range of civil and interpersonal law', note:'Includes: laws of war, captive woman, ben sorer u\'moreh (rebellious son), returning lost objects, kibbud av va\'em, tzitzis, mezuzah, honest weights, Amalek, and more · The most mitzvah-dense parasha in the Torah'},
-      {id:'dv06', q:'Tochacha of Ki Savo', a:'The long list of 98 curses that will befall Klal Yisrael if they abandon the Torah', note:'Devarim 28 · Read quickly and in a hushed voice in shul · Even more severe than the tochacha in Bechukosai (Vayikra) · The Vilna Gaon: many of these curses were fulfilled literally during the churban and the subsequent exiles · Ends with hope: if Israel returns, Hashem will gather them from exile'},
-      {id:'dv07', q:'Parshas Nitzavim',   a:'"You are all standing today before Hashem your God" — the covenant renewed with all future generations', note:'"Not with you alone do I make this covenant… but with whoever is here today and whoever is not here today" (29:13–14) · Teaches that all future Jewish souls were present at Matan Torah · Contains the famous pasuk on teshuvah: "ki karov eilecha hadavar me\'od" — the matter (of returning) is very close to you'},
-      {id:'dv08', q:'Teshuvah in Devarim', a:'Parshas Nitzavim (Devarim 30) contains the Torah\'s clearest promise and command for national return to Hashem', note:'"And you will return to Hashem your God... and He will return your captivity" · The Rambam: even if a person was as wicked as Yerovam ben Nevat, if he does teshuvah he is accepted · "The matter is very close to you, in your mouth and in your heart to do it" — teshuvah is always within reach'},
-      {id:'dv09', q:'Haazinu',            a:'Moshe\'s farewell poem — a 43-verse song encapsulating all of Jewish history', note:'Devarim 32 · Written in two columns (like a shirah) · Describes Hashem\'s kindness, Israel\'s betrayal, punishment, and ultimate redemption · "Remember the days of old, understand the years of generation after generation" · The Ramban: alludes to the entire future of Jewish history'},
-      {id:'dv10', q:'V\'Zos HaBracha',    a:'Moshe\'s final blessing to each of the twelve tribes — the last parasha of the Torah', note:'Read on Simchas Torah · Moshe blesses each tribe individually (similar to Yaakov\'s blessings in Bereishis 49) · "And there arose no prophet again in Israel like Moshe, whom Hashem knew face to face" (34:10) · Moshe dies on Har Nevo at age 120, his eyes undimmed and his vigor unabated'},
-      {id:'dv11', q:'Moshe\'s Death',      a:'Moshe Rabbeinu died on Har Nevo on 7 Adar at age 120 · He is buried in an unknown location in Moav', note:'"And Moshe the servant of Hashem died there... and no one knows his burial place to this day" (34:5–6) · Died by the "kiss" of Hashem (misas neshikah) · The Gemara: the last 8 pesukim (describing his death) were written by Yehoshua, or dictated by Hashem to Moshe in tears'},
-      {id:'dv12', q:'Kibud Av Va\'em in Devarim', a:'Honoring one\'s father and mother — one of the Aseres HaDibros, expanded in Devarim', note:'"Honor your father and your mother as Hashem your God commanded you, in order that your days be lengthened" (5:16) · One of two mitzvos that carries the reward of long life (also sending away the mother bird — Shiluach HaKen) · The Gemara: the difficulty of kibud av equaled to loving Hashem and fearing Hashem'},
+    sections: [
+      {
+        id: 'devarim-events',
+        name: 'Major Events',
+        emoji: '⚡',
+        cards: [
+          {id:'dv-ev01', q:'Moshe\'s Three Speeches', a:'Sefer Devarim consists of three farewell speeches Moshe gave in the last 5 weeks of his life on the plains of Moav', note:'Speech 1 (Devarim 1–3): historical review of 40 years in the midbar · Speech 2 (4–26): the core legal and ethical code, including the Shema and all Yamim Tovim · Speech 3 (27–30): covenant renewal and the Tochacha · Each speech addresses the new generation about to enter Eretz Yisrael'},
+          {id:'dv-ev02', q:'The Shema Revealed', a:'Moshe teaches the Shema and V\'ahavta in Parshas Vaeschanan — the daily declaration of Hashem\'s Oneness', note:'Devarim 6:4–9 · "Shema Yisrael Hashem Elokeinu Hashem Echad" · The Aseres HaDibros are also repeated in Vaeschanan · Moshe also recounts his own plea to enter Eretz Yisrael, which was denied: "Hashem was angry with me because of you"'},
+          {id:'dv-ev03', q:'The Covenant of Nitzavim', a:'The entire Jewish people — from the leaders to the wood-choppers to all future generations — entered into the covenant with Hashem', note:'"Not with you alone do I make this covenant... but with whoever is here today and whoever is not here today" (29:13–14) · This pasuk teaches that every Jewish soul for all time was present at Matan Torah · This is why converts who later join the Jewish people were "also there"'},
+          {id:'dv-ev04', q:'Moshe Appoints Yehoshua', a:'Moshe publicly appointed Yehoshua bin Nun as his successor to lead Israel into Eretz Yisrael', note:'"Be strong and courageous, for you shall go with this people into the land" · Yehoshua was commissioned before the entire congregation · Moshe then wrote the Torah and gave it to the Kohanim for safekeeping · The transfer of leadership was orderly, dignified, and public'},
+          {id:'dv-ev05', q:'Moshe\'s Death', a:'Moshe Rabbeinu died on Har Nevo on 7 Adar at age 120 — the greatest human being who ever lived', note:'"His eyes were not dimmed and his vigor had not diminished" (34:7) · He saw all of Eretz Yisrael from the mountain but could not enter · Died by "the kiss of Hashem" (misas neshikah) — the most peaceful death · Buried in an unknown location · "No prophet arose in Israel like Moshe, whom Hashem knew face to face" (34:10)'},
+        ]
+      },
+      {
+        id: 'devarim-parshas',
+        name: 'Parshas in Order',
+        emoji: '📜',
+        requires: 'devarim-events',
+        level: 2,
+        cards: [
+          {id:'dv-pr01', q:'Parshas Devarim', a:'Moshe\'s first speech: historical review of the 40 years — the Meraglim, the refusal to enter the land, early victories east of the Jordan', note:'"Eileh HaDevarim" — "These are the words that Moshe spoke" · The parasha is always read the Shabbos before Tisha B\'Av · Moshe refers to the sin of the spies as the root cause of the entire 40-year delay'},
+          {id:'dv-pr02', q:'Parshas Vaeschanan', a:'Moshe\'s plea to enter Eretz Yisrael (denied), the Aseres HaDibros repeated, the Shema and V\'ahavta, the command not to intermarry with Canaanites', note:'The Shema (6:4) is first stated here · "Vaeschanan" = Moshe entreated — 515 prayers, one for each gematria of "vaeschanan" · Always read on Shabbos Nachamu (the Shabbos after Tisha B\'Av) — the parasha of consolation'},
+          {id:'dv-pr03', q:'Parshas Eikev', a:'"Because (eikev) you will listen to these laws" — reward for observing even the seemingly minor mitzvos, the second paragraph of Shema', note:'"What does Hashem ask of you? Only to fear Hashem, walk in His ways, love Him, and serve Him" · The second paragraph of Shema (V\'haya Im Shamo\'a) is from this parasha · "Man does not live by bread alone but by every word that comes from the mouth of God"'},
+          {id:'dv-pr04', q:'Parshas Re\'eh', a:'"See, I am placing before you today a blessing and a curse" — laws of the chosen place, false prophets, tithes, Shabbos release of debts, the three Regalim', note:'"Re\'eh" (see) — each person individually sees the choice · Centralization of worship in "the place Hashem will choose" (Yerushalayim) · Laws of the false prophet who must be put to death even if his predictions come true · Maaser Sheni, Maaser Ani, Shmitah debt release'},
+          {id:'dv-pr05', q:'Parshas Shoftim', a:'Laws of judges and courts (Sanhedrin), the king, the Kohanim, the navi, Arei Miklat — the framework of Jewish governance', note:'"Tzedek tzedek tirdof" — Justice, justice shall you pursue (16:20) · The king must write his own Sefer Torah · A false prophet is put to death · "Do not deviate right or left from what the Sanhedrin tells you" — the source of binding rabbinic authority'},
+          {id:'dv-pr06', q:'Parshas Ki Seitzei', a:'The parasha with the most mitzvos in the Torah — 74 commandments, covering warfare, family law, property, and ethics', note:'Laws of war, captive woman, the rebellious son, returning lost objects, shiluach haken (sending away the mother bird), honest weights, tzitzis, not mixing wool and linen (shaatnez), Amalek, and more · The Chofetz Chaim: this parasha contains the "small" mitzvos people trample underfoot ("eikev")'},
+          {id:'dv-pr07', q:'Parshas Ki Savo', a:'First fruits (Bikkurim), the Tochacha of 98 curses for abandoning the Torah, the affirmation of nationhood', note:'The Bikkurim declaration ("Arami oved avi") is the core of the Pesach Haggadah · The Tochacha is read quickly in a low voice · The last verse: "Hashem has not given you a heart to know, eyes to see, or ears to hear until this day" — you only fully appreciate what you received at Sinai now'},
+          {id:'dv-pr08', q:'Parshas Nitzavim', a:'"You are all standing today" — the covenant with all future generations, the command of teshuvah, "the matter is very close to you"', note:'Always read before Rosh Hashanah · "Not with you alone do I make this covenant" — all future Jews are included · "Return to Hashem and He will return your captivity" · "For this mitzvah is not in heaven... it is very close to you, in your mouth and in your heart to do it"'},
+          {id:'dv-pr09', q:'Parshas Vayeilech', a:'Moshe writes the Torah, teaches it to the Levites, commands the Hakhel gathering, encourages Yehoshua', note:'The shortest parasha in the Torah · Hakhel: every 7 years (in the year after Shmitah), all of Israel — men, women, children, and geirim — gathered at the Beis HaMikdash to hear the king read from Devarim · "Be strong and courageous — do not fear and do not be broken"'},
+          {id:'dv-pr10', q:'Parshas Haazinu', a:'Moshe\'s farewell poem — a 43-verse shirah (song) encapsulating all of Jewish history and Israel\'s relationship with Hashem', note:'Written in two columns like a poem · "Remember the days of old, understand the years of generation to generation" · Describes Hashem\'s care, Israel\'s betrayal, punishment, and ultimate redemption · The Ramban: this shirah alludes to the entire future of Jewish history · Required to be written in a Torah scroll by every Jew (one of the 613 mitzvos)'},
+          {id:'dv-pr11', q:'Parshas V\'Zos HaBracha', a:'Moshe\'s final blessing to each of the 12 tribes, and Moshe\'s death — the last parasha of the Torah', note:'Read on Simchas Torah · Similar to Yaakov\'s blessings in Bereishis 49 · "And there arose no prophet again in Israel like Moshe, whom Hashem knew face to face" (34:10) · The Torah ends here — and immediately begins again ("Bereishis bara Elokim") — the Torah has no end'},
+        ]
+      },
+      {
+        id: 'devarim-people',
+        name: 'Key People',
+        emoji: '👥',
+        requires: 'devarim-parshas',
+        level: 3,
+        cards: [
+          {id:'dv-pe01', q:'Moshe Rabbeinu (in Devarim)', a:'The entire book of Devarim is Moshe\'s farewell — teacher, lawgiver, and prophet giving his final words to his people', note:'"Moshe began to explain this Torah" (1:5) — he interpreted and expanded upon what was given at Sinai · His humility persists to the end: he accepts the decree not to enter the land without bitterness · "And Moshe wrote this Torah" — he personally completed the Torah scroll on the last day of his life'},
+          {id:'dv-pe02', q:'Yehoshua bin Nun (in Devarim)', a:'Officially appointed by Moshe before the entire nation as the successor to lead Israel into Eretz Yisrael', note:'"Be strong and courageous, for you shall go with this people into the land" · Moshe gave Yehoshua a public investiture — both before the people and privately, when Hashem spoke to Yehoshua directly · His role: complete the mission Moshe could not — conquer and divide the land'},
+          {id:'dv-pe03', q:'The New Generation', a:'Devarim is addressed to the children of the generation that left Egypt — those who were young during the 40 years are now ready to enter Eretz Yisrael', note:'Moshe\'s speeches repeatedly reference "today" — this generation is being addressed as if they personally received the Torah · They did not experience the bondage of Egypt or the sin of the Meraglim · Their task: apply what their parents received to a new reality — a settled land, a nation with a king and courts'},
+        ]
+      },
+      {
+        id: 'devarim-concepts',
+        name: 'Core Concepts',
+        emoji: '💡',
+        requires: 'devarim-people',
+        level: 4,
+        cards: [
+          {id:'dv-co01', q:'The Shema', a:'"Shema Yisrael Hashem Elokeinu Hashem Echad" — the foundational declaration of Jewish faith: Hashem is One', note:'Devarim 6:4 · Recited twice daily (morning and night) and at the moment of death · "Echad" (One) is elongated — we meditate on Hashem\'s absolute unity and sovereignty over all creation · The Zohar: the Shema is the highest unification of divine names · The Vilna Gaon: this single verse contains the entire Torah'},
+          {id:'dv-co02', q:'V\'ahavta — Love of God', a:'"You shall love Hashem your God with all your heart, all your soul, and all your might" — the command of Ahavas Hashem', note:'Devarim 6:5 · "With all your heart" (both inclinations) · "With all your soul" (even if He takes your life — the martyrdom standard) · "With all your might" (all your resources/money) · Followed by: these words on your heart, teach your children, tefillin, mezuzah — love is expressed through action'},
+          {id:'dv-co03', q:'Teshuvah', a:'"Return to Hashem your God... and He will return your captivity" — the Torah\'s promise that repentance is always accessible', note:'Parshas Nitzavim (Devarim 30) is the Torah\'s clearest statement on teshuvah · "The matter is very close to you, in your mouth and in your heart to do it" — teshuvah is not in heaven, not across the sea; it is available right now · The Rambam: even if one sinned greatly, if he returns fully, he is accepted · Teshuvah is one of the foundations of Rosh Hashanah'},
+          {id:'dv-co04', q:'Mishneh Torah — The Nature of Devarim', a:'Devarim is called "Mishneh Torah" (repetition/review of the Torah) — Moshe\'s own elaboration and interpretation of the Torah received at Sinai', note:'The Talmud: the Torah was first given in 70 languages at Sinai (Moshe explains it in Devarim) · This sets the precedent for Torah she\'baal peh (Oral Torah): each generation\'s great teacher interprets and applies the written Torah · The Rambam named his great halachic work "Mishneh Torah" after this sefer'},
+          {id:'dv-co05', q:'Tzedek Tzedek Tirdof', a:'"Justice, justice shall you pursue" (Devarim 16:20) — the Torah\'s foundational principle of judicial integrity', note:'Why is "justice" repeated? To pursue justice through just means — even a good end doesn\'t justify unjust means · "Appoint judges who will judge with true justice" · The Sanhedrin, courts, and communal leadership are all grounded in this principle · Today: applies to all decision-making, not only courts'},
+          {id:'dv-co06', q:'The Tochacha', a:'The list of 98 curses in Ki Savo (Devarim 28) that Hashem says will befall Israel if they abandon the Torah', note:'The Vilna Gaon: these curses were fulfilled precisely during the Roman exile and the churban · Read quickly and in a low voice in shul · Ends with hope: "And Hashem will bring back your captivity" · The Tochacha is ultimately a love letter — Hashem makes clear the consequences of abandoning the covenant, and provides a clear path back'},
+        ]
+      },
     ]
   },
 
@@ -1648,7 +1945,23 @@ function sm2(c, q) {
 }
 function cs(id) { return S.cards[id] || {ef:2.5,iv:0,reps:0,total:0,next:0}; }
 function isDue(id) { return cs(id).next <= Date.now(); }
-function isLocked(deck) { return !!(deck.requires && !S.passed[deck.requires]); }
+function isLocked(item) { return !!(item.requires && !S.passed[item.requires]); }
+function findQuizzable(id) {
+  const deck = DECKS.find(d=>d.id===id);
+  if (deck) return deck;
+  for (const d of DECKS) {
+    if (d.sections) { const s=d.sections.find(s=>s.id===id); if (s) return s; }
+  }
+  return null;
+}
+function findUnlocks(id) {
+  const top = DECKS.filter(d=>d.requires===id);
+  const secs = [];
+  for (const d of DECKS) {
+    if (d.sections) secs.push(...d.sections.filter(s=>s.requires===id));
+  }
+  return [...top,...secs];
+}
 
 // ═══════════════════════════════════════════════════════════
 // LEVELS & BADGES
@@ -1682,16 +1995,18 @@ function updateStreak() {
 // ═══════════════════════════════════════════════════════════
 let sess=null;
 
-function startSession(deckId) {
-  const deck=DECKS.find(d=>d.id===deckId);
-  if (!deck) return;
-  let due=deck.cards.filter(c=>isDue(c.id));
-  let queue=[...(due.length?due:deck.cards)];
+function startSession(itemId) {
+  const item = findQuizzable(itemId);
+  if (!item || !item.cards) return;
+  // find parent deck for back-navigation
+  const parentDeck = DECKS.find(d=>d.sections && d.sections.some(s=>s.id===itemId)) || null;
+  let due=item.cards.filter(c=>isDue(c.id));
+  let queue=[...(due.length?due:item.cards)];
   for (let i=queue.length-1;i>0;i--) { const j=Math.floor(Math.random()*(i+1)); [queue[i],queue[j]]=[queue[j],queue[i]]; }
   if (!S.decksSet) S.decksSet=[];
-  if (!S.decksSet.includes(deckId)) { S.decksSet.push(deckId); S.decksStudied=S.decksSet.length; }
+  if (!S.decksSet.includes(itemId)) { S.decksSet.push(itemId); S.decksStudied=S.decksSet.length; }
   updateStreak();
-  sess={deck, queue, total:queue.length, idx:0, reviewed:0, correct:0, xp:0, run:0, newBadges:[], flipped:false};
+  sess={deck:item, parentDeck, queue, total:queue.length, idx:0, reviewed:0, correct:0, xp:0, run:0, newBadges:[], flipped:false};
   show('study');
   renderCard();
 }
@@ -1745,7 +2060,7 @@ function endSession() {
   let newUnlocks=[];
   if (acc>=80 && !S.passed[deck.id]) {
     S.passed[deck.id]=true;
-    newUnlocks=DECKS.filter(d=>d.requires===deck.id);
+    newUnlocks=findUnlocks(deck.id);
   }
   save();
   // results
@@ -1772,7 +2087,18 @@ function endSession() {
     unlockEl.innerHTML=newUnlocks.map(d=>`<div class="unlock-banner">🔓 Unlocked: ${d.emoji} <strong>${d.name}</strong></div>`).join('');
   } else unlockEl.style.display='none';
   document.getElementById('r-again').onclick=()=>startSession(deck.id);
-  document.getElementById('r-home').onclick=()=>{show('home');renderHome();};
+  const rHome=document.getElementById('r-home');
+  const rDeck=document.getElementById('r-deck');
+  if (sess.parentDeck) {
+    rHome.textContent='← Back to Home';
+    rDeck.style.display='';
+    rDeck.textContent=`← Back to ${sess.parentDeck.name}`;
+    rDeck.onclick=()=>showDeckScreen(sess.parentDeck.id);
+  } else {
+    rDeck.style.display='none';
+    rHome.textContent='← Back to Home';
+  }
+  rHome.onclick=()=>{show('home');renderHome();};
   show('results');
 }
 
@@ -1818,14 +2144,11 @@ function renderHome() {
 
   function deckCardHTML(d) {
     const locked = isLocked(d);
-    const dueN=d.cards.filter(c=>isDue(c.id)).length;
-    const reviewed=d.cards.filter(c=>cs(c.id).total>0).length;
-    const pct=Math.round(reviewed/d.cards.length*100);
     const levelChip=d.level?`<span class="level-chip">Lvl ${d.level}</span>`:'';
     const passedChip=S.passed[d.id]?`<span class="passed-chip">✓ Passed</span>`:'';
     if (locked) {
-      const reqDeck=DECKS.find(x=>x.id===d.requires);
-      const reqName=reqDeck?reqDeck.name:d.requires;
+      const reqItem=findQuizzable(d.requires);
+      const reqName=reqItem?reqItem.name:d.requires;
       return `<div class="deck-card deck-locked" data-id="${d.id}">
         <div class="deck-emoji" style="opacity:.4">🔒</div>
         <div class="deck-name">${d.name} ${levelChip}</div>
@@ -1834,6 +2157,31 @@ function renderHome() {
         <div class="deck-bar"><div class="deck-bar-fill" style="width:0%"></div></div>
       </div>`;
     }
+    // deck with sections — show aggregate progress, single open button
+    if (d.sections) {
+      const allCards = d.sections.flatMap(s=>s.cards||[]);
+      const dueN = allCards.filter(c=>isDue(c.id)).length;
+      const reviewed = allCards.filter(c=>cs(c.id).total>0).length;
+      const pct = allCards.length ? Math.round(reviewed/allCards.length*100) : 0;
+      const secsDone = d.sections.filter(s=>S.passed[s.id]).length;
+      return `<div class="deck-card" data-id="${d.id}">
+        <div class="deck-emoji">${d.emoji}</div>
+        <div class="deck-name">${d.name} ${levelChip} ${passedChip}</div>
+        <div class="deck-desc">${d.desc}</div>
+        <div class="deck-meta">
+          <span class="due-chip ${dueN===0&&reviewed>0?'done':''}">${dueN===0&&reviewed>0?'✓ Done':dueN>0?dueN+' due':'Not started'}</span>
+          <span>${d.sections.length} sections · ${secsDone}/${d.sections.length} passed</span>
+        </div>
+        <div class="deck-bar"><div class="deck-bar-fill" style="width:${pct}%"></div></div>
+        <div class="deck-actions">
+          <button class="deck-btn deck-btn-open" data-id="${d.id}">Open Sections →</button>
+        </div>
+      </div>`;
+    }
+    // regular flat deck
+    const dueN=d.cards.filter(c=>isDue(c.id)).length;
+    const reviewed=d.cards.filter(c=>cs(c.id).total>0).length;
+    const pct=Math.round(reviewed/d.cards.length*100);
     return `<div class="deck-card" data-id="${d.id}">
       <div class="deck-emoji">${d.emoji}</div>
       <div class="deck-name">${d.name} ${levelChip} ${passedChip}</div>
@@ -1863,6 +2211,9 @@ function renderHome() {
   document.querySelectorAll('.deck-btn-quiz').forEach(el=>{
     el.addEventListener('click',()=>startSession(el.dataset.id));
   });
+  document.querySelectorAll('.deck-btn-open').forEach(el=>{
+    el.addEventListener('click',()=>showDeckScreen(el.dataset.id));
+  });
 
   const acc=S.totalCards?Math.round(S.totalCorrect/S.totalCards*100)+'%':'—';
   document.getElementById('s-cards').textContent=S.totalCards.toLocaleString();
@@ -1882,36 +2233,101 @@ function renderHome() {
 }
 
 // ═══════════════════════════════════════════════════════════
+// DECK DETAIL SCREEN (sections hub)
+// ═══════════════════════════════════════════════════════════
+function showDeckScreen(deckId) {
+  const deck = DECKS.find(d=>d.id===deckId);
+  if (!deck || !deck.sections) return;
+  document.getElementById('deck-screen-title').textContent = deck.emoji+' '+deck.name;
+  document.getElementById('deck-screen-desc').textContent = deck.desc;
+  // render guide overview
+  const guideEl = document.getElementById('deck-screen-guide');
+  guideEl.innerHTML = deck.guide ? `<div class="guide-prose" style="margin-top:1rem">${deck.guide.map(s=>`
+    <div class="guide-section">
+      <div class="guide-section-h">${s.h}</div>
+      ${Array.isArray(s.b)?`<ul class="guide-bullets">${s.b.map(b=>`<li>${b}</li>`).join('')}</ul>`:`<p class="guide-section-p">${s.p}</p>`}
+    </div>`).join('')}</div>` : '';
+  // render section cards
+  document.getElementById('deck-sections-grid').innerHTML = `<div class="sections-grid">${deck.sections.map(sec=>{
+    const locked = isLocked(sec);
+    const dueN = (sec.cards||[]).filter(c=>isDue(c.id)).length;
+    const reviewed = (sec.cards||[]).filter(c=>cs(c.id).total>0).length;
+    const total = (sec.cards||[]).length;
+    const pct = total ? Math.round(reviewed/total*100) : 0;
+    const levelChip = sec.level ? `<span class="level-chip">Lvl ${sec.level}</span>` : '';
+    const passedChip = S.passed[sec.id] ? `<span class="passed-chip">✓ Passed</span>` : '';
+    if (locked) {
+      const reqItem = findQuizzable(sec.requires);
+      const reqName = reqItem ? reqItem.name : sec.requires;
+      return `<div class="section-card sec-locked">
+        <div class="section-icon">🔒</div>
+        <div class="section-body">
+          <div class="section-name">${sec.name} ${levelChip}</div>
+          <div class="section-meta">${total} cards</div>
+          <div class="section-lock-msg">Complete <strong>${reqName}</strong> with 80%+ to unlock</div>
+        </div>
+      </div>`;
+    }
+    return `<div class="section-card">
+      <div class="section-icon">${sec.emoji||'📚'}</div>
+      <div class="section-body">
+        <div class="section-name">${sec.name} ${levelChip} ${passedChip}</div>
+        <div class="section-meta">${dueN>0?dueN+' due · ':dueN===0&&reviewed>0?'✓ Done · ':''}${total} cards</div>
+        <div class="section-bar"><div class="section-bar-fill" style="width:${pct}%"></div></div>
+      </div>
+      <div class="section-actions">
+        <button class="sec-btn sec-btn-learn" data-id="${sec.id}">📖</button>
+        <button class="sec-btn sec-btn-quiz" data-id="${sec.id}">▶ Quiz</button>
+      </div>
+    </div>`;
+  }).join('')}</div>`;
+  document.querySelectorAll('#deck-sections-grid .sec-btn-quiz').forEach(el=>{
+    el.addEventListener('click',()=>startSession(el.dataset.id));
+  });
+  document.querySelectorAll('#deck-sections-grid .sec-btn-learn').forEach(el=>{
+    el.addEventListener('click',()=>showLearnScreen(el.dataset.id));
+  });
+  document.getElementById('deck-back-btn').onclick=()=>{show('home');renderHome();};
+  show('deck');
+  const el=document.getElementById('screen-deck');
+  el.scrollTop=0; window.scrollTo(0,0);
+}
+
+// ═══════════════════════════════════════════════════════════
 // LEARN SCREEN
 // ═══════════════════════════════════════════════════════════
-function showLearnScreen(deckId) {
-  const deck = DECKS.find(d=>d.id===deckId);
-  if (!deck) return;
-  document.getElementById('learn-deck-title').textContent = deck.emoji+' '+deck.name;
-  document.getElementById('learn-deck-desc').textContent = deck.desc;
-  document.getElementById('learn-card-count').textContent = deck.cards.length+' terms';
-  const guideHTML = deck.guide ? `
+function showLearnScreen(itemId) {
+  const item = findQuizzable(itemId);
+  if (!item || !item.cards) return;
+  const parentDeck = DECKS.find(d=>d.sections && d.sections.some(s=>s.id===itemId)) || null;
+  document.getElementById('learn-deck-title').textContent = (item.emoji||'📚')+' '+item.name;
+  document.getElementById('learn-deck-desc').textContent = item.desc||'';
+  document.getElementById('learn-card-count').textContent = item.cards.length+' terms';
+  const guideHTML = item.guide ? `
     <div class="guide-prose">
-      ${deck.guide.map(s=>`
+      ${item.guide.map(s=>`
         <div class="guide-section">
           <div class="guide-section-h">${s.h}</div>
           ${Array.isArray(s.b)?`<ul class="guide-bullets">${s.b.map(b=>`<li>${b}</li>`).join('')}</ul>`:`<p class="guide-section-p">${s.p}</p>`}
         </div>`).join('')}
     </div>
     <div class="guide-ref-label">Flash Card Reference</div>` : '';
-  document.getElementById('learn-entries').innerHTML = guideHTML + deck.cards.map((c,i)=>`
+  document.getElementById('learn-entries').innerHTML = guideHTML + item.cards.map((c,i)=>`
     <div class="learn-entry">
       <div class="learn-num">${i+1}</div>
       <div class="learn-term">${c.q}</div>
       <div class="learn-def">${c.a}</div>
       ${c.note?`<div class="learn-note">${c.note.replace(/\\n/g,'<br>')}</div>`:''}
     </div>`).join('');
-  const startQuiz = ()=>startSession(deckId);
+  const startQuiz = ()=>startSession(itemId);
   document.getElementById('learn-quiz-btn').onclick = startQuiz;
   document.getElementById('learn-quiz-top-btn').onclick = startQuiz;
-  document.getElementById('learn-back-btn').onclick = ()=>{ show('home'); renderHome(); };
+  document.getElementById('learn-back-btn').onclick = ()=>{
+    if (parentDeck) showDeckScreen(parentDeck.id);
+    else { show('home'); renderHome(); }
+  };
   const learnEl = document.getElementById('screen-learn');
-  learnEl.classList.toggle('hebrew-letters-deck', ['aleph-bet','nikud'].includes(deckId));
+  learnEl.classList.toggle('hebrew-letters-deck', ['aleph-bet','nikud'].includes(itemId));
   show('learn');
   learnEl.scrollTop = 0;
   window.scrollTo(0,0);
