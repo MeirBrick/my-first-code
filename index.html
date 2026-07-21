@@ -799,25 +799,11 @@ const DECKS = [
     emoji: '🌙',
     desc: 'The 12 months of the Jewish lunisolar calendar — structure, names, and holidays',
     guide: [
-      {h:'The Jewish Calendar at a Glance', b:[
-        'The Jewish calendar is lunisolar — months follow the moon (~29.5 days each), but a periodic leap month keeps it anchored to the solar year',
-        'A standard year has 12 months (354 days); a leap year (shanah me\'uberes — "pregnant year") inserts a 13th month: Adar II',
-        'Months are numbered from Nissan ("the first month" per Shemos 12:2), but the calendar year advances from Tishrei on Rosh Hashanah',
-        'This dual starting point reflects two dimensions: Nissan = national birth (Yetzias Mitzrayim); Tishrei = cosmic creation (the world\'s birthday)',
-      ]},
-      {h:'Lunar vs. Solar — Why a Leap Month?', b:[
-        'A pure lunar year (354 days) falls ~11 days short of the solar year (365.25 days)',
-        'Without correction, the calendar would drift — Pesach could eventually fall in winter, Sukkos in spring',
-        'The Torah mandates "Chodesh HaAviv — the month of spring" (Shemos 13:4), anchoring Pesach to the spring season forever',
-        'Solution: intercalation (ibur) — Adar II is added 7 times in every 19-year Metonic cycle',
-        'This keeps Jewish holidays in their correct seasons while maintaining the lunar month structure',
-        'The calendar was standardized by Hillel II (~358 CE); before that, months were declared by the Sanhedrin based on eyewitness sightings of the new moon',
-      ]},
-      {h:'Key Structures and Concepts', b:[
-        'Rosh Chodesh: the 1st of each month (sometimes 2 days) — a minor holiday marked by Hallel, Mussaf, and Kiddush Levanah (blessing the new moon)',
-        'Fixed-length months: Nissan 30 · Iyar 29 · Sivan 30 · Tammuz 29 · Av 30 · Elul 29 · Tishrei 30 · Tevet 29 · Shevat 30 · Adar 29',
-        'Variable months: Cheshvan and Kislev (each 29 or 30 days) — their lengths determine the type of year: chaser (short), kesidra (regular), or shalem (full)',
-        'Four "new years": 1 Tishrei (Rosh Hashanah — years, judgment) · 1 Nissan (month-counting, kings) · 1 Elul (animal tithes) · 15 Shevat (Tu B\'Shvat — trees)',
+      {h:'Jewish Months — Four Ways to Learn', b:[
+        'Start with Calendar Foundations to understand how and why the Jewish calendar works',
+        'Then study The 12 Months to learn each month\'s name, length, and holidays',
+        'Test yourself with Months in Order — drag all 12 into the right sequence',
+        'Finally, try Holidays by Month — a matching game connecting each month to its signature holiday or theme',
       ]},
     ],
     sections: [
@@ -825,6 +811,28 @@ const DECKS = [
         id: 'months-basics',
         name: 'Calendar Foundations',
         emoji: '📅',
+        guide: [
+          {h:'The Jewish Calendar at a Glance', b:[
+            'The Jewish calendar is lunisolar — months follow the moon (~29.5 days each), but a periodic leap month keeps it anchored to the solar year',
+            'A standard year has 12 months (354 days); a leap year (shanah me\'uberes — "pregnant year") inserts a 13th month: Adar II',
+            'Months are numbered from Nissan ("the first month" per Shemos 12:2), but the calendar year advances from Tishrei on Rosh Hashanah',
+            'This dual starting point reflects two dimensions: Nissan = national birth (Yetzias Mitzrayim); Tishrei = cosmic creation (the world\'s birthday)',
+          ]},
+          {h:'Lunar vs. Solar — Why a Leap Month?', b:[
+            'A pure lunar year (354 days) falls ~11 days short of the solar year (365.25 days)',
+            'Without correction, the calendar would drift — Pesach could eventually fall in winter, Sukkos in spring',
+            'The Torah mandates "Chodesh HaAviv — the month of spring" (Shemos 13:4), anchoring Pesach to the spring season forever',
+            'Solution: intercalation (ibur) — Adar II is added 7 times in every 19-year Metonic cycle',
+            'This keeps Jewish holidays in their correct seasons while maintaining the lunar month structure',
+            'The calendar was standardized by Hillel II (~358 CE); before that, months were declared by the Sanhedrin based on eyewitness sightings of the new moon',
+          ]},
+          {h:'Key Structures and Concepts', b:[
+            'Rosh Chodesh: the 1st of each month (sometimes 2 days) — a minor holiday marked by Hallel, Mussaf, and Kiddush Levanah (blessing the new moon)',
+            'Fixed-length months: Nissan 30 · Iyar 29 · Sivan 30 · Tammuz 29 · Av 30 · Elul 29 · Tishrei 30 · Tevet 29 · Shevat 30 · Adar 29',
+            'Variable months: Cheshvan and Kislev (each 29 or 30 days) — their lengths determine the type of year: chaser (short), kesidra (regular), or shalem (full)',
+            'Four "new years": 1 Tishrei (Rosh Hashanah — years, judgment) · 1 Nissan (month-counting, kings) · 1 Elul (animal tithes) · 15 Shevat (Tu B\'Shvat — trees)',
+          ]},
+        ],
         cards: [
           {id:'mo14', q:'Why does Nissan count as the "first month"?',
             a:'Hashem commanded it: "This month shall be for you the first of months" (Shemos 12:2) — to commemorate the Exodus from Egypt',
