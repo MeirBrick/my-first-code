@@ -1630,6 +1630,7 @@ function load() {
   };
 }
 let S = load();
+if (!S.passed) S.passed = {};
 function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch(e){} }
 
 // ═══════════════════════════════════════════════════════════
